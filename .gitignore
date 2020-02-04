@@ -1,0 +1,15 @@
+static/js/lib
+static/js/lib1
+gatco_apimanager/__pycache__
+application/**/__pycache__
+gatco_apimanager/views/__pycache__/
+
+static/vendor/GonrinUI
+alembic/**/__pycache__
+application/**/__pycache__
+/**/*.DS_Store
+alembic/versions/**
+# Pycharm
+.idea/
+.pydevproject
+.project
