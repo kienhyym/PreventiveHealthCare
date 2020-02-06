@@ -19,7 +19,10 @@ from math import floor
 from application.client import HTTPClient
 from application.extensions import auth, jinja
 import ujson
-
+from application.models.models import ToKhaiYTeDoiVoiNguoi
+ 
+def auth_func(**kw):
+    pass
 
 @app.route('/medicalform/qr/<id>', methods=['GET'])
 async def medicalform_index(request, id):
@@ -30,3 +33,13 @@ async def medicalform_index(request, id):
 async def medicalform_form(request, lang):
     if lang in ["vi", "cn", "en"]:
         return jinja.render('medicalform/form_' + lang + '.html', request)
+
+
+apimanager.create_api(ToKhaiYTeDoiVoiNguoi,
+    methods=['GET', 'POST', 'DELETE', 'PUT'],
+    url_prefix='/api/v1',
+    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    
+    #results_per_page=30,
+    collection_name='tokhaiytedoivoinguoi')
