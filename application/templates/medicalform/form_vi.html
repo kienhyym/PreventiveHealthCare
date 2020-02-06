@@ -27,9 +27,11 @@
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Giới tính:</label></div>
-            <div class="">
-                <input type="text" class='form-control' />
-            </div>
+            <select class="custom-select">
+                <option selected>Giới tính</option>
+                <option value="1">Nam</option>
+                <option value="2">Nữ</option>
+              </select>
         </div>
     </div>
 
@@ -167,13 +169,13 @@
     </div>
 
     <div class="row">
-        <div class="col-6" style="margin-bottom:10px;">
+        <div class="col-5" style="margin-bottom:10px;">
             <div class=""><label>Điện thoại:</label></div>
             <div class="">
                 <input type="text" class='form-control' />
             </div>
         </div>
-        <div class="col-6" style="margin-bottom:10px;">
+        <div class="col-7" style="margin-bottom:10px;">
             <div class=""><label>Email:</label></div>
             <div class="">
                 <input type="text" class='form-control' />
@@ -394,5 +396,77 @@
             </p>
         </div>
     </div>
+
+    <div class="row" style="margin-bottom:10px">
+        <div class="col-md-9 col-8"></div>
+        <div class="col-md-3 col-4 text-center">
+            <label><b>Ký tên</b></label>
+        </div>
+    </div>
+    <hr>
+    <div class="col-md-12 text-center">
+        <label><b>Hành khách mang theo phần này để làm thủ tục nhập cảnh, xuất cảnh, quá cảnh và bảo vệ sức khỏe của
+                Anh/ Chị</b></label>
+    </div>
+    <div class="" style="margin-bottom:10px;">
+        <div><label>Họ tên (viết chữ in hoa):</label></div>
+        <div>
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div>
+        <div><label>Tên tỉnh hoặc thành phố hoặc vùng lãnh thổ hoặc quốc gia xuất phát:</label></div>
+    </div>
+    <div class="row">
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Tỉnh:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
+        </div>
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Quốc gia:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
+        </div>
+    </div>
+    <h6 class="d-flex justify-content-center" ><b>XÁC NHẬN CỦA KIỂM DỊCH VIÊN Y TẾ</b></h6>
+    <div class="d-flex justify-content-center mt-5"><label>Ngày xác nhận</label></div>
+    <div class="d-flex justify-content-center "style="margin-bottom:10px">
+        <input type="text" class='form-control' />
+    </div>
+    <h6 class="d-flex justify-content-center" style="margin-bottom:10px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
+        cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
+        cơ quan y tế nơi gần nhất </h6>
+        <div class="row">
+            <div class="col-6" style="margin-bottom:10px;">
+                <div class=""><label style="font-size:12px">hoặc theo địa chỉ e-mail:</labelstyle="font-size:12px"></div>
+                <div class="">
+                    <input type="text" class='form-control' style="font-size:12px"/>
+                </div>
+            </div>
+            <div class="col-6" style="margin-bottom:10px;">
+                <div class=""><label style="font-size:12px">hoặc số fax:</label></div>
+                <div class="">
+                    <input type="text" class='form-control' style="font-size:12px"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6" style="margin-bottom:10px;">
+                <div class=""><label style="font-size:12px">Điện thoại đường dây nóng của tỉnh/thành phố</labelstyle="font-size:12px"></div>
+                <div class="">
+                    <input type="text" class='form-control' style="font-size:12px"/>
+                </div>
+            </div>
+            <div class="col-6" style="margin-bottom:10px;">
+                <div class=""><label style="font-size:12px">Điện thoại đường dây nóng của Bộ Y tế:</label></div>
+                <div class="">
+                    <input type="text" class='form-control' style="font-size:12px"/>
+                </div>
+            </div>
+        </div>
+    <div class="m-5"></div>
 </div>
 {% endblock %}
