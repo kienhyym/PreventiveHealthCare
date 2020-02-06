@@ -748,3 +748,5 @@ class DanhSachNghiNgoNhiemBenhNhomA(CommonModel):
     huongxuly = db.Column(db.String)
 
     baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
+
+
