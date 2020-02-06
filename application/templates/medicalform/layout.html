@@ -44,14 +44,27 @@
     <!-- Google Font -->
     <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
     <!-- jQuery 3 -->
-    <script src="{{static_url}}/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
 
-    <script src="{{static_url}}/vendor/bootstrap4/js/popper.min.js" crossorigin="anonymous"></script>
-    <script src="{{static_url}}/vendor/bootstrap4/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <script src="{{static_url}}/vendor/bootstrap4/bootstrap-select/js/bootstrap-select.min.js"
+    <script src="/static/vendor/bootstrap4/js/popper.min.js" crossorigin="anonymous"></script>
+    <script src="/static/vendor/bootstrap4/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="/static/vendor/bootstrap4/bootstrap-select/js/bootstrap-select.min.js"
         crossorigin="anonymous"></script>
 
     {% endblock %}
+
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #eeeeee;
+            color: black;
+            text-align: center;
+            font-size: small;
+        }
+</style>
 </head>
 
 <body>
@@ -60,7 +73,14 @@
     </div>
     <footer>
         {% block footer %}
-            San pham ho tro bo Healthchain.vn
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-md-12 text-center">
+                    <span><i>Sản phẩm hỗ trợ bởi Healthchain.vn</i></span>
+                </div>
+            </div>
+
+        </div>
         {% endblock %}
     </footer>
 </body>

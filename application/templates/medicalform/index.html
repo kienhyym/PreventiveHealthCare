@@ -1,13 +1,33 @@
 {% extends "medicalform/layout.html" %}
 {% block content %}
-<div class="container">
-    <div class="row">
+<div class="container" style="font-size: x-large;">
+    <div class="row" style="margin-top: 40px;">
         <div class="col col-md-12 text-center center">
-            <p>Choose your language here</p>
+            <p>Xin mời chọn ngôn ngữ!</p>
+            <p>请选择您的语言!</p>
+            <p>Please choose your language!</p>
+            
         </div>
     </div>
-    <div class="row">
-        
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-4 col-sm-4 col-xs-4 col-md-4 col-lg-4 text-center">
+            <a href="/medicalform/form/vi">
+                <img width="50px" src="/static/img/vietnam-flag-icon-256.png" /><br/>
+                <span>Việt Nam</span>
+            </a>
+        </div>
+        <div class="col-4 col-sm-4 col-xs-4 col-md-4 col-lg-4 text-center">
+            <a href="/medicalform/form/cn">
+                <img width="50px" src="/static/img/china-flag-xs.png" /><br/>
+                <span>Chinese</span>
+            </a>
+        </div>
+        <div class="col-4 col-sm-4 col-xs-4 col-md-4 col-lg-4 text-center">
+            <a href="/medicalform/form/en">
+                <img width="50px" src="/static/img/united-kingdom-flag-xs.png" /><br/>
+                <span>English</span>
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}
