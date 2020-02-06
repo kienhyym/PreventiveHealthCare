@@ -1,0 +1,75 @@
+{
+    "created_at": {
+        "type": "number"
+    },
+    "created_by": {
+        "type": "string"
+    },
+    "updated_at": {
+        "type": "number"
+    },
+    "updated_by": {
+        "type": "string"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_by": {
+        "type": "string"
+    },
+    "deleted_at": {
+        "type": "number"
+    },
+    "id": {
+        "type": "string",
+        "primary": true
+    },
+    "ten": {
+        "type": "string",
+        "length": 255
+    },
+    "phanloai": {
+        "type": "string",
+        "length": 255
+    },
+    "donvithuchienphanloai": {
+        "type": "string",
+        "length": 255
+    },
+    "soluuhanh": {
+        "type": "string",
+        "length": 255
+    },
+    "donviyeucauphanloai": {
+        "type": "string",
+        "length": 255
+    },
+    "tinhtrang": {
+        "type": "string",
+        "length": 255
+    },
+    "danhsachhanche": {
+        "type": "string",
+        "length": 255,
+        "default": "dangduocsudung"
+    },
+    "bangphanloai": {
+        "type": "string",
+        "length": 255
+    },
+    "congkhaiphanloai": {
+        "type": "string",
+        "length": 255
+    },
+    "chungloailoaithietbi": {
+        "type": "string",
+        "length": 255
+    },
+    "chitietsanphamfield": {
+        "type": "list"
+    },
+    "quytrinhkiemtrafield": {
+        "type": "list"
+    }
+}

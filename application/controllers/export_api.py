@@ -21,7 +21,7 @@ from application.client import HTTPClient
 from sqlalchemy import or_, and_, desc
 from application.extensions import auth
 import ujson
-import xlrender
+# import xlrender
 
 
 @app.route('/exportexcel/test', methods=['GET'])

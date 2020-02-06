@@ -1,0 +1,71 @@
+{
+    "created_at": {
+        "type": "number"
+    },
+    "created_by": {
+        "type": "string"
+    },
+    "updated_at": {
+        "type": "number"
+    },
+    "updated_by": {
+        "type": "string"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_by": {
+        "type": "string"
+    },
+    "deleted_at": {
+        "type": "number"
+    },
+    "id": {
+        "type": "string",
+        "primary": true
+    },
+    "phone_number": {
+        "type": "string",
+        "length": 50
+    },
+    "email": {
+        "type": "string",
+        "length": 50
+    },
+    "name": {
+        "type": "string",
+        "length": 50
+    },
+    "password": {
+        "type": "string"
+    },
+    "salt": {
+        "type": "string"
+    },
+    "type": {
+        "type": "string"
+    },
+    "active": {
+        "type": "boolean",
+        "default": true
+    },
+    "vaitro": {
+        "type": "number"
+    },
+    "khoa_id": {
+        "type": "string"
+    },
+    "phong_id": {
+        "type": "string"
+    },
+    "roles": {
+        "type": "list"
+    },
+    "khoa": {
+        "type": "dict"
+    },
+    "phong": {
+        "type": "dict"
+    }
+}

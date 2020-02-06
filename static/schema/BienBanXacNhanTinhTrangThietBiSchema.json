@@ -1,0 +1,76 @@
+{
+    "created_at": {
+        "type": "number"
+    },
+    "created_by": {
+        "type": "string"
+    },
+    "updated_at": {
+        "type": "number"
+    },
+    "updated_by": {
+        "type": "string"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_by": {
+        "type": "string"
+    },
+    "deleted_at": {
+        "type": "number"
+    },
+    "id": {
+        "type": "string",
+        "primary": true
+    },
+    "tenthietbi": {
+        "type": "string",
+        "length": 255
+    },
+    "tai": {
+        "type": "string",
+        "length": 255
+    },
+    "model_serial_number": {
+        "type": "string",
+        "length": 255
+    },
+    "ma_qltb": {
+        "type": "string",
+        "length": 255
+    },
+    "nha": {
+        "type": "string",
+        "length": 255
+    },
+    "nguoisudung": {
+        "type": "string",
+        "length": 255
+    },
+    "donvi": {
+        "type": "string",
+        "length": 255
+    },
+    "ketquakiemtra": {
+        "type": "string"
+    },
+    "huongkhacphuc": {
+        "type": "string"
+    },
+    "ngay": {
+        "type": "number"
+    },
+    "chuky": {
+        "type": "string",
+        "length": 10
+    },
+    "chitietthietbi_id": {
+        "type": "string"
+    },
+    "daxem": {
+        "type": "string",
+        "length": 5
+    }
+}

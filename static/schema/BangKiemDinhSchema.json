@@ -1,0 +1,69 @@
+{
+    "created_at": {
+        "type": "number"
+    },
+    "created_by": {
+        "type": "string"
+    },
+    "updated_at": {
+        "type": "number"
+    },
+    "updated_by": {
+        "type": "string"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_by": {
+        "type": "string"
+    },
+    "deleted_at": {
+        "type": "number"
+    },
+    "id": {
+        "type": "string",
+        "primary": true
+    },
+    "ma": {
+        "type": "string",
+        "length": 255
+    },
+    "donvi": {
+        "type": "string",
+        "length": 255
+    },
+    "ngaycap": {
+        "type": "number"
+    },
+    "ngayhethan": {
+        "type": "number"
+    },
+    "attachment_image": {
+        "type": "string"
+    },
+    "tinhtrang": {
+        "type": "string",
+        "length": 255,
+        "default": "dangduocsudung"
+    },
+    "tenthietbi": {
+        "type": "string",
+        "length": 255
+    },
+    "model_serial_number": {
+        "type": "string",
+        "length": 255
+    },
+    "ma_qltb": {
+        "type": "string",
+        "length": 255
+    },
+    "daxem": {
+        "type": "string",
+        "length": 5
+    },
+    "chitietthietbi_id": {
+        "type": "string"
+    }
+}
