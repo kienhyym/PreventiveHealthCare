@@ -1,7 +1,10 @@
 {% extends "medicalform/layout.html" %}
 {% block content %}
 <div class="container">
-    <h3 class="d-flex justify-content-center">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h3>
+    <h4 class="d-flex justify-content-center" style="margin-top: 20px;">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h4>
+    <p style="font-size: 80%; margin-top: 10px;"><b>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y tế 
+        liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</b>
+        </p>
     <div class="" style="margin-bottom:10px;margin-top:30px">
         <div class="col-md-12 text-right ">
             <label>Ngày 20/01/2020</label>
@@ -142,42 +145,49 @@
     </div>
 
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày qua, Anh/Chị có đến quốc gia/vùng lãnh thổ
-                nào
-                không? (nếu có ghi rõ):
-            </label></div>
+        <div class="col-md-12 text-left ">
+            <label>
+                <b>Trong vòng 14 ngày qua, Anh/Chị có đến quốc gia/vùng lãnh thổ nào không? (nếu có ghi rõ):</b>
+            </label>
+        </div>
         <div class="col-md-12">
             <textarea type="text" class='form-control' /></textarea>
         </div>
     </div>
 
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label>Địa chỉ liên lạc tại Việt Nam </label></div>
+        <div class="col-md-12 text-left "><label><b>Địa chỉ liên lạc tại Việt Nam </b></label></div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-3 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
-        <div class="col-md-10 col-9">
+        <div class="col-md-12 col-12 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
+        <div class="col-md-12 col-12">
             <textarea type="text" class='form-control' /></textarea>
         </div>
     </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-3 text-left "><label>Điện thoại:</label></div>
-        <div class="col-md-10 col-9">
-            <input type="text" class='form-control' />
+
+    <div class="row">
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Điện thoại:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
         </div>
-    </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-3 text-left "><label>Emai:</label></div>
-        <div class="col-md-10 col-9">
-            <input type="text" class='form-control' />
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Email:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
         </div>
     </div>
 
+
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày (tính đến thời điểm làm thủ tục xuất cảnh,
-                nhập
-                cảnh, quá cảnh) Anh/Chị có thấy xuất hiện dấu hiệu nào sau đây không?
-            </label></div>
+        <div class="col-md-12 text-left ">
+            <label>
+                <b>Trong vòng 14 ngày (tính đến thời điểm làm thủ tục xuất cảnh,
+                nhập cảnh, quá cảnh) Anh/Chị có thấy xuất hiện dấu hiệu nào sau đây không?</b>
+            </label>
+        </div>
 
     </div>
     <table class="table">
@@ -231,12 +241,15 @@
     </table>
     <div class="row" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
-            <label>Liệt kê tên vắc xin hoặc sinh phẩm y tế đã sử dụng:</label>
+            <label><b>Liệt kê tên vắc xin hoặc sinh phẩm y tế đã sử dụng:</b></label>
+        </div>
+        <div class="col-md-12">
+            <textarea type="text" class='form-control' /></textarea>
         </div>
     </div>
     <div class="row" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
-            <label>Lịch sử phơi nhiễm: Trong vòng 14 ngày qua, Anh/Chị có:</label>
+            <label><b>Lịch sử phơi nhiễm: Trong vòng 14 ngày qua, Anh/Chị có:</b></label>
         </div>
     </div>
     <table class="table">
@@ -278,25 +291,11 @@
     </table>
     <div class="row" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
-            <label>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có
-                thể dẫn
-                đến những hậu quả nghiêm trọng.</label>
+            <p style="font-size: 80%;">
+                <b>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có
+                thể dẫn đến những hậu quả nghiêm trọng.</b>
+            </p>
         </div>
     </div>
-
-    <div class="" style="margin-bottom:10px">
-        <div class="col-md-12 text-right ">
-            <label>Ký tên</label>
-        </div>
-        <div class="col-md-6">
-            <input type="text" class='form-control' />
-        </div>
-    </div>
-
-    <div class="" style="margin-bottom:10px">
-        <div class="col-md-2 col-3text-center ">
-            <h5>hướng dẫn</h5>
-        </div>
-
-    </div>
-    <//div> <div> {% endblock %}
+</div>
+{% endblock %}
