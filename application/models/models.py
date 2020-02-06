@@ -752,19 +752,20 @@ class DanhSachNghiNgoNhiemBenhNhomA(CommonModel):
 
 #### form to khai y te doi voi nguoi###
 class ToKhaiYTeDoiVoiNguoi(CommonModel):
-    __table__ = "tokhaiytedoivoinguoi"
+    __tablename__ = "tokhaiytedoivoinguoi"
+
     id = db.Column(db.Integer, primary_key=True)
     hoten = db.Column(db.String, nullable=False)
-    namsinh = db.Column(db.Integer(20))
-    gioitinh = db.Column(db.String(20))
+    namsinh = db.Column(db.Integer())
+    gioitinh = db.Column(db.String())
     quoctich = db.Column(db.String)
     thongtin_dilai = db.relationship("ToKhaiYTeDoiVoiNguoiThongTinDiLai",  cascade="all, delete-orphan", lazy='dynamic')
     sohochieu = db.Column(db.String)
 
     sohieu_phuongtien = db.Column(db.String)
-    soghe = db.Colum(db.String)
+    soghe = db.Column(db.String)
     ngay_khoihanh = db.Column(db.DateTime())
-    ngay_nhapcanh = db.Column(db.DateTime()))
+    ngay_nhapcanh = db.Column(db.DateTime())
     noi_khoihanh = db.Column(db.String)
     noiden = db.Column(db.String)
     danhsach_quocgiadiqua = db.relationship("ToKhaiYTeDoiVoiNguoiQuocGia",  cascade="all, delete-orphan", lazy='dynamic')
@@ -773,8 +774,8 @@ class ToKhaiYTeDoiVoiNguoi(CommonModel):
     email = db.Column(db.String)
     danhsach_vacxin = db.relationship("ToKhaiYTeDoiVoiNguoiVacxin",  cascade="all, delete-orphan", lazy='dynamic')
     dauhieubenh = db.relationship("ToKhaiYTeDoiVoiNguoiXuatHienDauHieuBenh",  cascade="all, delete-orphan", lazy='dynamic')
-    den_trangtrai_cho_tiepxuc_dongvat = = db.Column(db.Boolean())
-    tructiepchamsocnguoibenhtruyennhiem = = db.Column(db.Boolean())
+    den_trangtrai_cho_tiepxuc_dongvat = db.Column(db.Boolean())
+    tructiepchamsocnguoibenhtruyennhiem = db.Column(db.Boolean())
     ngaykekhai = db.Column(db.DateTime())
     canbo_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     tencanbo = db.Column(db.String)
