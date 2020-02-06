@@ -26,6 +26,7 @@ async def medicalform_index(request, id):
     print("cuakhau_id")
     return jinja.render('medicalform/index.html', request)
 
-@app.route('/medicalform/form', methods=['GET'])
-async def medicalform_form(request):
-    return jinja.render('medicalform/form.html', request)
+@app.route('/medicalform/form/<lang>', methods=['GET'])
+async def medicalform_form(request, lang):
+    if lang in ["vi", "cn", "en"]:
+        return jinja.render('medicalform/form_' + lang + '.html', request)
