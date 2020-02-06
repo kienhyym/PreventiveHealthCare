@@ -2,114 +2,119 @@
 {% block content %}
 <div class="container">
     <h3 class="d-flex justify-content-center">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h3>
-    <div class="" style="margin-bottom:10px">
+    <div class="" style="margin-bottom:10px;margin-top:30px">
         <div class="col-md-12 text-right ">
             <label>Ngày 20/01/2020</label>
         </div>
-        
+
     </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left"><label>Họ tên (viết chữ in hoa):</label></div>
-        <div class="col-md-10 col-8">
+    <div class="" style="margin-bottom:10px;">
+        <div><label>Họ tên (viết chữ in hoa):</label></div>
+        <div>
             <input type="text" class='form-control' />
         </div>
     </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-3 col-3 text-left"><label>Năm sinh:</label></div>
-        <div class="col-md-3 col-3">
-            <input type="text" class='form-control' />
+    <div class="row">
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Năm sinh:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
         </div>
-        <div class="col-md-3 col-3 text-left"><label>Giới tính:</label></div>
-        <div class="col-md-3 col-3">
-            <input type="text" class='form-control' />
-        </div>
-    </div>
-    <!-- <div class="row text-center" style="margin-bottom:10px">
-       
-    </div> -->
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Quốc tịch:</label></div>
-        <div class="col-md-10 col-8">
-            <input type="text" class='form-control' />
-        </div>
-    </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Số hộ chiếu hoặc giấy thông hành hợp pháp khác: </label></div>
-        <div class="col-md-10 col-8">
-            <input type="text" class='form-control' />
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Giới tính:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
         </div>
     </div>
 
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label>Thông tin đi lại: </label></div>
+    <div class="row">
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Quốc tịch:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
+        </div>
+        <div class="col-6" style="margin-bottom:10px;">
+            <div class=""><label>Số hộ chiếu:</label></div>
+            <div class="">
+                <input type="text" class='form-control' />
+            </div>
+        </div>
     </div>
 
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Tàu bay </label></div>
-        <div class="col-md-2 col-2">
-            <input type="checkbox" />
+    <div>
+        <div><label>Thông tin đi lại: </label></div>
+    </div>
+    <div class="row col-12">
+        <div class="custom-control custom-checkbox col-6">
+            <input type="checkbox" class="custom-control-input" id="taubay">
+            <label class="custom-control-label" for="taubay">Tàu bay</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="phuongtien_taubien">
+            <label class="custom-control-label" for="phuongtien_taubien">Tàu biển</label>
         </div>
     </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Tàu thuyền</label></div>
-        <div class="col-md-2 col-2">
-            <input type="checkbox" />
+    <div class="row col-12">
+        <div class="custom-control custom-checkbox col-6">
+            <input type="checkbox" class="custom-control-input" id="phuongtien_oto">
+            <label class="custom-control-label" for="phuongtien_oto">Ô tô</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="phuongtien_khac">
+            <label class="custom-control-label" for="phuongtien_khac">Khác (Ghi rõ)</label>
         </div>
     </div>
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Ô tô</label></div>
-        <div class="col-md-2 col-2">
-            <input type="checkbox" />
-        </div>
-    </div>
+   
 
     <div class=" text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label> Khác (ghi rõ):</label></div>
-        <div class="col-md-10 col-12">
-            <textarea type="text" class='form-control' /></textarea>
-
+        <div class="col-md-12 col-12 p-0">
+            <textarea type="text" class='form-control' placeholder="Viết rõ phương tiện đi lại"></textarea>
         </div>
     </div>
 
-    <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Số hiệu phương tiện:</label></div>
-        <div class="col-md-10 col-8">
+    <div class="" style="margin-bottom:10px;">
+        <div><label>Số hiệu phương tiện:</label></div>
+        <div>
             <input type="text" class='form-control' />
         </div>
     </div>
 
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Số ghế (nếu có):</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Số ghế</label></div>
+        <div class="col-md-10 col-9">
             <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Ngày khởi hành:</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Ngày khởi hành:</label></div>
+        <div class="col-md-10 col-9">
             <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Ngày nhập cảnh:</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Ngày nhập cảnh:</label></div>
+        <div class="col-md-10 col-9">
             <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Địa điểm khởi hành (tỉnh/quốc gia):</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Địa điểm khởi hành (tỉnh/quốc gia):</label></div>
+        <div class="col-md-10 col-9">
             <textarea type="text" class='form-control' /></textarea>
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Địa điểm nơi đến (tỉnh/quốc gia):</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Địa điểm nơi đến (tỉnh/quốc gia):</label></div>
+        <div class="col-md-10 col-9">
             <textarea type="text" class='form-control' /></textarea>
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày qua, Anh/Chị có đến quốc gia/vùng lãnh thổ nào
+        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày qua, Anh/Chị có đến quốc gia/vùng lãnh thổ
+                nào
                 không? (nếu có ghi rõ):
             </label></div>
         <div class="col-md-12">
@@ -121,26 +126,27 @@
         <div class="col-md-12 text-left "><label>Địa chỉ liên lạc tại Việt Nam </label></div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
+        <div class="col-md-10 col-9">
             <textarea type="text" class='form-control' /></textarea>
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Điện thoại:</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Điện thoại:</label></div>
+        <div class="col-md-10 col-9">
             <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-left "><label>Emai:</label></div>
-        <div class="col-md-10 col-8">
+        <div class="col-md-2 col-3 text-left "><label>Emai:</label></div>
+        <div class="col-md-10 col-9">
             <input type="text" class='form-control' />
         </div>
     </div>
 
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày (tính đến thời điểm làm thủ tục xuất cảnh, nhập
+        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày (tính đến thời điểm làm thủ tục xuất cảnh,
+                nhập
                 cảnh, quá cảnh) Anh/Chị có thấy xuất hiện dấu hiệu nào sau đây không?
             </label></div>
 
@@ -208,7 +214,8 @@
 
         <tbody>
             <tr>
-                <td>Đến trang trại chăn nuôi/ chợ buôn bán động vật sống/ cơ sở giết mổ động vật/ tiếp xúc động vật
+                <td>Đến trang trại chăn nuôi/ chợ buôn bán động vật sống/ cơ sở giết mổ động vật/ tiếp xúc động
+                    vật
                 </td>
                 <td class="text-left">
                     <div class="custom-control custom-radio custom-control-inline">
@@ -242,17 +249,12 @@
     </table>
     <div class="row" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
-            <label>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có thể dẫn đến những hậu quả nghiêm trọng.</label>
+            <label>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có
+                thể dẫn
+                đến những hậu quả nghiêm trọng.</label>
         </div>
     </div>
-    <div class="" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-center ">
-            <label>Ngày/tháng/năm</label>
-        </div>
-        <div class="col-md-10 col-8">
-            <input type="text" class='form-control' />
-        </div>
-    </div>
+
     <div class="" style="margin-bottom:10px">
         <div class="col-md-12 text-right ">
             <label>Ký tên</label>
@@ -261,12 +263,11 @@
             <input type="text" class='form-control' />
         </div>
     </div>
-    
+
     <div class="" style="margin-bottom:10px">
-        <div class="col-md-2 col-4 text-center ">
+        <div class="col-md-2 col-3text-center ">
             <h5>hướng dẫn</h5>
         </div>
-        
+
     </div>
-</div>
-{% endblock %}
+    <//div> <div> {% endblock %}
