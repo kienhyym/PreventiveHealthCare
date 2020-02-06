@@ -22,50 +22,77 @@
         "type": "number"
     },
     "id": {
-        "type": "string",
+        "type": "number",
         "primary": true
-    },
-    "phone_number": {
-        "type": "string",
-        "length": 50
-    },
-    "email": {
-        "type": "string",
-        "length": 50
     },
     "name": {
         "type": "string",
-        "length": 50
+        "length": 255
+    },
+    "email": {
+        "type": "string",
+        "length": 255
     },
     "password": {
-        "type": "string"
+        "type": "string",
+        "length": 255
     },
-    "salt": {
-        "type": "string"
+    "first_name": {
+        "type": "string",
+        "length": 120
     },
-    "type": {
-        "type": "string"
+    "last_name": {
+        "type": "string",
+        "length": 120
     },
     "active": {
         "type": "boolean",
-        "default": true
+        "default": false
     },
-    "vaitro": {
+    "confirmed_at": {
+        "type": "datetime"
+    },
+    "last_login_at": {
+        "type": "datetime"
+    },
+    "current_login_at": {
+        "type": "datetime"
+    },
+    "last_login_ip": {
+        "type": "string",
+        "length": 255
+    },
+    "current_login_ip": {
+        "type": "string",
+        "length": 255
+    },
+    "login_count": {
         "type": "number"
     },
-    "khoa_id": {
-        "type": "string"
+    "birthday": {
+        "type": "datetime"
     },
-    "phong_id": {
-        "type": "string"
+    "gender": {
+        "type": "string",
+        "length": 255
+    },
+    "phone": {
+        "type": "string",
+        "length": 31
+    },
+    "donvi_id": {
+        "type": "number"
+    },
+    "cuakhau_id": {
+        "type": "number"
     },
     "roles": {
         "type": "list"
     },
-    "khoa": {
+    "donvi": {
         "type": "dict"
     },
-    "phong": {
+    "cuakhau": {
         "type": "dict"
     }
 }

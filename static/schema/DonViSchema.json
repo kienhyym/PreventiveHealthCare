@@ -22,23 +22,16 @@
         "type": "number"
     },
     "id": {
-        "type": "string",
+        "type": "number",
         "primary": true
+    },
+    "ma": {
+        "type": "string",
+        "length": 255
     },
     "ten": {
         "type": "string",
-        "length": 255
-    },
-    "email": {
-        "type": "string",
-        "length": 255
-    },
-    "Website": {
-        "type": "string",
-        "length": 255
-    },
-    "Fax": {
-        "type": "string",
+        "required": true,
         "length": 255
     },
     "sodienthoai": {
@@ -49,25 +42,62 @@
         "type": "string",
         "length": 255
     },
+    "email": {
+        "type": "string",
+        "length": 255
+    },
+    "ghichu": {
+        "type": "string",
+        "length": 255
+    },
+    "vungmien": {
+        "type": "number"
+    },
     "tinhthanh_id": {
-        "type": "string"
+        "type": "number"
     },
-    "tinhthanh": {
-        "type": "json"
+    "tuyendonvi": {
+        "type": "number",
+        "required": true
     },
-    "quanhuyen_id": {
-        "type": "string"
+    "coquanchuquan": {
+        "type": "string",
+        "length": 255
     },
-    "quanhuyen": {
-        "type": "json"
+    "parent_id": {
+        "type": "number"
     },
-    "xaphuong_id": {
-        "type": "string"
-    },
-    "xaphuong": {
-        "type": "json"
+    "loaidonvi": {
+        "type": "number"
     },
     "giamdoc": {
         "type": "string"
+    },
+    "sdtgiamdoc": {
+        "type": "string"
+    },
+    "emailgiamdoc": {
+        "type": "string"
+    },
+    "phogiamdoc": {
+        "type": "string"
+    },
+    "sdtphogiamdoc": {
+        "type": "string"
+    },
+    "emailphogiamdoc": {
+        "type": "string"
+    },
+    "tinhthanh": {
+        "type": "dict"
+    },
+    "children": {
+        "type": "list"
+    },
+    "parent": {
+        "type": "dict"
+    },
+    "cuakhau": {
+        "type": "list"
     }
 }

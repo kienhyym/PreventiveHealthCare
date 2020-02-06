@@ -29,15 +29,6 @@
         "type": "string",
         "length": 255
     },
-    "ten": {
-        "type": "string",
-        "required": true,
-        "length": 255
-    },
-    "quocgia_id": {
-        "type": "number"
-    },
-    "quocgia": {
-        "type": "dict"
-    }
-}
+    "ngaybaocao": {
+        "type": "datetime",
+        "default": 

@@ -22,12 +22,8 @@
         "type": "number"
     },
     "id": {
-        "type": "string",
+        "type": "number",
         "primary": true
-    },
-    "ma": {
-        "type": "string",
-        "length": 80
     },
     "name": {
         "type": "string",
@@ -36,5 +32,8 @@
     "description": {
         "type": "string",
         "length": 255
+    },
+    "permission": {
+        "type": "list"
     }
 }

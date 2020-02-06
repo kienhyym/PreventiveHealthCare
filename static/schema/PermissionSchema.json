@@ -1,0 +1,65 @@
+{
+    "created_at": {
+        "type": "number"
+    },
+    "created_by": {
+        "type": "string"
+    },
+    "updated_at": {
+        "type": "number"
+    },
+    "updated_by": {
+        "type": "string"
+    },
+    "deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "deleted_by": {
+        "type": "string"
+    },
+    "deleted_at": {
+        "type": "number"
+    },
+    "id": {
+        "type": "number",
+        "primary": true
+    },
+    "role_id": {
+        "type": "number"
+    },
+    "model": {
+        "type": "string"
+    },
+    "canread": {
+        "type": "boolean",
+        "default": false
+    },
+    "cancreate": {
+        "type": "boolean",
+        "default": false
+    },
+    "canupdate": {
+        "type": "boolean",
+        "default": false
+    },
+    "candelete": {
+        "type": "boolean",
+        "default": false
+    },
+    "cancreateown": {
+        "type": "boolean",
+        "default": false
+    },
+    "canupdateown": {
+        "type": "boolean",
+        "default": false
+    },
+    "candeleteown": {
+        "type": "boolean",
+        "default": false
+    },
+    "role": {
+        "type": "dict"
+    }
+}

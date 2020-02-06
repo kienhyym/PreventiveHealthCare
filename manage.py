@@ -104,7 +104,6 @@ def generate_schema(path = None, exclude = None, prettyprint = True):
 
 
 
-
 @manager.command
 def run():  
     # quocgiaa = db.session.query(QuocGia).first()
@@ -112,7 +111,7 @@ def run():
     #     add_danhsach_quocgia_tinhthanh()
     #     add_danhsach_quanhuyen()
     #     add_danhsach_xaphuong()
-    #     create_default_user()
+    # create_default_user()
 
     run_app(host="0.0.0.0", port=20808)
 

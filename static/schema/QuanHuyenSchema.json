@@ -22,7 +22,7 @@
         "type": "number"
     },
     "id": {
-        "type": "string",
+        "type": "number",
         "primary": true
     },
     "ma": {
@@ -31,12 +31,13 @@
     },
     "ten": {
         "type": "string",
+        "required": true,
         "length": 255
     },
     "tinhthanh_id": {
-        "type": "string"
+        "type": "number"
     },
     "tinhthanh": {
-        "type": "json"
+        "type": "dict"
     }
 }
