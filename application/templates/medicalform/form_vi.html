@@ -1,33 +1,39 @@
-<h3 class="d-flex justify-content-center">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h3>
-<h4>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y tế
-    liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</h4>
-<div class="row text-center" style="margin-bottom:10px">
-    <div class="col-md-2 text-right"><label>Họ tên (viết chữ in hoa):</label></div>
-    <div class="col-md-3">
-        <input type="text" class= 'form-control' />
+
+{% extends "medicalform/layout.html" %}
+{% block content %}
+<div class="container">
+    <h3 class="d-flex justify-content-center">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h3>
+    <h4>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y tế
+        liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</h4>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 text-right"><label>Họ tên (viết chữ in hoa):</label></div>
+        <div class="col-md-3">
+            <input type="text" class= 'form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 text-right"><label>Năm sinh:</label></div>
+        <div class="col-md-3">
+            <input type="text" class= 'form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 text-right"><label>Giới tính:</label></div>
+        <div class="col-md-3">
+            <input type="text" class= 'form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 text-right"><label>Quốc tịch:</label></div>
+        <div class="col-md-3">
+            <input type="text" class= 'form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 text-right"><label>Số hộ chiếu hoặc giấy thông hành hợp pháp khác: </label></div>
+        <div class="col-md-3">
+            <input type="text" class= 'form-control' />
+        </div>
     </div>
 </div>
-<div class="row text-center" style="margin-bottom:10px">
-    <div class="col-md-2 text-right"><label>Năm sinh:</label></div>
-    <div class="col-md-3">
-        <input type="text" class= 'form-control' />
-    </div>
-</div>
-<div class="row text-center" style="margin-bottom:10px">
-    <div class="col-md-2 text-right"><label>Giới tính:</label></div>
-    <div class="col-md-3">
-        <input type="text" class= 'form-control' />
-    </div>
-</div>
-<div class="row text-center" style="margin-bottom:10px">
-    <div class="col-md-2 text-right"><label>Quốc tịch:</label></div>
-    <div class="col-md-3">
-        <input type="text" class= 'form-control' />
-    </div>
-</div>
-<div class="row text-center" style="margin-bottom:10px">
-    <div class="col-md-2 text-right"><label>Số hộ chiếu hoặc giấy thông hành hợp pháp khác: </label></div>
-    <div class="col-md-3">
-        <input type="text" class= 'form-control' />
-    </div>
-</div>
+{% endblock %}
