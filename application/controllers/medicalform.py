@@ -17,12 +17,12 @@ from application.server import app
 import time
 from math import floor
 from application.client import HTTPClient
-from application.extensions import auth
+from application.extensions import auth, jinja
 import ujson
 
 
 @app.route('/medicalform/qr/<id>', methods=['GET'])
-async def medicalform_index(request, cuakhau_id):
+async def medicalform_index(request, id):
     print("cuakhau_id")
     return jinja.render('medicalform/index.html', request)
 
