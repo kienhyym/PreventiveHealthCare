@@ -54,7 +54,14 @@
     {% endblock %}
 
     <style>
-        footer {
+        .header {
+            padding: 5px 20px 5px 20px;
+            position: fixed;
+            width: 100%;
+            background-color: #eeeeee;
+            z-index: 100000;
+        }
+        .footer {
             position: fixed;
             left: 0;
             bottom: 0;
@@ -64,14 +71,21 @@
             text-align: center;
             font-size: small;
         }
+        .content {
+            overflow-x: scroll;
+        }
 </style>
 </head>
 
 <body>
-    <div class="content">
+    <div class="header">
+        <img height="40px" style="float: left;" src="/static/img/logo-boyte50.png"/>
+        <button class="btn btn-success btn-sm" style="float: right;">Lưu</button>
+    </div><br/>
+    <div class="content" style="margin-top: 50px;">
         {% block content %}{% endblock %}
     </div>
-    <footer>
+    <div class="footer">
         {% block footer %}
         <div class="container">
             <div class="row">
@@ -82,7 +96,7 @@
 
         </div>
         {% endblock %}
-    </footer>
+    </div>
 </body>
 
 </html>
