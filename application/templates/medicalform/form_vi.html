@@ -1,4 +1,3 @@
-
 {% extends "medicalform/layout.html" %}
 {% block content %}
 <div class="container">
@@ -6,33 +5,263 @@
     <h4>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y tế
         liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</h4>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 text-right"><label>Họ tên (viết chữ in hoa):</label></div>
-        <div class="col-md-3">
-            <input type="text" class= 'form-control' />
+        <div class="col-md-2 col-4 text-left"><label>Họ tên (viết chữ in hoa):</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 text-right"><label>Năm sinh:</label></div>
-        <div class="col-md-3">
-            <input type="text" class= 'form-control' />
+        <div class="col-md-2 col-4 text-left"><label>Năm sinh:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 text-right"><label>Giới tính:</label></div>
-        <div class="col-md-3">
-            <input type="text" class= 'form-control' />
+        <div class="col-md-2 col-4 text-left"><label>Giới tính:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 text-right"><label>Quốc tịch:</label></div>
-        <div class="col-md-3">
-            <input type="text" class= 'form-control' />
+        <div class="col-md-2 col-4 text-left "><label>Quốc tịch:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
         </div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-2 text-right"><label>Số hộ chiếu hoặc giấy thông hành hợp pháp khác: </label></div>
-        <div class="col-md-3">
-            <input type="text" class= 'form-control' />
+        <div class="col-md-2 col-4 text-left "><label>Số hộ chiếu hoặc giấy thông hành hợp pháp khác: </label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-12 text-left "><label>Thông tin đi lại: </label></div>
+    </div>
+
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Tàu bay </label></div>
+        <div class="col-md-2 col-2">
+            <input type="checkbox" />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Tàu thuyền</label></div>
+        <div class="col-md-2 col-2">
+            <input type="checkbox" />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Ô tô</label></div>
+        <div class="col-md-2 col-2">
+            <input type="checkbox" />
+        </div>
+    </div>
+
+    <div class=" text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label> Khác (ghi rõ):</label></div>
+        <div class="col-md-10 col-12">
+            <textarea type="text" class='form-control' /></textarea>
+
+        </div>
+    </div>
+
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Số hiệu phương tiện:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Số ghế (nếu có):</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Ngày khởi hành:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Ngày nhập cảnh:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Địa điểm khởi hành (tỉnh/quốc gia):</label></div>
+        <div class="col-md-10 col-8">
+            <textarea type="text" class='form-control' /></textarea>
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Địa điểm nơi đến (tỉnh/quốc gia):</label></div>
+        <div class="col-md-10 col-8">
+            <textarea type="text" class='form-control' /></textarea>
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày qua, Anh/Chị có đến quốc gia/vùng lãnh thổ nào
+                không? (nếu có ghi rõ):
+            </label></div>
+        <div class="col-md-12">
+            <textarea type="text" class='form-control' /></textarea>
+        </div>
+    </div>
+
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-12 text-left "><label>Địa chỉ liên lạc tại Việt Nam </label></div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
+        <div class="col-md-10 col-8">
+            <textarea type="text" class='form-control' /></textarea>
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Điện thoại:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-left "><label>Emai:</label></div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+
+    <div class="row text-center" style="margin-bottom:10px">
+        <div class="col-md-12 text-left "><label>Trong vòng 14 ngày (tính đến thời điểm làm thủ tục xuất cảnh, nhập
+                cảnh, quá cảnh) Anh/Chị có thấy xuất hiện dấu hiệu nào sau đây không?
+            </label></div>
+
+    </div>
+    <table class="table">
+        <tr>
+            <th>Triệu chứng</th>
+            <th class="text-center">Có</th>
+            <th class="text-center">Không</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>Sốt</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td>Ho</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td> Khó thở </td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td>Đau họng</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td>Nôn/buồn nôn</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td> Tiêu chảy</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td>Xuất huyết ngoài da</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+            <tr>
+                <td>Nổi ban ngoài da</td>
+                <td class="text-center"><input type="radio"></td>
+                <td class="text-center"><input type="radio"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row" style="margin-bottom:10px">
+        <div class="col-md-12 text-left ">
+            <label>Liệt kê tên vắc xin hoặc sinh phẩm y tế đã sử dụng:</label>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:10px">
+        <div class="col-md-12 text-left ">
+            <label>Lịch sử phơi nhiễm: Trong vòng 14 ngày qua, Anh/Chị có:</label>
+        </div>
+    </div>
+    <table class="table">
+
+        <tbody>
+            <tr>
+                <td>Đến trang trại chăn nuôi/ chợ buôn bán động vật sống/ cơ sở giết mổ động vật/ tiếp xúc động vật
+                </td>
+                <td class="text-left">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                            class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline1">Có</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                            class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">Không</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Trực tiếp chăm sóc người bệnh truyền nhiễm</td>
+                <td class="text-left">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                            class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline1">Có</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                            class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">Không</label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row" style="margin-bottom:10px">
+        <div class="col-md-12 text-left ">
+            <label>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có thể dẫn đến những hậu quả nghiêm trọng.</label>
+        </div>
+    </div>
+    <div class="" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-center ">
+            <label>Ngày/tháng/năm</label>
+        </div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div class="" style="margin-bottom:10px">
+        <div class="col-md-12 text-right ">
+            <label>Ký tên</label>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class='form-control' />
+        </div>
+    </div>
+    <div class="" style="margin-bottom:10px">
+        <div class="col-md-2 col-4 text-center ">
+            <label>Ngày/tháng/năm</label>
+        </div>
+        <div class="col-md-10 col-8">
+            <input type="text" class='form-control' />
         </div>
     </div>
 </div>
