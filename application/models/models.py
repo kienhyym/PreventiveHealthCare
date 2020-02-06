@@ -739,7 +739,7 @@ class DanhSachNghiNgoNhiemBenhNhomA(CommonModel):
     id = db.Column(db.Integer, primary_key=True)
     sothutu = db.Column(db.Integer)
     hoten = db.Column(db.String)
-    namsinh =db.Column(db.Integer)
+    namsinh = db.Column(db.Integer)
     gioitinh = db.Column(db.String)
     noiden = db.Column(db.String)
     quoctich = db.Column(db.String)
@@ -750,3 +750,84 @@ class DanhSachNghiNgoNhiemBenhNhomA(CommonModel):
     baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
 
 
+#### form to khai y te doi voi nguoi###
+class ToKhaiYTeDoiVoiNguoi(CommonModel):
+    __table__ = "tokhaiytedoivoinguoi"
+    id = db.Column(db.Integer, primary_key=True)
+    hoten = db.Column(db.String, nullable=False)
+    namsinh = db.Column(db.Integer(20))
+    gioitinh = db.Column(db.String(20))
+    quoctich = db.Column(db.String)
+    thongtin_dilai = db.relationship("ToKhaiYTeDoiVoiNguoiThongTinDiLai",  cascade="all, delete-orphan", lazy='dynamic')
+    sohochieu = db.Column(db.String)
+
+    sohieu_phuongtien = db.Column(db.String)
+    soghe = db.Colum(db.String)
+    ngay_khoihanh = db.Column(db.DateTime())
+    ngay_nhapcanh = db.Column(db.DateTime()))
+    noi_khoihanh = db.Column(db.String)
+    noiden = db.Column(db.String)
+    danhsach_quocgiadiqua = db.relationship("ToKhaiYTeDoiVoiNguoiQuocGia",  cascade="all, delete-orphan", lazy='dynamic')
+    diachi = db.Column(db.String)
+    sodienthoai = db.Column(db.String)
+    email = db.Column(db.String)
+    danhsach_vacxin = db.relationship("ToKhaiYTeDoiVoiNguoiVacxin",  cascade="all, delete-orphan", lazy='dynamic')
+    dauhieubenh = db.relationship("ToKhaiYTeDoiVoiNguoiXuatHienDauHieuBenh",  cascade="all, delete-orphan", lazy='dynamic')
+    den_trangtrai_cho_tiepxuc_dongvat = = db.Column(db.Boolean())
+    tructiepchamsocnguoibenhtruyennhiem = = db.Column(db.Boolean())
+    ngaykekhai = db.Column(db.DateTime())
+    canbo_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
+    tencanbo = db.Column(db.String)
+    lienhe_email = db.Column(db.String)
+    lienhe_fax = db.Column(db.String)
+    lienhe_sodienthoai = db.Column(db.String(63))
+
+    donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=False)
+    tendonvi = db.Column(db.String())
+    madonvi = db.Column(db.String())
+    cuakhau_id = db.Column(db.Integer,db.ForeignKey('cuakhau.id'), nullable=True)
+    tencuakhau = db.Column(db.String())
+    macuakhau = db.Column(db.String(25))
+
+class ToKhaiYTeDoiVoiNguoiQuocGia(CommonModel):
+    __tablename__ = 'tokhaiytedoivoinguoiquocgia'
+    id = db.Column(db.Integer, primary_key=True)
+
+    tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
+    tenquocgia = db.Column(db.String())
+    ngaydiqua = db.Column(db.DateTime())
+
+
+class ToKhaiYTeDoiVoiNguoiVacxin(CommonModel):
+    __tablename__ = 'tokhaiytedoivoinguoivacxin'
+    id = db.Column(db.Integer, primary_key=True)
+    tenvacxin = db.Column(db.String())
+    solandung = db.Column(db.SmallInteger)
+    ngaydunggannhat = db.Column(db.DateTime())
+    ketqua = db.Column(db.String())
+
+    tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
+
+class ToKhaiYTeDoiVoiNguoiXuatHienDauHieuBenh(CommonModel):
+    __tablename__ = 'tokhaiytedoivoinguoixuathiendauhieubenh'
+    id = db.Column(db.Integer, primary_key=True)
+    sot = db.Column(db.Boolean())
+    ho = db.Column(db.Boolean())
+    khotho = db.Column(db.Boolean())
+    dauhong = db.Column(db.Boolean())
+    buon_non = db.Column(db.Boolean())
+    tieuchay = db.Column(db.Boolean())
+    xuathuyet_ngoaida = db.Column(db.Boolean())
+    noiban_ngoaida = db.Column(db.Boolean())
+
+    tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
+
+class ToKhaiYTeDoiVoiNguoiThongTinDiLai(CommonModel):
+    __tablename__ = 'tokhaiytedoivoinguoithongtindilai'
+    id = db.Column(db.Integer, primary_key=True)
+    taubay = db.Column(db.Boolean())
+    tauthuyen = db.Column(db.Boolean())
+    oto = db.Column(db.Boolean())
+    phuongtien_khac = db.Column(db.String)
+
+    tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
