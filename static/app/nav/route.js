@@ -16,7 +16,28 @@ define(function (require) {
 			"route": "tokhaiyte/model(/:id)",
 			"$ref": "app/tokhaiyte/js/ModelView",
 		},
-
+		{
+			"text": "Chi tiết Báo cáo tổng hợp nghi ngờ nhiễm bệnh",
+			"icon": "fa fa-calendar",
+			"type": "view",
+			"collectionName": "baocaotonghopnghingonhiembenh",
+			"route": "baocaotonghopnghingonhiembenh/collection",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenh/ModelView",
+			"visible": function () {
+				return false;
+			}
+		},
+		{
+			"text": "Báo cáo tổng hợp nghi ngờ nhiễm bệnh",
+			"icon": "fa fa-calendar",
+			"type": "view",
+			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+			"route": "baocaotonghopnghingonhiembenhnhoma/collection",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenh/ModelView",
+			"visible": function () {
+				return true
+			}
+		},
 
 		
 	];
