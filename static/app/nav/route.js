@@ -6,14 +6,14 @@ define(function (require) {
 	return [
 		
 		{
-			"collectionName": "tokhaiyte",
-			"route": "tokhaiyte/collection",
-			"$ref": "app/tokhaiyte/js/CollectionView",
+			"collectionName": "baocaonghingonhiembenh",
+			"route": "baocaonghingonhiembenh/collection",
+			"$ref": "app/baocaonghingonhiembenh/js/BaoCaoNghiNgoNhiemBenhCollectionlView",
 		},
 		{
-			"collectionName": "tokhaiyte",
-			"route": "tokhaiyte/model(/:id)",
-			"$ref": "app/tokhaiyte/js/ModelView",
+			"collectionName": "baocaonghingonhiembenh",
+			"route": "baocaonghingonhiembenh/model(/:id)",
+			"$ref": "app/baocaonghingonhiembenh/js/BaoCaoNghiNgoNhiemBenhModelView",
 		},
 		{
 			"text": "Chi tiết Báo cáo tổng hợp nghi ngờ nhiễm bệnh",

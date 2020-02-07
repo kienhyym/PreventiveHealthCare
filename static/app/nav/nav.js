@@ -31,18 +31,18 @@ define(function (require) {
 			"text": "Tờ khai y tế đối với người",
 			"icon": "fa fa-angle-double-right",
 			"type": "view",
-			"collectionName": "tokhaiyte",
-			"route": "tokhaiyte/collection",
-			"$ref": "app/tokhaiyte/js/CollectionView",
+			"collectionName": "baocaonghingonhiembenh",
+			"route": "baocaonghingonhiembenh/collection",
+			"$ref": "app/baocaonghingonhiembenh/js/BaoCaoNghiNgoNhiemBenhCollectionlView",
 			"visible": function () {
 				return true
 			}
 		},
 		{
 			"type": "view",
-			"collectionName": "tokhaiyte",
-			"route": "tokhaiyte/model",
-			"$ref": "app/tokhaiyte/js/ModelView",
+			"collectionName": "baocaonghingonhiembenh",
+			"route": "baocaonghingonhiembenh/model",
+			"$ref": "app/baocaonghingonhiembenh/js/BaoCaoNghiNgoNhiemBenhModelView",
 			"visible": function () {
 				return false;
 			}
