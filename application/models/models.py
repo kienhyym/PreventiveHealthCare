@@ -686,6 +686,7 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
     __tablename__ = "baocaotonghopnghingonhiembenhnhoma"
     id = db.Column(UUID(as_uuid=True), primary_key=True)
     loaibaocao = db.Column(db.SmallInteger()) #1 - don vi, 2 cua khau
+
     ngaybaocao = db.Column(db.BigInteger(),default=floor(time.time()))
     
     donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=False)
@@ -725,7 +726,7 @@ class ToKhaiYTe(CommonModel):
 
     cuakhau_id = db.Column(db.Integer, nullable=True)
     tencuakhau = db.Column(db.String())
-    macuakhau = db.Column(db.String(25))
+    macuakhau = db.Column(db.String())
 
     canbo_id = db.Column(db.Integer, nullable=True)
     tencanbo = db.Column(db.String)
@@ -770,15 +771,12 @@ class ToKhaiYTe(CommonModel):
 
     vacxin_dasudung = db.Column(db.String())
 
-    #danhsach_vacxin = db.relationship("ToKhaiYTeDoiVoiNguoiVacxin",  cascade="all, delete-orphan", lazy='dynamic')
     tiepxuc_dongvat = db.Column(db.SmallInteger())
     chamsocnguoibenhtruyennhiem = db.Column(db.SmallInteger())
-    
     
     # lienhe_email = db.Column(db.String)
     # lienhe_fax = db.Column(db.String)
     # lienhe_sodienthoai = db.Column(db.String(63))
-    
 
     ngaygio_phathien = db.Column(db.String)
     tinhtrang = db.Column(db.String)
@@ -789,8 +787,6 @@ class ToKhaiYTe(CommonModel):
     note = db.Column(Text())
     extra_data = db.Column(JSONB)
     
-    # baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
-
 
 #### form to khai y te doi voi nguoi###
 # class ToKhaiYTeDoiVoiNguoi(CommonModel):
