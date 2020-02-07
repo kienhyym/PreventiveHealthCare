@@ -15,20 +15,6 @@
     "id": {
         "type": "number",
         "primary": true
-    },
-    "ma": {
-        "type": "string",
-        "length": 255
-    },
-    "ten": {
-        "type": "string",
-        "required": true,
-        "length": 255
-    },
-    "tinhthanh_id": {
-        "type": "number"
-    },
-    "tinhthanh": {
-        "type": "dict"
     }
+
 }

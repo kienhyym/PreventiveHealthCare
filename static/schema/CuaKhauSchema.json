@@ -1,25 +1,16 @@
 {
-    "created_at": {
-        "type": "number"
+    "_created_at": {
+        "type": "datetime"
     },
-    "created_by": {
-        "type": "string"
+    "_updated_at": {
+        "type": "datetime"
     },
-    "updated_at": {
-        "type": "number"
-    },
-    "updated_by": {
-        "type": "string"
-    },
-    "deleted": {
+    "_deleted": {
         "type": "boolean",
         "default": false
     },
-    "deleted_by": {
-        "type": "string"
-    },
-    "deleted_at": {
-        "type": "number"
+    "_deleted_at": {
+        "type": "datetime"
     },
     "id": {
         "type": "number",
