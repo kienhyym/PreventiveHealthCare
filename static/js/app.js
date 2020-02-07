@@ -47,6 +47,8 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 				dataType: "json",
 				success: function (data) {
 					self.postLogin(data);
+					
+					//
 				},
 				error: function (XMLHttpRequest, textStatus, errorThrown) {
 					console.log("Before navigate login");
@@ -80,7 +82,14 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 			}
 			$('body').find(".page-login").empty();
 			self.nav.render();
-			
+			var currentRoute = self.router.currentRoute();
+			console.log(currentRoute);
+			if((!!currentRoute) && (currentRoute.route == "login")){
+				self.router.navigate("index");
+			}
+			if((!!currentRoute) && (currentRoute.route == "index")){
+				self.router.refresh();
+			}
 		},
 		
 	});
