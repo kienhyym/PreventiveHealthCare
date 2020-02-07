@@ -605,20 +605,22 @@ class BaoCaoNghiNgoNhiemBenh(CommonModel):
     __tablename__ = 'baocaonghingonhiembenh'
     id = db.Column(db.Integer, primary_key=True)
     ma = db.Column(db.String(255))
-    ngaybaocao = db.Column(db.DateTime(),default=func.now())
+    matokhaiyte = db.Column(db.String(), index=True)
+
+    ngaybaocao = db.Column(db.DateTime(),default=func.now(), index=True)
     noibaocao = db.Column(db.String(255))
     
     nambaocao = db.Column(db.Integer, nullable=False)
-    donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=True)
+    donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=True, index=True)
     donvi = db.relationship('DonVi',viewonly=True)
     
     #dulieu
-    hoten = db.Column(db.String())
+    hoten = db.Column(db.String(), index=True)
     gioitinh = db.Column(db.String(20))
     namsinh = db.Column(db.Integer())
     
     quoctich = db.Column(db.String())
-    cmtnd = db.Column(db.String())
+    cmtnd = db.Column(db.String(), index=True)
     cuakhau_nhapquacanh = db.Column(db.String())
     gio_nhapquacanh = db.Column(db.Integer())
     ngay_nhapquacanh = db.Column(db.DateTime())
@@ -717,14 +719,15 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
 class ToKhaiYTe(CommonModel):
     __tablename__ = "tokhaiyte"
     id = db.Column(db.String, primary_key=True)
-    matokhaiyte = db.Column(db.String())
-    ngaykekhai = db.Column(db.BigInteger())
 
-    donvi_id = db.Column(db.Integer, nullable=False)
+    
+    ngaykekhai = db.Column(db.DateTime())
+
+    donvi_id = db.Column(db.Integer, nullable=False, index=True)
     tendonvi = db.Column(db.String())
     madonvi = db.Column(db.String())
 
-    cuakhau_id = db.Column(db.Integer, nullable=True)
+    cuakhau_id = db.Column(db.Integer, nullable=True, index=True)
     tencuakhau = db.Column(db.String())
     macuakhau = db.Column(db.String())
 
@@ -732,12 +735,12 @@ class ToKhaiYTe(CommonModel):
     tencanbo = db.Column(db.String)
     emailcanbo = db.Column(db.String)
 
-    hoten = db.Column(db.String)
+    hoten = db.Column(db.String, index=True)
     namsinh = db.Column(db.Integer)
     gioitinh = db.Column(db.String)
     quoctich = db.Column(db.String)
     
-    sohochieu = db.Column(db.String)
+    sohochieu = db.Column(db.String, index=True)
     
     thongtindilai_taubay = db.Column(db.SmallInteger) #taubay, tauthuyen, oto, khac
     thongtindilai_tauthuyen = db.Column(db.SmallInteger)
@@ -748,8 +751,8 @@ class ToKhaiYTe(CommonModel):
     sohieu_phuongtien = db.Column(db.String)
     soghe_phuongtien = db.Column(db.String)
 
-    ngay_khoihanh = db.Column(db.BigInteger())
-    ngay_nhapcanh = db.Column(db.BigInteger())
+    ngay_khoihanh = db.Column(db.DateTime())
+    ngay_nhapcanh = db.Column(db.DateTime())
 
     noi_khoihanh = db.Column(db.String)
     noiden = db.Column(db.String)
