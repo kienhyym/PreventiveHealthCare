@@ -36,14 +36,14 @@ apimanager.create_api(ToKhaiYTe,
     
     #results_per_page=30,
     collection_name='tokhaiyte')
-apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
-    methods=['GET', 'POST', 'DELETE', 'PUT'],
-    url_prefix='/api/v1',
-    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+# apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
+#     methods=['GET', 'POST', 'DELETE', 'PUT'],
+#     url_prefix='/api/v1',
+#     #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+#     preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
     
-    #results_per_page=30,
-    collection_name='baocaotonghopnghingonhiembenh')
+#     #results_per_page=30,
+#     collection_name='baocaotonghopnghingonhiembenh')
 
 apimanager.create_api(BaoCaoNghiNgoNhiemBenh,
     methods=['GET', 'POST', 'DELETE', 'PUT'],
@@ -93,4 +93,12 @@ apimanager.create_api(BaoCaoNghiNgoNhiemBenhNguoiTiepXuc,
     #results_per_page=30,
     collection_name='baocaonghingonhiembenhnguoitiepxuc')
 
+apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
+    methods=['GET', 'POST', 'DELETE', 'PUT'],
+    url_prefix='/api/v1',
+    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    
+    #results_per_page=30,
+    collection_name='baocaotonghopnghingonhiembenhnhomA')
 

@@ -1,0 +1,16 @@
+
+
+{
+    "baocao_id": {
+      "type": "string"
+    },
+    "loaimauxetnghiem": {
+      "type": "string"
+    },
+    "ngaylay": {
+      "type":"datetime"
+    },
+    "ketqua": {
+      "type":"dict"
+    }
+}
