@@ -3,8 +3,8 @@ define(function (require) {
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		Gonrin = require('gonrin');
-	var template = require('text!app/tokhaiytedoivoinguoi/tpl/model.html'),
-		schema = require('json!schema/ToKhaiYTeDoiVoiNguoiSchema.json');
+	var template = require('text!app/tokhaiyte/tpl/model.html'),
+		schema = require('json!schema/ToKhaiYTeSchema.json');
 
 
 
@@ -12,7 +12,7 @@ define(function (require) {
 		template: template,
 		modelSchema: schema,
 		urlPrefix: "/api/v1/",
-		collectionName: "tokhaiytedoivoinguoi",
+		collectionName: "tokhaiyte",
 		bindings: "data-bind",
 		state: null,
 		tools: [

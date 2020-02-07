@@ -4,14 +4,14 @@ define(function (require) {
         _ = require('underscore'),
         Gonrin = require('gonrin');
 
-    var template = require('text!app/tokhaiytedoivoinguoi/tpl/collection.html'),
-		schema = require('json!schema/ToKhaiYTeDoiVoiNguoiSchema.json');
+    var template = require('text!app/tokhaiyte/tpl/collection.html'),
+		schema = require('json!schema/ToKhaiYTeSchema.json');
 
     return Gonrin.CollectionView.extend({
         template: template,
         modelSchema: schema,
         urlPrefix: "/api/v1/",
-        collectionName: "tokhaiytedoivoinguoi",
+        collectionName: "tokhaiyte",
         uiControl:{
             fields: [
 

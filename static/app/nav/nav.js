@@ -20,9 +20,9 @@ define(function (require) {
 			"text": "Tờ khai y tế đối với người",
 			"icon": "fa fa-angle-double-right",
 			"type": "view",
-			"collectionName": "tokhaiytedoivoinguoi",
-			"route": "tokhaiytedoivoinguoi/collection",
-			"$ref": "app/tokhaiytedoivoinguoi/js/CollectionView",
+			"collectionName": "tokhaiyte",
+			"route": "tokhaiyte/collection",
+			"$ref": "app/tokhaiyte/js/CollectionView",
 			"visible": function () {
 				return true
 
@@ -30,9 +30,9 @@ define(function (require) {
 		},
 		{
 			"type": "view",
-			"collectionName": "tokhaiytedoivoinguoi",
-			"route": "tokhaiytedoivoinguoi/model",
-			"$ref": "app/tokhaiytedoivoinguoi/js/ModelView",
+			"collectionName": "tokhaiyte",
+			"route": "tokhaiyte/model",
+			"$ref": "app/tokhaiyte/js/ModelView",
 			"visible": function () {
 				return false;
 			}

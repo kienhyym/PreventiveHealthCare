@@ -7,14 +7,14 @@ define(function (require) {
 		
 
 		{
-			"collectionName": "tokhaiytedoivoinguoi",
-			"route": "tokhaiytedoivoinguoi/collection",
-			"$ref": "app/tokhaiytedoivoinguoi/js/CollectionView",
+			"collectionName": "tokhaiyte",
+			"route": "tokhaiyte/collection",
+			"$ref": "app/tokhaiyte/js/CollectionView",
 		},
 		{
-			"collectionName": "tokhaiytedoivoinguoi",
-			"route": "tokhaiytedoivoinguoi/model(/:id)",
-			"$ref": "app/tokhaiytedoivoinguoi/js/ModelView",
+			"collectionName": "tokhaiyte",
+			"route": "tokhaiyte/model(/:id)",
+			"$ref": "app/tokhaiyte/js/ModelView",
 		},
 
 
