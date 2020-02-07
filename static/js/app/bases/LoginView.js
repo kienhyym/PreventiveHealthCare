@@ -106,7 +106,7 @@ define(function (require) {
        		    	//
        		    	
        		    	//self.getApp().getRouter().navigate("index");
-       		    	self.getApp().postLogin();
+       		    	self.getApp().postLogin(data);
        		    },
        		    error: function(XMLHttpRequest, textStatus, errorThrown) {
        		    	self.getApp().notify("Login error");

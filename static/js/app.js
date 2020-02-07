@@ -38,7 +38,7 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 		//initialize: function(){
 			
 		//},
-		postLogin: function(){
+		postLogin: function(data){
 			var self = this;
 			
 			$('body').html(this.layout);
@@ -49,32 +49,45 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 			this.nav = new Nav({el: this.$navbar});
 			this.notificationView = new NotificationView({el: $('body').find(".page-notification")});
 			this.notificationView.render();
+
+
+			self.currentUser = new Gonrin.User(data);
+			var $user = self.$header.find("span.username");
+			if(self.currentUser.hasRole("DonViAdmin")){
+				self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.user.name);
+			}else if(self.currentUser.hasRole("DonViUser")){
+				self.$header.find("span.username").html("Người dùng đơn vị: "+data.user.name);
+			}else if(self.currentUser.hasRole("CuaKhauUser")){
+				self.$header.find("span.username").html("Người dùng cửa khẩu: "+data.user.name);
+			}else{
+				self.$header.find("span.username").html(data.name);
+			}
+			$('body').find(".page-login").empty();
+			self.nav.render();
 			
-			$.ajax({
-				url: '/api/v1/current_user',
-       		    dataType:"json",
-       		    success: function (data) {
-       		    	//self.currentUser = data.user;
-					//self.currentUser = new Gonrin.User(data.user);
-					self.currentUser = new Gonrin.User(data);
-       		    	var $user = self.$header.find("span.username");
-       		    	if(self.currentUser.hasRole("DonViAdmin")){
-       		    		self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.user.name);
-       		    	}else if(self.currentUser.hasRole("DonViUser")){
-       		    		self.$header.find("span.username").html("Người dùng đơn vị: "+data.user.name);
-       		    	}else if(self.currentUser.hasRole("CuaKhauUser")){
-       		    		self.$header.find("span.username").html("Người dùng cửa khẩu: "+data.user.name);
-       		    	}else{
-       		    		self.$header.find("span.username").html(data.user.name);
-       		    	}
-       		    	$('body').find(".page-login").empty();
-       		    	self.nav.render();
-       		    },
-       		    error: function(XMLHttpRequest, textStatus, errorThrown) {
-       		    	self.notify("Nav error");
-       		    	self.router.navigate("login");
-       		    }
-       		});
+			// $.ajax({
+			// 	url: '/api/v1/current_user',
+       		//     dataType:"json",
+       		//     success: function (data) {
+			// 		self.currentUser = new Gonrin.User(data);
+       		//     	var $user = self.$header.find("span.username");
+       		//     	if(self.currentUser.hasRole("DonViAdmin")){
+       		//     		self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.user.name);
+       		//     	}else if(self.currentUser.hasRole("DonViUser")){
+       		//     		self.$header.find("span.username").html("Người dùng đơn vị: "+data.user.name);
+       		//     	}else if(self.currentUser.hasRole("CuaKhauUser")){
+       		//     		self.$header.find("span.username").html("Người dùng cửa khẩu: "+data.user.name);
+       		//     	}else{
+       		//     		self.$header.find("span.username").html(data.user.name);
+       		//     	}
+       		//     	$('body').find(".page-login").empty();
+       		//     	self.nav.render();
+       		//     },
+       		//     error: function(XMLHttpRequest, textStatus, errorThrown) {
+       		//     	self.notify("Nav error");
+       		//     	self.router.navigate("login");
+       		//     }
+       		// });
 		},
 		// parseDate: function (val) {
 		// 	var result = null;
