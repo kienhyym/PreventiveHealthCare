@@ -51,6 +51,7 @@
     <script src="/static/vendor/bootstrap4/bootstrap-select/js/bootstrap-select.min.js"
         crossorigin="anonymous"></script>
 
+    {% block head_script %}Báo cáo Kiểm dịch y tế{% endblock %}
     {% endblock %}
 
     <style>
@@ -80,7 +81,7 @@
 <body>
     <div class="header">
         <img height="40px" style="float: left;" src="/static/img/logo-boyte50.png"/>
-        <button class="btn btn-success btn-sm" style="float: right;"><i class="fa fa-save"></i> Lưu</button>
+        
     </div><br/>
     <div class="content" style="margin-top: 50px;">
         {% block content %}{% endblock %}
