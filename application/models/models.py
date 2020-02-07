@@ -716,15 +716,77 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
 class ToKhaiYTe(CommonModel):
     __tablename__ = "tokhaiyte"
     id = db.Column(db.String, primary_key=True)
-    
+    ngaykekhai = db.Column(db.BigInteger())
+
+    donvi_id = db.Column(db.Integer, nullable=False)
+    tendonvi = db.Column(db.String())
+    madonvi = db.Column(db.String())
+
+    cuakhau_id = db.Column(db.Integer, nullable=True)
+    tencuakhau = db.Column(db.String())
+    macuakhau = db.Column(db.String(25))
+
+    canbo_id = db.Column(db.Integer, nullable=True)
+    tencanbo = db.Column(db.String)
+    emailcanbo = db.Column(db.String)
+
     hoten = db.Column(db.String)
     namsinh = db.Column(db.Integer)
     gioitinh = db.Column(db.String)
-    noiden = db.Column(db.String)
     quoctich = db.Column(db.String)
+    
+    sohochieu = db.Column(db.String)
+    
+    thongtindilai_taubay = db.Column(db.SmallInteger) #taubay, tauthuyen, oto, khac
+    thongtindilai_tauthuyen = db.Column(db.SmallInteger)
+    thongtindilai_oto = db.Column(db.SmallInteger)
+    thongtindilai_khac = db.Column(db.SmallInteger)
+    thongtindilai_chitiet = db.Column(db.String)
+
+    sohieu_phuongtien = db.Column(db.String)
+    soghe_phuongtien = db.Column(db.String)
+
+    ngay_khoihanh = db.Column(db.DateTime())
+    ngay_nhapcanh = db.Column(db.DateTime())
+
+    noi_khoihanh = db.Column(db.String)
+    noiden = db.Column(db.String)
+    quocgiadiqua = db.Column(db.String())
+    
+    diachi_taivietnam = db.Column(db.String)
+    sodienthoai = db.Column(db.String)
+    email = db.Column(db.String)
+
+    dauhieubenh_sot = db.Column(db.SmallInteger)
+    dauhieubenh_ho = db.Column(db.SmallInteger)
+    dauhieubenh_khotho = db.Column(db.SmallInteger)
+    dauhieubenh_dauhong = db.Column(db.SmallInteger)
+
+    dauhieubenh_buonnon = db.Column(db.SmallInteger)
+    dauhieubenh_tieuchay = db.Column(db.SmallInteger)
+    dauhieubenh_xuathuyetngoaida = db.Column(db.SmallInteger)
+    dauhieubenh_phatban = db.Column(db.SmallInteger)
+
+    vacxin_dasudung = db.Column(db.String())
+
+    #danhsach_vacxin = db.relationship("ToKhaiYTeDoiVoiNguoiVacxin",  cascade="all, delete-orphan", lazy='dynamic')
+    tiepxuc_dongvat = db.Column(db.SmallInteger())
+    chamsocnguoibenhtruyennhiem = db.Column(db.SmallInteger())
+    
+    
+    # lienhe_email = db.Column(db.String)
+    # lienhe_fax = db.Column(db.String)
+    # lienhe_sodienthoai = db.Column(db.String(63))
+    
+
     ngaygio_phathien = db.Column(db.String)
     tinhtrang = db.Column(db.String)
     huongxuly = db.Column(db.String)
+    cachlytaptrung = db.Column(db.String)
+
+    trangthai = db.Column(db.String)
+    note = db.Column(Text())
+    extra_data = db.Column(JSONB)
     
     # baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
 
@@ -738,6 +800,7 @@ class ToKhaiYTe(CommonModel):
 #     gioitinh = db.Column(db.String())
 #     quoctich = db.Column(db.String)
 #     thongtin_dilai = db.relationship("ToKhaiYTeDoiVoiNguoiThongTinDiLai",  cascade="all, delete-orphan", lazy='dynamic')
+
 #     sohochieu = db.Column(db.String)
 #     sohieu_phuongtien = db.Column(db.String)
 #     soghe = db.Column(db.String)
