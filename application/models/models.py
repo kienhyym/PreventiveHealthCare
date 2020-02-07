@@ -725,6 +725,7 @@ class ToKhaiYTe(CommonModel):
     ngaygio_phathien = db.Column(db.String)
     tinhtrang = db.Column(db.String)
     huongxuly = db.Column(db.String)
+    
     # baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
 
 
