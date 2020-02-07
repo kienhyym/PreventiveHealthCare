@@ -40,6 +40,19 @@ define(function (require) {
             var loginview = new Login({el: $('body')});
             loginview.render();
         },
+        logout: function () {
+            var self = this;
+            $.ajax({
+                url: self.getApp().serviceURL + '/api/v1/logout',
+                dataType: "json",
+                success: function (data) {
+                    self.navigate("login");
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    self.getApp().notify(self.getApp().translate("LOGOUT_ERROR"));
+                }
+            });
+        },
         readbaiviet: function(){
         	var readbaiviet = new ReadModelView({el: $("#article")});
         	readbaiviet.render();

@@ -123,3 +123,10 @@ async def login(request):
         
     return json({"error_code":"LOGIN_FAILED","error_message":"Tài khoản hoặc mật khẩu không đúng"}, status=520)
 
+@app.route('api/v1/logout')
+async def logout(request):
+    try:
+        auth.logout_user(request)
+    except:
+        pass
+    return json({})
