@@ -35,9 +35,27 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 		lang: lang,
 		layout: layout,
 		//serviceURL: 'http://localhost1:8062',
-		//initialize: function(){
+		initialize: function () {
+			console.log("Applicaiton initialize");
+			this.getRouter().registerAppRoute();
+			this.getCurrentUser();
 			
-		//},
+		},
+		getCurrentUser: function () {
+			console.log("Applicaiton getCurrentUser");
+			var self = this;
+			$.ajax({
+				url: self.serviceURL + 'api/v1/current_user',
+				dataType: "json",
+				success: function (data) {
+					self.postLogin(data);
+				},
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+					console.log("Before navigate login");
+					self.router.navigate("login");
+				}
+			});
+		},
 		postLogin: function(data){
 			var self = this;
 			
@@ -65,52 +83,8 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 			$('body').find(".page-login").empty();
 			self.nav.render();
 			
-			// $.ajax({
-			// 	url: '/api/v1/current_user',
-       		//     dataType:"json",
-       		//     success: function (data) {
-			// 		self.currentUser = new Gonrin.User(data);
-       		//     	var $user = self.$header.find("span.username");
-       		//     	if(self.currentUser.hasRole("DonViAdmin")){
-       		//     		self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.user.name);
-       		//     	}else if(self.currentUser.hasRole("DonViUser")){
-       		//     		self.$header.find("span.username").html("Người dùng đơn vị: "+data.user.name);
-       		//     	}else if(self.currentUser.hasRole("CuaKhauUser")){
-       		//     		self.$header.find("span.username").html("Người dùng cửa khẩu: "+data.user.name);
-       		//     	}else{
-       		//     		self.$header.find("span.username").html(data.user.name);
-       		//     	}
-       		//     	$('body').find(".page-login").empty();
-       		//     	self.nav.render();
-       		//     },
-       		//     error: function(XMLHttpRequest, textStatus, errorThrown) {
-       		//     	self.notify("Nav error");
-       		//     	self.router.navigate("login");
-       		//     }
-       		// });
 		},
-		// parseDate: function (val) {
-		// 	var result = null;
-		// 	if (val === null || val === undefined || val === "" || val === 0) {
-		// 		//				return moment.utc();
-		// 		result = null;
-		// 	} else {
-		// 		var date = null;
-		// 		if ($.isNumeric(val) && parseInt(val) > 0) {
-		// 			date = new Date(val * 1000);
-		// 		} else if (typeof val === "string") {
-		// 			date = new Date(val);
-		// 		} else {
-		// 			result = moment.utc();
-		// 		}
-		// 		if (date != null && date instanceof Date) {
-		// 			result = moment.utc([date.getFullYear(), date.getMonth(), date.getDate()]);
-		// 		}
-		// 		//				return moment.utc();
-		// 		//				console.log("app.parseDate====",result);
-		// 		return result;
-		// 	}
-		// },
+		
 	});
     Backbone.history.start();
 });

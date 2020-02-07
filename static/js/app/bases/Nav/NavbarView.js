@@ -237,9 +237,9 @@ define(function (require) {
     					view.render();
     				});
     			});
-            	if(entry_path === "index"){
-            		router.navigate(entry_path, true);
-            	}
+            	// if(entry_path === "index"){
+            	// 	router.navigate(entry_path, true);
+            	// }
             };
             return this;
         },

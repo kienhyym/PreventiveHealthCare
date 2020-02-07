@@ -4,11 +4,12 @@ define(function (require) {
     
     var $           = require('jquery'),
         Gonrin    	= require('gonrin');
+    var routedata = require('app/bases/Nav/route');
     var Login		= require('app/bases/LoginView');
     var ReadModelView		= require('app/view/BaiViet/ReadModelView');
     return Gonrin.Router.extend({
         routes: {
-        	//"index" : "index",
+        	"index" : "index",
         	"blank" : "blankRoute",
             "login":"login",
             "logout": "logout",
@@ -17,31 +18,15 @@ define(function (require) {
             "baiviet/readmodel(/:id)": "readbaiviet",
             "*path":  "defaultRoute"
         },
+        index:function(){
+        },
         blankRoute:function(){
         	//console.log("blankroute");
         	//this.navigate("index",true);
         },
         defaultRoute:function(){
         	//check storejs session
-        	var app = this.getApp();
-        	// if(!app.check_valid_session()){
-        	// 	var token = storejs.get('gonrin.token');
-            // 	if(token != null){
-            // 		app.session.token = token;
-            // 		$.ajaxSetup({
-        	//     	    headers: {
-        	//     	        'content-type':'application/json',
-        	//     	        'Authorization':token
-        	//     	    }
-        	//     	});
-            // 	}
-        	// }
-        	// if(app.check_valid_session()){
-        	// 	this.navigate("blank");
-	    	// 	app.postLogin();
-	    	// }else{
-	    	// 	this.navigate("login");
-	    	// }
+        	console.log("defaultRoute");
         },
         error_page: function(){
         	var app = this.getApp();
@@ -58,7 +43,20 @@ define(function (require) {
         readbaiviet: function(){
         	var readbaiviet = new ReadModelView({el: $("#article")});
         	readbaiviet.render();
-        }
+        },
+        registerAppRoute: function(){
+            var self = this;
+            console.log("registerAppRoute");
+            $.each(routedata, function(idx, entry){
+                var entry_path = _.result(entry,'route');
+                self.route(entry_path, entry.collectionName, function(){
+                    require([ entry['$ref'] ], function ( View) {
+                        var view = new View({el: self.getApp().$content, viewData:entry.viewData});
+                        view.render();
+                    });
+                });
+            });
+        },
     });
 
 });

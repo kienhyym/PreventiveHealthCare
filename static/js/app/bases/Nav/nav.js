@@ -221,7 +221,7 @@ define(function (require) {
         			    "collectionName":"baocaonghingonhiembenh",
         			    "route":"baocaonghingonhiembenh/collection",
         			    //"href":"baocao/baocaonghingonhiembenhcollection",
-        			    "$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
+        			    // "$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
         			    "icon":static_url + "/images/icons/task_120.png",
         			    // "visible": function(){
         			    // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
