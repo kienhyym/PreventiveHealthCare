@@ -1,0 +1,18 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "kinhphi": {
+    "type": "number"
+  },
+  "nguonkinhphi": {
+    "type": "string"
+  }
+}

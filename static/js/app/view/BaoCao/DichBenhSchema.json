@@ -1,0 +1,81 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "cuakhau_id": {
+    "type": "number"
+  },
+  "tencuakhau": {
+    "type": "string"
+  },
+  "macuakhau": {
+    "type": "string"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "db_csbc": {
+    "type": "number"
+  },
+  "db_sxdtc": {
+    "type": "number"
+  },
+  "db_slgs": {
+    "type": "number"
+  },
+  "db_sldtc": {
+    "type": "number"
+  },
+  "db_mdc": {
+    "type": "number"
+  },
+  "db_sxkd": {
+    "type": "number"
+  },
+  "db_dvkd": {
+    "type": "number"
+  },
+  "db_mdm": {
+    "type": "number"
+  },
+  "db_dvdtc": {
+    "type": "number"
+  },
+  
+  "db_mdc_slgs": {
+    "type": "number"
+  },
+  "db_mdc_slxl": {
+    "type": "number"
+  },
+  "db_csbc_slgs": {
+    "type": "number"
+  },
+  "db_csbc_slxl": {
+    "type": "number"
+  },
+  "db_mdm_slgs": {
+    "type": "number"
+  },
+  "db_mdm_slxl": {
+    "type": "number"
+  },
+  "db_csdv_slgs": {
+    "type": "number"
+  },
+  "db_csdv_sld": {
+    "type": "number"
+  },
+  "db_cssx_slgs": {
+    "type": "number"
+  },
+  "db_cssx_sld": {
+    "type": "number"
+  }
+  
+  
+}

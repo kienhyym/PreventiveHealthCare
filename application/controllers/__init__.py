@@ -7,4 +7,4 @@ def init_controllers(app):
     import application.controllers.user_api
     @app.route('/')
     def index(request):
-        return jinja.render('index.html', request)
+        return jinja.render('admin/index.html', request)

@@ -1,0 +1,67 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "cuakhau_id": {
+    "type": "number"
+  },
+  "tencuakhau": {
+    "type": "string"
+  },
+  "macuakhau": {
+    "type": "string"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "ng_nc_sl2": {
+    "type": "number"
+  },
+  "ng_qc_sl2": {
+    "type": "number"
+  },
+  "ng_qc_sl1": {
+    "type": "number"
+  },
+  "ng_nc_sl1": {
+    "type": "number"
+  },
+  "ng_nc_ghichu": {
+    "type": "string"
+  },
+  "ng_qc_ts1": {
+    "type": "number"
+  },
+  "ng_qc_ts2": {
+    "type": "number"
+  },
+  "ng_xc_ghichu": {
+    "type": "string"
+  },
+  "ng_nc_ts1": {
+    "type": "number"
+  },
+  "ng_nc_ts2": {
+    "type": "number"
+  },
+  "ng_xc_sl1": {
+    "type": "number"
+  },
+  "ng_xc_sl2": {
+    "type": "number"
+  },
+  "ng_xc_ts2": {
+    "type": "number"
+  },
+  "ng_qc_ghichu": {
+    "type": "string"
+  },
+  "ng_xc_ts1": {
+    "type": "number"
+  }
+  
+}

@@ -1,0 +1,48 @@
+{
+  "id": {
+    "type": "number",
+    "primary": true
+  },
+  "parent_id": {
+    "type":"number"
+  }, 
+  "parent": {
+    "type":"dict"
+  }, 
+  "coquanchuquan": {
+    "type": "string"
+  }, 
+  "diachi": {
+    "type": "string"
+  }, 
+  "email": {
+    "type": "string"
+  }, 
+  "ghichu": {
+    "type": "string"
+  },
+  "ma": {
+    "type": "string"
+  }, 
+  "sodienthoai": {
+    "type": "string"
+  }, 
+  "ten": {
+    "type": "string"
+  }, 
+  "tinhthanh_id": {
+    "type":"number"
+  }, 
+  "tinhthanh": {
+    "type":"dict"
+  }, 
+  "tuyendonvi": {
+    "type": "number"
+  }, 
+  "loaidonvi": {
+    "type": "number"
+  },
+  "cuakhau": {
+    "type": "list"
+  }
+}

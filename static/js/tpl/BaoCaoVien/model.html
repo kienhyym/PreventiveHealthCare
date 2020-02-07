@@ -1,0 +1,107 @@
+<style>
+#bangvienhoatdongchung .input-group{
+	margin-bottom: 0px !important;
+}
+
+</style>
+<div block-bind="toolbar"></div>
+<div block-bind="content">
+	<!-- HTML here -->
+	<table style="width: 100%;">
+		<tbody>
+			<tr>
+				<td style="vertical-align: text-top; text-align:center; border:0px">
+					<p id="chuquan"></p>
+					<p style="margin-bottom:2px">
+						<b id="tendonvi"></b>
+					</p>
+					<p style="border-bottom:1px solid #000; height:1px; margin:auto; width:50%; margin-bottom:2px">
+						&nbsp;
+					</p>
+					<p>
+						<span>Số:</span><input style="width: 100px;" type="text" data-bind="value:ma"/>
+					</p>
+				</td>
+				<td style="vertical-align: text-top; text-align:center; border:0px">
+					<p fontsize="15">
+						<b>BÁO CÁO HOẠT ĐỘNG KIỂM DỊCH Y TẾ 6 THÁNG LẦN </b>
+						<input style="width: 30px;" type="text" readonly data-bind="value:kybaocao"/>
+						<b> NĂM </b>
+						<input style="width: 50px;" type="text" readonly data-bind="value:nambaocao"/>
+					</p>
+					<p>
+						<span>Từ ngày:</span> <span  data-bind="text:tungay">Từ ngày</span>
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<span>Đến ngày:</span> <span  data-bind="text:denngay">Đến ngày </span>
+					</p>
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<div id="canbo">
+		<div align="left" >
+			<p><b>I. THÔNG TIN CHUNG VỀ CÁN BỘ LÀM CÔNG TÁC KIỂM DỊCH Y TẾ</b></p>
+		</div>
+		<div id="canbotool"></div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th style="width:45px">TT</th>
+					<th style="width: 300px; text-align:center">Trình độ chuyên môn</th>
+					<th style="width: 200px; text-align:center">Số lượng chuyên trách</th>
+					<th style="width: 200px; text-align:center">Số lượng kiêm nhiệm</th>
+				</tr>
+			</thead>
+			<tbody id="bangviencanbo" data-bind="list:bangviencanbo">
+			</tbody>
+		</table>
+	</div>
+	<div align="left" style="margin-top:20px" >
+		<p><b>II. HOẠT ĐỘNG ĐÃ THỰC HIỆN </b></p>
+	</div>
+	<div id="hoatdong">
+		<div align="left" style="margin-top:20px" >
+			<p><b>1. Hoạt động chung</b></p>
+		</div>
+		<div id="hoatdongchungtool"></div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th>Tên hoạt động</th>
+					<th style="width:45px">STT</th>
+					<th>Nội dung</th>
+					<th style="width:200px">Số lượng (lượt, người, đề tài, tài liệu…)</th>
+				</tr>
+			</thead>
+			<tbody id="bangvienhoatdongchung" data-bind="list:bangvienhoatdongchung">
+			
+			</tbody>
+		</table>
+		
+	</div>
+	<div id="sukien">
+		<div align="left" style="margin-top:20px" >
+			<p><b>2. Đánh giá các sự kiện khẩn cấp ảnh hưởng tới sức khỏe cộng đồng</b></p>
+		</div>
+		<div id="sukientool"></div>
+		<table style="width: 100%;" class="data-table">
+			<tbody data-bind="list:bangviensukien">
+			
+			</tbody>
+		</table>
+	</div>
+	
+	<div align="left" style="margin-top:20px" >
+		<p><b>III. ĐÁNH GIÁ HOẠT ĐỘNG CỦA CÁC ĐƠN VỊ TRÊN ĐỊA BÀN PHỤ TRÁCH </b>(đánh giá so với cùng kỳ, những khó khăn, thuận lợi trong triển khai công tác):</p>
+		<textarea data-bind="value:danhgia"  class="form-control"></textarea>
+	</div>
+	
+	<div align="left" style="margin-top:20px" >
+		<p><b>IV. KIẾN NGHỊ VÀ ĐỀ XUẤT:</b></p>
+		<p><b>1. Đối với Viện</b></p>
+		<textarea data-bind="value:kiennghivien" class="form-control"></textarea>
+		<p><b>2. Đối với các đơn vị trên địa bàn phụ trách</b></p>
+		<textarea data-bind="value:kiennghidonvi" class="form-control"></textarea>
+	</div>
+</div>

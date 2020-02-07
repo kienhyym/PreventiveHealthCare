@@ -1,0 +1,49 @@
+<div block-bind="content">
+	<div block-bind="toolbar"></div>
+	<div class="grid_3 grid_4">
+		<h3 class="title">Đăng ký hồ sơ con</h3>
+		<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs" role="tabpanel">
+			<ul id="myTab" class="nav nav-tabs" role="tablist">
+				<li  class="active"  role="presentation">
+					<a id="dkhosocon" aria-expanded="true" aria-controls="thongtincon" data-toggle="tab" role="tab" data-target="#thongtincon">Thông tin Con</a>
+				</li>
+				<li role="presentation">
+					<a id="dkhosobo" aria-controls="thongtinbo" data-toggle="tab" role="tab" data-target="#thongtinbo">Thông tin Bố</a>
+				</li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div id="thongtincon" class="tab-pane fade in active" aria-labelledby="dkhosocon" role="tabpanel">
+								<div class="form-group">
+									<label>Mã</label> <input data-bind="value:ma" class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Họ và tên</label> <input data-bind="value:hoten"	class="form-control">
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Ngày sinh:</label>
+											<input type="text" class="input-sm form-control" name="birthday" id="val_birthday" data-bind="value:ngaysinh"> 
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Giới tính:</label> 
+											<select data-bind="value:gioitinh">
+												<option >Nam</option>
+												<option >Nữ</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Nơi sinh:</label> <input data-bind="value:noisinh"	class="form-control">
+								</div>
+				</div>
+				<div id="thongtinbo" class="tab-pane fade">thong tin bo</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

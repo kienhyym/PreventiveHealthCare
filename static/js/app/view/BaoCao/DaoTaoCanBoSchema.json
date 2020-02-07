@@ -1,0 +1,33 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "xetnghiem": {
+    "type": "number"
+  },
+  "ngoaingu": {
+    "type": "number"
+  },
+  "vesinhdichte": {
+    "type": "number"
+  },
+  "ytecongdong": {
+    "type": "number"
+  },
+  "soluong": {
+    "type": "number"
+  },
+  "khac": {
+    "type": "number"
+  },
+  "hinhthucdaotao": {
+    "type": "string"
+  }
+}

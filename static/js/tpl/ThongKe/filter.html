@@ -1,0 +1,89 @@
+		<div class="navbar">
+    	  <div class="navbar-inner">
+    	    <div class="container">
+		    	<ul class="nav navbar-nav">
+		    	  	<li><a data-target="#tab1" data-toggle="tab">Bước 1: Chọn loại báo cáo</a></li>
+		    		<li><a data-target="#tab2" data-toggle="tab">Bước 2: Chọn đơn vị, cửa khẩu</a></li>
+		    		<li><a data-target="#tab3" data-toggle="tab">Bước 3: Chọn thời gian</a></li>
+		    		
+		    	</ul>
+    	 	</div>
+    	  </div>
+    	</div>
+    	<div class="tab-content">
+    	    <div class="tab-pane" id="tab1">
+    	    	<div class="container">
+				  <div class="row" >
+				  	<div class="col-md-3 text-right">
+				  		<label>Loại báo cáo</label>
+				  	</div>
+				    <div class="col-md-3">
+				    	<div class="input-group">
+							<input type="text" id="loaikybaocao" data-bind="value:loaikybaocao">
+						</div>
+				    </div>
+				    
+				  </div>
+				</div>
+    	      	
+    	    </div>
+    	    <div class="tab-pane" id="tab2">
+    	     	<div class="container">
+				  <div class="row" >
+				  	<div class="col-md-3 text-right">
+				  		
+				  	</div>
+				    <div class="col-md-4">
+				    	<label>Đơn vị, cửa khẩu</label>
+				    	<div id="donvi-tree" class=""></div>
+				    </div>
+				    <div class="col-md-4">
+				    	<label>Dữ liệu cửa khẩu khi xuất Excel</label>
+				    	<input type="text" data-bind="value:solieucuakhau" class="form-control">
+				    </div>
+				    
+				  </div>
+				</div>
+    	    </div>
+    		<div class="tab-pane" id="tab3">
+				<div class="row" >
+				  	<div class="col-md-2  text-right">
+				  		<label id="tutuanlabel">Từ tuần</label>
+				  		<label id="tuthanglabel" style="display:none">Từ tháng</label>
+				  		<label id="tu6thanglabel" style="display:none">Từ 6 tháng</label>
+				  	</div>
+				  	<div class="col-md-3">
+				    	<input type="text" id="tutuan" data-bind="value:tutuan"/>
+				    	<input type="text" id="tuthang" style="display:none" data-bind="value:tuthang"/>
+				    	<input type="text" id="tu6thang" style="display:none" data-bind="value:tu6thang"/>
+				    </div>
+				    <div class="col-md-2 text-right">
+				  		<label>Từ năm</label>
+				  	</div>
+				  	<div class="col-md-3">
+				    	<input type="text" id="tunam" data-bind="value:tunam"/>
+				    </div>
+				</div>
+				<div class="row" >
+				  	<div class="col-md-2 text-right">
+				  		<label id="dentuanlabel">Đến tuần</label>
+				  		<label id="denthanglabel" style="display:none">Đến tháng</label>
+				  		<label id="den6thanglabel" style="display:none">Đến 6 tháng</label>
+				  	</div>
+				  	<div class="col-md-3">
+				    	<input type="text" id="dentuan" data-bind="value:dentuan"/>
+				    	<input type="text" id="denthang" style="display:none" data-bind="value:denthang"/>
+				    	<input type="text" id="den6thang" style="display:none" data-bind="value:den6thang"/>
+				    </div>
+				    <div class="col-md-2 text-right">
+				  		<label>Đến năm</label>
+				  	</div>
+				  	<div class="col-md-3">
+				    	<input type="text" id="dennam" data-bind="value:dennam"/>
+				    </div>
+				</div>
+				  
+				
+    	    </div>
+    
+    	</div>

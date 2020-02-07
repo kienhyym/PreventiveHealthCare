@@ -1,0 +1,34 @@
+{
+	"id":{
+		"type":"number",
+		"primary":true
+	},
+	"me_id":{
+		"type":"number",
+		"primary":true
+	},
+	"bo_id":{
+		"type":"number",
+		"primary":true
+	},
+	"ma":{
+		"type":"string",
+		"primary":true
+	},
+	"hoten":{
+		"type":"string",
+		"required": true
+	},
+	"ngaysinh":{
+		"type":"datetime",
+		"required": true
+	},
+	"gioitinh":{
+		"type":"number",
+		"required": true
+	},
+	"noisinh":{
+		"type":"string",
+		"required": true
+	}
+}

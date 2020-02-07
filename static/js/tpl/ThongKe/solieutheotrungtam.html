@@ -1,0 +1,165 @@
+<h4 id="view-header" class="text-center">Thống kê tổng hợp số liệu theo đơn vị</h4>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div id="filter" style="width: 100%;">
+		
+		</div>
+		<div align="right">
+			<button type="button" class="btn btn-primary btn-sm" id="filter-submit">Xem báo cáo</button>
+			<button type="button" class="btn btn-success btn-sm" id="excel-submit">Xuất Excel</button>
+		</div>
+	</div>
+</div>
+<div block-bind="content" id="content" style="display: none;">
+	<!-- HTML here -->
+	<h5 id="data-header" class="text-center"></h5>
+	<div id="nguoi">
+		<div align="left" >
+			<p><b>1. Kiểm dịch y tế đối với người</b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:30px"></th>
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=4 style="width: 300px; text-align:center">Tên đơn vị</th>
+					<th colspan=2 style="width: 200px; text-align:center">Số kiểm tra (lượt)</th>
+					<th rowspan=2 style="width: 200px; text-align:center">Số phải xử lý y tế và áp dụng biện pháp dự phòng (lượt)</th>
+				</tr>
+				<tr>
+					<th >Tổng số</th>
+					<th style="width: 140px; text-align:center">Số nghi ngờ, mắc bệnh</th>
+				</tr>
+			</thead>
+			<tbody id="bangnguoi">
+			</tbody>
+		</table>
+	</div>
+	<div id="phuongtien">
+		<div align="left" style="margin-top:20px" >
+			<p><b>2. Kiểm dịch y tế đối với phương tiện </b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:30px"></th>
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên đơn vị</th>
+					<th colspan=3>Phương tiện hàng không (lượt)</th>
+					<th colspan=3>Phương tiện đường bộ (lượt)</th>
+					<th colspan=3>Phương tiện đường thủy (lượt)</th>
+					<th colspan=3>Phương tiện đường sắt (lượt)</th>
+				</tr>
+				<tr>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody id="bangphuongtien">
+			
+			</tbody>
+		</table>
+		
+	</div>
+	<div id="hanghoa">
+		<div align="left" style="margin-top:10px" >
+			<p><b>3. Kiểm dịch y tế đối với hàng hóa</b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:30px"></th>
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên đơn vị</th>
+					<th colspan=3>Bưu phẩm/ Bưu kiện (gói/kiện)</th>
+					<th colspan=3>Hàng hóa khác (tấn)</th>
+				</tr>
+				<tr>
+					<th style="width:90px">Số lượng</th>
+					<th style="width:90px">Số kiểm tra</th>
+					<th style="width:90px">Số xử lý</th>
+					<th style="width:90px">Trọng lượng</th>
+					<th style="width:90px">Số kiểm tra</th>
+					<th style="width:90px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody id="banghanghoa">
+			
+			</tbody>
+		</table>
+	</div>
+	
+	<div id="thithe">
+		<div align="left" style="margin-top:20px" >
+			<p><b>4. Kiểm dịch y tế đối với thi thể, hài cốt, tro cốt </b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:30px"></th>
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên đơn vị</th>
+					<th colspan=3>Thi thể</th>
+					<th colspan=3>Hài cốt</th>
+					<th colspan=3>Tro cốt</th>
+				</tr>
+				<tr>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody id="bangthithe">
+			
+			</tbody>
+		</table>
+	</div>
+	<div id="vssh">
+		<div align="left" style="margin-top:20px" >
+			<p><b>5. Kiểm dịch y tế đối với mẫu vi sinh y học, sản phẩm sinh học, mô, bộ phận cơ  thể người</b></p>
+		</div>
+		<table style="width: 100%;"  class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:30px"></th>
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên đơn vị</th>
+					<th colspan=3>Mẫu vi sinh y học (lượt)</th>
+					<th colspan=3>Sản phẩm sinh học (lượt)</th>
+					<th colspan=3>Mô, bộ phận cơ thể người (lượt)</th>
+				</tr>
+				<tr>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody id="bangvssh">
+			
+			</tbody>
+		</table>
+	</div>
+	
+</div>

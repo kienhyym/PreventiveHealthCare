@@ -1,0 +1,42 @@
+{
+	"id":{
+		"type":"number",
+		"primary":true
+	},
+	"user_id":{
+		"type":"number",
+		"primary":true
+	},
+	"ma":{
+		"type":"string",
+		"primary":true
+	},
+	"hoten":{
+		"type":"string",
+		"required": true
+	},
+	"ngaysinh":{
+		"type":"datetime",
+		"required": true
+	},
+	"noisinh":{
+		"type":"string",
+		"required": true
+	},
+	"diachi":{
+		"type":"string",
+		"required": true
+	},
+	"dienthoai":{
+		"type":"string",
+		"required": true
+	},
+	"email":{
+		"type":"string",
+		"required": true
+	},
+	"trinhdohocvan":{
+		"type":"string",
+		"required": true
+	}
+}

@@ -1,0 +1,44 @@
+<div block-bind="toolbar"></div>
+<div block-bind="content">
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>ID</label></div>
+		<div class="col-md-3">
+			<input type="text" readonly data-bind="value:id"/>
+		</div>
+	</div>
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>Mã</label></div>
+		<div class="col-md-3">
+			<input type="text" data-bind="value:ma"/>
+		</div>
+	</div>
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>Tên</label></div>
+		<div class="col-md-3">
+			<input type="text" data-bind="value:ten"/>
+		</div>
+	</div>
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>Quốc gia</label></div>
+		<div class="col-md-3">
+			<input type="text" data-bind="list:quocgia"/>
+		</div>
+		
+		<div class="col-md-3">
+			<span class="input-group">
+				<span class="form-control ref-form-control">
+					<ul class="ref-selection-multiple">
+						<li class="ref-selection-choice">Anh</li>
+						<li class="ref-selection-choice">Mỹ</li>
+					</ul>
+				</span>
+				<input style="display: none;" type="text">
+				<span style="position:absolute; right:6px; top:2px;">X</span>
+				<span class="input-group-addon dropdown-toggle" data-dropdown="dropdown">
+					<span class="glyphicon glyphicon-th-list"></span>
+					<span class="glyphicon glyphicon-remove" style="display:none;"></span>
+				</span>
+			</span>
+		</div>
+	</div>
+</div>

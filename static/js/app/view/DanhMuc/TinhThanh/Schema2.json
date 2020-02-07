@@ -1,0 +1,15 @@
+{
+  "id": {
+    "type": "number",
+    "primary": true
+  }, 
+  "ma": {
+    "type": "string"
+  },
+  "ten": {
+    "type": "string"
+  },
+  "quocgia": {
+    "type":"list"
+  }
+}

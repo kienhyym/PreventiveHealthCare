@@ -1,0 +1,111 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "cuakhau_id": {
+    "type": "number"
+  },
+  "tencuakhau": {
+    "type": "string"
+  },
+  "macuakhau": {
+    "type": "string"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "tt_xc_tt_skt": {
+    "type": "number"
+  },
+  "tt_nc_ghichu": {
+    "type": "string"
+  },
+  "tt_nc_hc_sl": {
+    "type": "number"
+  },
+  "tt_nc_tt_skt": {
+    "type": "number"
+  },
+  "tt_xc_hc_skt": {
+    "type": "number"
+  },
+  "tt_xc_tt_sxl": {
+    "type": "number"
+  },
+  "tt_xc_tc_sxl": {
+    "type": "number"
+  },
+  "tt_nc_hc_skt": {
+    "type": "number"
+  },
+  "tt_xc_hc_sl": {
+    "type": "number"
+  },
+  "tt_qc_tt_sxl": {
+    "type": "number"
+  },
+  "tt_xc_tt_sl": {
+    "type": "number"
+  },
+  "tt_xc_tc_skt": {
+    "type": "number"
+  },
+  "tt_nc_hc_sxl": {
+    "type": "number"
+  },
+  "tt_nc_tt_sl": {
+    "type": "number"
+  },
+  "tt_xc_ghichu": {
+    "type": "string"
+  },
+  "tt_xc_tc_sl": {
+    "type": "number"
+  },
+  "tt_qc_hc_skt": {
+    "type": "number"
+  },
+  "tt_qc_tc_skt": {
+    "type": "number"
+  },
+  "tt_nc_tt_sxl": {
+    "type": "number"
+  },
+  "tt_qc_tt_skt": {
+    "type": "number"
+  },
+  "tt_nc_tc_sl": {
+    "type": "number"
+  },
+  "tt_qc_tc_sl": {
+    "type": "number"
+  },
+  "tt_qc_tc_sxl": {
+    "type": "number"
+  },
+  "tt_nc_tc_skt": {
+    "type": "number"
+  },
+  "tt_qc_tt_sl": {
+    "type": "number"
+  },
+  "tt_qc_ghichu": {
+    "type": "string"
+  },
+  "tt_xc_hc_sxl": {
+    "type": "number"
+  },
+  "tt_nc_tc_sxl": {
+    "type": "number"
+  },
+  "tt_qc_hc_sxl": {
+    "type": "number"
+  },
+  "tt_qc_hc_sl": {
+    "type": "number"
+  }
+}

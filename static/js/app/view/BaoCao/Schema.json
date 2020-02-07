@@ -1,0 +1,111 @@
+{
+  "id": {
+    "type": "number",
+    "primary": true
+  },
+  "nambaocao": {
+    "type": "number"
+  },
+  "loaibaocao": {
+    "type": "number"
+  },
+  "donvi_id": {
+    "type": "number"
+  },
+  "nhanxetnguoi": {
+    "type": "string"
+  },
+  "hoatdongkhac": {
+    "type": "string"
+  },
+  "ma": {
+    "type": "string"
+  },
+  "nhanlucts": {
+    "type": "number"
+  },
+  "nhanxethanghoa": {
+    "type": "string"
+  },
+  "denngay": {
+    "type": "datetime"
+  },
+  "tinhtrang": {
+    "type": "number"
+  },
+  "nhanxetthithe": {
+    "type": "string"
+  },
+  "kiennghi": {
+    "type": "string"
+  },
+  "kybaocao": {
+    "type": "number"
+  },
+  "loaikybaocao": {
+    "type": "number"
+  },
+  "nhanxetvssh": {
+    "type": "string"
+  },
+  "nhanxetphuongtien": {
+    "type": "string"
+  },
+  "nhanlucbienche": {
+    "type": "number"
+  },
+  "nhanxet": {
+    "type": "string"
+  },
+  "tungay": {
+    "type": "datetime"
+  },
+  "nhanluchopdong": {
+    "type": "number"
+  },
+  "ngaybaocao": {
+    "type": "datetime"
+  },
+  "bangnguoi": {
+  	"type": "list"
+  },
+  "bangphuongtien": {
+  	"type": "list"
+  },
+  "banghanghoa": {
+  	"type": "list"
+  },
+  "bangthithe": {
+  	"type": "list"
+  },
+  "bangvssh": {
+  	"type": "list"
+  },
+  "bangdichbenh": {
+  	"type": "list"
+  },
+  "bangtiemchung": {
+  	"type": "list"
+  },
+  "bangxetnghiem": {
+  	"type": "list"
+  },
+  "bangkinhphi": {
+  	"type": "list"
+  },
+  "bangtrinhdochuyenmon": {
+  	"type": "list"
+  },
+  "bangdaotaocanbo": {
+  	"type": "list"
+  },
+  "bangtruyenthong": {
+  	"type": "list"
+  },
+  "bangnghiencuukhoahoc": {
+  	"type": "list"
+  },
+  "banghoptacquocte": {
+  	"type": "list"
+  }
+}

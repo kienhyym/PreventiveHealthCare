@@ -1,0 +1,21 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "trinhdochuyenmon": {
+    "type": "string"
+  },
+  "soluongchuyentrach": {
+    "type": "number"
+  },
+  "soluongkiemnhiem": {
+    "type": "number"
+  }
+}

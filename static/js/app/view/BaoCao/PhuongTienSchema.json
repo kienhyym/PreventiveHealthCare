@@ -1,0 +1,138 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "cuakhau_id": {
+    "type": "number"
+  },
+  "tencuakhau": {
+    "type": "string"
+  },
+  "macuakhau": {
+    "type": "string"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "pt_nc_ds_sl": {
+    "type": "number"
+  },
+  "pt_qc_dt_sl": {
+    "type": "number"
+  },
+  "pt_xc_dt_sxl": {
+    "type": "number"
+  },
+  "pt_qc_ghichu": {
+    "type": "string"
+  },
+  "pt_nc_ds_skt": {
+    "type": "number"
+  },
+  "pt_xc_db_sl": {
+    "type": "number"
+  },
+  "pt_nc_db_sl": {
+    "type": "number"
+  },
+  "pt_xc_ghichu": {
+    "type": "string"
+  },
+  "pt_xc_dt_skt": {
+    "type": "number"
+  },
+  "pt_nc_dt_skt": {
+    "type": "number"
+  },
+  "pt_nc_ds_sxl": {
+    "type": "number"
+  },
+  "pt_nc_db_sxl": {
+    "type": "number"
+  },
+  "pt_qc_ds_skt": {
+    "type": "number"
+  },
+  "pt_nc_dt_sxl": {
+    "type": "number"
+  },
+  "pt_nc_hk_sxl": {
+    "type": "number"
+  },
+  "pt_xc_db_sxl": {
+    "type": "number"
+  },
+  "pt_xc_db_skt": {
+    "type": "number"
+  },
+  "pt_nc_hk_skt": {
+    "type": "number"
+  },
+  "pt_qc_dt_sxl": {
+    "type": "number"
+  },
+  "pt_xc_ds_sl": {
+    "type": "number"
+  },
+  "pt_nc_dt_sl": {
+    "type": "number"
+  },
+  "pt_nc_db_skt": {
+    "type": "number"
+  },
+  "pt_xc_hk_sl": {
+    "type": "number"
+  },
+  "pt_qc_ds_sl": {
+    "type": "number"
+  },
+  "pt_qc_hk_sl": {
+    "type": "number"
+  },
+  "pt_nc_hk_sl": {
+    "type": "number"
+  },
+  "pt_qc_ds_sxl": {
+    "type": "number"
+  },
+  "pt_xc_hk_sxl": {
+    "type": "number"
+  },
+  "pt_xc_ds_skt": {
+    "type": "number"
+  },
+  "pt_qc_dt_skt": {
+    "type": "number"
+  },
+  "pt_xc_ds_sxl": {
+    "type": "number"
+  },
+  "pt_nc_ghichu": {
+    "type": "string"
+  },
+  "pt_qc_db_skt": {
+    "type": "number"
+  },
+  "pt_qc_hk_skt": {
+    "type": "number"
+  },
+  "pt_xc_hk_skt": {
+    "type": "number"
+  },
+  "pt_xc_dt_sl": {
+    "type": "number"
+  },
+  "pt_qc_hk_sxl": {
+    "type": "number"
+  },
+  "pt_qc_db_sxl": {
+    "type": "number"
+  },
+  "pt_qc_db_sl": {
+    "type": "number"
+  }
+}

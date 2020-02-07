@@ -1,0 +1,44 @@
+{
+  "donvi": {
+    "type": "list"
+  },
+  "cuakhau": {
+    "type": "list"
+  },
+  
+  "tutuan": {
+    "type": "number"
+  },
+  "dentuan": {
+    "type": "number"
+  },
+  "tuthang": {
+    "type": "number"
+  },
+  "denthang": {
+    "type": "number"
+  },
+  "tu6thang": {
+    "type": "number"
+  },
+  "den6thang": {
+    "type": "number"
+  },
+  "tunam": {
+    "type": "number"
+  },
+  "dennam": {
+    "type": "number"
+  },
+  "loaikybaocao": {
+    "type": "number",
+    "default": 1
+  },
+  "loaibaocao": {
+    "type": "number"
+  },
+  "solieucuakhau": {
+    "type": "boolean",
+    "default": true
+  }
+}

@@ -1,0 +1,133 @@
+<div id="rootwizard">
+    	<div class="navbar">
+    	  <div class="navbar-inner">
+    	    <div class="container">
+		    	<ul class="nav navbar-nav">
+		    	  	<li><a data-target="#tab1" data-toggle="tab">Bước 1: Chọn loại báo cáo</a></li>
+		    		<li><a data-target="#tab2" data-toggle="tab">Bước 2: Chọn đơn vị, cửa khẩu</a></li>
+		    		<li><a data-target="#tab3" data-toggle="tab">Bước 3: Chọn thời gian</a></li>
+		    		<li><a data-target="#tab4" data-toggle="tab">Bước 4: Chọn tiêu chí báo cáo</a></li>
+		    		
+		    	</ul>
+    	 	</div>
+    	  </div>
+    	</div>
+    	<div class="tab-content">
+    	    <div class="tab-pane" id="tab1">
+    	    	<div class="container">
+				  <div class="row text-right" >
+				  	<div class="col-md-3">
+				  		<label>Loại báo cáo</label>
+				  	</div>
+				    <div class="col-md-3">
+				    	<div class="input-group">
+							<input type="text" id="loaikybaocao" data-bind="value:loaikybaocao">
+						</div>
+				    </div>
+				    
+				  </div>
+				</div>
+    	      	
+    	    </div>
+    	    <div class="tab-pane" id="tab2">
+    	     	<div class="container">
+				  <div class="row text-center" >
+				    <div class="col-md-4 col-md-offset-3 text-left">
+				    	<div id="donvi-tree" class=""></div>
+				    </div>
+				    
+				  </div>
+				</div>
+    	    </div>
+    		<div class="tab-pane" id="tab3">
+    			<input type="radio" id='LocTheo' name='LocTheo' value='TuanThang' checked readonly style="display:none"/>
+    			<div class="container">
+				  <div class="row" >
+				    <div class="col-md-2 col-md-offset-3">
+				    	<div class="input-group" id="TuTuanGroup">
+						  	<label>Từ tuần</label>
+							<input type="text" id="tutuan" data-bind="value:tutuan"/>
+						</div>
+						<div class="input-group" id="TuThangGroup"  style="display:none">
+						  	<span class="input-group-addon" id="lbTuThang">Từ tháng</span>
+							<input type="text" id="tuthang" data-bind="value:tuthang"/>
+						</div>
+						<div class="input-group" id="Tu6ThangGroup"  style="display:none">
+						  	<span class="input-group-addon" id="lbTu6Thang">Từ 6 tháng</span>
+							<select name="Tu6Thang" id="Tu6Thang" class="form-control" aria-describedby="lbTu6Thang"  title='...'>
+								<option value="1" selected>Đầu năm</option>
+								<option value="2">Cuối năm</option>
+							</select>
+						</div>
+				    </div>
+				    
+				    <div class="col-md-2">
+				    	<div class="input-group">
+							 <label>Từ năm</label>
+							 <input type="text" name="tunam" id="tunam" data-bind="value:tunam">
+						</div>
+				    </div>
+				  </div>
+				  
+				  <div class="row" style="margin-top:5px">
+				    <div class="col-md-2 col-md-offset-3">
+				    	<div class="input-group" id="DenTuanGroup">
+						  	<label>Đến tuần</label>
+							<input type="text" id="dentuan" data-bind="value:dentuan"/>
+						</div>
+						<div class="input-group" id="DenThangGroup"  style="display:none">
+						  	<span class="input-group-addon" id="lbDenThang">Đến tháng</span>
+							<input type="text" id="denthang"  data-bind="value:denthang"/>
+						</div>
+						<div class="input-group" id="Den6ThangGroup"  style="display:none">
+						  	<span class="input-group-addon" id="lbDen6Thang">Từ 6 tháng</span>
+							<select name="Den6Thang" id="Den6Thang" class="form-control" aria-describedby="lbDen6Thang"  title='...'>
+								<option value="1" selected>Đầu năm</option>
+								<option value="2">Cuối năm</option>
+							</select>
+						</div>
+				    </div>
+				    
+				    <div class="col-md-2">
+				    	<div class="input-group">
+							 <label>Đến năm</label>
+							 <input type="text" id="dennam"  data-bind="value:dennam">
+						</div>
+				    </div>
+				  </div>
+				</div>
+    	    </div>
+    		<div class="tab-pane" id="tab4">
+    			<div class="container">
+				  <div class="row text-center" >
+				    <div class="col-md-4 col-md-offset-3">
+				    	<div class="input-group" >
+						  	<span class="input-group-addon" id="LoaiBaoCao">Tiêu chí báo cáo</span>
+							<select  title='...' name="LoaiBaoCao" id="LoaiBaoCao" class="form-control" aria-describedby="lbLoaiBaoCao" multiple>
+								<option value=1 selected>Người</option>
+								<option value=2  selected>Phương tiện</option>
+								<option value=3 selected>Hàng hóa</option>
+								<option value=4 selected>Thi thể, hài cốt, tro cốt</option>
+								<option value=5 selected>Vi sinh, sinh phẩm</option>
+							</select>
+						</div>
+				    </div>
+					<div class="col-md-2" style="float:right">
+						<div class="form-group" align="left">
+							<button type="button" class="btn btn-primary" id="btn-submit">Xem báo cáo</button>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</div>
+				    
+				  </div>
+				</div>
+    	    </div>
+    		
+    		
+    		<ul class="pager wizard">
+    			<li class="previous first" style="display:none;"><a href="javascript:void(0)">Bước đầu</a></li>
+    			<li class="previous"><a href="javascript:void(0)">Về trước</a></li>
+    			<li class="next last" style="display:none;"><a href="javascript:void(0)">Bước cuối</a></li>
+    		  	<li class="next"><a href="javascript:void(0)">Tiếp</a></li>
+    		</ul>
+    	</div>
+    </div>
