@@ -36,13 +36,11 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 		layout: layout,
 		//serviceURL: 'http://localhost1:8062',
 		initialize: function () {
-			console.log("Applicaiton initialize");
 			this.getRouter().registerAppRoute();
 			this.getCurrentUser();
 			
 		},
 		getCurrentUser: function () {
-			console.log("Applicaiton getCurrentUser");
 			var self = this;
 			$.ajax({
 				url: self.serviceURL + 'api/v1/current_user',
