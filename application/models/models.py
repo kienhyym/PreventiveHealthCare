@@ -687,7 +687,6 @@ class BaoCaoNghiNgoNhiemBenhNguoiTiepXuc(CommonModel):
     id = db.Column(db.Integer, primary_key=True)
     baocao_id = db.Column(db.Integer,db.ForeignKey('baocaonghingonhiembenh.id'), nullable=True)
     baocao = db.relationship('BaoCaoNghiNgoNhiemBenh', backref=db.backref('baocaonghingonhiembenhnguoitiepxuc',lazy='dynamic'))
-    
     hoten = db.Column(db.String())
     quoctich = db.Column(db.String())
     cmtnd = db.Column(db.String())
