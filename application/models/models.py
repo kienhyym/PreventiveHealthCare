@@ -716,6 +716,7 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
 class ToKhaiYTe(CommonModel):
     __tablename__ = "tokhaiyte"
     id = db.Column(db.String, primary_key=True)
+    matokhaiyte = db.Column(db.String())
     ngaykekhai = db.Column(db.BigInteger())
 
     donvi_id = db.Column(db.Integer, nullable=False)
@@ -746,8 +747,8 @@ class ToKhaiYTe(CommonModel):
     sohieu_phuongtien = db.Column(db.String)
     soghe_phuongtien = db.Column(db.String)
 
-    ngay_khoihanh = db.Column(db.DateTime())
-    ngay_nhapcanh = db.Column(db.DateTime())
+    ngay_khoihanh = db.Column(db.BigInteger())
+    ngay_nhapcanh = db.Column(db.BigInteger())
 
     noi_khoihanh = db.Column(db.String)
     noiden = db.Column(db.String)
