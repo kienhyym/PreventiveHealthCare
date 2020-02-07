@@ -1,0 +1,76 @@
+<h4 class="text-uppercase">báo cáo trường hợp nghi ngờ,mắc bệnh truyền nhiễm nhóm A tại khu vực cửa khẩu </h4>
+
+<div class="card">
+    <div class="card-header">
+        <div block-bind="toolbar"></div>
+    </div>
+    <div class="card-body">
+        <div  class=" row">
+                <div class="row text-center" style="margin:10px 0px 10px 0px">
+                        <div class=" col-md-6 row" >
+                            <div class="col-md-6 text-right " style="padding-top:10px"><label>Ngày báo cáo</label></div>
+                            <div class="col-md-6" style="padding-top:10px">
+                                <input type="text" class="form-control" id="ngaybaocao" data-bind="value:ngaybaocao">
+                            </div>
+                            
+                            <div class="user_cuakhau row"  >
+                                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số chuyến bay nhập</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:sochuyenbay"/>
+                                </div>    
+                            </div>
+                            <div class="user_cuakhau row">
+                                <div class="col-md-6 text-right " style="padding-top:10px"><label>Số hành khách khai báo</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:sohanhkhachkhaibao" />
+                                </div>
+                            </div>
+                            <div class="user_donvi row" >
+                                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số người cách ly tập trung</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:songuoidangcachlytaptrung"/>
+                                </div>    
+                            </div>
+                            <div class="user_donvi row">
+                                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số nguời cách ly có dấu hiệu nhiễm bệnh</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:songuoidangcachlytaptrung_cotrieuchung" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6"  >
+                            <div class="loaibaocao row">
+                                <div class="col-md-6 text-right "><label>Loại báo cáo</label></div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="loaibaocao" data-bind="value:loaibaocao">
+                                </div>
+                            </div>
+                            <div class="user_cuakhau row" >
+                                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số người nhập cảnh</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:songuoinhapcanh"/>
+                                </div>    
+                            </div>
+                            <div class="user_cuakhau row" >
+                                <div class="col-md-6 text-right user_cuakhau" style="padding-top:10px"><label>Số người nghi ngờ nhiễm bệnh</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:songuoinguoinghingo" />
+                                </div>
+                            </div>
+                            <div class="user_donvi row">
+                                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số người hết cách ly</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="number" data-bind="value:songuoihetcachly" />
+                                </div>
+                            </div>
+                            <div class="user_donvi row" >
+                                <div class="col-md-6 text-right" style="padding-top:10px"><label>Địa điểm cách ly tập trung</label></div>
+                                <div class="col-md-6" style="padding-top:10px">
+                                    <input type="text" data-bind="value:diadiemcachlytaptrung"/>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>

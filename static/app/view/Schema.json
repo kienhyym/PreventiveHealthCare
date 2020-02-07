@@ -1,0 +1,152 @@
+{
+  "id":{
+    "type":"string"
+  },
+  "matokhaiyte": {
+    "type":"string"
+  },
+  "ngaykekhai": {
+    "type":"number"
+  },
+  "donvi_id": {
+    "type":"number"
+  },
+  "tendonvi": {
+    "type":"string"
+  },
+  "madonvi": {
+    "type":"string"
+  },
+  "cuakhau_id": {
+    "type":"number"
+  },
+  "tencuakhau": {
+    "type":"string"
+  },
+  "macuakhau": {
+    "type":"string"
+  },
+  "canbo_id": {
+    "type":"number"
+  },
+  "tencanbo": {
+    "type":"string"
+  },
+  "emailcanbo": {
+    "type":"string"
+  },
+  "hoten": {
+    "type":"string"
+  },
+  "namsinh": {
+    "type":"number"
+  },
+  "gioitinh": {
+    "type":"string"
+  },
+  "quoctich": {
+    "type":"string"
+  },
+  "sohochieu": {
+    "type":"string"
+  },
+  "thongtindilai_taubay": {
+    "type":"number"
+  },
+  "thongtindilai_tauthuyen": {
+    "type":"number"
+  },
+  "thongtindilai_oto": {
+    "type":"number"
+  },
+  "thongtindilai_khac": {
+    "type":"number"
+  },
+  "thongtindilai_chitiet": {
+    "type":"string"
+  },
+  "sohieu_phuongtien": {
+    "type":"string"
+  },
+  "soghe_phuongtien": {
+    "type":"string"
+  },
+  "ngay_khoihanh": {
+    "type":"number"
+  },
+  "ngay_nhapcanh": {
+    "type":"number"
+  },
+  "noi_khoihanh": {
+    "type":"string"
+  },
+  "noiden": {
+    "type":"string"
+  },
+  "quocgiadiqua": {
+    "type":"string"
+  },
+  "diachi_taivietnam": {
+    "type":"string"
+  },
+  "sodienthoai": {
+    "type":"string"
+  },
+  "email": {
+    "type":"string"
+  },
+  "dauhieubenh_sot": {
+    "type":"number"
+  },
+  "dauhieubenh_ho": {
+    "type":"number"
+  },
+  "dauhieubenh_khotho": {
+    "type":"number"
+  },
+  "dauhieubenh_dauhong": {
+    "type":"number"
+  },
+  "dauhieubenh_buonnon": {
+    "type":"number"
+  },
+  "dauhieubenh_tieuchay": {
+    "type":"number"
+  },
+  "dauhieubenh_xuathuyetngoaida": {
+    "type":"number"
+  },
+  "dauhieubenh_phatban": {
+    "type":"number"
+  },
+  "vacxin_dasudung": {
+    "type":"string"
+  },
+  "tiepxuc_dongvat": {
+    "type":"number"
+  },
+  "chamsocnguoibenhtruyennhiem": {
+    "type":"number"
+  },
+  "ngaygio_phathien": {
+    "type":"string"
+  },
+  "tinhtrang": {
+    "type":"string"
+  },
+  "huongxuly": {
+    "type":"string"
+  },
+  "cachlytaptrung": {
+    "type":"string"
+  },
+  "trangthai": {
+    "type":"string"
+  },
+  "note": {
+    "type":"string"
+  },
+  "extra_data": {
+    "type":"json"
+  }
+}
