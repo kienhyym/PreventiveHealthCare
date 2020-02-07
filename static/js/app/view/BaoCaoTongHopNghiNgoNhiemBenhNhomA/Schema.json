@@ -1,0 +1,53 @@
+{
+    "id": {
+      "type": "string"
+    },
+    "loaibaocao": {
+      "type":"number"
+    },
+    "ngaybaocao": {
+      "type": "number"
+    },
+    "donvi_id": {
+      "type": "number"
+    },
+    "tendonvi": {
+      "type": "string"
+    },
+    "cuakhau_id": {
+      "type": "number"
+    },
+    "tencuakhau": {
+      "type": "string"
+    },
+    "macuakhau": {
+      "type": "string"
+    },
+    "sochuyenbay": {
+      "type": "number"
+    },
+    "songuoinhapcanh": {
+      "type": "number"
+    },
+    "sohanhkhachkhaibao": {
+      "type": "number"
+    },
+    "songuoinguoinghingo": {
+      "type": "number"
+    },
+
+    "songuoidangcachlytaptrung": {
+      "type": "number"
+    },
+    "songuoidangcachlytaptrung_cotrieuchung": {
+      "type": "number"
+    },
+    "diadiemcachlytaptrung": {
+      "type": "string"
+    },
+    "songuoihetcachly": {
+      "type": "number"
+    }
+  }
+  
+  

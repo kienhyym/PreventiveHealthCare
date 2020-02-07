@@ -1,0 +1,358 @@
+<div class="row">
+	<div class="col-md-8" block-bind="toolbar"></div>
+	<div class="col-md-4 text-right"><span>Trạng thái báo cáo: </span><span id="tinhtrang"></span></div>
+</div>
+<div block-bind="content">
+	<!-- HTML here -->
+	<table style="width: 100%;">
+		<tbody>
+			<tr>
+				<td style="vertical-align: text-top; text-align:center; border:0px">
+					<p id="chuquan"></p>
+					<p style="margin-bottom:2px">
+						<b id="tendonvi"></b>
+					</p>
+					<p style="border-bottom:1px solid #000; height:1px; margin:auto; width:50%; margin-bottom:2px">
+						&nbsp;
+					</p>
+					<p>
+						<span>Số:</span><input style="width: 100px;" type="text" data-bind="value:ma"/>
+					</p>
+				</td>
+				<td style="vertical-align: text-top; text-align:center; border:0px">
+					<p fontsize="15">
+						<b>BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KIỂM DỊCH  Y TẾ 9 THÁNG </b>
+						<input style="width: 30px; display:none" type="text" readonly data-bind="value:kybaocao"/>
+						<b> NĂM </b>
+						<input style="width: 50px;" type="text" readonly data-bind="value:nambaocao"/>
+					</p>
+					<p>
+						<span>Từ ngày:</span> <span  data-bind="text:tungay">Từ ngày</span>
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						<span>Đến ngày:</span> <span  data-bind="text:denngay">Đến ngày </span>
+					</p>
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<div id="nguoi">
+		<div align="left" >
+			<p><b>1. Kiểm dịch y tế đối với người</b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=4 style="width: 300px; text-align:center">Tên cửa khẩu</th>
+					<th colspan=2 style="width: 200px; text-align:center">Số kiểm tra (lượt)</th>
+					<th rowspan=2 style="width: 200px; text-align:center">Số phải xử lý y tế và áp dụng biện pháp dự phòng (lượt)</th>
+					<th rowspan=2 style="width: 200px; text-align:center">Ghi chú</th>
+				</tr>
+				<tr>
+					<th >Tổng số</th>
+					<th style="width: 140px; text-align:center">Số nghi ngờ, mắc bệnh</th>
+				</tr>
+			</thead>
+			<tbody id="bangnguoi" data-bind="list:bangnguoi">
+			</tbody>
+		</table>
+		<div align="left" style="margin-top:10px">
+			<p><i>(5): ghi rõ số lượng nghi ngờ, mắc bệnh  tại cột (3) theo tên bệnh.</i></p>
+		</div>
+	</div>
+	
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:150px; text-align:left"><b>Nhận xét, kiến nghị:</b></td>
+				<td style="border:0px;text-align:left"><input style="width: 100%;text-align:left" type="text" data-bind="value:nhanxetnguoi"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="phuongtien">
+		<div align="left" style="margin-top:20px" >
+			<p><b>2. Kiểm dịch y tế đối với phương tiện </b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên cửa khẩu</th>
+					<th colspan=3>Phương tiện hàng không (lượt)</th>
+					<th colspan=3>Phương tiện đường bộ (lượt)</th>
+					<th colspan=3>Phương tiện đường thủy (lượt)</th>
+					<th colspan=3>Phương tiện đường sắt (lượt)</th>
+					<th rowspan=2 style="width:150px">Ghi chú</th>
+				</tr>
+				<tr>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+					<th style="width:45px">Số lượng</th>
+					<th style="width:45px">Số kiểm tra</th>
+					<th style="width:45px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody data-bind="list:bangphuongtien">
+			
+			</tbody>
+		</table>
+		<div align="left" style="margin-top:10px">
+			<p><i>(14): ghi rõ lý do phải xử lý y tế, các biện pháp xử lý y tế đã triển khai.</i></p>
+		</div>
+		
+	</div>
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:150px; text-align:left"><b>Nhận xét, kiến nghị:</b></td>
+				<td style="border:0px;text-align:left"><input style="width: 100%;text-align:left" type="text" data-bind="value:nhanxetphuongtien"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="hanghoa">
+		<div align="left" style="margin-top:10px" >
+			<p><b>3. Kiểm dịch y tế đối với hàng hóa</b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên cửa khẩu</th>
+					<th colspan=3>Bưu phẩm/ Bưu kiện (gói/kiện)</th>
+					<th colspan=3>Hàng hóa khác (tấn)</th>
+					<th rowspan=2 style="width:150px">Ghi chú</th>
+				</tr>
+				<tr>
+					<th style="width:90px">Số lượng</th>
+					<th style="width:90px">Số kiểm tra</th>
+					<th style="width:90px">Số xử lý</th>
+					<th style="width:90px">Trọng lượng</th>
+					<th style="width:90px">Số kiểm tra</th>
+					<th style="width:90px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody data-bind="list:banghanghoa">
+			
+			</tbody>
+		</table>
+		<div align="left" style="margin-top:10px">
+			<p><i>(8): ghi rõ lý do phải xử lý y tế, các biện pháp xử lý y tế đã triển khai.</i></p>
+		</div>
+	</div>
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:150px; text-align:left"><b>Nhận xét, kiến nghị:</b></td>
+				<td style="border:0px;text-align:left"><input style="width: 100%;text-align:left" type="text" data-bind="value:nhanxethanghoa"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="thithe">
+		<div align="left" style="margin-top:20px" >
+			<p><b>4. Kiểm dịch y tế đối với thi thể, hài cốt, tro cốt </b></p>
+		</div>
+		<table style="width: 100%;" class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên cửa khẩu</th>
+					<th colspan=3>Thi thể</th>
+					<th colspan=3>Hài cốt</th>
+					<th colspan=3>Tro cốt</th>
+					<th rowspan=2 style="width:150px">Ghi chú</th>
+				</tr>
+				<tr>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody data-bind="list:bangthithe">
+			
+			</tbody>
+		</table>
+		<div align="left" style="margin-top:10px">
+			<p><i>(11): ghi rõ lý do phải xử lý y tế, các biện pháp xử lý y tế đã triển khai.</i></p>
+		</div>
+	</div>
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:150px; text-align:left"><b>Nhận xét, kiến nghị:</b></td>
+				<td style="border:0px;text-align:left"><input style="width: 100%;text-align:left" type="text" data-bind="value:nhanxetthithe"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="vssh">
+		<div align="left" style="margin-top:20px" >
+			<p><b>5. Kiểm dịch y tế đối với mẫu vi sinh y học, sản phẩm sinh học, mô, bộ phận cơ  thể người</b></p>
+		</div>
+		<table style="width: 100%;"  class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th rowspan=2 style="width:45px">STT</th>
+					<th rowspan=2 colspan=3  >Tên cửa khẩu</th>
+					<th colspan=3>Mẫu vi sinh y học (lượt)</th>
+					<th colspan=3>Sản phẩm sinh học (lượt)</th>
+					<th colspan=3>Mô, bộ phận cơ thể người (lượt)</th>
+					<th rowspan=2 style="width:150px">Ghi chú</th>
+				</tr>
+				<tr>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+					<th style="width:60px">Số lượng</th>
+					<th style="width:60px">Số kiểm tra</th>
+					<th style="width:60px">Số xử lý</th>
+				</tr>
+			</thead>
+			<tbody data-bind="list:bangvssh">
+			
+			</tbody>
+		</table>
+		<div align="left" style="margin-top:10px">
+			<p><i>(11): ghi rõ lý do phải xử lý y tế, các biện pháp xử lý y tế đã triển khai.</i></p>
+		</div>
+	</div>
+	
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:150px; text-align:left"><b>Nhận xét, kiến nghị:</b></td>
+				<td style="border:0px;text-align:left"><input style="width: 100%;text-align:left" type="text" data-bind="value:nhanxetvssh"/></td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<!-- Tiem Chung -->
+	<div align="left" style="margin-top:20px" >
+		<p><b>6. Tiêm chủng (gồm cả tiêm chủng dịch vụ)</b></p>
+	</div>
+	<div id="tiemchungtool"></div>
+	<table style="width: 100%;"  class="data-table">
+		<thead>
+			<tr style="font-style: bold">
+				<th style="width:45px">STT</th>
+				<th>Tên bệnh</th>
+				<th>Tên vắc xin</th>
+				<th style="width:150px">Số lượng người được sử dụng</th>
+				<th style="width:400px">Ghi chú</th>
+			</tr>
+		</thead>
+		<tbody data-bind="list:bangtiemchung"></tbody>
+	</table>
+	<div align="left" style="margin-top:10px">
+		<p><i>(11): ghi rõ lý do phải xử lý y tế, các biện pháp xử lý y tế đã triển khai.</i></p>
+	</div>
+	
+	<!-- Dich benh -->
+	<div id="dichbenh">
+		<div align="left" style="margin-top:20px" >
+			<p><b>7. Giám sát dịch bệnh tại khu vực cửa khẩu</b></p>
+		</div>
+		<table style="width: 100%;"  class="data-table">
+			<thead>
+				
+				<tr style="font-style: bold">
+					<th rowspan=3 style="width:45px">STT</th>
+					<th rowspan=3  style="width:60px" >Tên cửa khẩu</th>
+					<th colspan=3>Giám sát trung gian truyền bệnh</th>
+					<th colspan=2>Giám sát điều kiện vệ sinh môi trường</th>
+					<th colspan=4>Giám sát vệ sinh an toàn thực phẩm</th>
+				</tr>
+				<tr>
+					<th rowspan=2 style="width:60px">Mật độ chuột</th>
+					<th rowspan=2 style="width:60px">Chỉ số bọ chét</th>
+					<th rowspan=2 style="width:60px">Mật độ muỗi</th>
+					<th rowspan=2 style="width:60px">Số lần giám sát</th>
+					<th rowspan=2 style="width:60px">Số lần đạt tiêu chuẩn</th>
+					<th colspan=2 style="width:60px">Số lượng cơ sở dịch vụ đã được giám sát (khách sạn, nhà hàng…)</th>
+					<th colspan=2 style="width:60px">Số lượng cơ sở sản xuất, chế biến, cung ứng thực phẩm đã được giám sát</th>
+				</tr>
+				<tr>
+					<th style="width:100px">Đạt tiêu chuẩn</th>
+					<th style="width:100px">Không đạt</th>
+					<th style="width:100px">Đạt tiêu chuẩn</th>
+					<th style="width:100px">Không đạt</th>
+				</tr>
+			</thead>
+			<tbody data-bind="list:bangdichbenh">
+			
+			</tbody>
+		</table>
+		<div align="left" style="margin-top:10px">
+			<p><i>(11): ghi rõ lý do phải xử lý y tế, các biện pháp xử lý y tế đã triển khai.</i></p>
+		</div>
+	</div>
+	
+	<div align="left" style="margin-top:20px" >
+		<p><b>8. Xét nghiệm</b></p>
+		<div id="xetnghiemtool"></div>
+		<table style="width: 100%;"  class="data-table">
+			<thead>
+				<tr style="font-style: bold">
+					<th style="width:45px">STT</th>
+					<th>Loại xét nghiệm</th>
+					<th style="width:150px">Số lượng mẫu</th>
+					<th style="width:150px">Đạt tiêu chuẩn (%)</th>
+					<th style="width:400px">Ghi chú</th>
+				</tr>
+			</thead>
+			<tbody data-bind="list:bangxetnghiem"></tbody>
+		</table>
+	</div>
+	
+	<div align="left" style="margin-top:20px" >
+		<p><b>9. Kinh phí</b></p>
+		<div id="kinhphitool"></div>
+	</div>
+	<table style="width: 100%;"  class="data-table">
+		<thead>
+			<tr style="font-style: bold">
+				<th style="width:45px">STT</th>
+				<th style="width:440px">Nguồn kinh phí</th>
+				<th>Đơn vị tính (triệu VNĐ)</th>
+			</tr>
+		</thead>
+		<tbody data-bind="list:bangkinhphi"></tbody>
+	</table>
+	
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:180px; text-align:left"><b>10. Các hoạt động khác:</b></td>
+				<td style="border:0px;text-align:left"><input style="width:100%; text-align:left" type="text" data-bind="value:hoatdongkhac" /></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table style="margin-top:20px; width:100%">
+			<tr>
+				<td style="border:0px; width:220px; text-align:left"><b>11. Nhận xét, kiến nghị chung:</b></td>
+				<td style="border:0px;text-align:left"><input style="width: 100%;text-align:left" type="text" data-bind="value:nhanxet"/></td>
+			</tr>
+		</table>
+	</div>
+</div>

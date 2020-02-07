@@ -1,0 +1,14 @@
+{
+	"id":{
+		"type": "number",
+		"primary": true
+	},
+	"tieude":{
+		"type":"string",
+		"required": true
+	},
+	"noidung":{
+		"type":"string",
+		"required": true
+	}
+}

@@ -1,0 +1,74 @@
+{
+  "id": {
+    "type": "number",
+    "primary": true
+  },
+  "ma": {
+    "type": "string"
+  },
+  "nguoilienlac": {
+    "type": "string"
+  },
+  "ten": {
+    "type": "string"
+  },
+  "sodienthoai": {
+    "type": "string"
+  },
+  "diachi": {
+    "type": "string"
+  },
+  "kiemdichyte": {
+    "type": "boolean"
+  },
+  "donvi_id": {
+    "type": "number"
+  },
+  "donvi": {
+    "type": "dict"
+  },
+  "email": {
+    "type": "string"
+  },
+  "phongcachly": {
+    "type": "boolean"
+  },
+  "tinhthanh_id": {
+    "type": "number"
+  },
+  "tinhthanh": {
+    "type": "dict"
+  },
+  "thutu": {
+    "type": "number"
+  },
+  
+  "duongbophu": {
+    "type": "boolean"
+  },
+  "duonghangkhong": {
+    "type": "boolean"
+  },
+  "duongthuyloai1": {
+    "type": "boolean"
+  },
+  "duongthuyloai2": {
+    "type": "boolean"
+  },
+  "duongboquocte": {
+    "type": "boolean"
+  },
+  "duongbochinh": {
+    "type": "boolean"
+  },
+  "duongsat": {
+    "type": "boolean"
+  },
+  "quocgia_tiepgiap": {
+    "type": "string"
+  },
+  "cuakhau_tiepgiap": {
+    "type": "string"
+  }
+}
+

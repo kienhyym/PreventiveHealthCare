@@ -1,0 +1,47 @@
+{
+  
+  "donvi_ten": {
+    "type": "string"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "ng_nc_sl2": {
+    "type": "number"
+  },
+  "ng_qc_sl2": {
+    "type": "number"
+  },
+  "ng_qc_sl1": {
+    "type": "number"
+  },
+  "ng_nc_sl1": {
+    "type": "number"
+  },
+  "ng_qc_ts1": {
+    "type": "number"
+  },
+  "ng_qc_ts2": {
+    "type": "number"
+  },
+  "ng_nc_ts1": {
+    "type": "number"
+  },
+  "ng_nc_ts2": {
+    "type": "number"
+  },
+  "ng_xc_sl1": {
+    "type": "number"
+  },
+  "ng_xc_sl2": {
+    "type": "number"
+  },
+  "ng_xc_ts2": {
+    "type": "number"
+  },
+  "ng_xc_ts1": {
+    "type": "number"
+  }
+  
+}

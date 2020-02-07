@@ -1,0 +1,14 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "ngaydiqua": {
+    "type": "datetime"
+  },
+  "tenquocgia": {
+    "type": "string"
+  }
+}

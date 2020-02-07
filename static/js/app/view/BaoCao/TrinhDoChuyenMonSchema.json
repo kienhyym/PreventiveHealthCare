@@ -1,0 +1,54 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "duoc_trunghoc": {
+    "type": "number"
+  },
+  "nganhkhac_khac": {
+    "type": "number"
+  },
+  "y_dieuduong": {
+    "type": "number"
+  },
+  "y_ysy": {
+    "type": "number"
+  },
+  "duoc_daihoc": {
+    "type": "number"
+  },
+  "nganhkhac_daihoc": {
+    "type": "number"
+  },
+  "y_tiensy": {
+    "type": "number"
+  },
+  "nganhkhac_trunghoc": {
+    "type": "number"
+  },
+  "y_khac": {
+    "type": "number"
+  },
+  "y_thacsy": {
+    "type": "number"
+  },
+  "tenbophan": {
+    "type": "string"
+  },
+  "y_cunhan": {
+    "type": "number"
+  },
+  "y_kythuatvien": {
+    "type": "number"
+  },
+  "duoc_duocta": {
+    "type": "number"
+  }
+}

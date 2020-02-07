@@ -1,0 +1,24 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "noidung": {
+    "type": "string"
+  },
+  "ketqua": {
+    "type": "number"
+  },
+  "doituong": {
+    "type": "string"
+  },
+  "hinhthuc": {
+    "type": "string"
+  }
+}

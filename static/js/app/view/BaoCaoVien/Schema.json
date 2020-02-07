@@ -1,0 +1,44 @@
+{
+  "nambaocao": {
+    "type": "number"
+  },
+  "donvi_id": {
+    "type": "number"
+  },
+  "ma": {
+    "type": "string"
+  },
+  "denngay": {
+    "type": ""
+  },
+  "tinhtrang": {
+    "type": "number"
+  },
+  "kiennghidonvi": {
+    "type": "string"
+  },
+  "tungay": {
+    "type": ""
+  },
+  "kiennghivien": {
+    "type": "string"
+  },
+  "ngaybaocao": {
+    "type": "datetime"
+  },
+  "kybaocao": {
+    "type": "number"
+  },
+  "danhgia": {
+    "type": "string"
+  },
+  "bangviencanbo": {
+    "type": "list"
+  },
+  "bangviensukien": {
+    "type": "list"
+  },
+  "bangvienhoatdongchung": {
+    "type": "list"
+  }
+}

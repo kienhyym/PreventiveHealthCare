@@ -1,0 +1,22 @@
+{
+	"id":{
+		"type": "number",
+		"primary": true
+	},
+    "ngaytao": {
+    	"type": "datetime"
+    },
+	"tieude":{
+		"type":"string"
+	},
+	"gioithieu":{
+		"type":"string"
+	},
+	"noidung":{
+		"type":"string"
+	},
+	"phamvi":{
+		"type":"string",
+		"default": "noibo"
+	}
+}

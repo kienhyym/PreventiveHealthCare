@@ -1,0 +1,100 @@
+{
+  
+  "donvi_ten": {
+    "type": "string"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "vssh_xc_mo_skt": {
+    "type": "number"
+  },
+  "vssh_nc_sh_skt": {
+    "type": "number"
+  },
+  "vssh_nc_vs_sl": {
+    "type": "number"
+  },
+  "vssh_xc_mo_sxl": {
+    "type": "number"
+  },
+  "vssh_nc_mo_skt": {
+    "type": "number"
+  },
+  "vssh_xc_vs_sl": {
+    "type": "number"
+  },
+  "vssh_nc_mo_sxl": {
+    "type": "number"
+  },
+  "vssh_nc_sh_sl": {
+    "type": "number"
+  },
+  "vssh_qc_sh_skt": {
+    "type": "number"
+  },
+  "vssh_nc_vs_sxl": {
+    "type": "number"
+  },
+  "vssh_xc_mo_sl": {
+    "type": "number"
+  },
+  "vssh_xc_vs_sxl": {
+    "type": "number"
+  },
+  "vssh_qc_mo_sxl": {
+    "type": "number"
+  },
+  "vssh_nc_ghichu": {
+    "type": "string"
+  },
+  "vssh_xc_sh_sl": {
+    "type": "number"
+  },
+  "vssh_qc_vs_sxl": {
+    "type": "number"
+  },
+  "vssh_nc_vs_skt": {
+    "type": "number"
+  },
+  "vssh_qc_sh_sxl": {
+    "type": "number"
+  },
+  "vssh_qc_ghichu": {
+    "type": "string"
+  },
+  "vssh_qc_vs_sl": {
+    "type": "number"
+  },
+  "vssh_qc_sh_sl": {
+    "type": "number"
+  },
+  "vssh_qc_mo_skt": {
+    "type": "number"
+  },
+  "vssh_qc_vs_skt": {
+    "type": "number"
+  },
+  "vssh_xc_sh_skt": {
+    "type": "number"
+  },
+  "vssh_nc_sh_sxl": {
+    "type": "number"
+  },
+  "vssh_xc_vs_skt": {
+    "type": "number"
+  },
+  "vssh_xc_ghichu": {
+    "type": "string"
+  },
+  "vssh_nc_mo_sl": {
+    "type": "number"
+  },
+  "vssh_qc_mo_sl": {
+    "type": "number"
+  },
+  "vssh_xc_sh_sxl": {
+    "type": "number"
+  }
+}

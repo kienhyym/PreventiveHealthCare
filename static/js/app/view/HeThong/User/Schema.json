@@ -1,0 +1,39 @@
+{
+	"id":{
+		"type": "number",
+		"primary": true,
+		"label": "ID number"
+	},
+	"name":{
+		"type":"string",
+		"required": true
+	},
+	"email":{
+		"type":"string"
+	},
+	"donvi_id":{
+		"type":"number"
+	},
+	"donvi":{
+		"type":"dict"
+	},
+	"cuakhau_id":{
+		"type":"number"
+	},
+	"cuakhau":{
+		"type":"dict"
+	},
+	"roles":{
+		"type":"list"
+	},
+	"active":{
+		"type":"boolean",
+		"default": true
+	},
+	"password":{
+		"type":"string"
+	},
+	"confirmpassword":{
+		"type":"string"
+	}
+}

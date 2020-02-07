@@ -1,0 +1,231 @@
+<!-- <div block-bind="toolbar"></div>
+<div block-bind="content">
+<div>
+    <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12">
+        <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 text-center">
+            <p>CƠ QUAN CHỦ QUẢN</p>
+            <p><ins><b>TÊN ĐƠN VỊ</b></ins></p>
+                Số: <input type="text" data-bind="value:ma" class="nghiNgoNguoiBenhSo1 input-NghiNgoNhiemBenh" style="width: 10%;">
+        </div>
+        <div class="col-8 col-md-8 col-sm-8 col-lg-8 col-xs-8 text-center ">
+            <p><b>CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</b></p>
+            <p><ins><b>Độc lập – Tự do – Hạnh phúc</b></ins></p>
+            <p><input class="nghiNgoNguoiBenhDiaChiHeader input-NghiNgoNhiemBenh" type="text" style="width: 12%;">,
+                ngày <input class="nghiNgoNguoiBenhNgayHeader input-NghiNgoNhiemBenh" type="text" style="width: 5%;">
+                tháng <input class="nghiNgoNguoiBenhThangHeader input-NghiNgoNhiemBenh" type="text" style="width: 5%;">
+                năm <input class="nghiNgoNguoiBenhNamHeader input-NghiNgoNhiemBenh" type="text" style="width: 10%;">
+            </p>
+        </div>
+    </div>
+    <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
+        <p>BÁO CÁO TRƯỜNG HỢP NGHI NGỜ, MẮC BỆNH TRUYỀN NHIỄM NHÓM A TẠI KHU VỰC CỬA KHẨU</p>
+        <div class="row">
+            <div  class="col-5 col-md-5 col-sm-5 col-lg-5 col-xs-5"></div>
+            <div style="border-top:1px solid black" class="col-2 col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
+            <div class="col-5 col-md-5 col-sm-5 col-lg-5 col-xs-5"></div>
+        </div><br>
+    </div>
+    <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12">
+        <table class="table-bordered table">
+            <tr>
+                <td scope="row" class="text-center">STT</td>
+                <th class="text-center">Nội dung</th>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">1</td>
+                <td>
+                    <label>Họ và tên: </label>
+                    <input  data-bind="value:hoten" class="nghiNgoNguoiBenhHoVaTen input-NghiNgoNhiemBenh" type="text" >
+                   
+                    <label>Giới tính: </label>
+                    <input data-bind="value:gioitinh" class="nghiNgoNguoiBenhGioiTinh input-NghiNgoNhiemBenh" type="text" >
+                   
+                    <label>Năm sinh (tuổi): </label>
+                    <input data-bind="value:namsinh" class="nghiNgoNguoiBenhNamSinh input-NghiNgoNhiemBenh" type="text" >
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">2</td>
+                <td>
+                    <label>Quốc tịch: </label> 
+                    <input data-bind="value:quoctich" class="nghiNgoNguoiBenhQuocTich input-NghiNgoNhiemBenh" type="text" >
+
+                    <label>Số hộ chiếu/CMND: </label>
+                    <input data-bind="value:cmtnd" class="nghiNgoNguoiBenhCMND input-NghiNgoNhiemBenh" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">3</td>
+                <td>
+                    <label>Nhập cảnh, xuất cảnh, quá cảnh qua cửa khẩu: </label> 
+                    <input data-bind="value:cuakhau_nhapquacanh" class="nghiNgoNguoiBenhXuatNhapCanh input-NghiNgoNhiemBenh" type="text">
+                    </br>
+
+                    <input class="nghiNgoNguoiBenhGioCenter input-NghiNgoNhiemBenh"  type="text" style="width: 3%;"> Giờ,
+                    ngày <input data-bind="value:" class="nghiNgoNguoiBenhNgaycenter input-NghiNgoNhiemBenh"  type="text" style="width: 3%;">
+                    tháng <input data-bind="value:" class="nghiNgoNguoiBenhThangCenter input-NghiNgoNhiemBenh"  type="text" style="width: 3%;">
+                    năm <input data-bind="value:" class="nghiNgoNguoiBenhNamCenter input-NghiNgoNhiemBenh"  type="text" style="width: 6%;">
+                    </br>
+                    </br>
+                    <label>Phương tiện đi/đến: </label>
+                    <input data-bind="value:phuongtien8" class="nghiNgoNguoiBenhPhuongTien input-NghiNgoNhiemBenh" type="text" >
+
+                    <label>số hiệu: </label>
+                    <input data-bind="value:sohieu_phuongtien" class="nghiNgoNguoiBenhSoHieu input-NghiNgoNhiemBenh"  type="text" >
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">4</td>
+                <td>
+                    <label>Nơi ở tại Việt Nam (nếu có): </label> 
+                    <input data-bind="value:noio" class="nghiNgoNguoiBenhNoiOTaiVietNam input-NghiNgoNhiemBenh"  type="text">
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">5</td>
+                <td>
+                    <label>Địa chỉ liên lạc: </label>
+                    <input data-bind="value:diachi_lienlac" class="nghiNgoNguoiBenhDiaChiLienLac input-NghiNgoNhiemBenh" type="text">
+                    <br>
+                    <label>Email: </label>
+                    <input data-bind="value:email" class="nghiNgoNguoiBenhEmail input-NghiNgoNhiemBenh"  type="text" >
+
+                    <label>Điện thoại: </label>
+                    <input data-bind="value:dienthoai" class="nghiNgoNguoiBenhDienThoai input-NghiNgoNhiemBenh"  type="text" >
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">6</td>
+                <td>
+                    <label>1. Các quốc gia/vùng lãnh thổ đã đi qua trong vòng 15 ngày</label>
+                    <br>
+                    <input class="nghiNgoNguoiBenhDiaChi input-NghiNgoNhiemBenh" type="text" style="width: 6%;">
+                    ngày <input data-bind="value:" class="nghiNgoNguoiBenhNgay input-NghiNgoNhiemBenh" type="text" style="width: 3%;">
+                    tháng <input data-bind="value:" class="nghiNgoNguoiBenhThang input-NghiNgoNhiemBenh" type="text" style="width: 3%;">
+                    năm <input data-bind="value:" class="nghiNgoNguoiBenhNam input-NghiNgoNhiemBenh" type="text" style="width: 5%;">
+                   </br></br>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">7</td>
+                <td>
+                    <label>Nghi ngờ, mắc bệnh (tên bệnh): </label> 
+                    <input data-bind="value:benh_nghingo" class="nghiNgoNguoiBenhNghiNgoMacBenh input-NghiNgoNhiemBenh" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">8</td>
+                <td>
+                    <label>Tiền sử dịch tễ (nguồn lây, thời gian tiếp xúc...) </label>
+                    <br>
+                    <input data-bind="value:tiensu_dichte" class="nghiNgoNguoiBenhTienSuDichTe input-NghiNgoNhiemBenh" type="text" >
+                    <br>
+
+                    <label>Ngày khởi phát: </label>
+                    <input data-bind="value:" class="nghiNgoNguoiBenhNgayKhoiPhat input-NghiNgoNhiemBenh" type="text">
+                    </br>
+
+                    <label>Triệu chứng lâm sàng: </label>
+                    <input data-bind="value:tiensu_trieuchunglamsang" class="nghiNgoNguoiBenhTrieuChungLamSang input-NghiNgoNhiemBenh" type="text">
+                    </br>
+
+                    <label>Chẩn đoán sơ bộ: </label>
+                    <input class="nghiNgoNguoiBenhChuanDoanSoBo input-NghiNgoNhiemBenh" type="text" data-bind="value:tiensu_chandoan">
+                    <br>
+
+                    <label>Lấy mẫu xét nghiệm: </label><br>
+                    <div style="margin-left:5%">
+                        Loại mẫu XN: <input data-bind="value:"class="nghiNgoNguoiBenhLoaiMauXN input-NghiNgoNhiemBenh" type="text">
+                        Ngày lấy: <input data-bind="value:" class="nghiNgoNguoiBenhNgayLay input-NghiNgoNhiemBenh" type="text"> 
+                        Kết quả: <input data-bind="value:" class="nghiNgoNguoiBenhKetQua input-NghiNgoNhiemBenh" type="text">
+                        <br>
+                        <br>
+                        Loại mẫu XN: <input data-bind="value:"class="nghiNgoNguoiBenhLoaiMauXN input-NghiNgoNhiemBenh" type="text">
+                        Ngày lấy: <input data-bind="value:" class="nghiNgoNguoiBenhNgayLay input-NghiNgoNhiemBenh" type="text"> 
+                        Kết quả: <input data-bind="value:" class="nghiNgoNguoiBenhKetQua input-NghiNgoNhiemBenh" type="text">
+                        <br>
+                        <br>
+                        Loại mẫu XN: <input data-bind="value:"class="nghiNgoNguoiBenhLoaiMauXN input-NghiNgoNhiemBenh" type="text">
+                        Ngày lấy: <input data-bind="value:" class="nghiNgoNguoiBenhNgayLay input-NghiNgoNhiemBenh" type="text"> 
+                        Kết quả: <input data-bind="value:" class="nghiNgoNguoiBenhKetQua input-NghiNgoNhiemBenh" type="text">
+                        <br>
+                        <br>
+                    </div>
+
+                    <label>Xử Trí: </label>
+                    <input data-bind="value:tiensu_xutri" class="nghiNgoNguoiBenhXuTri input-NghiNgoNhiemBenh" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">9</td>
+                <td>
+                    <label>Liệt kê những loại vắc xin, biện pháp dự phòng đã áp dụng: </label>
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center"></td>
+                <td>
+                    <label>9.1. Tên vắc xin:</label>
+                    <input data-bind="value:" class="nghiNgoNguoiBenhTenVacXin input-NghiNgoNhiemBenh" type="text">
+
+                    <label>Số lần dùng: </label>
+                    <input data-bind="value:" class="nghiNgoNguoiBenhSoLanDung input-NghiNgoNhiemBenh" type="text" >
+                    <br>
+
+                    <label>Ngày dùng gần nhất:</label>
+                    <input data-bind="value:" class="nghiNgoNguoiBenhNgayDungGanNhat input-NghiNgoNhiemBenh" type="text">
+                    <br>
+                    9.2....
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" class="text-center">10</td>
+                <td>
+                    <label>Nơi tiếp nhận xử trí tiếp theo (nếu có): </label>
+                    <input data-bind="value:noitiepnhan_xutri" class="nghiNgoNguoiBenhNoiTiepNhanXuTriTiepTheo input-NghiNgoNhiemBenh" type="text">
+                    <br>
+                </td>
+            </tr>
+        </table>
+        <div style="margin-left: 3%;margin-bottom: 10px">11:Người tiếp xúc: </div>
+        <table class="table table-bordered text-center">
+            <tr>
+                <td>STT</td>
+                <td>Họ và tên</td>
+                <td>Quốc tịch</td>
+                <td>Số hộ chiếu/CMND</td>
+                <td>Điện thoại</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                    <td>1</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+        </table>
+        <div >
+            <label>Nhận xét, đánh giá, đề xuất:</label><input data-bind="value:nhanxet_danhgia" class="nghiNgoNguoiBenhNhanXet input-NghiNgoNhiemBenh" type="text"
+            style=" width: 100%;"><br>
+            
+        </div><br>
+    </div>
+    <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xs-12">
+        <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4" style="font-size:12px ">
+                <b><i>Nơi nhận:</i></b><br>
+                -&nbsp;&nbsp;&nbsp;&nbsp; Cục Y tế dự phòng;<br>
+                -&nbsp;&nbsp;&nbsp;&nbsp; Viện...;<br>
+                - Sở Y tế...;<br>
+                - ...<br>
+                - Lưu:..
+        </div>
+        <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 text-center"></div>
+        <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xs-4 text-center">
+                <h3>Thủ trưởng đơn vị</h3>
+                <i>(ký, đóng dấu)</i>
+        </div>
+    </div>
+</div>
+</div> -->

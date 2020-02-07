@@ -1,0 +1,20 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "solandung": {
+    "type": "number"
+  },
+  "tenvacxin": {
+    "type": "string"
+  },
+  "ngaydunggannhat": {
+    "type": "datetime"
+  },
+  "ketqua": {
+    "type": "string"
+  }
+}

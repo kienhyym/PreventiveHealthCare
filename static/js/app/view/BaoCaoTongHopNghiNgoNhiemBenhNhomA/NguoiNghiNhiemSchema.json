@@ -1,0 +1,37 @@
+{
+    "id": {
+      "type": "number"
+    },
+    "sothutu": {
+      "type": "number"
+    },
+    "hoten": {
+      "type": "string"
+    },
+    "namsinh": {
+      "type": "number"
+    },
+    "gioitinh": {
+      "type": "string"
+    },
+    "noiden": {
+      "type": "string"
+    },
+    "quoctich": {
+      "type": "string"
+    },
+    "ngaygio_phathien": {
+      "type": "string"
+    },
+    "tinhtrang": {
+        "type": "string"
+    },
+    "huongxuly": {
+        "type": "string"
+    },
+    "baocao_id": {
+      "type":"number"
+    }
+  }
+  
+  

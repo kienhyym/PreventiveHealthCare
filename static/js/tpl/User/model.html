@@ -1,0 +1,44 @@
+<div block-bind="toolbar"></div>
+<div block-bind="content">
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>ID</label></div>
+		<div class="col-md-3">
+			<input type="text" readonly data-bind="value:id"/>
+		</div>
+		<div class="col-md-2 text-right"><label>Loại người dùng</label></div>
+		<div class="col-md-3">
+			<input type="text" data-bind="list:roles"/>
+		</div>
+	</div>
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>Tên</label></div>
+		<div class="col-md-3">
+			<input type="text" data-bind="value:name"/>
+		</div>
+		<div class="col-md-2 text-right"><label>Tài khoản</label></div>
+		<div class="col-md-3">
+			<input type="text" data-bind="value:email"/>
+		</div>
+	</div>
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>Thuộc đơn vị</label></div>
+		<div class="col-md-3">
+			<input type="password" class="form-control" data-bind="dict:donvi"/>
+		</div>
+		<div class="col-md-2 text-right"><label>Cửa khẩu</label></div>
+		<div class="col-md-3">
+			<input type="password" class="form-control" data-bind="dict:cuakhau"/>
+		</div>
+	</div>
+	
+	<div class="row text-center" style="margin-bottom:10px">
+		<div class="col-md-2 text-right"><label>Mật khẩu</label></div>
+		<div class="col-md-3">
+			<input type="password" class="form-control" id="password" data-bind="value:password"/>
+		</div>
+		<div class="col-md-2 text-right"><label>Nhập lại mật khẩu</label></div>
+		<div class="col-md-3">
+			<input type="password" class="form-control" id="confirmpassword" data-bind="value:confirmpassword"/>
+		</div>
+	</div>
+</div>

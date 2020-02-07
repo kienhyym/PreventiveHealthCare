@@ -1,0 +1,18 @@
+{
+  "id": {
+    "type": "number"
+  }, 
+  "baocao_id": {
+    "type": "number"
+  },
+  "sothutu": {
+    "type": "number"
+  },
+  
+  "noidung": {
+    "type": "string"
+  },
+  "quocgia": {
+    "type": "string"
+  }
+}
