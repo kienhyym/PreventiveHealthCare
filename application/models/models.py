@@ -681,22 +681,40 @@ class BaoCaoNghiNgoNhiemBenhNguoiTiepXuc(CommonModel):
     cmtnd = db.Column(db.String())
     dienthoai = db.Column(db.String())
     email = db.Column(db.String())
-class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
-    __tablename__ = "baocaotonghopnghingonhiembenhnhoma"
-    id = db.Column(db.Integer, primary_key=True)
-    ngaybaocao = db.Column(db.BigInteger(),default=floor(time.time()))
+
+# class ToKhaiYTe(CommonModel):
+#     __tablename__ = "tokhaiyte"
+#     id = db.Column(db.Integer, primary_key=True)
+#     loaibaocao = db.Column(db.SmallInteger()) #1 - don vi, 2 cua khau
+#     ngaybaocao = db.Column(db.BigInteger(),default=floor(time.time()))
     
-    donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=False)
-    tendonvi = db.Column(db.String())
-    cuakhau_id = db.Column(db.Integer,db.ForeignKey('cuakhau.id'), nullable=True)
-    tencuakhau = db.Column(db.String())
-    macuakhau = db.Column(db.String(25))
-    danhsachnghingonhiembenh = db.relationship("DanhSachNghiNgoNhiemBenhNhomA",  cascade="all, delete-orphan", lazy='dynamic')
-    sohanhkhach = db.Column(db.Integer)
-    sochuyenbay = db.Column(db.Integer)
-    __table_args__ = (UniqueConstraint('donvi_id', 'cuakhau_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_cuakhau_id_ngaybaocao'),)
-class DanhSachNghiNgoNhiemBenhNhomA(CommonModel):
-    __tablename__ = "danhsachnghingonhiembenhnhoma"
+#     donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=False)
+#     madonvi = db.Column(db.String())
+#     tendonvi = db.Column(db.String())
+
+#     cuakhau_id = db.Column(db.Integer,db.ForeignKey('cuakhau.id'), nullable=True)
+#     tencuakhau = db.Column(db.String())
+#     macuakhau = db.Column(db.String(25))
+
+#     # danhsachnghingonhiembenh = db.relationship("DanhSachNghiNgoNhiemBenhNhomA",  cascade="all, delete-orphan", lazy='dynamic')
+    
+#     #cuakhau
+#     songuoinhapcanh = db.Column(db.BigInteger)
+#     sohanhkhachkhaibao = db.Column(db.BigInteger)
+#     sochuyenbay = db.Column(db.BigInteger)
+#     songuoinguoinghingo = db.Column(db.BigInteger)
+
+#     #donvi
+#     songuoidangcachlytaptrung = db.Column(db.BigInteger)
+#     songuoidangcachlytaptrung_cotrieuchung = db.Column(db.BigInteger)
+#     diadiemcachlytaptrung = db.Column(db.String)
+#     songuoihetcachly = db.Column(db.BigInteger)
+
+#     __table_args__ = (UniqueConstraint('donvi_id', 'cuakhau_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_cuakhau_id_ngaybaocao'),)
+
+
+class ToKhaiYTe(CommonModel):
+    __tablename__ = "tokhaiyte"
     id = db.Column(db.Integer, primary_key=True)
     sothutu = db.Column(db.Integer)
     hoten = db.Column(db.String)
@@ -707,7 +725,9 @@ class DanhSachNghiNgoNhiemBenhNhomA(CommonModel):
     ngaygio_phathien = db.Column(db.String)
     tinhtrang = db.Column(db.String)
     huongxuly = db.Column(db.String)
-    baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
+    # baocao_id = db.Column(db.Integer,db.ForeignKey('baocaotonghopnghingonhiembenhnhoma.id'), nullable=True)
+
+
 #### form to khai y te doi voi nguoi###
 class ToKhaiYTeDoiVoiNguoi(CommonModel):
     __tablename__ = "tokhaiytedoivoinguoi"
@@ -744,12 +764,14 @@ class ToKhaiYTeDoiVoiNguoi(CommonModel):
     cuakhau_id = db.Column(db.Integer,db.ForeignKey('cuakhau.id'), nullable=True)
     tencuakhau = db.Column(db.String())
     macuakhau = db.Column(db.String(25))
+
 class ToKhaiYTeDoiVoiNguoiQuocGia(CommonModel):
     __tablename__ = 'tokhaiytedoivoinguoiquocgia'
     id = db.Column(db.Integer, primary_key=True)
     tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
     tenquocgia = db.Column(db.String())
     ngaydiqua = db.Column(db.DateTime())
+
 class ToKhaiYTeDoiVoiNguoiVacxin(CommonModel):
     __tablename__ = 'tokhaiytedoivoinguoivacxin'
     id = db.Column(db.Integer, primary_key=True)
@@ -758,6 +780,7 @@ class ToKhaiYTeDoiVoiNguoiVacxin(CommonModel):
     ngaydunggannhat = db.Column(db.DateTime())
     ketqua = db.Column(db.String())
     tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
+
 class ToKhaiYTeDoiVoiNguoiXuatHienDauHieuBenh(CommonModel):
     __tablename__ = 'tokhaiytedoivoinguoixuathiendauhieubenh'
     id = db.Column(db.Integer, primary_key=True)
@@ -770,6 +793,7 @@ class ToKhaiYTeDoiVoiNguoiXuatHienDauHieuBenh(CommonModel):
     xuathuyet_ngoaida = db.Column(db.Boolean())
     noiban_ngoaida = db.Column(db.Boolean())
     tokhaiyte_id = db.Column(db.Integer,db.ForeignKey('tokhaiytedoivoinguoi.id'), nullable=True)
+
 class ToKhaiYTeDoiVoiNguoiThongTinDiLai(CommonModel):
     __tablename__ = 'tokhaiytedoivoinguoithongtindilai'
     id = db.Column(db.Integer, primary_key=True)
