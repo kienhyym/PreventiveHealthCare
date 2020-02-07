@@ -1,8 +1,8 @@
-static/js/lib
+
 static/js/lib1
 
 static/uploads/
-static/vendor
+
 gatco_apimanager/__pycache__
 application/**/__pycache__
 gatco_apimanager/views/__pycache__/
