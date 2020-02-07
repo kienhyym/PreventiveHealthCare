@@ -55,7 +55,8 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
        		    dataType:"json",
        		    success: function (data) {
        		    	//self.currentUser = data.user;
-       		    	self.currentUser = new Gonrin.User(data.user);
+					//self.currentUser = new Gonrin.User(data.user);
+					self.currentUser = new Gonrin.User(data);
        		    	var $user = self.$header.find("span.username");
        		    	if(self.currentUser.hasRole("DonViAdmin")){
        		    		self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.user.name);
@@ -75,28 +76,28 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
        		    }
        		});
 		},
-		parseDate: function (val) {
-			var result = null;
-			if (val === null || val === undefined || val === "" || val === 0) {
-				//				return moment.utc();
-				result = null;
-			} else {
-				var date = null;
-				if ($.isNumeric(val) && parseInt(val) > 0) {
-					date = new Date(val * 1000);
-				} else if (typeof val === "string") {
-					date = new Date(val);
-				} else {
-					result = moment.utc();
-				}
-				if (date != null && date instanceof Date) {
-					result = moment.utc([date.getFullYear(), date.getMonth(), date.getDate()]);
-				}
-				//				return moment.utc();
-				//				console.log("app.parseDate====",result);
-				return result;
-			}
-		},
+		// parseDate: function (val) {
+		// 	var result = null;
+		// 	if (val === null || val === undefined || val === "" || val === 0) {
+		// 		//				return moment.utc();
+		// 		result = null;
+		// 	} else {
+		// 		var date = null;
+		// 		if ($.isNumeric(val) && parseInt(val) > 0) {
+		// 			date = new Date(val * 1000);
+		// 		} else if (typeof val === "string") {
+		// 			date = new Date(val);
+		// 		} else {
+		// 			result = moment.utc();
+		// 		}
+		// 		if (date != null && date instanceof Date) {
+		// 			result = moment.utc([date.getFullYear(), date.getMonth(), date.getDate()]);
+		// 		}
+		// 		//				return moment.utc();
+		// 		//				console.log("app.parseDate====",result);
+		// 		return result;
+		// 	}
+		// },
 	});
     Backbone.history.start();
 });
