@@ -59,7 +59,6 @@ define(function (require) {
         },
         registerAppRoute: function(){
             var self = this;
-            console.log("registerAppRoute");
             $.each(routedata, function(idx, entry){
                 var entry_path = _.result(entry,'route');
                 self.route(entry_path, entry.collectionName, function(){
