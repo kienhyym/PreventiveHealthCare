@@ -787,7 +787,7 @@ class ToKhaiYTe(CommonModel):
     cachlytaptrung = db.Column(db.String)
 
     trangthai = db.Column(db.String)
-    note = db.Column(Text())
+    note = db.Column(db.Text())
     extra_data = db.Column(JSONB)
     
 
