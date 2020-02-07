@@ -7,10 +7,10 @@ define(function (require) {
 	var template = require('text!app/baocaonghingonhiembenh/tpl/baocaonghingonhiembenhmodel.html'),
 	schema = require('json!schema/BaoCaoNghiNgoNhiemBenhSchema.json');
 
-	var XetNghiemItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/XetNghiemItemView');
-	var QuocGiaItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/QuocGiaItemView');
-	var VacXinItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/VacXinItemView');
-	var NguoiTiepXucItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/NguoiTiepXucItemView');
+	var XetNghiemItemView = require('app/baocaonghingonhiembenh/js/XetNghiemItemView');
+	var QuocGiaItemView = require('app/baocaonghingonhiembenh/js/QuocGiaItemView');
+	var VacXinItemView = require('app/baocaonghingonhiembenh/js/VacXinItemView');
+	var NguoiTiepXucItemView = require('app/baocaonghingonhiembenh/js/NguoiTiepXucItemView');
 	
 	
 	return Gonrin.ModelView.extend({
