@@ -75,13 +75,18 @@
         .content {
             overflow-x: scroll;
         }
+        .right-logo {
+            font-weight: bolder;
+            color: red;
+            font-size: 120%;
+        }
 </style>
 </head>
 
 <body>
     <div class="header">
         <img height="40px" style="float: left;" src="/static/img/logo-boyte50.png"/>
-        
+        <span class="right-logo" style="float: right;">2019-nCoV</span>
     </div><br/>
     <div class="content" style="margin-top: 50px;">
         {% block content %}{% endblock %}
