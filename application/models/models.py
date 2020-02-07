@@ -719,8 +719,6 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
 class ToKhaiYTe(CommonModel):
     __tablename__ = "tokhaiyte"
     id = db.Column(db.String, primary_key=True)
-
-    
     ngaykekhai = db.Column(db.DateTime())
 
     donvi_id = db.Column(db.Integer, nullable=False, index=True)

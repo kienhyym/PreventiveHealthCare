@@ -15,6 +15,9 @@
     "id": {
         "type": "number",
         "primary": true
+    },
+    "hoten": {
+        "type": "string"
     }
 
 }

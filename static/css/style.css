@@ -2,6 +2,25 @@ body {
   font-size: .875rem;
 }
 
+.input-NghiNgoNhiemBenh{
+	border:none;
+	border-bottom:1px dotted black;
+	padding-left: 1%;
+	
+}
+.input-nghinhiembenh{
+	border:none;
+	border-bottom:1px dotted black;
+	padding-left: 1%;
+	width: 100% !important;
+}
+.flexboxer{
+		display: flex;
+}
+.flexboxer label{
+	padding-top: 5px;
+}
+
 @media (min-width: 500px) {
   #myChart {
     height: 200px;
@@ -121,13 +140,13 @@ body {
 #sca div table tbody tr:hover{
   background-color: #b3bfcc;
 }
-/* .input-phuluc2{
+.delete_border_outline_padding_input{
 	border:none;
 	border-bottom:1px dotted black;
   padding-left: 1%;
   outline: 0px;
 }
-.input-phuluc3{
+/*.input-phuluc3{
 	border:none;
 	border-bottom:1px dotted black;
   padding-left: 1%;
