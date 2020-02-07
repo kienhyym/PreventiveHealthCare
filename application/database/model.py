@@ -33,13 +33,11 @@ def model_onupdate_listener(mapper, connection, instance):
 class CommonModel(db.Model):
     __abstract__ = True
     id = db.Column(UUID(as_uuid=True), default=default_uuid)
-    created_at = db.Column(BigInteger())
-    created_by = db.Column(String, nullable=True)
-    updated_at = db.Column(BigInteger())
-    updated_by = db.Column(String, nullable=True)
-    deleted = db.Column(Boolean, default=False)
-    deleted_by = db.Column(String, nullable=True)
-    deleted_at = db.Column(BigInteger())
+    
+    _created_at = db.Column(DateTime)
+    _updated_at = db.Column(DateTime)
+    _deleted = db.Column(Boolean, default=False)
+    _deleted_at = db.Column(DateTime)
 
 
 event.listen(CommonModel, 'before_insert', model_oncreate_listener, propagate=True)

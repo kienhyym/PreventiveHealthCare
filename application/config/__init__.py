@@ -12,7 +12,7 @@ class Config(object):
     APP_API_SECRET = 'da19u3esds121'
     APP_API_EXPIRATION_DELTA = 2592000 #seconds 30 day
     
-    SECRET_KEY = 'acndefs'
+    SECRET_KEY = 'acndefs2fsdfds'
     SESSION_COOKIE_SALT = 'salt_key'
 
     TRANSACTION_TOKEN_EXPIRE_TIME = 120

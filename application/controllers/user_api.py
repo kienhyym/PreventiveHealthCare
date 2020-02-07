@@ -1,0 +1,79 @@
+import string
+import random
+import uuid
+import base64, re
+import binascii
+import aiohttp
+import copy
+from gatco.response import json, text, html, file
+from application.extensions import apimanager
+from application.database import db
+from application.models.models import *
+
+from application.server import app
+#from gatco_apimanager.helpers import to_dict
+
+import time
+from math import floor
+from application.client import HTTPClient
+from application.extensions import auth, jinja
+from gatco_apimanager.views.sqlalchemy.helpers import to_dict
+import ujson
+# from application.models.models import ToKhaiYTeDoiVoiNguoi
+
+from sqlalchemy import or_, and_, desc
+ 
+def auth_func(**kw):
+    pass
+
+def user_to_dict(user):
+    obj = to_dict(user)
+    if "password" in obj:
+        del(obj["password"])
+    if "salt" in obj:
+        del(obj["salt"])
+    return obj
+
+async def current_user(request):
+    uid = auth.current_user(request)
+    if uid is not None:
+        user = db.session.query(User).filter(User.id == uid).first()
+        return user
+    else:
+        return None
+
+@app.route('api/v1/current_user')
+async def get_current_user(request):
+    error_msg = None
+    user = await current_user(request)
+    print("===============", user)
+    if user is not None:
+        user_info = user_to_dict(user)
+        return json(user_info)
+    else:
+        error_msg = "Tài khoản không tồn tại"
+    return json({
+        "error_code": "USER_NOT_FOUND",
+        "error_message":error_msg
+    }, status = 520)
+
+@app.route('/api/v1/login', methods=['POST'])
+async def login(request):
+    data = request.json
+    print("==================data", data)
+    username = data['username']
+    password = data['password']
+    print("==================USER NAME", username)
+    print("==================PASSWORD", password)
+    user = db.session.query(User).filter(User.email == username).first()
+
+
+    print("==================", user)
+    if (user is not None) and auth.verify_password(password, user.password):
+        
+        auth.login_user(request, user)
+        result = user_to_dict(user)
+        return json(result)
+        
+    return json({"error_code":"LOGIN_FAILED","error_message":"Tài khoản hoặc mật khẩu không đúng"}, status=520)
+
