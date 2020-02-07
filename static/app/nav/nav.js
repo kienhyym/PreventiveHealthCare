@@ -6,17 +6,17 @@ define(function (require) {
 	return [
 		{
 			"text": "Index",
-			"type":"view",
-			"collectionName":"index",
-			"route":"index",
+			"type": "view",
+			"collectionName": "index",
+			"route": "index",
 			"$ref": "app/bases/IndexView",
 			"visible": false
 		},
 		{
 			"text": "Báo cáo cửa khẩu",
-			"icon":static_url + "/images/icons/task_120.png",
-			"type":"category",
-			"entries":[
+			"icon": static_url + "/images/icons/task_120.png",
+			"type": "category",
+			"entries": [
 				{
 					"text": "Tổng hợp nghi ngờ nhiễm bệnh",
 					"icon": "fa fa-calendar",
@@ -28,7 +28,7 @@ define(function (require) {
 						return true
 					}
 				},
-				
+
 				{
 					"text": "Tờ khai y tế đối với người",
 					"icon": "fa fa-angle-double-right",
@@ -45,9 +45,9 @@ define(function (require) {
 		},
 		{
 			"text": "Báo cáo đơn vị",
-			"icon":static_url + "/images/icons/task_120.png",
-			"type":"category",
-			"entries":[
+			"icon": static_url + "/images/icons/task_120.png",
+			"type": "category",
+			"entries": [
 				{
 					"text": "Tổng hợp nghi ngờ nhiễm bệnh",
 					"icon": "fa fa-calendar",
@@ -59,14 +59,14 @@ define(function (require) {
 						return true
 					}
 				},
-				
+
 				{
-					"text": "Tờ khai y tế đối với người",
+					"text": "Báo cáo nghi ngờ nhiễm bệnh",
 					"icon": "fa fa-angle-double-right",
 					"type": "view",
-					"collectionName": "tokhaiyte",
-					"route": "tokhaiyte/collection",
-					"$ref": "app/tokhaiyte/js/CollectionView",
+					"collectionName": "baocaonghingonhiembenh",
+					"route": "baocaonghingonhiembenh/collection",
+					"$ref": "app/baocaonghingonhiembenh/js/BaoCaoNghiNgoNhiemBenhCollectionlView",
 					"visible": function () {
 						return true
 					}
@@ -74,6 +74,6 @@ define(function (require) {
 
 			]
 		},
-		
+
 	];
 });
