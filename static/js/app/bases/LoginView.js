@@ -4,7 +4,6 @@ define(function (require) {
     var $                   = require('jquery'),
         _                   = require('underscore'),
         Gonrin            	= require('gonrin'),
-        storejs				= require('store'),
         tpl                 = require('text!tpl/base/Login.html'),
         template = _.template(tpl);
     
@@ -13,11 +12,7 @@ define(function (require) {
 
     return Gonrin.View.extend({
         render: function () {
-        	storejs.remove('gonrintoken');
-    	    if($.ajaxSettings.headers != null){
-    	    	delete $.ajaxSettings.headers['content-type'];
-    	        delete $.ajaxSettings.headers['Authorization'];
-    	    }
+        	
             this.$el.html(template());
             this.handleLogin();
             this.$el.find("#article").append(baiviet_tpl);
@@ -99,15 +94,13 @@ define(function (require) {
        		    },
        		    dataType: 'json',
        		    success: function (data) {
-       		    	self.getApp().session.token = "Bearer " + data.token;
-       		    	storejs.set('gonrin.token', "Bearer " + data.token);
        		    	
-       		    	$.ajaxSetup({
-       		    	    headers: {
-       		    	        'content-type':'application/json',
-       		    	        'Authorization':"Bearer " + data.token
-       		    	    }
-       		    	});
+       		    	// $.ajaxSetup({
+       		    	//     headers: {
+       		    	//         'content-type':'application/json',
+       		    	//         'Authorization':"Bearer " + data.token
+       		    	//     }
+       		    	// });
        		    	//get UserInfo and Permission
        		    	//app.trigger("login_succeeded.app");
        		    	//

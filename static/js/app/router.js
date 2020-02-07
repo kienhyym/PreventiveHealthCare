@@ -3,8 +3,7 @@ define(function (require) {
     "use strict";
     
     var $           = require('jquery'),
-        Gonrin    	= require('gonrin'),
-        storejs		= require('store');
+        Gonrin    	= require('gonrin');
     var Login		= require('app/bases/LoginView');
     var ReadModelView		= require('app/view/BaiViet/ReadModelView');
     return Gonrin.Router.extend({
@@ -25,24 +24,24 @@ define(function (require) {
         defaultRoute:function(){
         	//check storejs session
         	var app = this.getApp();
-        	if(!app.check_valid_session()){
-        		var token = storejs.get('gonrin.token');
-            	if(token != null){
-            		app.session.token = token;
-            		$.ajaxSetup({
-        	    	    headers: {
-        	    	        'content-type':'application/json',
-        	    	        'Authorization':token
-        	    	    }
-        	    	});
-            	}
-        	}
-        	if(app.check_valid_session()){
-        		this.navigate("blank");
-	    		app.postLogin();
-	    	}else{
-	    		this.navigate("login");
-	    	}
+        	// if(!app.check_valid_session()){
+        	// 	var token = storejs.get('gonrin.token');
+            // 	if(token != null){
+            // 		app.session.token = token;
+            // 		$.ajaxSetup({
+        	//     	    headers: {
+        	//     	        'content-type':'application/json',
+        	//     	        'Authorization':token
+        	//     	    }
+        	//     	});
+            // 	}
+        	// }
+        	// if(app.check_valid_session()){
+        	// 	this.navigate("blank");
+	    	// 	app.postLogin();
+	    	// }else{
+	    	// 	this.navigate("login");
+	    	// }
         },
         error_page: function(){
         	var app = this.getApp();
