@@ -120,14 +120,15 @@ define(function (require) {
 					//self.model.set("ngaybaocao", moment().startOf('day').unix());
 
 					//self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DDTHH:mm"));
-					self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
-					
-                    self.applyBindings();
-					self.registerEvent();
 					self.model.on("change:ngaybaocao",function () {
 						var ngaybaocao = self.model.get("ngaybaocao");
 						self.getDanhsachnhiembenh(ngaybaocao);
 					})
+					self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
+					
+                    self.applyBindings();
+					self.registerEvent();
+					
 					var info = user.info;
                     var cuakhau = info.cuakhau;
                     if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
@@ -185,17 +186,16 @@ define(function (require) {
 			}
 			return true;
 		},
-		CreateNguoiNhiemBenh: function() {
+		createNguoiNhiemBenh: function(ngaybaocao) {
 			var self = this;
-			var dialogUserDonViView = new BaoCaoNghiNgoNhiemBenhDialogView();
-			dialogUserDonViView.dialog({size: "large"});
-			dialogUserDonViView.on("close", function () {
-				self.getDanhsachnhiembenh();
+			var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
+			dialogNghiNgonhiemBenh.dialog({size: "large"});
+			dialogNghiNgonhiemBenh.on("close", function () {
+				self.getDanhsachnhiembenh(ngaybaocao);
 			});
 		},
 		getDanhsachnhiembenh:function(ngaybaocao){
 			var self = this;
-			
 				$("#add-nghingonhiembenh-item").html("");
 				var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
 				$.ajax({
@@ -219,17 +219,14 @@ define(function (require) {
 								{
 									name: "create",
 									type: "button",
-									buttonClass: "btn-success btn-sm",
-									label: "Tạo mới",
-									command: function(){
-										var self = this;
-										// this.CreateNguoiNhiemBenh();
-										var dialogUserDonViView = new BaoCaoNghiNgoNhiemBenhDialogView();
-										dialogUserDonViView.dialog({size: "large"});
-										// dialogUserDonViView.on("close", function () {
-										// 	self.getDanhsachnhiembenh();
-										// });
-										// gonrinApp().getRouter().navigate("baocaonghingonhiembenh/model");
+									buttonClass: "btn-danger btn-sm",
+									label: "Tạo mới nhanh trường hợp nghi ngờ",
+									command: function() {
+										
+										self.createNguoiNhiemBenh(ngaybaocao);
+										// var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
+										// dialogNghiNgonhiemBenh.dialog({size: "large"});
+										
 									}
 								},
 							],

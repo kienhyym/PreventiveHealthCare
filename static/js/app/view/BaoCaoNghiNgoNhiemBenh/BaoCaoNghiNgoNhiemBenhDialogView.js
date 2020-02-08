@@ -7,7 +7,6 @@ define(function (require) {
 	var template = require('text!tpl/BaoCaoNghiNgoNhiemBenh/baocaonghingonhiembenhdialog.html'),
 		schema = require('json!app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhSchema.json');
 	
-	
 	return Gonrin.ModelDialogView.extend({
 		template: template,
 		modelSchema: schema,
@@ -26,8 +25,9 @@ define(function (require) {
 								label: "TRANSLATE:BACK",
 								command: function(){
 									var self = this;
-									Backbone.history.history.back();
-					                // self.getApp().getRouter().navigate(self.collectionName + "/collection");
+									self.close();
+									// Backbone.history.history.back();
+					                // // self.getApp().getRouter().navigate(self.collectionName + "/collection");
 								}
 							},
 							{
@@ -37,16 +37,12 @@ define(function (require) {
 				    	    	label: "TRANSLATE:SAVE",
 				    	    	command: function(){
 				    	    		var self = this;
-				    	    		if(!self.validate()){
-				    	    			return;
-				    	    		}
 				                    self.model.save(null,{
 				                        success: function (model, respose, options) {
 				                            self.getApp().notify("Save successfully");
-				                            self.getApp().getRouter().navigate(self.collectionName + "/collection");
+				                            self.close();
 				                        },
 				                        error: function (model, xhr, options) {
-				                            //self.alertMessage("Something went wrong while processing the model", false);
 				                            self.getApp().notify('Save error');
 				                        }
 				                    });
@@ -57,23 +53,23 @@ define(function (require) {
 		    	],
 		uiControl: [
 			{
-				// field:"gioitinh",
-				// uicontrol:"combobox",
-				// textField: "text",
-				// valueField: "value",
-				// dataSource: [
-				//         { text: "Nam", value: "nam" },
-				//         { text: "Nữ", value: "nữ" },
-				// ],
-
+				field:"gioitinh",
+				uicontrol:"combobox",
+				textField: "text",
+				valueField: "value",
+				cssClass:"form-control",
+				dataSource: [
+					{ value: "Nam", text: "Nam" },
+					{ value: "Nu", text: "Nữ" },
+				 ],
+			},
+			{
 				field: "benh_nghingo",
 				cssClass: false,
 
 			},
-			{field:"ngaybaocao", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
-			{field:"ngay_nhapquacanh", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
-            
-			
+			{field:"ngaybaocao", cssClass:true, textFormat :"DD/MM/YYYY", disabledComponentButton: false},
+			// {field:"ngay_nhapquacanh", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
 			{
 				field: "cmtnd",
 				cssClass: false,
@@ -193,34 +189,15 @@ define(function (require) {
 		],
 		render: function () {
 			var self = this;
-			var id = this.getApp().getRouter().getParam("id");
-			if (id) {
-				//progresbar quay quay
-				this.model.set('id', id);
-				this.model.fetch({
-					success: function (data) {
-						console.log(data);
-						var donvi = self.model.get("donvi");
-						// self.$el.find("#chuquan").html(donvi.coquanchuquan);
-						// self.$el.find("#tendonvi").html(donvi.ten);
-						self.applyBindings();
-						self.registerEvent();
-					},
-					error: function () {
-						self.getApp().notify("Get data Eror");
-					},
-				});
-			} else {
-				//self.model.set("donvi_id")
-				var user = self.getApp().currentUser;
+			var user = self.getApp().currentUser;
+			if (user) {
 				var donvi = user.info.donvi;
-				self.model.set("donvi_id", donvi.id);
-				// self.$el.find("#chuquan").html(donvi.coquanchuquan);
-				// self.$el.find("#tendonvi").html(donvi.ten);
-				self.applyBindings();
 				self.registerEvent();
+				self.model.set("donvi_id", donvi.id);
+				self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+				self.applyBindings();
+				
 			}
-
 		},
 		registerEvent: function(){
 			var self = this;
@@ -229,20 +206,11 @@ define(function (require) {
 				
 				var moobject = moment(ngaybaocao, "YYYY-MM-DDTHH:mm:ss");
 				var nambaocao = moobject.year();
-				console.log(nambaocao);
+				// console.log(nambaocao);
 				self.model.set("nambaocao", nambaocao);
 			})
+			// self.applyBindings();
 		},
-		validate: function(){
-			var self = this;
-			var nam = self.model.get("nambaocao");
-			if(!nam){
-				self.getApp().notify('Chưa điền năm báo cáo');
-				return false;
-			}
-			
-			return true;
-		}
 	});
 
 });

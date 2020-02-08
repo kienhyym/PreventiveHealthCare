@@ -146,3 +146,6 @@ li.tabarrow a{
 /* #tungay-input { */
 	max-width: 200px !important;
 }
+.input-right {
+	padding-right: 30px !important;
+}

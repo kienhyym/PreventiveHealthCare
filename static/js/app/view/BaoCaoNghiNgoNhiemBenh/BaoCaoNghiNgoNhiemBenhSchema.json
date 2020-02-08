@@ -95,6 +95,12 @@
     },
     "baocaonghingonhiembenhnguoitiepxuc": {
       "type": "list"
+    },
+    "huongxuly": {
+      "type": "string"
+    },
+    "ngaygio_phathien": {
+      "type": "string"
     }
   }
   

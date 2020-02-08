@@ -61,6 +61,16 @@ define(function (require) {
 			"route": "hoadon/model(/:id)",
 			"$ref": "app/view/HoaDon/ModelView",
 		},
+		{
+			"collectionName":"baocaonghingonhiembenh",
+			"route":"baocaonghingonhiembenh/collection",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+		},	
+		{
+			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
+			"route":"baocaotonghopnghingonhiembenhnhoma/model(/:id)",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
+		},
 	];
 
 });

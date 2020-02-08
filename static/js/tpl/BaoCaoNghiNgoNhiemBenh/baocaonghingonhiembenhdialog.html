@@ -1,11 +1,76 @@
+<h4 class="text-center"><b>Báo cáo nhanh trường hợp nghi ngờ mắc bệnh truyền nhiễm nhóm A tại khu vực cửa khẩu</b></h4>
 <div block-bind="toolbar"></div>
 <div block-bind="content">
-    <div class="row">
-        <div class="col col-md-3">
+    <div class="row" style="margin-top: 20px;">
+        <div class=" col-md-2 text-right">
+            <label>Ngày báo cáo:</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:ngaybaocao">
+        </div>
+        <div class=" col-md-2 text-right">
+                <label>Năm báo cáo:</label>
+            </div>
+            <div class=" col-md-4 input-right">
+                <input type="text" readonly class="form-control" data-bind="value:nambaocao">
+            </div>
+    </div>
+    <hr/>
+    <div class="row" style="margin-top: 10px;">
+        <div class=" col-md-2 text-right" >
             <label>Họ tên:</label>
         </div>
-        <div class="col col-md-3">
+        <div class=" col-md-4 input-right">
             <input type="text" class="form-control" data-bind="value:hoten" >
+        </div>
+        <div class=" col-md-2 text-right">
+            <label>Năm sinh:</label>
+        </div>
+        <div class="col col-md-4 input-right">
+            <input type="number" class="form-control" data-bind="value:namsinh" >
+        </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+        <div class=" col-md-2 text-right">
+            <label>Giới tính:</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:gioitinh">
+        </div>
+
+        <div class=" col-md-2 text-right">
+            <label>Quốc tịch:</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:quoctich" >
+        </div>
+    </div>
+    <div class="row"style="margin-top: 10px;">
+        <div class=" col-md-2 text-right">
+            <label>Nơi ở tại Việt Nam(Nơi sẽ đến):</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:noio">
+        </div>
+        <div class=" col-md-2 text-right">
+            <label>Ngày giờ phát hiện:</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:huongxuly">
+        </div>
+    </div>
+    <div class="row"style="margin-top: 10px; margin-bottom: 30px;">
+        <div class=" col-md-2 text-right">
+            <label>Tình trạng khi phát hiện:</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:tiensu_trieuchunglamsang">
+        </div>
+        <div class=" col-md-2 text-right">
+            <label>Xử trí:</label>
+        </div>
+        <div class=" col-md-4 input-right">
+            <input type="text" class="form-control" data-bind="value:tiensu_xutri">
         </div>
     </div>
 </div>
