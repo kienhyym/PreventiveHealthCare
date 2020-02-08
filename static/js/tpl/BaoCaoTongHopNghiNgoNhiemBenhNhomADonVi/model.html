@@ -1,0 +1,68 @@
+<div block-bind="toolbar"></div>
+<div block-bind="content">
+    <div class="row">
+        <div class="col col-md-4 text-center">
+            <p id="chuquan"></p>
+            <p style="margin-bottom:2px">
+                <b id="tendonvi"></b>
+            </p>
+        </div>
+        <div class="col col-8 col-md-8 text-center">
+                <b>BÁO CÁO  SỐ LIỆU LƯỢT KHÁCH KHAI BÁO Y TẾ TẠI CÁC CỬA KHẨU NĂM 2020</b>
+                <br>
+                <br>
+                <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <div class="col-md-9">
+                <label >Chọn đơn vị</label>
+                <input id="donvi-input" class="form-control" type="text" placeholder="Chọn đơn vị" data-bind="dict:donvi"/>
+        </div> -->
+    </div>
+    <div class="row ">
+        <!-- <div class="col-md-4 form-inline hidden">
+                <div class="form-group ">
+                        <label >Năm</label>
+                        <input id="nambaocao-input" class="form-control" type="text" placeholder="Nhập năm báo cáo" />
+                    </div>
+        </div> -->
+        <div class="col-md-12 form-inline">
+           
+            <!--<div class="form-group hide_selectdonvi">
+                    <label >Chọn đơn vị</label>
+                    <input id="donvi-input" class="form-control" type="text" placeholder="Chọn đơn vị" data-bind="dict:donvi"/>
+            </div>-->
+            <div class="form-group select_time ">
+                <label >Từ ngày</label>
+                <input id="tungay-input" class="form-control" type="text" placeholder="Từ ngày" />
+            </div>
+            <div class="form-group select_time">
+                <label >Đến ngày</label>
+                <input id="denngnay-input" class="form-control" type="text" placeholder="Đến ngày" />
+            </div>
+            <button class="btn btn-primary btn-view-report" style="margin-bottom: 10px">Xem báo cáo</button>
+
+        </div>
+
+    </div>
+    <div class="content-data" style="margin-top:20px;">
+            <table style="width: 100%;" class="data-table">
+                    <thead>
+                        <tr style="font-style: bold">
+                            <th rowspan="2" style="width:45px">STT</th>
+                            <th rowspan="2" style="width: 270px; text-align:center">Nội dung báo cáo</th>
+                            <th rowspan="2" style="width: 150px; text-align:center">Ngày tháng</th>
+                            <th id="th-cuakhau" style=" text-align:center">Tên Cửa Khẩu</th>
+                        </tr>
+                        <tr style="font-style: bold" id="tr-tencuakhau">
+
+                        </tr>
+                    </thead>
+                    <tbody id="body-data">
+                    </tbody>
+                </table>
+    </div>
+    
+</div>
