@@ -62,8 +62,8 @@ define(function (require) {
 			"$ref": "app/view/HoaDon/ModelView",
 		},
 		{
-			"collectionName":"baocaonghingonhiembenh",
-			"route":"baocaonghingonhiembenh/collection",
+			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
+			"route":"baocaotonghopnghingonhiembenhnhoma/collection",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
 		},	
 		{
