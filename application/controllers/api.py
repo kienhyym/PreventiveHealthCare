@@ -41,7 +41,7 @@ def auth_func(**kw):
 def set_user_passwd(data=None,**kw):
     if ('password' in data) and ('confirmpassword' in data):
         if(data['password']  == data['confirmpassword']):
-            data['password'] = encrypt_password(data['password'])
+            data['password'] = auth.encrypt_password(data['password'])
             del data['confirmpassword']
         else:
             raise ProcessingException(description='Confirm password is not match',code=401)
@@ -58,7 +58,7 @@ def reset_user_passwd(instance_id=None, data=None,**kw):
             if(data['password'] == data['confirmpassword']):
                 #user = user_datastore.find_user(id=instance_id)
                 #if verify_password(data['password'], user.password):
-                data['password'] =encrypt_password(data['password'])
+                data['password'] =auth.encrypt_password(data['password'])
                     #del data['newpassword']
                 del data['confirmpassword']
                 #else:

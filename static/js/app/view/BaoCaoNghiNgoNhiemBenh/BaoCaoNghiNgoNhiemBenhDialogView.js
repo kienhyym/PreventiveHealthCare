@@ -192,25 +192,35 @@ define(function (require) {
 			var self = this;
 			var user = self.getApp().currentUser;
 			if (user) {
-				var donvi = user.info.donvi;
-				self.registerEvent();
-				self.model.set("donvi_id", donvi.id);
-				self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
-				self.applyBindings();
+				// var donvi = user.info.donvi;
 				
+				// self.model.set("donvi_id", donvi.id);
+
+				var info = user.info;
+				var cuakhau = info.cuakhau;
+				if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+					self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
+					
+				}
+				var donvi = info.donvi;
+				if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+					self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
+				}
+
+				self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+				self.model.set("nambaocao", moment().year());
+				self.applyBindings();
+				self.registerEvent();
 			}
 		},
 		registerEvent: function(){
 			var self = this;
 			self.model.on("change:ngaybaocao", function(){
 				var ngaybaocao = self.model.get("ngaybaocao");
-				
 				var moobject = moment(ngaybaocao, "YYYY-MM-DDTHH:mm:ss");
 				var nambaocao = moobject.year();
-				// console.log(nambaocao);
 				self.model.set("nambaocao", nambaocao);
 			})
-			// self.applyBindings();
 		},
 	});
 

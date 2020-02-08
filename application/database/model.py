@@ -16,15 +16,15 @@ def default_uuid():
 
 
 def model_oncreate_listener(mapper, connection, instance):
-    instance.created_at = floor(time.time())
-    instance.updated_at = floor(time.time())
+    instance._created_at = func.now()
+    instance._updated_at = func.now()
 
 
 def model_onupdate_listener(mapper, connection, instance):
-    instance.created_at = instance.created_at
-    instance.updated_at = floor(time.time())
-    if instance.deleted is True:
-        instance.deleted_at = floor(time.time())
+    instance._created_at = instance._created_at
+    instance._updated_at = func.now()
+    if instance._deleted is True:
+        instance._deleted_at = func.now()
 
 
 # CommonModel
@@ -82,7 +82,7 @@ class CommonAdjacencyModel(CommonModel):
             data.append(self.id)
             for r in self.children.values():
                 r._children_ids(data)
-                
+
     def _childrens(self, data):
         if type(data) is list:
             if self.id is not None:

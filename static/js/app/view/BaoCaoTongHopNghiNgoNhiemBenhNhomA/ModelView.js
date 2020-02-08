@@ -44,7 +44,7 @@ define(function (require) {
 				                            self.getApp().getRouter().navigate("baocaotonghopnghingonhiembenhnhoma/collection");
 				                        },
 				                        error: function (model, xhr, options) {
-				                            self.getApp().notify('Save error');
+				                            self.getApp().notify('Save error, Xin kiểm tra trùng ngày lập báo cáo');
 				                        }
 				                    });
 				    	    	}
@@ -117,17 +117,6 @@ define(function (require) {
                 } else {
 					
 					// console.log
-					//self.model.set("ngaybaocao", moment().startOf('day').unix());
-
-					//self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DDTHH:mm"));
-					self.model.on("change:ngaybaocao",function () {
-						var ngaybaocao = self.model.get("ngaybaocao");
-						self.getDanhsachnhiembenh(ngaybaocao);
-					})
-					self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
-					
-                    self.applyBindings();
-					self.registerEvent();
 					
 					var info = user.info;
                     var cuakhau = info.cuakhau;
@@ -140,7 +129,19 @@ define(function (require) {
                     var donvi = info.donvi;
                     if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
                         self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
-                    }
+					}
+
+					//self.model.set("ngaybaocao", moment().startOf('day').unix());
+
+					//self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DDTHH:mm"));
+					
+					self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
+					
+					self.applyBindings();
+					self.getDanhsachnhiembenh();
+					self.registerEvent();
+					
+					
                 }
             }
 		},
@@ -176,6 +177,10 @@ define(function (require) {
 					self.$el.find(".user_cuakhau").show();
 				}
 			});
+
+			self.model.on("change:ngaybaocao",function () {
+				self.getDanhsachnhiembenh();
+			})
 		},
 		validate: function() {
 			var self = this;
@@ -203,12 +208,28 @@ define(function (require) {
 		getDanhsachnhiembenh:function(){
 			var self = this;
 			var ngaybaocao = self.model.get("ngaybaocao");
+			var donvi_id = self.model.get("donvi_id");
+			var cuakhau_id = self.model.get("cuakhau_id");
+
+			console.log(donvi_id, cuakhau_id);
+
 			self.$el.find("#add-nghingonhiembenh-item").empty();
 			var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
 			$.ajax({
 			url: url_danhsachnghingo,
 				method: "GET",
-				data: {"q": JSON.stringify({"filters": {"ngaybaocao":{"$eq":ngaybaocao}},"page":1}),"results_per_page":50},
+				data: {
+					"q": JSON.stringify({
+						"filters": {
+							"$and":[
+								{"ngaybaocao":{"$eq":ngaybaocao}},
+								{"donvi_id": {"$eq":donvi_id}},
+								{"cuakhau_id": {"$eq":cuakhau_id}}
+							]
+						},
+					// "page":1
+					})
+				},
 				contentType: "application/json",
 				success: function (data) {
 					$("#add-nghingonhiembenh-item").grid({

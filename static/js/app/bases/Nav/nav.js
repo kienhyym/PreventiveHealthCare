@@ -227,27 +227,41 @@ define(function (require) {
         			    // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    // }
 					},	
-					{
-        			    "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
-        			    "type":"view",
-        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhoma/model(/:id)",
-        			    "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
-						"icon":static_url + "/images/icons/task_120.png",
-						"visible": function(){
-							return false;
-						}
+					// {
+        			//     "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			//     "type":"view",
+        			//     "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			//     "route":"baocaotonghopnghingonhiembenhnhoma/model(/:id)",
+        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
+					// 	"icon":static_url + "/images/icons/task_120.png",
+					// 	"visible": function(){
+					// 		return false;
+					// 	}
 						
-					},
+					// },
 					
 					{
-        			    "text":" Báo cáo Tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			    "text":" Báo cáo 2019-nCoV cửa khẩu",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
         			    "route":"baocaotonghopnghingonhiembenhnhoma/collection",
-        			    "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
         			    "icon":static_url + "/images/icons/task_120.png",
 					},
+
+					{
+        			    "text":" Báo cáo 2019-nCoV đơn vị",
+        			    "type":"view",
+        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			    "route":"baocaotonghopnghingonhiembenhnhoma/collectiondv",
+        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+						"icon":static_url + "/images/icons/task_120.png",
+						"visible": function(){
+        			    	return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
+        			    	this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    },
+					},
+
 					// {
         			//     "text":"BC nghi ngờ nhiễm bệnh",
         			//     "type":"view",
@@ -424,13 +438,34 @@ define(function (require) {
 						visible:false
 					},
 					{
-        			    "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			    "text":" Báo cáo 2019-nCoV cửa khẩu",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhoma/collection",
-        			    "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+        			    "route":"baocaotonghopnghingonhiembenhnhoma/model",
         			    "icon":static_url + "/images/icons/task_120.png",
+						"visible": function(){
+        			    	return this.checkHasRole("CuaKhauUser");
+        			    }
 					},
+					{
+        			    "text":" Báo cáo 2019-nCoV đơn vị",
+        			    "type":"view",
+        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			    "route":"baocaotonghopnghingonhiembenhnhomadv/model",
+        			    "icon":static_url + "/images/icons/task_120.png",
+						"visible": function(){
+        			    	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    }
+					},
+
+					// {
+        			//     "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			//     "type":"view",
+        			//     "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			//     "route":"baocaotonghopnghingonhiembenhnhoma/collection",
+        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+        			//     "icon":static_url + "/images/icons/task_120.png",
+					// },
 					// {
         			//     "text":"Báo cáo Tổng hợp nghi ngờ nhiễm bệnh",
         			//     "type":"view",

@@ -30,22 +30,22 @@ define(function (require) {
                 {
                     field: "id", label: "ID", width: 250, readonly: true,visible: false
                 },
-                { field: "ngaybaocao", label: "Ngày báo cáo",width: 250
-                // template: (rowData) => {
-                //     return '<p>'+moment.unix(rowData.ngaybaocao).local().format("DD/MM/YYYY");+'</p>';
-                // }
+                { field: "ngaybaocao", label: "Ngày báo cáo",
+                    // template: (rowData) => {
+                    // return '<p>'+moment.unix(rowData.ngaybaocao).local().format("DD/MM/YYYY");+'</p>';
+                    // }
                 },
-                { field: "tencuakhau", label: "Tên cửa khẩu", width: 250 },
-                { field: "tendonvi", label: "Tên đơn vị", width: 250, textField: "ten" },
-                { field: "sochuyenbay", label: "Số chuyến bay", width: 250 },
-                { field: "songuoinhapcanh", label: "Số hành khách", width: 250 },
+                { field: "tencuakhau", label: "Tên cửa khẩu"},
+                { field: "tendonvi", label: "Tên đơn vị" },
+                { field: "sochuyenbay", label: "Số chuyến bay" },
+                { field: "songuoinhapcanh", label: "Số hành khách"},
                 { field: "donvi_id", visible:false },
                 { field: "loaibaocao", visible:false },
                 { field: "cuakhau_id", visible:false },
                 { field: "macuakhau", visible:false },
                 { field: "danhsachnghingonhiembenh", visible:false },
-                { field: "sohanhkhachkhaibao", visible:false },
-                { field: "songuoinguoinghingo", visible:false },
+                { field: "sohanhkhachkhaibao", label: "Số khai báo" },
+                { field: "songuoinguoinghingo", label: "Số nghi ngờ" },
                 { field: "songuoidangcachlytaptrung", visible:false },
                 { field: "songuoidangcachlytaptrung_cotrieuchung", visible:false },
                 { field: "diadiemcachlytaptrung", visible:false },
