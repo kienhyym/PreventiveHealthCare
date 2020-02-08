@@ -4,15 +4,17 @@ define(function (require) {
 		_ = require('underscore'),
 		Gonrin = require('gonrin');
 
-	var template = require('text!app/view/BaoCaoTongHopNghiNgoNhiemBenh/tpl/model.html'),
-		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenh/Schema.json');
+	var template = require('text!tpl/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/model.html'),
+		//schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenh/Schema.json');
+		schema = schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
+	
 	var DonViSelectView = require("app/view/HeThong/DonVi/TreeNoChildrenSelectView");
 	
 	return Gonrin.ModelView.extend({
 		template: template,
 		modelSchema: schema,
 		urlPrefix: "/api/v1/",
-		collectionName: "baocaotonghopnghingonhiembenh",
+		collectionName: "baocaotonghopnghingonhiembenhnhoma",
 		tools : [
 		    	    {
 		    	    	name: "defaultgr",
@@ -65,28 +67,28 @@ define(function (require) {
 			self.$el.find('#tungay-input').datetimepicker({
 				textFormat:'DD/MM/YYYY',
 				extraFormats:['DDMMYYYY'],
-				format:"DD/MM/YYYY",
+				format:"YYYY-MM-DD",
 				placeholder:"VD: 15/11/2019",
 				widgetPositioning: {"vertical":"bottom"},
-				parseInputDate: function(val){
-					return moment.unix(val)
-				},
-				parseOutputDate: function(date){
-					return date.startOf('day').unix();
-				}
+				// parseInputDate: function(val){
+				// 	return moment.unix(val)
+				// },
+				// parseOutputDate: function(date){
+				// 	return date.startOf('day').unix();
+				// }
 			});
 			self.$el.find('#denngnay-input').datetimepicker({
 				textFormat:'DD/MM/YYYY',
 				extraFormats:['DDMMYYYY'],
-				format:"DD/MM/YYYY",
+				format:"YYYY-MM-DD",
 				placeholder:"VD: 15/11/2019",
 				widgetPositioning: {"vertical":"bottom"},
-				parseInputDate: function(val){
-					return moment.unix(val)
-				},
-				parseOutputDate: function(date){
-					return date.startOf('day').unix();
-				}
+				// parseInputDate: function(val){
+				// 	return moment.unix(val)
+				// },
+				// parseOutputDate: function(date){
+				// 	return date.startOf('day').unix();
+				// }
 				
 			});
 			
@@ -111,9 +113,9 @@ define(function (require) {
 				var tungay = self.$el.find("#tungay-input").val();
 				var denngay = self.$el.find("#denngnay-input").val();
 
-				tungay = parseInt(tungay) ? parseInt(tungay) : 0;
-				denngay = parseInt(denngay) ? parseInt(denngay) : 0;
-				if(tungay== 0 || denngay == 0){
+				// tungay = parseInt(tungay) ? parseInt(tungay) : 0;
+				// denngay = parseInt(denngay) ? parseInt(denngay) : 0;
+				if(tungay == "" || denngay == ""){
 					self.getApp().notify("Vui lòng chọn thời gian từ ngày --> đến ngày");
 					return false;
 				}

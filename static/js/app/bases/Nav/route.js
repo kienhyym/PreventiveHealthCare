@@ -69,7 +69,7 @@ define(function (require) {
 		{
 			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
 			"route":"baocaotonghopnghingonhiembenhnhoma/collectiondv",
-			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/CollectionView",
 		},	
 		{
 			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
@@ -79,7 +79,7 @@ define(function (require) {
 		{
 			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
 			"route":"baocaotonghopnghingonhiembenhnhoma/modeldv(/:id)",
-			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/ModelView",
 		},
 	];
 

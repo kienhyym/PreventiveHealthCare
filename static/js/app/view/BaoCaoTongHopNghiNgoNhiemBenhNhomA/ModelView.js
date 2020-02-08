@@ -14,7 +14,7 @@ define(function (require) {
 		template: template,
 		modelSchema: schema,
 		urlPrefix: "/api/v1/",
-		collectionName: "baocaotonghopnghingonhiembenhnhomA",
+		collectionName: "baocaotonghopnghingonhiembenhnhoma",
 		tools : [
 		    	    {
 		    	    	name: "defaultgr",

@@ -102,5 +102,5 @@ apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
     preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
     
     #results_per_page=30,
-    collection_name='baocaotonghopnghingonhiembenhnhomA')
+    collection_name='baocaotonghopnghingonhiembenhnhoma')
 
