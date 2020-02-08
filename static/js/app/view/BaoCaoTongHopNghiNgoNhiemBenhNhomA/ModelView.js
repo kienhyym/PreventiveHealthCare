@@ -8,7 +8,7 @@ define(function (require) {
 		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
 
     var NguoiNghiNhiemView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/DanhSachNghiNgoCollection');
-	var CreateNguoiNhiemBenhDialogView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CreateNguoiNhiemBenhDialogView');
+	var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
 	
 	return Gonrin.ModelView.extend({
 		template: template,
@@ -187,7 +187,7 @@ define(function (require) {
 		},
 		CreateNguoiNhiemBenh: function() {
 			var self = this;
-			var dialogUserDonViView = new CreateNguoiNhiemBenhDialogView();
+			var dialogUserDonViView = new BaoCaoNghiNgoNhiemBenhDialogView();
 			dialogUserDonViView.dialog({size: "large"});
 			dialogUserDonViView.on("close", function () {
 				self.getDanhsachnhiembenh();
@@ -224,7 +224,7 @@ define(function (require) {
 									command: function(){
 										var self = this;
 										// this.CreateNguoiNhiemBenh();
-										var dialogUserDonViView = new CreateNguoiNhiemBenhDialogView();
+										var dialogUserDonViView = new BaoCaoNghiNgoNhiemBenhDialogView();
 										dialogUserDonViView.dialog({size: "large"});
 										// dialogUserDonViView.on("close", function () {
 										// 	self.getDanhsachnhiembenh();
