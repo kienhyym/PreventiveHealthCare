@@ -82,12 +82,23 @@ class CommonAdjacencyModel(CommonModel):
             data.append(self.id)
             for r in self.children.values():
                 r._children_ids(data)
+                
+    def _childrens(self, data):
+        if type(data) is list:
+            if self.id is not None:
+                data.append(self)
+            for r in self.children.values():
+                r._childrens(data)
     
     def children_ids(self):
         data = []
         self._children_ids(data)
         return data
-    
+
+    def childrens(self):
+        data = []
+        self._childrens(data)
+        return data
     #validate break chain insert,delete,update
     
 event.listen(CommonAdjacencyModel, 'before_insert', adjacency_model_oncreate_listener, propagate=True)

@@ -12,22 +12,23 @@ from application.models.models import *
 from application.server import app
 from gatco_apimanager.views.sqlalchemy.helpers import to_dict
 import time
-from datetime import datetime
+from datetime import datetime, timedelta, date
 from math import floor
 from application.client import HTTPClient
 from application.extensions import auth, jinja
 import ujson
 from sqlalchemy.orm import aliased, joinedload_all
+from .user_api import current_user as currentUser
 
-def currentUser(request):
-    uid = auth.current_user(request)
-    if uid is not None:
-        user = db.session.query(User).filter(User.id == uid).first()
-        result = user
-        result.is_authenticated = True
-        return result
-    else:
-        return None
+# def currentUser(request):
+#     uid = auth.current_user(request)
+#     if uid is not None:
+#         user = db.session.query(User).filter(User.id == uid).first()
+#         result = user
+#         result.is_authenticated = True
+#         return result
+#     else:
+#         return None
 
 
 
@@ -71,8 +72,8 @@ def reset_user_passwd(instance_id=None, data=None,**kw):
         raise ProcessingException(description='Parameters are not correct',code=401)
 
 
-def apply_donvi_filter(request,search_params):
-    current_user = currentUser(request)
+async def apply_donvi_filter(request,search_params):
+    current_user = await currentUser(request)
     currdonvi = current_user.donvi
     donvichildids = []
     if(currdonvi is not None):
@@ -82,11 +83,11 @@ def apply_donvi_filter(request,search_params):
                                         or {"donvi_id":{"$in": donvichildids}}
     
 #@jwt_required()
-def entity_pregetmany(request,search_params=None, **kw):
-    apply_donvi_filter(request,search_params)
+async def entity_pregetmany(request,search_params=None, **kw):
+    await apply_donvi_filter(request,search_params)
 
-def role_pregetmany(request,search_params=None, **kw):
-    current_user = currentUser(request)
+async def role_pregetmany(request,search_params=None, **kw):
+    current_user = await currentUser(request)
     if current_user.has_role("Admin"):
         pass
     elif current_user.has_role("VienAdmin"):
@@ -97,8 +98,8 @@ def role_pregetmany(request,search_params=None, **kw):
         search_params["filters"] = {"id":{"$in": []}}
         
 #@jwt_required()
-def donvi_pregetmany(search_params=None, **kw):
-    current_user = currentUser(request)
+async def donvi_pregetmany(search_params=None, **kw):
+    current_user = await currentUser(request)
     currdonvi = current_user.donvi
     donvichildids = []
     if(currdonvi is not None):
@@ -226,9 +227,9 @@ apimanager.create_api(BaiViet,
 #     collection_name='baocaonghingonhiembenhxetnghiem')
 
 @app.route('/api/v1/donvitree')
-def donvitree(request):
-    current_user = currentUser(request)
-    if (current_user.is_authenticated) and (current_user.donvi is not None):
+async def donvitree(request):
+    current_user = await currentUser(request)
+    if (current_user is not None) and (current_user.donvi is not None):
         model = db.session.query(DonVi).\
             options(joinedload_all("children", "children",
                 "children", "children")).\
@@ -520,7 +521,7 @@ async def getbaocao_tonghop_nghingobenh(request):
 
 @app.route('/api/v1/getbaocao')
 #@jwt_required()
-def getbaocao(request):
+async def getbaocao(request):
     notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
     
     id = request.args.get("id", "")
@@ -555,7 +556,7 @@ def getbaocao(request):
         "bangvssh": {},
     }
     congdoncuakhau = {}
-    current_user = currentUser(request)
+    current_user = await currentUser(request)
     if (loaikybaocao is not None) and (current_user.is_authenticated) and (current_user.donvi is not None):
         
         if(id is not None):
@@ -730,7 +731,7 @@ def getbaocao(request):
 
 @app.route('/api/v1/getbaocaovien')
 #@jwt_required()
-def getbaocaovien(request):
+async def getbaocaovien(request):
     notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
     
     id = request.args.get("id", "")
@@ -745,7 +746,7 @@ def getbaocaovien(request):
     donvi = None
     tungay = None
     denngay = None
-    current_user = currentUser(request)
+    current_user = await currentUser(request)
     
     if (current_user.is_authenticated) and (current_user.donvi is not None):
         if(id is not None):
@@ -858,7 +859,7 @@ def getbaocaoconthieu(kybaocao, loaiky, nambaocao):
     
 
 @app.route('/api/v1/thongkeguibaocao')
-def thongkeguibaocao(request):
+async def thongkeguibaocao(request):
     #donvi ID - recursive donvi
     #nambaocao = 2017
     nambaocao = request.args.get("nambaocao", None)
@@ -869,8 +870,8 @@ def thongkeguibaocao(request):
         nambaocao = int(nambaocao)
     
     thongketype = request.args.get("type", "")
-    current_user = currentUser(request)
-    if (current_user.is_authenticated) and (current_user.donvi is not None):
+    current_user = await currentUser(request)
+    if (current_user is not None) and (current_user.donvi is not None):
         #model = db.session.query(DonVi).\
         #    options(joinedload_all("children", "children",
         #        "children", "children")).\
@@ -1023,7 +1024,7 @@ def thongkeguibaocaocuakhau(request):
         return text("Not found", status=404)
 
 @app.route('/api/v1/timkiembaocao')
-def timkiembaocao(request):
+async def timkiembaocao(request):
     
     def prepare_arg(arg):
         ret = None
@@ -1032,7 +1033,7 @@ def timkiembaocao(request):
         return ret
     
     currdonvi = None
-    current_user = currentUser(request)
+    current_user = await currentUser(request)
     if current_user.is_authenticated:
         currdonvi =  current_user.donvi
     else:
@@ -1267,12 +1268,12 @@ def thongketheodonvi(request):
         return json(respdata)
                                 
 @app.route('/api/v1/donvitree_thongke')
-def donvitree_thongke(request):
+async def donvitree_thongke(request):
     mode = request.args.get("mode", None)
     if mode is None:
         return text("Not found", status=501)
-    current_user = currentUser(request)
-    if (current_user.is_authenticated) and (current_user.donvi is not None):
+    current_user = await currentUser(request)
+    if (current_user is not None) and (current_user.donvi is not None):
         
         
         
