@@ -10,8 +10,9 @@ from application.extensions import apimanager
 from application.database import db
 from application.models.models import *
 from application.server import app
-#from gatco_apimanager.helpers import to_dict
+from gatco_apimanager.views.sqlalchemy.helpers import to_dict
 import time
+from datetime import datetime
 from math import floor
 from application.client import HTTPClient
 from application.extensions import auth, jinja
@@ -527,6 +528,8 @@ def getbaocao(request):
     loaikybaocao = request.args.get("loaikybaocao", None)
     loaikybaocao = int(loaikybaocao) if loaikybaocao is not None else None
     
+    print(id, loaikybaocao)
+
     loaibaocao = None
     
     
@@ -586,8 +589,8 @@ def getbaocao(request):
                 baocaoobj["bangtruyenthong"] = [to_dict(obj) for obj in baocao.bangtruyenthong.all()]
                 baocaoobj["bangnghiencuukhoahoc"] = [to_dict(obj) for obj in baocao.bangnghiencuukhoahoc.all()]
                 baocaoobj["banghoptacquocte"] = [to_dict(obj) for obj in baocao.banghoptacquocte.all()]
-            
-            return text("Not found", status=404)
+            else:
+                return text("Not found", status=404)
         else:
             donvi = current_user.donvi
             cuakhau = current_user.cuakhau
