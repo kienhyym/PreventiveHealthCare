@@ -1,0 +1,79 @@
+[
+	{
+		"area_name": "header",
+		"start_row": 1,
+		"end_row": 5
+	},
+	{
+		"area_name": "chitiet",
+		"start_row": 6,
+		"end_row": 6,
+		"parameters": [
+			{
+				"name": "ma",
+				"position": "A6"
+			},
+			{
+				"name": "ten",
+				"position": "B6"
+			},
+			{
+				"name": "diachi",
+				"position": "C6"
+			},
+			{
+				"name": "tinhthanh",
+				"position": "D6"
+			},
+			{
+				"name": "donvi",
+				"position": "E6"
+			},
+			{
+				"name": "nguoilienlac",
+				"position": "F6"
+			},
+			{
+				"name": "sodienthoai",
+				"position": "G6"
+			},
+			{
+				"name": "email",
+				"position": "H6"
+			},
+			{
+				"name": "duongboquocte",
+				"position": "I6"
+			},
+			{
+				"name": "duongbochinh",
+				"position": "J6"
+			},
+			{
+				"name": "duongbophu",
+				"position": "K6"
+			},
+			{
+				"name": "duongthuyloai1",
+				"position": "L6"
+			},
+			{
+				"name": "duongthuyloai2",
+				"position": "M6"
+			},
+			{
+				"name": "duonghangkhong",
+				"position": "N6"
+			},
+			{
+				"name": "duongsat",
+				"position": "O6"
+			}
+		]
+	},
+	{
+		"area_name": "footer",
+		"start_row": 7,
+		"end_row": 7
+	}
+]

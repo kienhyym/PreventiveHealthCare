@@ -10,7 +10,7 @@ from application.extensions import apimanager
 from application.database import db
 from application.models.models import *
 from application.server import app
-#from gatco_apimanager.helpers import to_dict
+from gatco_apimanager.views.sqlalchemy.helpers import to_dict
 import time
 from math import floor
 from application.client import HTTPClient
