@@ -1,0 +1,215 @@
+[
+	{
+		"area_name": "header",
+		"start_row": 1,
+		"end_row": 30,
+		"parameters": [
+			{
+				"name": "hoten",
+				"position": "F4"
+			},
+			{
+				"name": "namsinh",
+				"position": "D5"
+			},
+			{
+				"name": "gioitinh",
+				"position": "J5"
+			},
+			{
+				"name": "quoctich",
+				"position": "O5"
+			},
+			{
+				"name": "sohochieu",
+				"position": "H6"
+			},
+			{
+				"name": "thongtindilai_taubay",
+				"position": "F7"
+			},
+			{
+				"name": "thongtindilai_tauthuyen",
+				"position": "I7"
+			},
+			{
+				"name": "thongtindilai_oto",
+				"position": "K7"
+			},
+			{
+				"name": "thongtindilai_chitiet",
+				"position": "N7"
+			},
+			{
+				"name": "sohieu_phuongtien",
+				"position": "D8"
+			},
+			{
+				"name": "soghe_phuongtien",
+				"position": "M8"
+			},
+			{
+				"name": "ngay_khoihanh",
+				"position": "D9"
+			},
+			{
+				"name": "ngay_nhapcanh",
+				"position": "M9"
+			},
+			{
+				"name": "noi_khoihanh",
+				"position": "H10"
+			},
+			{
+				"name": "noiden",
+				"position": "H11"
+			},
+			{
+				"name": "quocgiadiqua",
+				"position": "Q12"
+			},
+			{
+				"name": "diachi_taivietnam",
+				"position": "F14"
+			},
+			{
+				"name": "sodienthoai",
+				"position": "D15"
+			},
+			{
+				"name": "email",
+				"position": "L15"
+			},
+			{
+				"name": "dauhieubenh_sot",
+				"position": "G19"
+			},
+			{
+				"name": "dauhieubenh_sot",
+				"position": "H19"
+			},
+			{
+				"name": "dauhieubenh_ho",
+				"position": "G20"
+			},
+			{
+				"name": "dauhieubenh_ho",
+				"position": "H20"
+			},
+			{
+				"name": "dauhieubenh_khotho",
+				"position": "G21"
+			},
+			{
+				"name": "dauhieubenh_khotho",
+				"position": "H21"
+			},
+			{
+				"name": "dauhieubenh_dauhong",
+				"position": "G22"
+			},
+			{
+				"name": "dauhieubenh_dauhong",
+				"position": "H22"
+			},
+			{
+				"name": "dauhieubenh_buonnon",
+				"position": "P19"
+			},
+			{
+				"name": "dauhieubenh_buonnon",
+				"position": "R19"
+			},
+			{
+				"name": "dauhieubenh_tieuchay",
+				"position": "P20"
+			},
+			{
+				"name": "dauhieubenh_tieuchay",
+				"position": "R20"
+			},
+
+			{
+				"name": "dauhieubenh_xuathuyetngoaida",
+				"position": "P21"
+			},
+			{
+				"name": "dauhieubenh_xuathuyetngoaida",
+				"position": "R21"
+			},
+
+			{
+				"name": "dauhieubenh_phatban",
+				"position": "P21"
+			},
+			{
+				"name": "dauhieubenh_phatban",
+				"position": "R21"
+			},
+			{
+				"name": "vacxin_dasudung",
+				"position": "J24"
+			},
+			{
+				"name": "tiepxuc_dongvat",
+				"position": "P26"
+			},
+			{
+				"name": "tiepxuc_dongvat",
+				"position": "S26"
+			},
+			{
+				"name": "chamsocnguoibenhtruyennhiem",
+				"position": "P28"
+			},
+			{
+				"name": "chamsocnguoibenhtruyennhiem",
+				"position": "S28"
+			},
+			{
+				"name": "ngaygio_phathien",
+				"position": "D31"
+			},
+			{
+				"name": "ngaygio_phathien",
+				"position": "F31"
+			},
+			{
+				"name": "ngaygio_phathien",
+				"position": "H31"
+			}
+			
+		]
+	},
+	
+	
+	
+	{
+		"area_name": "footer",
+		"start_row": 35,
+		"end_row": 47,
+		"parameters": [
+			{
+				"name": "hoten",
+				"position": "E38"
+			},
+			{
+				"name": "noi_khoihanh",
+				"position": "J39"
+			},
+			{
+				"name": "ngaykekhai",
+				"position": "C46"
+			},
+			{
+				"name": "ngaykekhai",
+				"position": "E46"
+			},
+			{
+				"name": "ngaykekhai",
+				"position": "G46"
+			}
+			
+		]
+	}
+]
