@@ -7,9 +7,8 @@ define(function (require) {
 	var template = require('text!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/tpl/model.html'),
 		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
 
-
     var NguoiNghiNhiemView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/DanhSachNghiNgoCollection');
-	
+	var CreateNguoiNhiemBenhDialogView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CreateNguoiNhiemBenhDialogView');
 	
 	return Gonrin.ModelView.extend({
 		template: template,
@@ -121,9 +120,8 @@ define(function (require) {
 					//self.model.set("ngaybaocao", moment().startOf('day').unix());
 
 					//self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DDTHH:mm"));
-					self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+					self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
 					
-
                     self.applyBindings();
 					self.registerEvent();
 					self.model.on("change:ngaybaocao",function () {
@@ -186,7 +184,14 @@ define(function (require) {
 				return false;
 			}
 			return true;
-			
+		},
+		CreateNguoiNhiemBenh: function() {
+			var self = this;
+			var dialogUserDonViView = new CreateNguoiNhiemBenhDialogView();
+			dialogUserDonViView.dialog({size: "large"});
+			dialogUserDonViView.on("close", function () {
+				self.getDanhsachnhiembenh();
+			});
 		},
 		getDanhsachnhiembenh:function(ngaybaocao){
 			var self = this;
@@ -199,7 +204,6 @@ define(function (require) {
 		    		data: {"q": JSON.stringify({"filters": {"ngaybaocao":{"$eq":ngaybaocao}},"page":1}),"results_per_page":50},
 					contentType: "application/json",
 					success: function (data) {
-						console.log(data);
 						$("#add-nghingonhiembenh-item").grid({
 		                	showSortingIndicator: true,
 		                	onValidateError: function(e){
@@ -210,36 +214,34 @@ define(function (require) {
 		                	},
 		                	noResultsClass:"alert alert-default no-records-found",
 		                	refresh:true,
-		                	orderByMode: "client",
+							orderByMode: "client",
+							tools : [
+								{
+									name: "create",
+									type: "button",
+									buttonClass: "btn-success btn-sm",
+									label: "Tạo mới",
+									command: function(){
+										var self = this;
+										// this.CreateNguoiNhiemBenh();
+										var dialogUserDonViView = new CreateNguoiNhiemBenhDialogView();
+										dialogUserDonViView.dialog({size: "large"});
+										// dialogUserDonViView.on("close", function () {
+										// 	self.getDanhsachnhiembenh();
+										// });
+										// gonrinApp().getRouter().navigate("baocaonghingonhiembenh/model");
+									}
+								},
+							],
 		                	fields: [
 								{
-									field: "id", label: "ID", width: 250, readonly: true,
+									field: "id", label: "ID", width: 100, readonly: true,
 								},
-				
-								// { field: "ma", label: "Mã", width: 250 },
-								{field: "fullname", label: "Họ và tên", sortable: {order:"asc"},width: 250},
-								{field: "phone_national_number", label: "Số điện thoại", width: 250},
+								{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
+								{field: "dienthoai", label: "Số điện thoại", width: 200},
 								{ field: "ngaybaocao", label: "Ngày báo cáo", width: 250 },
 								{ field: "noibaocao", label: "Nơi báo cáo", width: 250 },
-								// { field: "nambaocao", label: "Năm báo cáo", width: 250 },
-								// { field: "donvi_id", label: "ID đơn vị", width: 250 },
 								{ field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten" },
-								
-								// {field: "email", label: "Email"},
-								// {field: "id", label: "Mã cán bộ"},
-								// {
-								// 	field: "roles",
-								// 	label: "Vai trò",
-								// 	// textField: "name",
-								// 	template: function(rowData) {
-								// 		var roles = rowData.roles;
-								// 		if (roles.indexOf("admin_donvi")){
-								// 			return '<span>Admin</span>';
-								// 		} else {
-								// 			return '<span>Canbo</span>';
-								// 		}
-								// 	}
-								// },
 							],
 							dataSource: data.objects,
 							primaryField:"id",
@@ -270,9 +272,8 @@ define(function (require) {
 						}
 					},
 				});
-			
-			
-		},
+		}
+		
 	});
 
 });

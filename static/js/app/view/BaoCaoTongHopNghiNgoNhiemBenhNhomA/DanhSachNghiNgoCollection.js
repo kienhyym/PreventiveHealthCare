@@ -13,6 +13,25 @@ define(function (require) {
         modelSchema: schema,
         urlPrefix: "/api/v1/",
         collectionName: "baocaonghingonhiembenh",
+        tools : [
+            {
+                name: "defaultgr",
+                type: "group",
+                groupClass: "toolbar-group",
+                buttons: [
+                    {
+                        name: "create",
+                        type: "button",
+                        buttonClass: "btn-success btn-sm",
+                        label: "TRANSLATE:CREATE",
+                        command: function(){
+                            var self = this;
+                            self.getApp().getRouter().navigate("baocaonghingonhiembenh/model/model");
+                        }
+                    }
+                ]
+            },
+        ],
         uiControl:{
             fields: [
                 {

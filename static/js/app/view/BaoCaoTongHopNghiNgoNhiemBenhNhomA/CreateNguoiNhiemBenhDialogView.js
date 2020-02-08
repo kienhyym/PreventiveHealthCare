@@ -13,7 +13,7 @@ define(function (require) {
 	var NguoiTiepXucItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/NguoiTiepXucItemView');
 	
 	
-	return Gonrin.ModelView.extend({
+	return Gonrin.ModelDialogView.extend({
 		template: template,
 		modelSchema: schema,
 		urlPrefix: "/api/v1/",
@@ -57,27 +57,6 @@ define(function (require) {
 				                    });
 				    	    	}
 				    	    },
-//							{
-//				    	    	name: "delete",
-//				    	    	type: "button",
-//				    	    	buttonClass: "btn-danger btn-sm",
-//				    	    	label: "TRANSLATE:DELETE",
-//				    	    	visible: function(){
-//				    	    		return this.getApp().getRouter().getParam("id") !== null;
-//				    	    	},
-//				    	    	command: function(){
-//				    	    		var self = this;
-//				                    self.model.destroy({
-//				                        success: function(model, response) {
-//				                            self.getApp().getRouter().navigate(self.collectionName + "/collection");
-//				                        },
-//				                        error: function (model, xhr, options) {
-//				                            //self.alertMessage("Something went wrong while processing the model", false);
-//				                            self.getApp().notify('Delete error');
-//				                        }
-//				                    });
-//				    	    	}
-//				    	    },
 		    	    	]
 		    	    },
 		    	],
@@ -154,55 +133,38 @@ define(function (require) {
 			{
 				field: "cmtnd",
 				cssClass: false,
-
-
 			},
 			{
 				field: "cuakhau_nhapquacanh",
 				cssClass: false,
-
-
 			},
 			{
 				field: "diachi_lienlac",
 				cssClass: false,
-
-
 			},
 			{
 				field: "dienthoai",
 				cssClass: false,
-
-
 			},
 			{
 				field: "donvi",
 				cssClass: false,
-
-
 			},
 			{
 				field: "donvi_id",
 				cssClass: false,
-
-
 			},
 			{
 				field: "email",
 				cssClass: false,
-
-
 			},
 			{
 				field: "gio_nhapquacanh",
 				cssClass: false,
-
-
 			},
 			{
 				field: "gioitinh",
 				cssClass: false,
-
 			},
 			{
 				field: "hoten",
@@ -213,13 +175,10 @@ define(function (require) {
 			{
 				field: "id",
 				cssClass: false,
-
 			},
 			{
 				field: "ma",
 				cssClass: false,
-
-
 			},
 			{
 				field: "nambaocao",
@@ -229,99 +188,64 @@ define(function (require) {
 			{
 				field: "namsinh",
 				cssClass: false,
-
-
 			},
 			{
 				field: "ngay_nhapquacanh",
 				cssClass: false,
-
-
 			},
 			
 			{
 				field: "nhanxet_danhgia",
 				cssClass: false,
-
-
 			},
 			{
 				field: "noibaocao",
 				cssClass: false,
-
-
 			},
 			{
 				field: "noio",
 				cssClass: false,
-
-
 			},
 			{
 				field: "noitiepnhan_xutri",
 				cssClass: false,
-
-
 			},
 			{
 				field: "phuongtien",
 				cssClass: false,
-
-
 			},
 			{
 				field: "quoctich",
 				cssClass: false,
-
-
 			},
 			{
 				field: "sohieu_phuongtien",
 				cssClass: false,
-
-
 			},
 			{
 				field: "tiensu_chandoan",
 				cssClass: false,
-
-
 			},
 			{
 				field: "tiensu_dichte",
 				cssClass: false,
-
 			},
 			{
 				field: "tiensu_ngaykhoiphat",
 				cssClass: false,
-
-
 			},
 			{
 				field: "tiensu_trieuchunglamsang",
 				cssClass: false,
-
-
 			},
 			{
 				field: "tiensu_xutri",
 				cssClass: false,
-
-
 			},
 			{
 				field: "tinhtrang",
 				cssClass: false,
-
-
 			},
-			// {
-			// 	field: "nambaocao",
-			// 	cssClass: false,
-
-
-			// },
 		],
 		render: function () {
 			var self = this;
