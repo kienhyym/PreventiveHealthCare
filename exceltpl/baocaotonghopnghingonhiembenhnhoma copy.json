@@ -1,0 +1,78 @@
+[
+	{
+		"area_name": "header",
+		"start_row": 1,
+		"end_row": 6,
+		"parameters": [
+			{
+				"name": "chuquan",
+				"position": "A1",
+				"type": "string"
+			},
+			{
+				"name": "tendonvi",
+				"position": "A2",
+				"type": "string"
+			}
+		]
+	},
+	{
+		"area_name": "chitiet",
+		"start_row": 7,
+		"end_row": 7,
+		"parameters": [
+			{
+				"name": "sothutu",
+				"position": "A7",
+				"type": "number"
+			},
+			{
+				"name": "hoten",
+				"position": "B7",
+				"type": "string"
+			},
+			
+			{
+				"name": "namsinh",
+				"position": "C7",
+				"type": "number"
+			},
+			{
+				"name": "gioitinh",
+				"position": "D7",
+				"type": "string"
+			},
+			{
+				"name": "noiden",
+				"position": "E7",
+				"type": "string"
+			},
+			{
+				"name": "quoctich",
+				"position": "G7",
+				"type": "string"
+			},
+			{
+				"name": "ngaygio_phathien",
+				"position": "I7",
+				"type": "string"
+			},
+			
+			{
+				"name": "tinhtrang",
+				"position": "K7",
+				"type": "string"
+			},
+			{
+				"name": "huongxuly",
+				"position": "M7",
+				"type": "string"
+			}
+		]
+	},
+	{
+		"area_name": "footer",
+		"start_row": 8,
+		"end_row": 10
+	}
+]
