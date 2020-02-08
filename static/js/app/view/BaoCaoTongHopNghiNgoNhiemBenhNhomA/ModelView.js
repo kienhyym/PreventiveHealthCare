@@ -186,7 +186,7 @@ define(function (require) {
 			}
 			return true;
 		},
-		createNguoiNhiemBenh: function(ngaybaocao) {
+		createNguoiNhiemBenh: function() {
 			var self = this;
 			
 			var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
@@ -230,7 +230,7 @@ define(function (require) {
 								label: "Tạo mới nhanh trường hợp nghi ngờ",
 								command: function() {
 									
-									self.createNguoiNhiemBenh(ngaybaocao);
+									self.createNguoiNhiemBenh();
 									// var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
 									// dialogNghiNgonhiemBenh.dialog({size: "large"});
 									
@@ -254,13 +254,15 @@ define(function (require) {
 						],
 						fields: [
 							{
-								field: "id", label: "ID", width: 100, readonly: true,
+								field: "id", label: "ID", width: 100, readonly: true,visible:false
 							},
 							{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
-							{field: "dienthoai", label: "Số điện thoại", width: 200},
-							{ field: "ngaybaocao", label: "Ngày báo cáo", width: 250 },
-							{ field: "noibaocao", label: "Nơi báo cáo", width: 250 },
-							{ field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten" },
+							{field: "namsinh", label: "Năm sinh", width: 200},
+							{field: "quoctich", label: "Quốc tịch", width: 200},
+							{ field: "noio", label: "Nơi ở tại Việt Nam (Nơi sẽ đến)", width: 250 },
+							{ field: "ngaygio_phathien", label: "Ngày giờ phát hiện", width: 250 },
+							{ field: "tiensu_trieuchunglamsang", label: "Tình trạng phát hiện", width: 250, textField: "ten" },
+							{ field: "tiensu_xutri", label: "Xử trí", width: 250 },
 						],
 						dataSource: data.objects,
 						primaryField:"id",
