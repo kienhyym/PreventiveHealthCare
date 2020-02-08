@@ -649,6 +649,9 @@ class BaoCaoNghiNgoNhiemBenh(CommonModel):
     dauhieubenh_tieuchay = db.Column(db.SmallInteger)
     dauhieubenh_xuathuyetngoaida = db.Column(db.SmallInteger)
     dauhieubenh_phatban = db.Column(db.SmallInteger)
+
+    ngaygio_phathien = db.Column(db.String())
+    huongxuly = db.Column(db.String())
     
     tinhtrang = db.Column(db.SmallInteger, nullable=False, default=1)
     
