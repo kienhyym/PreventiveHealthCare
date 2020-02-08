@@ -56,7 +56,22 @@ define(function (require) {
 				                        }
 				                    });
 				    	    	}
-				    	    },
+							},
+							{
+								name : "excel",
+								type : "button",
+								buttonClass : "btn-default btn-sm btn-primary",
+								label : "Xuất Excel",
+								command : function() {
+									var id = this.model.get("id"); 
+									var url = "/export/excel/baocaonghingonhiembenh/" + id;
+									window.open(url, "_blank");
+								},
+								visible: function(){
+									var id =  this.getApp().getRouter().getParam("id");
+									return (id !== null);
+								}
+							},
 //							{
 //				    	    	name: "delete",
 //				    	    	type: "button",
@@ -78,6 +93,27 @@ define(function (require) {
 //				                    });
 //				    	    	}
 //				    	    },
+
+							{
+								name : "exportgr",
+								type : "group",
+								groupClass : "toolbar-group",
+								buttons : [ {
+									name : "excel",
+									type : "button",
+									buttonClass : "btn-default btn-sm btn-primary",
+									label : "Xuất Excel",
+									command : function() {
+										var id = this.model.get("id"); 
+										var url = "/export/excel/baocaonghingonhiembenh/" + id;
+										window.open(url, "_blank");
+									},
+									visible: function(){
+										var id =  this.getApp().getRouter().getParam("id");
+										return (id !== null);
+									}
+								}]
+							},
 		    	    	]
 		    	    },
 		    	],
