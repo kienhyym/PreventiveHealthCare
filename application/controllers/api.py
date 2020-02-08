@@ -557,7 +557,7 @@ async def getbaocao(request):
     }
     congdoncuakhau = {}
     current_user = await currentUser(request)
-    if (loaikybaocao is not None) and (current_user.is_authenticated) and (current_user.donvi is not None):
+    if (loaikybaocao is not None) and (current_user is not None) and (current_user.donvi is not None):
         
         if(id is not None):
             baocao = BaoCao.query.filter(BaoCao.id == id).filter(BaoCao.loaikybaocao == loaikybaocao).first()
@@ -748,7 +748,7 @@ async def getbaocaovien(request):
     denngay = None
     current_user = await currentUser(request)
     
-    if (current_user.is_authenticated) and (current_user.donvi is not None):
+    if (current_user is not None) and (current_user.donvi is not None):
         if(id is not None):
             baocao = BaoCaoVien.query.filter(BaoCaoVien.id == id).first()
             if(baocao is not None):
@@ -954,7 +954,7 @@ async def thongkeguibaocao(request):
         return text("Not found", status=404)
     
 @app.route('/api/v1/thongkeguibaocaocuakhau')
-def thongkeguibaocaocuakhau(request):
+async def thongkeguibaocaocuakhau(request):
     #donvi ID - recursive donvi
     #nambaocao = 2017
     nambaocao = request.args.get("nambaocao", None)
@@ -965,7 +965,7 @@ def thongkeguibaocaocuakhau(request):
         nambaocao = int(nambaocao)
     
     thongketype = request.args.get("type", "")
-    if (current_user.is_authenticated) and (current_user.donvi is not None):
+    if (current_user is not None) and (current_user.donvi is not None):
         #model = db.session.query(DonVi).\
         #    options(joinedload_all("children", "children",
         #        "children", "children")).\
@@ -1034,7 +1034,7 @@ async def timkiembaocao(request):
     
     currdonvi = None
     current_user = await currentUser(request)
-    if current_user.is_authenticated:
+    if current_user is not None:
         currdonvi =  current_user.donvi
     else:
         return json({}, status=404)
@@ -1129,7 +1129,7 @@ def tinhthongketheobang(baocao, tenbang, resp, cuakhaulist):
                     
 
 @app.route('/api/v1/thongketheodonvi')
-def thongketheodonvi(request):
+async def thongketheodonvi(request):
     notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
     
     notdict2 = ['cuakhau_id', 'tencuakhau', 'bang', 'donvi_id','donvi_ten']
@@ -1403,7 +1403,7 @@ async def donvitree_thongke(request):
 
 
 @app.route('/api/v1/reset_all_password')
-def reset_all_password(request):
+async def reset_all_password(request):
     users = User.query.all()
     for u in users:
         u.password = encrypt_password("123456")
