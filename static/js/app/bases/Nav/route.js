@@ -4,16 +4,16 @@ define(function (require) {
 		_ = require('underscore'),
 		Gonrin = require('gonrin');
 	return [
-		{
-			"collectionName": "baocaonghingonhiembenh", 
-			"route": "baocaonghingonhiembenh/collection",
-			"$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
-		},
-		{
-			"collectionName": "baocaonghingonhiembenh", 
-			"route": "baocaonghingonhiembenh/model(/:id)",
-			"$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhModelView",
-		},
+		// {
+		// 	"collectionName": "tokhaiyte",
+		// 	"route": "tokhaiyte/collection",
+		// 	"$ref": "app/view/tokhaiyte/js/CollectionView",
+		// },
+		// {
+		// 	"collectionName": "tokhaiyte",
+		// 	"route": "tokhaiyte/model(/:id)",
+		// 	"$ref": "app/view/tokhaiyte/js/ModelView",
+		// },
 
 		{
 			"collectionName": "quocgia",
@@ -62,23 +62,23 @@ define(function (require) {
 			"$ref": "app/view/HoaDon/ModelView",
 		},
 		{
-			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
-			"route":"baocaotonghopnghingonhiembenhnhoma/collection",
+			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+			"route": "baocaotonghopnghingonhiembenhnhoma/collection",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
-		},	
+		},
 		{
-			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
-			"route":"baocaotonghopnghingonhiembenhnhoma/collectiondv",
+			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+			"route": "baocaotonghopnghingonhiembenhnhoma/collectiondv",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/CollectionView",
-		},	
+		},
 		{
-			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
-			"route":"baocaotonghopnghingonhiembenhnhoma/model(/:id)",
+			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+			"route": "baocaotonghopnghingonhiembenhnhoma/model(/:id)",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
 		},
 		{
-			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
-			"route":"baocaotonghopnghingonhiembenhnhoma/modeldv(/:id)",
+			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+			"route": "baocaotonghopnghingonhiembenhnhoma/modeldv(/:id)",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/ModelView",
 		},
 	];
