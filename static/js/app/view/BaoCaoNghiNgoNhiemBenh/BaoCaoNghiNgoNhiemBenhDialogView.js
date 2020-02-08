@@ -39,7 +39,8 @@ define(function (require) {
 				    	    		var self = this;
 				                    self.model.save(null,{
 				                        success: function (model, respose, options) {
-				                            self.getApp().notify("Save successfully");
+											self.getApp().notify("Save successfully");
+											self.trigger("close", {refresh:true});
 				                            self.close();
 				                        },
 				                        error: function (model, xhr, options) {

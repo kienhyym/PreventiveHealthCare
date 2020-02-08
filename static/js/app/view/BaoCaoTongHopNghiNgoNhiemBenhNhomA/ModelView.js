@@ -188,87 +188,94 @@ define(function (require) {
 		},
 		createNguoiNhiemBenh: function(ngaybaocao) {
 			var self = this;
+			
 			var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
 			dialogNghiNgonhiemBenh.dialog({size: "large"});
-			dialogNghiNgonhiemBenh.on("close", function () {
-				self.getDanhsachnhiembenh(ngaybaocao);
+			dialogNghiNgonhiemBenh.on("close", function (param) {
+				console.log("dialogNghiNgonhiemBenh close", param);
+				if ((!!param) && (param.refresh)){
+					
+					self.getDanhsachnhiembenh();
+				}
+				
 			});
 		},
-		getDanhsachnhiembenh:function(ngaybaocao){
+		getDanhsachnhiembenh:function(){
 			var self = this;
-				$("#add-nghingonhiembenh-item").html("");
-				var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
-				$.ajax({
-				url: url_danhsachnghingo,
-					method: "GET",
-		    		data: {"q": JSON.stringify({"filters": {"ngaybaocao":{"$eq":ngaybaocao}},"page":1}),"results_per_page":50},
-					contentType: "application/json",
-					success: function (data) {
-						$("#add-nghingonhiembenh-item").grid({
-		                	showSortingIndicator: true,
-		                	onValidateError: function(e){
-		                		console.log(e);
-		                	},
-		                	language:{
-		                		no_records_found:" "
-		                	},
-		                	noResultsClass:"alert alert-default no-records-found",
-		                	refresh:true,
-							orderByMode: "client",
-							tools : [
-								{
-									name: "create",
-									type: "button",
-									buttonClass: "btn-danger btn-sm",
-									label: "Tạo mới nhanh trường hợp nghi ngờ",
-									command: function() {
-										
-										self.createNguoiNhiemBenh(ngaybaocao);
-										// var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
-										// dialogNghiNgonhiemBenh.dialog({size: "large"});
-										
-									}
-								},
-							],
-		                	fields: [
-								{
-									field: "id", label: "ID", width: 100, readonly: true,
-								},
-								{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
-								{field: "dienthoai", label: "Số điện thoại", width: 200},
-								{ field: "ngaybaocao", label: "Ngày báo cáo", width: 250 },
-								{ field: "noibaocao", label: "Nơi báo cáo", width: 250 },
-								{ field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten" },
-							],
-							dataSource: data.objects,
-							primaryField:"id",
-							selectionMode: "single",
-							pagination: {
-							page: 1,
-							pageSize: 20
-							},
-							onRowClick: function(event){
-								if (event.rowId) {
-									var path =  'baocaonghingonhiembenh/model/model?id=' + event.rowId;
-									gonrinApp().getRouter().navigate(path);
+			var ngaybaocao = self.model.get("ngaybaocao");
+			self.$el.find("#add-nghingonhiembenh-item").empty();
+			var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
+			$.ajax({
+			url: url_danhsachnghingo,
+				method: "GET",
+				data: {"q": JSON.stringify({"filters": {"ngaybaocao":{"$eq":ngaybaocao}},"page":1}),"results_per_page":50},
+				contentType: "application/json",
+				success: function (data) {
+					$("#add-nghingonhiembenh-item").grid({
+						showSortingIndicator: true,
+						onValidateError: function(e){
+							console.log(e);
+						},
+						language:{
+							no_records_found:" "
+						},
+						noResultsClass:"alert alert-default no-records-found",
+						refresh:true,
+						orderByMode: "client",
+						tools : [
+							{
+								name: "create",
+								type: "button",
+								buttonClass: "btn-danger btn-sm",
+								label: "Tạo mới nhanh trường hợp nghi ngờ",
+								command: function() {
+									
+									self.createNguoiNhiemBenh(ngaybaocao);
+									// var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
+									// dialogNghiNgonhiemBenh.dialog({size: "large"});
+									
 								}
-		                    },
-		                });
-					},
-					error: function (xhr, status, error) {
-						try {
-							if (($.parseJSON(xhr.responseText).error_code) === "SESSION_EXPIRED"){
-								self.getApp().notify("Hết phiên làm việc, vui lòng đăng nhập lại!");
-								self.getApp().getRouter().navigate("login");
-							} else {
-								self.getApp().notify({ message: $.parseJSON(xhr.responseText).error_message }, { type: "danger", delay: 1000 });
+							},
+						],
+						fields: [
+							{
+								field: "id", label: "ID", width: 100, readonly: true,
+							},
+							{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
+							{field: "dienthoai", label: "Số điện thoại", width: 200},
+							{ field: "ngaybaocao", label: "Ngày báo cáo", width: 250 },
+							{ field: "noibaocao", label: "Nơi báo cáo", width: 250 },
+							{ field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten" },
+						],
+						dataSource: data.objects,
+						primaryField:"id",
+						selectionMode: "single",
+						pagination: {
+						page: 1,
+						pageSize: 20
+						},
+						onRowClick: function(event){
+							if (event.rowId) {
+								var path =  'baocaonghingonhiembenh/model/model?id=' + event.rowId;
+								gonrinApp().getRouter().navigate(path);
 							}
+						},
+					});
+				},
+				error: function (xhr, status, error) {
+					try {
+						if (($.parseJSON(xhr.responseText).error_code) === "SESSION_EXPIRED"){
+							self.getApp().notify("Hết phiên làm việc, vui lòng đăng nhập lại!");
+							self.getApp().getRouter().navigate("login");
+						} else {
+							self.getApp().notify({ message: $.parseJSON(xhr.responseText).error_message }, { type: "danger", delay: 1000 });
 						}
-						catch (err) {
-						  self.getApp().notify({ message: "Lỗi truy cập dữ liệu, vui lòng thử lại sau"}, { type: "danger", delay: 1000 });
-						}
-					},
-				});
+					}
+					catch (err) {
+						self.getApp().notify({ message: "Lỗi truy cập dữ liệu, vui lòng thử lại sau"}, { type: "danger", delay: 1000 });
+					}
+				},
+			});
 		}
 		
 	});
