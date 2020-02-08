@@ -83,7 +83,7 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 			$('body').find(".page-login").empty();
 			self.nav.render();
 			var currentRoute = self.router.currentRoute();
-			console.log(currentRoute);
+			
 			if((!!currentRoute) && (currentRoute.route == "login")){
 				self.router.navigate("index");
 			}
