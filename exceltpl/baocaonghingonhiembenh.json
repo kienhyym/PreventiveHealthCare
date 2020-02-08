@@ -5,1145 +5,311 @@
 		"end_row": 6,
 		"parameters": [
 			{
-				"name": "chuquan",
-				"position": "B2",
-				"type": "string"
-			},
-			{
-				"name": "tendonvi",
-				"position": "B3",
-				"type": "string"
-			},
-			{
 				"name": "ma",
-				"position": "B4",
+				"position": "C3",
+				"type": "string"
+			},
+			{
+				"name": "noibaocao",
+				"position": "G3",
 				"type": "string"
 			},
 			{
 				"name": "ngaybaocao",
-				"position": "G4",
+				"position": "M3",
 				"type": "string"
 			},
 			{
-				"name": "kybaocao",
-				"position": "N5",
+				"name": "ngaybaocao",
+				"position": "O4",
+				"type": "string"
+			},
+			{
+				"name": "ngaybaocao",
+				"position": "Q3",
 				"type": "number"
-			},
-			{
-				"name": "tungaydenngay",
-				"position": "A6",
-				"type": "string"
 			}
-			
 		]
 	},
-	
+
 	{
-		"area_name": "nguoiheader",
-		"start_row": 7,
-		"end_row": 10
-	},
-	{
-		"area_name": "nguoichitiet",
-		"start_row": 11,
-		"end_row": 16,
+		"area_name": "noidung",
+		"start_row": 8,
+		"end_row": 37,
 		"parameters": [
 			{
-				"name": "sothutu",
-				"position": "A11",
-				"type": "number"
+				"name": "hoten",
+				"position": "D9",
+				"type": "string"
 			},
 			{
-				"name": "tencuakhau",
-				"position": "B11",
+				"name": "gioitinh",
+				"position": "K9",
 				"type": "string"
 			},
 			
 			{
-				"name": "ng_nc_ts1",
-				"position": "E11",
+				"name": "namsinh",
+				"position": "Q9",
 				"type": "number"
 			},
 			{
-				"name": "ng_nc_ts2",
-				"position": "G11",
+				"name": "quoctich",
+				"position": "D10",
+				"type": "string"
+			},
+			{
+				"name": "cmtnd",
+				"position": "L10",
 				"type": "number"
 			},
 			{
-				"name": "ng_nc_sl1",
-				"position": "J11",
-				"type": "number"
+				"name": "cuakhau_nhapquacanh",
+				"position": "I11",
+				"type": "string"
 			},
 			{
-				"name": "ng_nc_sl2",
-				"position": "M11",
-				"type": "number"
-			},
-			{
-				"name": "ng_nc_ghichu",
-				"position": "P11",
+				"name": "gio_nhapquacanh",
+				"position": "B12",
 				"type": "string"
 			},
 			
 			{
-				"name": "cd_ng_nc_ts1",
+				"name": "ngay_nhapquacanh",
 				"position": "E12",
-				"type": "number"
+				"type": "string"
 			},
 			{
-				"name": "cd_ng_nc_ts2",
+				"name": "ngay_nhapquacanh",
 				"position": "G12",
-				"type": "number"
+				"type": "string"
 			},
 			{
-				"name": "cd_ng_nc_sl1",
+				"name": "ngay_nhapquacanh",
 				"position": "J12",
-				"type": "number"
+				"type": "string"
 			},
 			{
-				"name": "cd_ng_nc_sl2",
-				"position": "M12",
-				"type": "number"
-			},
-			
-			
-			{
-				"name": "ng_xc_ts1",
+				"name": "phuongtien",
 				"position": "E13",
-				"type": "number"
+				"type": "string"
 			},
+			
+			
 			{
-				"name": "ng_xc_ts2",
-				"position": "G13",
-				"type": "number"
-			},
-			{
-				"name": "ng_xc_sl1",
-				"position": "J13",
-				"type": "number"
-			},
-			{
-				"name": "ng_xc_sl2",
-				"position": "M13",
-				"type": "number"
-			},
-			{
-				"name": "ng_xc_ghichu",
+				"name": "sohieu_phuongtien",
 				"position": "P13",
 				"type": "string"
 			},
-			
 			{
-				"name": "cd_ng_xc_ts1",
-				"position": "E14",
-				"type": "number"
+				"name": "noio",
+				"position": "F14",
+				"type": "string"
 			},
 			{
-				"name": "cd_ng_xc_ts2",
-				"position": "G14",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_xc_sl1",
-				"position": "J14",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_xc_sl2",
-				"position": "M14",
-				"type": "number"
-			},
-			
-			{
-				"name": "ng_qc_ts1",
+				"name": "diachi_lienlac",
 				"position": "E15",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_ts2",
-				"position": "G15",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_sl1",
-				"position": "J15",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_sl2",
-				"position": "M15",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_ghichu",
-				"position": "P15",
 				"type": "string"
 			},
-			
 			{
-				"name": "cd_ng_qc_ts1",
-				"position": "E16",
-				"type": "number"
+				"name": "email",
+				"position": "D16",
+				"type": "string"
 			},
 			{
-				"name": "cd_ng_qc_ts2",
-				"position": "G16",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_qc_sl1",
-				"position": "J16",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_qc_sl2",
+				"name": "dienthoai",
 				"position": "M16",
-				"type": "number"
-			}
-		]
-	},
-	{
-		"area_name": "nguoitongso",
-		"start_row": 17,
-		"end_row": 22,
-		"parameters": [
-			{
-				"name": "ng_nc_ts1",
-				"position": "E17",
-				"type": "number"
-			},
-			{
-				"name": "ng_nc_ts2",
-				"position": "G17",
-				"type": "number"
-			},
-			{
-				"name": "ng_nc_sl1",
-				"position": "J17",
-				"type": "number"
-			},
-			{
-				"name": "ng_nc_sl2",
-				"position": "M17",
-				"type": "number"
+				"type": "string"
 			},
 			
+
+
+
 			{
-				"name": "cd_ng_nc_ts1",
-				"position": "E18",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_nc_ts2",
-				"position": "G18",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_nc_sl1",
-				"position": "J18",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_nc_sl2",
-				"position": "M18",
-				"type": "number"
-			},
-			
-			
-			{
-				"name": "ng_xc_ts1",
-				"position": "E19",
-				"type": "number"
-			},
-			{
-				"name": "ng_xc_ts2",
+				"name": "benh_nghingo",
 				"position": "G19",
-				"type": "number"
+				"type": "string"
 			},
 			{
-				"name": "ng_xc_sl1",
-				"position": "J19",
-				"type": "number"
+				"name": "tiensu_dichte",
+				"position": "I20",
+				"type": "string"
 			},
 			{
-				"name": "ng_xc_sl2",
-				"position": "M19",
-				"type": "number"
-			},
-			
-			{
-				"name": "cd_ng_xc_ts1",
-				"position": "E20",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_xc_ts2",
-				"position": "G20",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_xc_sl1",
-				"position": "J20",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_xc_sl2",
-				"position": "M20",
-				"type": "number"
-			},
-			
-			{
-				"name": "ng_qc_ts1",
-				"position": "E21",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_ts2",
-				"position": "G21",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_sl1",
-				"position": "J21",
-				"type": "number"
-			},
-			{
-				"name": "ng_qc_sl2",
-				"position": "M21",
-				"type": "number"
-			},
-			
-			{
-				"name": "cd_ng_qc_ts1",
+				"name": "tiensu_ngaykhoiphat",
 				"position": "E22",
-				"type": "number"
+				"type": "string"
 			},
 			{
-				"name": "cd_ng_qc_ts2",
-				"position": "G22",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_qc_sl1",
-				"position": "J22",
-				"type": "number"
-			},
-			{
-				"name": "cd_ng_qc_sl2",
-				"position": "M22",
-				"type": "number"
-			}
-		]
-	},
-	{
-		"area_name": "nguoifooter",
-		"start_row": 23,
-		"end_row": 24
-	},
-	     
-	{
-		"area_name": "phuongtienheader",
-		"start_row": 25,
-		"end_row": 28
-	},
-	{
-		"area_name": "phuongtienchitiet",
-		"start_row": 29,
-		"end_row": 34,
-		"parameters": [
-			{
-				"name": "sothutu",
-				"position": "A29",
-				"type": "number"
-			},
-			{
-				"name": "tencuakhau",
-				"position": "B29",
+				"name": "tiensu_trieuchunglamsang",
+				"position": "F23",
 				"type": "string"
 			},
 			
 			{
-				"name": "pt_nc_hk_sl",
-				"position": "E29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_hk_skt",
-				"position": "F29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_hk_sxl",
-				"position": "G29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_db_sl",
-				"position": "H29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_db_skt",
-				"position": "I29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_db_sxl",
-				"position": "J29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_dt_sl",
-				"position": "K29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_dt_skt",
-				"position": "L29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_dt_sxl",
-				"position": "M29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ds_sl",
-				"position": "N29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ds_skt",
-				"position": "O29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ds_sxl",
-				"position": "P29",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ghichu",
-				"position": "Q29",
+				"name": "tiensu_chandoan",
+				"position": "E24",
 				"type": "string"
 			},
-			
-			
 			{
-				"name": "cd_pt_nc_hk_sl",
-				"position": "E30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_hk_skt",
-				"position": "F30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_hk_sxl",
-				"position": "G30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_db_sl",
-				"position": "H30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_db_skt",
-				"position": "I30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_db_sxl",
-				"position": "J30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_dt_sl",
-				"position": "K30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_dt_skt",
-				"position": "L30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_dt_sxl",
-				"position": "M30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_ds_sl",
-				"position": "N30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_ds_skt",
-				"position": "O30",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_ds_sxl",
-				"position": "P30",
-				"type": "number"
-			},
-			
-			{
-				"name": "pt_xc_hk_sl",
-				"position": "E31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_hk_skt",
-				"position": "F31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_hk_sxl",
-				"position": "G31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_db_sl",
-				"position": "H31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_db_skt",
-				"position": "I31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_db_sxl",
-				"position": "J31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_dt_sl",
-				"position": "K31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_dt_skt",
-				"position": "L31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_dt_sxl",
-				"position": "M31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ds_sl",
-				"position": "N31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ds_skt",
-				"position": "O31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ds_sxl",
-				"position": "P31",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ghichu",
-				"position": "Q31",
+				"name": "tiensu_xutri",
+				"position": "D27",
 				"type": "string"
 			},
-			
 			{
-				"name": "cd_pt_xc_hk_sl",
-				"position": "E32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_hk_skt",
-				"position": "F32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_hk_sxl",
-				"position": "G32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_db_sl",
-				"position": "H32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_db_skt",
-				"position": "I32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_db_sxl",
-				"position": "J32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_dt_sl",
-				"position": "K32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_dt_skt",
-				"position": "L32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_dt_sxl",
-				"position": "M32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_ds_sl",
-				"position": "N32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_ds_skt",
-				"position": "O32",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_ds_sxl",
-				"position": "P32",
-				"type": "number"
-			},
-			
-			
-			
-			{
-				"name": "pt_qc_hk_sl",
-				"position": "E33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_hk_skt",
-				"position": "F33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_hk_sxl",
-				"position": "G33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_db_sl",
-				"position": "H33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_db_skt",
-				"position": "I33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_db_sxl",
-				"position": "J33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_dt_sl",
-				"position": "K33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_dt_skt",
-				"position": "L33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_dt_sxl",
-				"position": "M33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ds_sl",
-				"position": "N33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ds_skt",
-				"position": "O33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ds_sxl",
-				"position": "P33",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ghichu",
-				"position": "Q33",
-				"type": "string"
-			},
-			
-			{
-				"name": "cd_pt_qc_hk_sl",
-				"position": "E34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_hk_skt",
-				"position": "F34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_hk_sxl",
-				"position": "G34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_db_sl",
-				"position": "H34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_db_skt",
+				"name": "noitiepnhan_xutri",
 				"position": "I34",
-				"type": "number"
+				"type": "string"
 			},
 			{
-				"name": "cd_pt_qc_db_sxl",
-				"position": "J34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_dt_sl",
-				"position": "K34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_dt_skt",
-				"position": "L34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_dt_sxl",
-				"position": "M34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_ds_sl",
-				"position": "N34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_ds_skt",
-				"position": "O34",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_ds_sxl",
-				"position": "P34",
-				"type": "number"
-			}
-			
-		]
-	},
-	{
-		"area_name": "phuongtientongso",
-		"start_row": 35,
-		"end_row": 40,
-		"parameters": [
-			{
-				"name": "pt_nc_hk_sl",
-				"position": "E35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_hk_skt",
-				"position": "F35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_hk_sxl",
-				"position": "G35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_db_sl",
-				"position": "H35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_db_skt",
-				"position": "I35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_db_sxl",
-				"position": "J35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_dt_sl",
-				"position": "K35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_dt_skt",
-				"position": "L35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_dt_sxl",
-				"position": "M35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ds_sl",
-				"position": "N35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ds_skt",
-				"position": "O35",
-				"type": "number"
-			},
-			{
-				"name": "pt_nc_ds_sxl",
-				"position": "P35",
-				"type": "number"
-			},
-			
-			
-			{
-				"name": "cd_pt_nc_hk_sl",
-				"position": "E36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_hk_skt",
-				"position": "F36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_hk_sxl",
-				"position": "G36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_db_sl",
-				"position": "H36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_db_skt",
-				"position": "I36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_db_sxl",
-				"position": "J36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_dt_sl",
-				"position": "K36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_dt_skt",
-				"position": "L36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_dt_sxl",
-				"position": "M36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_ds_sl",
-				"position": "N36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_ds_skt",
-				"position": "O36",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_nc_ds_sxl",
-				"position": "P36",
-				"type": "number"
-			},
-			
-			{
-				"name": "pt_xc_hk_sl",
-				"position": "E37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_hk_skt",
-				"position": "F37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_hk_sxl",
-				"position": "G37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_db_sl",
-				"position": "H37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_db_skt",
-				"position": "I37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_db_sxl",
-				"position": "J37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_dt_sl",
-				"position": "K37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_dt_skt",
-				"position": "L37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_dt_sxl",
-				"position": "M37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ds_sl",
-				"position": "N37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ds_skt",
-				"position": "O37",
-				"type": "number"
-			},
-			{
-				"name": "pt_xc_ds_sxl",
-				"position": "P37",
-				"type": "number"
-			},
-			
-			{
-				"name": "cd_pt_xc_hk_sl",
-				"position": "E38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_hk_skt",
-				"position": "F38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_hk_sxl",
-				"position": "G38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_db_sl",
-				"position": "H38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_db_skt",
-				"position": "I38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_db_sxl",
-				"position": "J38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_dt_sl",
-				"position": "K38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_dt_skt",
-				"position": "L38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_dt_sxl",
-				"position": "M38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_ds_sl",
-				"position": "N38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_ds_skt",
-				"position": "O38",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_xc_ds_sxl",
-				"position": "P38",
-				"type": "number"
-			},
-			
-			
-			
-			{
-				"name": "pt_qc_hk_sl",
-				"position": "E39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_hk_skt",
+				"name": "nhanxet_danhgia",
 				"position": "F39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_hk_sxl",
-				"position": "G39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_db_sl",
-				"position": "H39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_db_skt",
-				"position": "I39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_db_sxl",
-				"position": "J39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_dt_sl",
-				"position": "K39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_dt_skt",
-				"position": "L39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_dt_sxl",
-				"position": "M39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ds_sl",
-				"position": "N39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ds_skt",
-				"position": "O39",
-				"type": "number"
-			},
-			{
-				"name": "pt_qc_ds_sxl",
-				"position": "P39",
-				"type": "number"
-			},
+				"type": "string"
+			}
+			
+		]
+	},
+	{
+		"area_name": "quocgiadiquaheader",
+		"start_row": 17,
+		"end_row": 17
+	},
+	{
+		"area_name": "quocgiadiqua",
+		"start_row": 18,
+		"end_row": 18,
+		"parameters": [
 			
 			{
-				"name": "cd_pt_qc_hk_sl",
-				"position": "E40",
-				"type": "number"
+				"name": "tenquocgia",
+				"position": "B18"
 			},
 			{
-				"name": "cd_pt_qc_hk_skt",
-				"position": "F40",
-				"type": "number"
+				"name": "ngaydiqua",
+				"position": "G18"
 			},
 			{
-				"name": "cd_pt_qc_hk_sxl",
-				"position": "G40",
-				"type": "number"
-			},
+				"name": "ngaydiqua",
+				"position": "I18"
+			},	
 			{
-				"name": "cd_pt_qc_db_sl",
-				"position": "H40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_db_skt",
-				"position": "I40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_db_sxl",
-				"position": "J40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_dt_sl",
-				"position": "K40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_dt_skt",
-				"position": "L40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_dt_sxl",
-				"position": "M40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_ds_sl",
-				"position": "N40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_ds_skt",
-				"position": "O40",
-				"type": "number"
-			},
-			{
-				"name": "cd_pt_qc_ds_sxl",
-				"position": "P40",
-				"type": "number"
-			}
+				"name": "ngaydiqua",
+				"position": "K8"
+			}		
 		]
 	},
 	{
-		"area_name": "phuongtienfooter",
-		"start_row": 41,
-		"end_row": 41
+		"area_name": "quocgiadiquafooter",
+		"start_row": 27,
+		"end_row": 27
 	},
-	
+
+
 	{
-		"area_name": "footer",
-		"start_row": 42,
-		"end_row": 51,
+		"area_name": "xetnghiemheader",
+		"start_row": 25,
+		"end_row": 25
+	},
+	{
+		"area_name": "xetnghiem",
+		"start_row": 26,
+		"end_row": 26,
 		"parameters": [
+			
 			{
-				"name": "hoatdongkhac",
-				"position": "D43",
-				"type": "string"
+				"name": "loaimauxetnghiem",
+				"position": "F26"
 			},
 			{
-				"name": "nhanxet",
-				"position": "C44",
-				"type": "string"
-			}
+				"name": "ngaylay",
+				"position": "K26"
+			},
+			{
+				"name": "ketqua",
+				"position": "P26"
+			}			
 		]
+	},
+	{
+		"area_name": "xetnghiemfooter",
+		"start_row": 27,
+		"end_row": 27
+	},
+
+	{
+		"area_name": "vacxinheader",
+		"start_row": 29,
+		"end_row": 30
+	},
+	{
+		"area_name": "vacxin",
+		"start_row": 31,
+		"end_row": 32,
+		"parameters": [
+			
+			{
+				"name": "tenvacxin",
+				"position": "E31"
+			},
+			{
+				"name": "solandung",
+				"position": "Q31"
+			},
+			{
+				"name": "ngaydunggannhat",
+				"position": "F32"
+			}			
+		]
+	},
+	{
+		"area_name": "vacxinfooter",
+		"start_row": 33,
+		"end_row": 33
+	},
+
+
+
+	{
+		"area_name": "nguoitiepxucheader",
+		"start_row": 35,
+		"end_row": 35
+	},
+	{
+		"area_name": "nguoitiepxuc",
+		"start_row": 37,
+		"end_row": 37,
+		"parameters": [
+			
+			{
+				"name": "hoten",
+				"position": "B37"
+			},
+			{
+				"name": "quoctich",
+				"position": "F37"
+			},
+			{
+				"name": "cmtnd",
+				"position": "I37"
+			},
+			{
+				"name": "ytecongdong",
+				"position": "J164"
+			},
+			{
+				"name": "dienthoai",
+				"position": "M37"
+			},
+			{
+				"name": "email",
+				"position": "P37"
+			}
+			
+		]
+	},
+	{
+		"area_name": "nguoitiepxucfooter",
+		"start_row": 38,
+		"end_row": 38
 	}
 ]
