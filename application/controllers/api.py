@@ -227,7 +227,6 @@ apimanager.create_api(BaiViet,
 @app.route('/api/v1/donvitree')
 def donvitree(request):
     current_user = currentUser(request)
-    # print current_user, current_user.is_authenticated, current_user.donvi
     if (current_user.is_authenticated) and (current_user.donvi is not None):
         model = db.session.query(DonVi).\
             options(joinedload_all("children", "children",
@@ -235,9 +234,10 @@ def donvitree(request):
             filter(DonVi.id == current_user.donvi.id).\
             first()
         obj = model.dump()
-        return  json(obj)
-    else:
-        return  text("Not found", status=404)
+        return json(obj)
+    
+    
+    return text("Not found", status=404)
 
 
 # @app.route('/api/v1/test_getngaybaocao')
@@ -440,72 +440,82 @@ def convert_timestamp_to_string(value, format):
     return dtobj_utc.strftime(format)
 
 @app.route('/api/v1/baocaotonghopnghingobenh')
-def getbaocao_tonghop_nghingobenh(request):        
+async def getbaocao_tonghop_nghingobenh(request):        
     # notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
+    
+    arr_cuakhau = []
+    arr_cuarkhau_ten = []
+    
     donvi_id = request.args.get("donvi_id", "")
     tungay = request.args.get("tungay", None)
     denngay = request.args.get("denngay", None)
+
     if donvi_id is None or donvi_id == "":
         return text("Tham số không hợp lệ", status=520)
     if (tungay is None and denngay is None) or (int(tungay)<=0 or int(denngay)<=0):
         return text("Tham số không hợp lệ", status=520)
+    
     print("sdf",type(denngay))
+    
     listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao <= denngay)).all()
     # listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay)).all()
     if listbaocao is None:
-        return "Chưa có báo cáo của các đơn vị", 520
+        return text("Chưa có báo cáo của các đơn vị", status=520)
+    
+    danhsach_cuakhau = db.session.query(CuaKhau).filter(CuaKhau.donvi_id == donvi_id).all()
+    
+    if danhsach_cuakhau is None:
+        return text("Không tìm thấy cửa khẩu", status=520)
+    
+    for ds in listbaocao:
+        danhsach = to_dict(ds)
+        print("danhsach =======",danhsach)
+
+    print("test gia tri ngay thang")
+    print(tungay)
+    print(denngay)
+    print((int(denngay) - int(tungay))/86400)
+    length_day = math.ceil((int(denngay) - int(tungay))/86400)
+    print(length_day)
+
+
+    if length_day <1:
+        length_day = 1
     else:
-        arr_cuakhau = []
-        arr_cuarkhau_ten = []
-        danhsach_cuakhau = db.session.query(CuaKhau).filter(CuaKhau.donvi_id == donvi_id).all()
-        if danhsach_cuakhau is None:
-            return "Không tìm thấy cửa khẩu", 520
-        else:
-            for ds in listbaocao:
-                danhsach = to_dict(ds)
-                print("danhsach =======",danhsach)
-            print("test gia tri ngay thang")
-            print(tungay)
-            print(denngay)
-            print((int(denngay) - int(tungay))/86400)
-            length_day = math.ceil((int(denngay) - int(tungay))/86400)
-            print(length_day)
-            if length_day <1:
-                length_day = 1
-            else:
-                length_day = int(length_day) + 2
-            for item_cuakhau in danhsach_cuakhau:
-                item = {}
-                item["ma"] = item_cuakhau.ma
-                item["ten"] = item_cuakhau.ten
-                item["id"] = item_cuakhau.id
-                arr_cuarkhau_ten.append(item_cuakhau.ten)
-                item["data_khaibao"] = []
-                # tungay = 
-                for i in range(length_day-1):
-                    print(i)
-                    item_day = int(i*86400) + int(tungay)
-                    text_day = convert_timestamp_to_string(item_day,'%d/%m/%Y')
-                    data_khaibao = {"value_day":item_day,"text_day":text_day,"value_hanhkhach":0,"value_chuyenbay":0,"value_nghingo":0,"value_nguoinghingo":0}
-                    
-                    for itembc in listbaocao:
-                        if itembc.ngaybaocao == item_day and itembc.cuakhau_id == item_cuakhau.id:
+        length_day = int(length_day) + 2
 
-                            data_khaibao["value_hanhkhach"] = itembc.sohanhkhachkhaibao
-                            data_khaibao["value_chuyenbay"] = itembc.sochuyenbay
-                            data_khaibao["value_nguoinghingo"] = itembc.songuoinguoinghingo
-                            # print("danhsachnghingonhiembenh===",itembc.danhsachnghingonhiembenh)
-                            # data_khaibao["value_nghingo"] = 0
-                            
-                            break
-                    item["data_khaibao"].append(data_khaibao)
-                print("danhsach =======",item["data_khaibao"])
-                arr_cuakhau.append(item)
-        
-        return json({"ten":arr_cuarkhau_ten, "data":arr_cuakhau}), 200
-        
+
+    for item_cuakhau in danhsach_cuakhau:
+        item = {}
+        item["ma"] = item_cuakhau.ma
+        item["ten"] = item_cuakhau.ten
+        item["id"] = item_cuakhau.id
+        arr_cuarkhau_ten.append(item_cuakhau.ten)
+        item["data_khaibao"] = []
+        # tungay = 
+        for i in range(length_day-1):
+            print(i)
+            item_day = int(i*86400) + int(tungay)
+            text_day = convert_timestamp_to_string(item_day,'%d/%m/%Y')
+            data_khaibao = {"value_day":item_day,"text_day":text_day,"value_hanhkhach":0,"value_chuyenbay":0,"value_nghingo":0,"value_nguoinghingo":0}
             
+            for itembc in listbaocao:
+                if itembc.ngaybaocao == item_day and itembc.cuakhau_id == item_cuakhau.id:
 
+                    data_khaibao["value_hanhkhach"] = itembc.sohanhkhachkhaibao
+                    data_khaibao["value_chuyenbay"] = itembc.sochuyenbay
+                    data_khaibao["value_nguoinghingo"] = itembc.songuoinguoinghingo
+                    # print("danhsachnghingonhiembenh===",itembc.danhsachnghingonhiembenh)
+                    # data_khaibao["value_nghingo"] = 0
+                    
+                    break
+            item["data_khaibao"].append(data_khaibao)
+        print("danhsach =======",item["data_khaibao"])
+        arr_cuakhau.append(item)
+
+    return json({"ten" : arr_cuarkhau_ten, "data": arr_cuakhau})
+   
+    
 
 @app.route('/api/v1/getbaocao')
 #@jwt_required()
@@ -576,8 +586,8 @@ def getbaocao(request):
                 baocaoobj["bangtruyenthong"] = [to_dict(obj) for obj in baocao.bangtruyenthong.all()]
                 baocaoobj["bangnghiencuukhoahoc"] = [to_dict(obj) for obj in baocao.bangnghiencuukhoahoc.all()]
                 baocaoobj["banghoptacquocte"] = [to_dict(obj) for obj in baocao.banghoptacquocte.all()]
-            else:
-                return  text("Not found", status=404)
+            
+            return text("Not found", status=404)
         else:
             donvi = current_user.donvi
             cuakhau = current_user.cuakhau
@@ -705,15 +715,14 @@ def getbaocao(request):
                 
             #get ky bao cao
         if baocaoobj is not None:
-            return json({
+            return json({
                 "baocao": baocaoobj,
                 "congdon": congdon,
                 "congdoncuakhau":congdoncuakhau,
                 "cuakhau": [to_dict(cuakhau) for cuakhau in cuakhaus],
                 "candelete":candelete
             })
-    
-    return  text("Not found", status=404)
+    return text("Not found", status=404)
 
 
 @app.route('/api/v1/getbaocaovien')
@@ -751,7 +760,7 @@ def getbaocaovien(request):
                 baocaoobj["bangvienhoatdongchung"] = [to_dict(obj) for obj in baocao.bangvienhoatdongchung.all()]
                 
             else:
-                return  text("Not found", status=404)
+                return text("Not found", status=404)
             
         elif(id is None):
             
@@ -938,7 +947,7 @@ def thongkeguibaocao(request):
         
         return  json(thongkedata)
     else:
-        return  text("Not found", status=404)
+        return text("Not found", status=404)
     
 @app.route('/api/v1/thongkeguibaocaocuakhau')
 def thongkeguibaocaocuakhau(request):
@@ -1008,7 +1017,7 @@ def thongkeguibaocaocuakhau(request):
                 
         return  json(thongkedata)
     else:
-        return  text("Not found", status=404)
+        return text("Not found", status=404)
 
 @app.route('/api/v1/timkiembaocao')
 def timkiembaocao(request):
@@ -1024,7 +1033,7 @@ def timkiembaocao(request):
     if current_user.is_authenticated:
         currdonvi =  current_user.donvi
     else:
-        return json({}, status=404)
+        return json({}, status=404)
     
     nam = prepare_arg(request.args.get("nam", None))
     thang = prepare_arg(request.args.get("thang", None))
@@ -1035,7 +1044,7 @@ def timkiembaocao(request):
     tinhtrang = prepare_arg(request.args.get("tinhtrang", None))
     #
     if nam is None:
-        return json({}, status=404)
+        return json({}, status=404)
     
     curdonvichildids = currdonvi.children_ids()
     if(donvi_id is None) or (donvi_id not in curdonvichildids):
@@ -1076,7 +1085,7 @@ def timkiembaocao(request):
     baocaoobjs = [{"id": baocao.id,"nambaocao": baocao.nambaocao,"ma":baocao.ma, "donvi": baocao.donvi.ten, "ky": baocao.kybaocao, "loaiky": baocao.loaikybaocao,
                     "cuakhau": baocao.cuakhau.ten if baocao.cuakhau is not None else "", "ngaygui": str(baocao.ngaybaocao), "tinhtrang": baocao.tinhtrang} for baocao in baocaos]
         
-    return json(baocaoobjs)
+    return json(baocaoobjs)
     
 def tinhthongketheobang(baocao, tenbang, resp, cuakhaulist):
     notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
@@ -1252,13 +1261,13 @@ def thongketheodonvi(request):
         return send_file(filename, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                 attachment_filename='thongke-' + filename, as_attachment=True)
     else:
-        return json(respdata)
+        return json(respdata)
                                 
 @app.route('/api/v1/donvitree_thongke')
 def donvitree_thongke(request):
     mode = request.args.get("mode", None)
     if mode is None:
-        return "Not found", 501
+        return text("Not found", status=501)
     current_user = currentUser(request)
     if (current_user.is_authenticated) and (current_user.donvi is not None):
         
@@ -1286,7 +1295,7 @@ def donvitree_thongke(request):
                     obj["nodes"].append(ckobj)
                     
                 resp.append(obj)
-                return json(resp)
+                return json(resp)
             
             donviqt = donviList.filter(DonVi.loaidonvi == 10).all()
             donvitt = donviList.filter(DonVi.loaidonvi == 20).all()
@@ -1326,7 +1335,7 @@ def donvitree_thongke(request):
             resp.append(objqt)
             resp.append(objtt)
             
-            return json(resp)
+            return json(resp)
         if mode == "cuakhau":
             cuakhaus = CuaKhau.query.filter(CuaKhau.donvi_id.in_(donvichildids))
             cuakhaudb = cuakhaus.filter(or_((CuaKhau.duongboquocte == True), (CuaKhau.duongbochinh == True), (CuaKhau.duongbophu == True))).all()
@@ -1384,9 +1393,9 @@ def donvitree_thongke(request):
             resp.append(objhk)
             resp.append(objdt)
             
-            return json(resp)
+            return json(resp)
     
-    return "Not found", 501
+    return text("Not found", status=501)
 
 
 @app.route('/api/v1/reset_all_password')
@@ -1396,4 +1405,4 @@ def reset_all_password(request):
         u.password = encrypt_password("123456")
         print(u.id)
     db.session.commit()
-    return json({})
+    return json({})
