@@ -9,6 +9,7 @@ from math import floor
 import time
 def default_uuid():
     return str(uuid.uuid4())
+
 roles_users = db.Table('roles_users',
                        db.Column('user_id', db.Integer(), db.ForeignKey('user.id')),
                        db.Column('role_id', db.Integer(), db.ForeignKey('role.id')))
@@ -733,8 +734,11 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
     diadiemcachlytaptrung = db.Column(db.String)
     songuoihetcachly = db.Column(db.BigInteger)
 
-    __table_args__ = (UniqueConstraint('donvi_id', 'cuakhau_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_cuakhau_id_ngaybaocao'),)
-    __table_args__ = (UniqueConstraint('donvi_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_ngaybaocao'),)
+    # __table_args__ = (UniqueConstraint('donvi_id', 'cuakhau_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_cuakhau_id_ngaybaocao'),)
+    # __table_args__ = (UniqueConstraint('donvi_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_ngaybaocao'),)
+
+Index('baocaotonghopnghingonhiembenhnhoma_uq_idx', BaoCaoTongHopNghiNgoNhiemBenhNhomA.loaibaocao, BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id, BaoCaoTongHopNghiNgoNhiemBenhNhomA.cuakhau_id, BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao, unique=True)
+Index('baocaotonghopnghingonhiembenhnhoma_uq_idx2', BaoCaoTongHopNghiNgoNhiemBenhNhomA.loaibaocao, BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id, BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao, unique=True, postgresql_where=(BaoCaoTongHopNghiNgoNhiemBenhNhomA.cuakhau_id.is_(None)))
 
 
 class ToKhaiYTe(CommonModel):
