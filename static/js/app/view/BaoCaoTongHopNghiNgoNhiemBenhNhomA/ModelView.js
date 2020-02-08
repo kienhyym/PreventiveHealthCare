@@ -118,7 +118,12 @@ define(function (require) {
                 } else {
 					
 					// console.log
-					self.model.set("ngaybaocao",new Date());
+					//self.model.set("ngaybaocao", moment().startOf('day').unix());
+
+					//self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DDTHH:mm"));
+					self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+					
+
                     self.applyBindings();
 					self.registerEvent();
 					self.model.on("change:ngaybaocao",function () {
