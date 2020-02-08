@@ -72,11 +72,11 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 			self.currentUser = new Gonrin.User(data);
 			var $user = self.$header.find("span.username");
 			if(self.currentUser.hasRole("DonViAdmin")){
-				self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.user.name);
+				self.$header.find("span.username").html("Lãnh đạo đơn vị: "+data.name);
 			}else if(self.currentUser.hasRole("DonViUser")){
-				self.$header.find("span.username").html("Người dùng đơn vị: "+data.user.name);
+				self.$header.find("span.username").html("Người dùng đơn vị: "+data.name);
 			}else if(self.currentUser.hasRole("CuaKhauUser")){
-				self.$header.find("span.username").html("Người dùng cửa khẩu: "+data.user.name);
+				self.$header.find("span.username").html("Người dùng cửa khẩu: "+data.name);
 			}else{
 				self.$header.find("span.username").html(data.name);
 			}

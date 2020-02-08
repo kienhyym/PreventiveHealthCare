@@ -586,6 +586,8 @@ class BaiViet(CommonModel):
     gioithieu = db.Column(db.String())
     noidung = db.Column(db.Text())
     phamvi = db.Column(db.String(20))
+
+
 # class BaoCaoTongHopNghiNgoNhiemBenh(CommonModel):
 #     __tablename__ = 'baocaotonghopnghingonhiembenh'
 #     id = db.Column(db.Integer, primary_key=True)
@@ -601,6 +603,8 @@ class BaiViet(CommonModel):
 #     dulieu_chuyenbay = db.Column(JSONB())
     
 #     tinhtrang = db.Column(db.SmallInteger, nullable=False, default=1)
+
+
 class BaoCaoNghiNgoNhiemBenh(CommonModel):
     __tablename__ = 'baocaonghingonhiembenh'
     id = db.Column(db.Integer, primary_key=True)
@@ -612,7 +616,13 @@ class BaoCaoNghiNgoNhiemBenh(CommonModel):
     
     nambaocao = db.Column(db.Integer, nullable=False)
     donvi_id = db.Column(db.Integer,db.ForeignKey('donvi.id'), nullable=True, index=True)
+    tendonvi = db.Column(db.String())
+    madonvi = db.Column(db.String())
     donvi = db.relationship('DonVi',viewonly=True)
+
+    cuakhau_id = db.Column(db.Integer, index=True, nullable=True)
+    tencuakhau = db.Column(db.String())
+    macuakhau = db.Column(db.String())
     
     #dulieu
     hoten = db.Column(db.String(), index=True)

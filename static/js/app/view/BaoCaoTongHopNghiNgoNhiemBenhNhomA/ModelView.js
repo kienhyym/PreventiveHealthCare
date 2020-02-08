@@ -203,12 +203,28 @@ define(function (require) {
 		getDanhsachnhiembenh:function(){
 			var self = this;
 			var ngaybaocao = self.model.get("ngaybaocao");
+			var donvi_id = self.model.get("donvi_id");
+			var cuakhau_id = self.model.get("cuakhau_id");
+
+			console.log(donvi_id, cuakhau_id);
+
 			self.$el.find("#add-nghingonhiembenh-item").empty();
 			var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
 			$.ajax({
 			url: url_danhsachnghingo,
 				method: "GET",
-				data: {"q": JSON.stringify({"filters": {"ngaybaocao":{"$eq":ngaybaocao}},"page":1}),"results_per_page":50},
+				data: {
+					"q": JSON.stringify({
+						"filters": {
+							"$and":[
+								{"ngaybaocao":{"$eq":ngaybaocao}},
+								{"donvi_id": {"$eq":donvi_id}},
+								{"cuakhau_id": {"$eq":cuakhau_id}}
+							]
+						},
+					// "page":1
+					})
+				},
 				contentType: "application/json",
 				success: function (data) {
 					$("#add-nghingonhiembenh-item").grid({

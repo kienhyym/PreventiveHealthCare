@@ -241,11 +241,11 @@ define(function (require) {
 					},
 					
 					{
-        			    "text":" Báo cáo Tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			    "text":" Báo cáo 2019-nCoV",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
         			    "route":"baocaotonghopnghingonhiembenhnhoma/collection",
-        			    "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
         			    "icon":static_url + "/images/icons/task_120.png",
 					},
 					// {
