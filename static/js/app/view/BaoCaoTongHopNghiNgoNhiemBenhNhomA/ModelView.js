@@ -7,10 +7,8 @@ define(function (require) {
 	var template = require('text!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/tpl/model.html'),
 		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
 
-	var XetNghiemItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/XetNghiemItemView');
-	var QuocGiaItemView = require('app/view/BaoCaoNghiNgoNhiemBenh/QuocGiaItemView');
-    var NguoiNghiNhiemView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/NguoiNghiNhiemView');
-    var DonViSelectView = require("app/view/HeThong/DonVi/TreeNoChildrenSelectView");
+
+    var NguoiNghiNhiemView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/DanhSachNghiNgoCollection');
 	
 	
 	return Gonrin.ModelView.extend({
@@ -42,9 +40,9 @@ define(function (require) {
 				    	    	label: "TRANSLATE:SAVE",
 				    	    	command: function(){
                                     var self = this;
-                                    var ngaybaocao = self.$el.find("#ngaybaocao").val();
-				                    ngaybaocao = parseInt(ngaybaocao) ? parseInt(ngaybaocao) : 0;
-                                    self.model.set("ngaybaocao",ngaybaocao);
+                                    // var ngaybaocao = self.$el.find("#ngaybaocao").val();
+				                    // ngaybaocao = parseInt(ngaybaocao) ? parseInt(ngaybaocao) : 0;
+                                    // self.model.set("ngaybaocao",ngaybaocao);
                                    
 				    	    		// if(!self.validate()){
 				    	    		// 	return;
@@ -88,32 +86,7 @@ define(function (require) {
 					},
 		    	],
 		uiControl: [
-            // {
-            //     field: "danhsachnghingonhiembenh",
-            //     uicontrol: false,
-            //     itemView: NguoiNghiNhiemView,
-            //     tools: [{
-            //         name: "create",
-            //         type: "button",
-            //         buttonClass: "btn btn-outline-secondary btn-fw btn-sm create-item",
-            //         label: "<i class='fa fa-plus'></i>",
-            //         command: "create"
-            //     }, ],
-            //     toolEl: "#add-nghingonhiembenh-item"
-			// },
-			{
-				field: "ngaybaocao",
-				uicontrol: "datetimepicker",
-				textFormat:'DD/MM/YYYY',
-				extraFormats:['DDMMYYYY'],
-				parseInputDate: function(val){
-					return moment.unix(val)
-				},
-				parseOutputDate: function(date){
-					return date.startOf('day').unix();
-					//return date.unix()
-				}
-			},
+			{field:"ngaybaocao",  textFormat :"DD/MM/YYYY", disabledComponentButton: false},
 			{
 				field:"loaibaocao",
 				uicontrol:"combobox",
@@ -138,7 +111,7 @@ define(function (require) {
                     this.model.set('id', id);
                     this.model.fetch({
                         success: function (data) {
-                            self.$el.find("#ngaybaocao").val(self.model.get("ngaybaocao"));
+                            // self.$el.find("#ngaybaocao").val(self.model.get("ngaybaocao"));
                             var info = user.info;
                             var cuakhau = info.cuakhau;
                             if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
@@ -146,7 +119,6 @@ define(function (require) {
                                     self.$el.find(".duonghangkhong").show();
                                 }
 							}
-							
                             self.applyBindings();
                             self.registerEvent();
                         },
@@ -156,10 +128,9 @@ define(function (require) {
                     });
                 } else {
 					self.model.set("ngaybaocao", moment().startOf('day').unix());
-					
                     self.applyBindings();
 					self.registerEvent();
-                    var info = user.info;
+					var info = user.info;
                     var cuakhau = info.cuakhau;
                     if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
                         self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
@@ -206,19 +177,12 @@ define(function (require) {
 					self.$el.find(".user_cuakhau").show();
 				}
 			});
-            // self.$el.find('#ngaybaocao').datetimepicker({
-			// 	textFormat:'DD/MM/YYYY',
-			// 	extraFormats:['DDMMYYYY'],
-			// 	format:"DD/MM/YYYY",
-			// 	placeholder:"VD: 15/11/2019",
-			// 	widgetPositioning: {"vertical": "bottom"},
-			// 	parseInputDate: function(val) {
-			// 		return self.parseDate(val);
-			// 	},
-			// 	parseOutputDate: function(date) {
-			// 		return date.unix();
-			// 	}
-			// });
+			var danhsach = new NguoiNghiNhiemView();
+			// var thongtincon = new NguoiNghiNhiemView({ "viewData": { "id": con.id, "con": con, "me": me, "bo": bo } });
+				self.$el.find("#add-nghingonhiembenh-item").empty();
+				danhsach.render();
+				self.$el.find("#content").append(danhsach.el);
+			
 
 		},
 		validate: function() {
@@ -230,27 +194,7 @@ define(function (require) {
 			}
 			return true;
 			
-		},
-        parseDate: function (val) {
-			var result = null;
-			if (val === null || val === undefined || val === "" || val === 0) {
-				//				return moment.utc();
-				result = null;
-			} else {
-				var date = null;
-				if ($.isNumeric(val) && parseInt(val) > 0) {
-					date = new Date(val * 1000);
-				} else if (typeof val === "string") {
-					date = new Date(val);
-				} else {
-					result = moment.utc();
-				}
-				if (date != null && date instanceof Date) {
-					result = moment.utc([date.getFullYear(), date.getMonth(), date.getDate()]);
-				}
-				return result;
-			}
-		},
+		}
 	});
 
 });

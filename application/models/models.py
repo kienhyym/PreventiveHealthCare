@@ -695,7 +695,7 @@ class BaoCaoNghiNgoNhiemBenhNguoiTiepXuc(CommonModel):
 
 class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
     __tablename__ = "baocaotonghopnghingonhiembenhnhoma"
-    id = db.Column(UUID(as_uuid=True), primary_key=True)
+    id = db.Column(UUID(as_uuid=True), primary_key=True, default=default_uuid())
     loaibaocao = db.Column(db.SmallInteger()) #1 - don vi, 2 cua khau
 
     ngaybaocao = db.Column(db.DateTime(), index=True, default=func.now())

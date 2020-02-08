@@ -28,12 +28,12 @@ define(function (require) {
         uiControl:{
             fields: [
                 {
-                    field: "id", label: "ID", width: 250, readonly: true,
+                    field: "id", label: "ID", width: 250, readonly: true,visible: false
                 },
-                { field: "ngaybaocao", label: "Ngày báo cáo",width: 250,
-                template: (rowData) => {
-                    return '<p>'+moment.unix(rowData.ngaybaocao).local().format("DD/MM/YYYY");+'</p>';
-                }
+                { field: "ngaybaocao", label: "Ngày báo cáo",width: 250
+                // template: (rowData) => {
+                //     return '<p>'+moment.unix(rowData.ngaybaocao).local().format("DD/MM/YYYY");+'</p>';
+                // }
                 },
                 { field: "tencuakhau", label: "Tên cửa khẩu", width: 250 },
                 { field: "tendonvi", label: "Tên đơn vị", width: 250, textField: "ten" },

@@ -6,7 +6,7 @@
       "type":"number"
     },
     "ngaybaocao": {
-      "type": "number"
+      "type": "datetime"
     },
     "donvi_id": {
       "type": "number"
