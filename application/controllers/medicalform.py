@@ -28,6 +28,8 @@ async def medicalform_index(request, id):
 async def medicalform_form(request, lang):
     if lang in ["vi", "cn", "en"]:
         return jinja.render('medicalform/form_' + lang + '.html', request)
+
+
 apimanager.create_api(ToKhaiYTe,
     methods=['GET', 'POST', 'DELETE', 'PUT'],
     url_prefix='/api/v1',

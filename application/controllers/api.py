@@ -237,7 +237,7 @@ def donvitree(request):
         obj = model.dump()
         return  json(obj)
     else:
-        return "Not found", 404
+        return  text("Not found", status=404)
 
 
 # @app.route('/api/v1/test_getngaybaocao')
@@ -446,9 +446,9 @@ def getbaocao_tonghop_nghingobenh(request):
     tungay = request.args.get("tungay", None)
     denngay = request.args.get("denngay", None)
     if donvi_id is None or donvi_id == "":
-        return "Tham số không hợp lệ", 520
+        return text("Tham số không hợp lệ", status=520)
     if (tungay is None and denngay is None) or (int(tungay)<=0 or int(denngay)<=0):
-        return "Tham số không hợp lệ", 520
+        return text("Tham số không hợp lệ", status=520)
     print("sdf",type(denngay))
     listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao <= denngay)).all()
     # listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay)).all()
@@ -502,7 +502,7 @@ def getbaocao_tonghop_nghingobenh(request):
                 print("danhsach =======",item["data_khaibao"])
                 arr_cuakhau.append(item)
         
-        return json.dumps({"ten":arr_cuarkhau_ten, "data":arr_cuakhau}), 200
+        return json({"ten":arr_cuarkhau_ten, "data":arr_cuakhau}), 200
         
             
 
@@ -577,7 +577,7 @@ def getbaocao(request):
                 baocaoobj["bangnghiencuukhoahoc"] = [to_dict(obj) for obj in baocao.bangnghiencuukhoahoc.all()]
                 baocaoobj["banghoptacquocte"] = [to_dict(obj) for obj in baocao.banghoptacquocte.all()]
             else:
-                return "Not found", 404
+                return  text("Not found", status=404)
         else:
             donvi = current_user.donvi
             cuakhau = current_user.cuakhau
@@ -705,7 +705,7 @@ def getbaocao(request):
                 
             #get ky bao cao
         if baocaoobj is not None:
-            return json.dumps({
+            return json({
                 "baocao": baocaoobj,
                 "congdon": congdon,
                 "congdoncuakhau":congdoncuakhau,
@@ -713,7 +713,7 @@ def getbaocao(request):
                 "candelete":candelete
             })
     
-    return "Not found", 404
+    return  text("Not found", status=404)
 
 
 @app.route('/api/v1/getbaocaovien')
@@ -751,7 +751,7 @@ def getbaocaovien(request):
                 baocaoobj["bangvienhoatdongchung"] = [to_dict(obj) for obj in baocao.bangvienhoatdongchung.all()]
                 
             else:
-                return "Not found", 404
+                return  text("Not found", status=404)
             
         elif(id is None):
             
@@ -791,11 +791,11 @@ def getbaocaovien(request):
             baocaoobj["bangvienhoatdongchung"] = []
             #Bang Nguoi
         if baocaoobj is not None:
-            return json.dumps({
+            return json({
                 "baocao": baocaoobj,
             })
     
-    return "Not found", 404
+    return text("Not found", status=404)
 
 
 def getbaocaoconthieu(kybaocao, loaiky, nambaocao):
@@ -936,9 +936,9 @@ def thongkeguibaocao(request):
         
         
         
-        return  json.dumps(thongkedata)
+        return  json(thongkedata)
     else:
-        return "Not found", 404
+        return  text("Not found", status=404)
     
 @app.route('/api/v1/thongkeguibaocaocuakhau')
 def thongkeguibaocaocuakhau(request):
@@ -1006,9 +1006,9 @@ def thongkeguibaocaocuakhau(request):
             else:
                 thongkedata[str(tkdonvi["cuakhau_id"])] = tkdonvi
                 
-        return  json.dumps(thongkedata)
+        return  json(thongkedata)
     else:
-        return "Not found", 404
+        return  text("Not found", status=404)
 
 @app.route('/api/v1/timkiembaocao')
 def timkiembaocao(request):
@@ -1024,7 +1024,7 @@ def timkiembaocao(request):
     if current_user.is_authenticated:
         currdonvi =  current_user.donvi
     else:
-        return json.dumps({}),404
+        return json({}, status=404)
     
     nam = prepare_arg(request.args.get("nam", None))
     thang = prepare_arg(request.args.get("thang", None))
@@ -1035,7 +1035,7 @@ def timkiembaocao(request):
     tinhtrang = prepare_arg(request.args.get("tinhtrang", None))
     #
     if nam is None:
-        return json.dumps({}),404
+        return json({}, status=404)
     
     curdonvichildids = currdonvi.children_ids()
     if(donvi_id is None) or (donvi_id not in curdonvichildids):
@@ -1076,7 +1076,7 @@ def timkiembaocao(request):
     baocaoobjs = [{"id": baocao.id,"nambaocao": baocao.nambaocao,"ma":baocao.ma, "donvi": baocao.donvi.ten, "ky": baocao.kybaocao, "loaiky": baocao.loaikybaocao,
                     "cuakhau": baocao.cuakhau.ten if baocao.cuakhau is not None else "", "ngaygui": str(baocao.ngaybaocao), "tinhtrang": baocao.tinhtrang} for baocao in baocaos]
         
-    return json.dumps(baocaoobjs)
+    return json(baocaoobjs)
     
 def tinhthongketheobang(baocao, tenbang, resp, cuakhaulist):
     notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
@@ -1252,7 +1252,7 @@ def thongketheodonvi(request):
         return send_file(filename, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                 attachment_filename='thongke-' + filename, as_attachment=True)
     else:
-        return json.dumps(respdata)
+        return json(respdata)
                                 
 @app.route('/api/v1/donvitree_thongke')
 def donvitree_thongke(request):
@@ -1286,7 +1286,7 @@ def donvitree_thongke(request):
                     obj["nodes"].append(ckobj)
                     
                 resp.append(obj)
-                return json.dumps(resp)
+                return json(resp)
             
             donviqt = donviList.filter(DonVi.loaidonvi == 10).all()
             donvitt = donviList.filter(DonVi.loaidonvi == 20).all()
@@ -1326,7 +1326,7 @@ def donvitree_thongke(request):
             resp.append(objqt)
             resp.append(objtt)
             
-            return json.dumps(resp)
+            return json(resp)
         if mode == "cuakhau":
             cuakhaus = CuaKhau.query.filter(CuaKhau.donvi_id.in_(donvichildids))
             cuakhaudb = cuakhaus.filter(or_((CuaKhau.duongboquocte == True), (CuaKhau.duongbochinh == True), (CuaKhau.duongbophu == True))).all()
@@ -1384,7 +1384,7 @@ def donvitree_thongke(request):
             resp.append(objhk)
             resp.append(objdt)
             
-            return json.dumps(resp)
+            return json(resp)
     
     return "Not found", 501
 
@@ -1396,4 +1396,4 @@ def reset_all_password(request):
         u.password = encrypt_password("123456")
         print(u.id)
     db.session.commit()
-    return json.dumps({})
+    return json({})
