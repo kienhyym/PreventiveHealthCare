@@ -44,6 +44,14 @@ class User(CommonModel):
         return '<models.User[email=%s]>' % self.email
     def __is_admin__(self):
         return True
+    def has_role(self, role):
+        """Returns `True` if the user identifies with the specified role.
+        :param role: A role name or `Role` instance"""
+        if isinstance(role, str):
+            return role in (role.name for role in self.roles)
+        else:
+            return role in self.roles
+
 class Role(CommonModel):
     __tablename__ = 'role'
     id = db.Column(db.Integer(), primary_key=True)

@@ -20,6 +20,7 @@ from application.extensions import auth, jinja
 import ujson
 from sqlalchemy import or_, and_
 from sqlalchemy.orm import aliased, joinedload_all
+from itertools import groupby
 from .user_api import current_user as currentUser
 
 # def currentUser(request):
@@ -1060,7 +1061,7 @@ async def thongketheodonvi(request):
     export = request.args.get("export", False)
     if export is not export:
         export = True
-    data = json.loads(query)
+    data = ujson.loads(query)
 
     donvilist = data["donvi"]
     cuakhaulist = data["cuakhau"]

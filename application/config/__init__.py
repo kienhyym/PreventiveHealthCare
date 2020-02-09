@@ -4,6 +4,7 @@ class Config(object):
     SYSTEM_MAINTAINANCE = False
     STATIC_URL = "static"
     #SQLALCHEMY_DATABASE_URI = 'postgresql://ytdpuser:adnajd91edasda@localhost:5432/ytdp'
+    #pro
     SQLALCHEMY_DATABASE_URI = 'postgresql://ytdpuser:adnajd91edasda@192.168.60.100:5432/ytdp'
 
     AUTH_LOGIN_ENDPOINT = 'login'
