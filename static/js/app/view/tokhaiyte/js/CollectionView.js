@@ -15,7 +15,8 @@ define(function (require) {
         collectionName: "tokhaiyte",
         uiControl: {
             fields: [
-                {field: "id", label: "ID"},
+                { field: "id", visible: false },
+                { field: "hoten", label: "Họ tên"},
                 { field: "matokhaiyte", label: "Mã tờ khai" },
                 { field: "ngaykekhai", label: "Ngày kê khai" },
                 { field: "donvi_id", visible: false },
@@ -27,7 +28,6 @@ define(function (require) {
                 { field: "canbo_id", visible: false },
                 { field: "tencanbo", visible: false },
                 { field: "emailcanbo", visible: false },
-                { field: "hoten", visible: false },
                 { field: "namsinh", visible: false },
                 { field: "gioitinh", visible: false },
                 { field: "quoctich", visible: false },

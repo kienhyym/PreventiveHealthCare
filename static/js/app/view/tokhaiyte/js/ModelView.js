@@ -37,9 +37,7 @@ define(function (require) {
 						label: "TRANSLATE:SAVE",
 						command: function () {
 							var self = this;
-							if (!self.validate()) {
-								return;
-							}
+
 							self.model.save(null, {
 								success: function (model, respose, options) {
 									self.getApp().notify("Save successfully");
@@ -77,36 +75,166 @@ define(function (require) {
 			},
 		],
 		uiControl: [
-			{
-				// field:"gioitinh",
-				// uicontrol:"combobox",
-				// textField: "text",
-				// valueField: "value",
-				// dataSource: [
-				//         { text: "Nam", value: "nam" },
-				//         { text: "Nữ", value: "nữ" },
-				// ],
-
-				field: "benh_nghingo",
-				cssClass: false,
-
-			},
+			// {
+			// 	field:"gioitinh",
+			// 	uicontrol:"combobox",
+			// 	textField: "text",
+			// 	valueField: "value",
+			// 	dataSource: [
+			// 	        { text: "Nam", value: "nam" },
+			// 	        { text: "Nữ", value: "nữ" },
+			// 	],
+			// },
 			{ field: "ngaybaocao", cssClass: false, textFormat: "DD/MM/YYYY", disabledComponentButton: true },
 			{ field: "ngay_nhapquacanh", cssClass: false, textFormat: "DD/MM/YYYY", disabledComponentButton: true },
 
-			// {
-			// 	field: "baocaonghingonhiembenhxetnghiem",
-			// 	uicontrol: false,
-			// 	itemView: XetNghiemItemView,
-			// 	tools: [{
-			// 		name: "create",
-			// 		type: "button",
-			// 		buttonClass: "btn btn-outline-secondary btn-fw btn-sm create-item",
-			// 		label: "<i class='fa fa-plus'></i>",
-			// 		command: "create"
-			// 	},],
-			// 	toolEl: "#add-xetnghiem-item"
-			// },
+			{
+				field: "thongtindilai_taubay",
+				uicontrol: "checkbox",
+				checkedField: "name",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, id: 1, cssClass: "yeallow" },
+					{ name: false, id: 5 },
+				],
+				value: 1
+			},
+			{
+				field: "thongtindilai_tauthuyen",
+				uicontrol: "checkbox",
+				checkedField: "name",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, id: 1, cssClass: "yeallow" },
+					{ name: false, id: 5 },
+				],
+				value: 1
+			},
+			{
+				field: "thongtindilai_oto",
+				uicontrol: "checkbox",
+				checkedField: "name",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, id: 1, cssClass: "yeallow" },
+					{ name: false, id: 5 },
+				],
+				value: 1
+			},
+
+			{
+				field: "dauhieubenh_khotho",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_dauhong",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_buonnon",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_tieuchay",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_xuathuyetngoaida",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_phatban",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "tiepxuc_dongvat",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "Có", id: 1 },
+					{ name: "Không", id: 2 },
+				],
+			},
+			{
+				field: "chamsocnguoibenhtruyennhiem",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "Có", id: 1 },
+					{ name: "Không", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_sot",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
+			{
+				field: "dauhieubenh_ho",
+				textField: "name",
+				uicontrol: "radio",
+				valueField: "id",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: "", id: 1 },
+					{ name: "", id: 2 },
+				],
+			},
 			// {
 			// 	field: "baocaonghingonhiembenhquocgia",
 			// 	uicontrol: false,
@@ -153,7 +281,7 @@ define(function (require) {
 
 			},
 			{
-				field: "cuakhau_nhapquacanh",
+				field: "vacxin_dasudung",
 				cssClass: false,
 
 
@@ -165,19 +293,19 @@ define(function (require) {
 
 			},
 			{
-				field: "dienthoai",
+				field: "sodienthoai",
 				cssClass: false,
 
 
 			},
 			{
-				field: "donvi",
+				field: "quocgiadiqua",
 				cssClass: false,
 
 
 			},
 			{
-				field: "donvi_id",
+				field: "noi_khoihanh",
 				cssClass: false,
 
 
@@ -206,7 +334,7 @@ define(function (require) {
 
 			},
 			{
-				field: "id",
+				field: "noiden",
 				cssClass: false,
 
 			},
@@ -222,38 +350,38 @@ define(function (require) {
 
 			},
 			{
+				field: "soghe_phuongtien",
+				cssClass: false,
+
+
+			},
+			{
+				field: "sohieu_phuongtien",
+				cssClass: false,
+
+
+			},
+
+			{
+				field: "sohochieu",
+				cssClass: false,
+
+
+			},
+			{
 				field: "namsinh",
 				cssClass: false,
 
 
 			},
 			{
-				field: "ngay_nhapquacanh",
-				cssClass: false,
-
-
-			},
-
-			{
-				field: "nhanxet_danhgia",
+				field: "ngay_khoihanh",
 				cssClass: false,
 
 
 			},
 			{
-				field: "noibaocao",
-				cssClass: false,
-
-
-			},
-			{
-				field: "noio",
-				cssClass: false,
-
-
-			},
-			{
-				field: "noitiepnhan_xutri",
+				field: "ngay_nhapcanh",
 				cssClass: false,
 
 
@@ -306,70 +434,53 @@ define(function (require) {
 
 			},
 			{
-				field: "tinhtrang",
+				field: "diachi_taivietnam",
 				cssClass: false,
 
 
 			},
-			// {
-			// 	field: "nambaocao",
-			// 	cssClass: false,
+			{
+				field: "thongtindilai_chitiet",
+				cssClass: false,
 
 
-			// },
+			},
 		],
 		render: function () {
 			var self = this;
+			console.log(self.getApp().currentUser)
+			self.model.set('matokhaiyte', '123')
+			self.model.set('ngaykekhai', '020-02-09T00:00:00')
+			self.model.set('donvi_id', 1)
+			self.model.set('tendonvi', 'Cục YTDP')
+			self.model.set('madonvi', '123')
+			self.model.set('cuakhau_id', 123)
+			self.model.set('tencuakhau', '123')
+			self.model.set('macuakhau', '123')
+			self.model.set('canbo_id', 156)
+			self.model.set('tencanbo', '"Support"')
+			self.model.set('emailcanbo', 'support@baocaokdyt.com')
 			var id = this.getApp().getRouter().getParam("id");
 			if (id) {
-				//progresbar quay quay
 				this.model.set('id', id);
 				this.model.fetch({
 					success: function (data) {
-						console.log(data);
-						var donvi = self.model.get("donvi");
-						self.$el.find("#chuquan").html(donvi.coquanchuquan);
-						self.$el.find("#tendonvi").html(donvi.ten);
 						self.applyBindings();
-						self.registerEvent();
 					},
 					error: function () {
 						self.getApp().notify("Get data Eror");
 					},
 				});
 			} else {
-				//self.model.set("donvi_id")
-				var user = self.getApp().currentUser;
-				var donvi = user.info.donvi;
-				self.model.set("donvi_id", donvi.id);
-				self.$el.find("#chuquan").html(donvi.coquanchuquan);
-				self.$el.find("#tendonvi").html(donvi.ten);
 				self.applyBindings();
-				self.registerEvent();
 			}
-
+			self.$el.find('.checkbox-group').css({ 'width': '11%', 'margin-left': '2px' });
+			self.$el.find('.input-group-addon').hide();
+			self.$el.find('.datetimepicker-input').css('padding', '5px');
+			self.$el.find('.checkbox-group,.checkbox-group2').css('float', 'left');
+			self.$el.find('.radio-option').css({'display':'inline','padding-left':'30px','padding-right':'30px'});
+			
 		},
-		registerEvent: function () {
-			var self = this;
-			self.model.on("change:ngaybaocao", function () {
-				var ngaybaocao = self.model.get("ngaybaocao");
-
-				var moobject = moment(ngaybaocao, "YYYY-MM-DDTHH:mm:ss");
-				var nambaocao = moobject.year();
-				console.log(nambaocao);
-				self.model.set("nambaocao", nambaocao);
-			})
-		},
-		validate: function () {
-			var self = this;
-			var nam = self.model.get("nambaocao");
-			if (!nam) {
-				self.getApp().notify('Chưa điền năm báo cáo');
-				return false;
-			}
-
-			return true;
-		}
 	});
 
 });
