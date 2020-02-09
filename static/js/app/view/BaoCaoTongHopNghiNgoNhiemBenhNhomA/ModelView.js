@@ -299,21 +299,21 @@ define(function (require) {
 									self.createNguoiNhiemBenh();
 								}
 							},
-							{
-								name: "export_excel",
-								type: "button",
-								buttonClass: "btn-primary btn-sm",
-								label: "Xuất Excel danh sách",
-								command: function() {
-									var ngaybaocao = self.model.get("ngaybaocao");
-									var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
+							// {
+							// 	name: "export_excel",
+							// 	type: "button",
+							// 	buttonClass: "btn-primary btn-sm",
+							// 	label: "Xuất Excel danh sách",
+							// 	command: function() {
+							// 		var ngaybaocao = self.model.get("ngaybaocao");
+							// 		var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
 									
-									if(!!ngaybaocao){
-										url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
-									}
-									window.open(url, "_blank");
-								}
-							},
+							// 		if(!!ngaybaocao){
+							// 			url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
+							// 		}
+							// 		window.open(url, "_blank");
+							// 	}
+							// },
 						],
 						fields: [
 							{
