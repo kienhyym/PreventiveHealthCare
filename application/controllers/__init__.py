@@ -1,4 +1,5 @@
 from application.extensions import jinja
+from gatco.response import json
 
 
 def init_controllers(app):
@@ -15,3 +16,7 @@ def init_controllers(app):
     @app.route('/')
     def index(request):
         return jinja.render('admin/index.html', request)
+
+    @app.route('/_up')
+    def up(request):
+        return json({})

@@ -873,6 +873,7 @@ async def thongkeguibaocao(request):
 async def thongkeguibaocaocuakhau(request):
     #donvi ID - recursive donvi
     #nambaocao = 2017
+    current_user = await currentUser(request)
     nambaocao = request.args.get("nambaocao", None)
     if nambaocao is None:
         now = datetime.now()
