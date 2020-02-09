@@ -88,8 +88,8 @@ define(function (require) {
 		},
 		{
 			"collectionName":"thongkenghingonhiembenhnhoma",
-			"route":"thongkenghingonhiembenhnhoma/donvi",
-			"$ref": "app/view/ThongKeNghiNgoNhiemBenhNhomA/DonViView",
+			"route":"thongkenghingonhiembenhnhoma",
+			"$ref": "app/view/ThongKeNghiNgoNhiemBenhNhomA/ThongKeView",
 		},
 		
 	];

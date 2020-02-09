@@ -84,19 +84,6 @@ define(function (require) {
                                             }
                                         },
                                     });
-
-
-
-                                    // var self = this;
-				                    // self.model.save(null,{
-				                    //     success: function (model, respose, options) {
-				                    //         self.getApp().notify("Save successfully");
-				                    //         self.getApp().getRouter().navigate("baocaotonghopnghingonhiembenhnhoma/collection");
-				                    //     },
-				                    //     error: function (model, xhr, options) {
-				                    //         self.getApp().notify('Save error, Xin kiểm tra trùng ngày lập báo cáo');
-				                    //     }
-				                    // });
 				    	    	}
 							}
 		    	    	]
@@ -133,17 +120,6 @@ define(function (require) {
 				dataSource: CuaKhauSelectView,
 			},
 
-			// {
-			// 	field:"loaibaocao",
-			// 	uicontrol:"combobox",
-			// 	textField: "text",
-			// 	valueField: "value",
-			// 	cssClass:"form-control",
-			// 	dataSource: [
-			// 		{ value: 1, text: "Đơn vị" },
-			// 		{ value: 2, text: "Cửa khẩu" },
-			// 	 ],
-			// },
 		],
 		render: function () {
             var self = this;

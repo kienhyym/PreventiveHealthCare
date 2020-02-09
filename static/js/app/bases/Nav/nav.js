@@ -248,34 +248,17 @@ define(function (require) {
         			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
         			    "icon":static_url + "/images/icons/task_120.png",
 					},
-					// {
-        			//     "text":"BC nghi ngờ nhiễm bệnh",
-        			//     "type":"view",
-        			//     "collectionName":"baocaonghingonhiembenh",
-        			//     "route":"baocao/baocaonghingonhiembenh/collection",
-        			//     //"href":"baocao/baocaonghingonhiembenhcollection",
-        			//     "$ref": "app/view/BaoCao/BaoCaoNghiNgoNhiemBenhCollectionlView",
-        			//     "icon":static_url + "/images/icons/task_120.png",
-        			//     // "visible": function(){
-        			//     // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			//     // }
-					// },
 					
-					// {
-        			//     "text":"BC nghi ngờ nhiễm bệnh",
-        			//     "type":"view",
-        			//     "collectionName":"baocaonghingonhiembenh",
-        			//     "route":"baocao/baocaonghingonhiembenh/model(/:id)",
-        			//     //"href":"baocao/baocaonghingonhiembenhmodel",
-        			//     "$ref": "app/view/BaoCao/BaoCaoNghiNgoNhiemBenhModelView",
-					// 	"icon":static_url + "/images/icons/task_120.png",
-					// 	visible: false
-        			//     // "visible": function(){
-        			//     // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			//     // }
-					// },
-					
-					
+					{
+        			    "text":" Báo cáo 2019-nCoV đơn vị",
+        			    "type":"view",
+        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			    "route":"baocaotonghopnghingonhiembenhnhoma/view",
+        			    "icon":static_url + "/images/icons/task_120.png",
+						"visible": function(){
+        			    	return this.checkHasRole("Admin") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    }
+					},
         		]
             },
             
@@ -440,7 +423,7 @@ define(function (require) {
         			    "route":"baocaotonghopnghingonhiembenhnhoma/view",
         			    "icon":static_url + "/images/icons/task_120.png",
 						"visible": function(){
-        			    	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    	return this.checkHasRole("Admin") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    }
 					},
 				
@@ -528,7 +511,7 @@ define(function (require) {
         			    "text":"Thống kê 2019-nCoV",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"thongkenghingonhiembenhnhoma/donvi",
+        			    "route":"thongkenghingonhiembenhnhoma",
         			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
 						"icon":static_url + "/images/icons/task_120.png",
 						"visible": function(){
@@ -537,18 +520,6 @@ define(function (require) {
         			    },
 					},
 
-					// {
-        			//     "text":"Số liệu báo cáo Tổng hợp nghi ngờ nhiễm bệnh nhóm A",
-        			//     "type":"view",
-        			//     "collectionName":"baocaotonghopnghingonhiembenh",
-        			//     "route":"baocaotonghopnghingonhiembenh/model",
-        			//     //"href":"baocao/baocaonghingonhiembenhcollection",
-        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenh/ModelView",
-        			//     "icon":static_url + "/images/icons/task_120.png",
-        			//     // "visible": function(){
-        			//     // 	return this.checkHasRole("Admin");
-        			//     // }
-					// },	
         		 ]
 			},
 			{

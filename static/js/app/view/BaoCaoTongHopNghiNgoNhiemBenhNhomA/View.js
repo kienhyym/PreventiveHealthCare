@@ -10,9 +10,32 @@ define(function (require) {
 
     var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
 	var CuaKhauItemView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CuaKhauItemView');
-	return Gonrin.ModelView.extend({
+    var DonViSelectView = require('app/view/HeThong/DonVi/TreeSelectView');
+    
+    var Model = Gonrin.Model.extend({
+		defaults: Gonrin.getDefaultModel(schema),
+		computeds: {
+			donvi: {
+				deps: ["donvi_id", "tendonvi"],
+				get: function( donvi_id, tendonvi ) {
+					return {
+						"id": donvi_id,
+						"ten": tendonvi,
+						};
+				},
+				set: function( obj ) {
+					return {donvi_id: obj.id, tendonvi: obj.ten};
+				}
+			},
+		},
+		urlRoot : "/api/v1/baocaotonghopnghingonhiembenhnhoma"
+    });
+    
+
+    return Gonrin.ModelView.extend({
 		template: template,
-		modelSchema: schema,
+        modelSchema: schema,
+        modelClass: Model,
 		urlPrefix: "/api/v1/",
 		collectionName: "baocaotonghopnghingonhiembenhnhoma",
 		tools : [
@@ -28,7 +51,7 @@ define(function (require) {
 								label: "TRANSLATE:BACK",
 								command: function(){
 									var self = this;
-					                self.getApp().getRouter().navigate("baocaotonghopnghingonhiembenhnhoma/collection");
+					                self.getApp().getRouter().navigate("thongkenghingonhiembenhnhoma");
 								}
 							},
 							{
@@ -90,7 +113,7 @@ define(function (require) {
                     		label : "Thống kê",
                     		command : function() {
                                 var self = this;
-                    			self.getApp().getRouter().navigate("thongkenghingonhiembenhnhoma/donvi");
+                    			self.getApp().getRouter().navigate("thongkenghingonhiembenhnhoma");
                     		}
                     	}]
                     },
@@ -127,6 +150,12 @@ define(function (require) {
                 uicontrol: false,
                 itemView: CuaKhauItemView,
             },
+            {
+				field:"donvi",
+				uicontrol:"ref",
+				textField: "ten",
+				dataSource: DonViSelectView,
+			},
 		],
 		render: function () {
             var self = this;
@@ -138,7 +167,14 @@ define(function (require) {
                 // user.hasRole("DonViUser");
                 //return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
                         // this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-                
+                if(!user.hasRole("Admin")){
+                    for(var i = 0; i < self.uiControl.length; i++){
+                        if (self.uiControl[i].field == "donvi"){
+                            self.uiControl[i].readonly = true;
+                            break;
+                        }
+                    }
+                }
                 var info = user.info;
                 
                 var donvi = info.donvi;
@@ -164,7 +200,7 @@ define(function (require) {
             var self = this;
             
 
-			self.model.on("change:ngaybaocao",function () {
+			self.model.on("change:ngaybaocao change:donvi_id",function () {
                 self.getDanhsachnhiembenh();
                 self.getData();
             });
