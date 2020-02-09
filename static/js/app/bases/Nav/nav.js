@@ -443,6 +443,23 @@ define(function (require) {
         			    	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    }
 					},
+				
+					{
+        			    "text":"Tờ khai",
+        			    "type":"view",
+        			    "collectionName":"tokhaiyte",
+        			    "route":"tokhaiyte/collection",
+        			    "$ref": "app/view/tokhaiyte/js/CollectionView",
+        			    "icon":static_url + "/images/icons/task_120.png",
+        			},
+        			{
+        			    "type":"view",
+        			    "collectionName":"tokhaiyte",
+        			    "route":"tokhaiyte/model",
+        			    "$ref": "app/view/tokhaiyte/js/ModelView",
+        			    "visible": false
+        			},
+
 
 					// {
         			//     "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
