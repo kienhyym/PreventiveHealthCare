@@ -21,6 +21,7 @@ import ujson
 from sqlalchemy import or_, and_
 from sqlalchemy.orm import aliased, joinedload_all
 from .user_api import current_user as currentUser
+from .export import exportthongkenghingonhiembenhnhoma
 
 async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
     donvi_id = request.args.get("donvi_id", None)
@@ -363,11 +364,20 @@ async def getbaocao_tonghop_nghingobenh(request):
             item["data_khaibao"].append(data_khaibao)
 
         arr_cuakhau.append(item)
-    respdata = {"ten" : arr_cuarkhau_ten, "data": arr_cuakhau, "days": arr_days}
+    respdata = {
+        "ten" : arr_cuarkhau_ten, 
+        "data": arr_cuakhau, 
+        "days": arr_days,
+        "donvi_id": donvi_id
+    }
     export = request.args.get("export", None)
     
     if export is not None:
-        return await export_to_excel(export)
+        donvi = db.session.query(DonVi).filter(DonVi.id == donvi_id).first()
+        if (donvi is None):
+            return text("Tham số không hợp lệ", status=520)
+        respdata["tendonvi"] = donvi.ten
+        return await exportthongkenghingonhiembenhnhoma(request, respdata)
 
     return json(respdata)
    

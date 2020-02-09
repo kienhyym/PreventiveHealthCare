@@ -23,6 +23,8 @@ from application.extensions import auth
 import ujson
 # import xlrender
 import xlrenderpy as xlrender
+from openpyxl import Workbook
+from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
 
 from gatco import Blueprint
 exportbp = Blueprint('exportbp',url_prefix='/export')
@@ -445,3 +447,153 @@ async def exportcuakhau(request):
 
     return await file(filename, mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 filename='ds-cuakhau-' + str(time.time())+'.xlsx')
+
+list_char = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W']
+center_alignment = Alignment(horizontal="center", vertical="center")
+bold_font = Font(bold=True)
+black_side = Side(border_style="thin",color='00000000')
+black_border = Border(left=black_side, right=black_side, top=black_side, bottom=black_side)
+
+def processChiTieu(ws, chitieu, idx,  data, start_row):
+    len_day = len(data["days"])
+    len_col = len(data["ten"])
+    tongso_col = list_char[3+len_col]
+    ws.merge_cells('A' + str(start_row) +':A' + str(len_day + start_row))
+    ws.merge_cells('B' + str(start_row) +':B' + str(len_day + start_row - 1))
+
+    
+
+    ws['A' + str(start_row)] =  str(idx + 1)
+    ws['B' + str(start_row)] =  chitieu["text"]
+    ws['A' + str(start_row)].alignment = center_alignment
+    ws['B' + str(start_row)].alignment = center_alignment
+    
+    # ws['A' + str(start_row)].font = bold_font
+    # ws['B' + str(start_row)].font = bold_font
+
+    ws.merge_cells('B' + str(start_row + len_day) +':C' + str(len_day + start_row))
+    ws['B' + str(start_row + len_day)] = 'Cộng dồn'
+    ws['B' + str(start_row + len_day)].font = bold_font
+    ws['B' + str(start_row + len_day)].alignment = center_alignment
+
+    #chitiet data
+    for i in range(len(data["days"])):
+        tongso = 0;
+        ws['C' + str(start_row + i)] = data["days"][i]
+        for j in range(len_col):
+            ckten = data["ten"][j]
+            col = list_char[3+j]
+            value = data["data"][j]["data_khaibao"][i]["value_" + chitieu["name"]]
+            if (value is not None) and (value > 0):
+                ws[col + str(start_row + i) ] = data["data"][j]["data_khaibao"][i]["value_" + chitieu["name"]]
+                tongso = tongso + value
+        
+        
+        if tongso > 0:
+            ws[tongso_col + str(start_row + i)] = tongso
+
+
+    tong_tongso = 0
+    for j in range(len_col):
+        tongdoc = 0
+        col = list_char[3+j]
+        for i in range(len_day):
+            value = data["data"][j]["data_khaibao"][i]["value_" + chitieu["name"]]
+            if (value is not None) and (value > 0):
+                tongdoc = tongdoc + value
+                tong_tongso = tong_tongso + value
+        if tongdoc > 0:
+            ws[col + str(start_row + len_day) ] = tongdoc
+
+    ws[tongso_col + str(start_row + len_day) ] = tong_tongso
+
+    for i in range(start_row, start_row + len_day + 1):
+        for j in range(len_col + 4):
+            ws[list_char[j] + str(i)].border = black_border
+
+    return start_row + len_day + 1
+
+
+#@exportbp.route('/excel/cuakhau')
+async def exportthongkenghingonhiembenhnhoma(request, data):
+    filename='thongkenhoma-' + data.get("donvi_id") + "-" + str(time.time())+'.xlsx'
+    
+    chitieus = [
+				{"name":"hanhkhach", "text": "Số lượt khách khai báo y tế"},
+				{"name":"chuyenbay", "text": "Số chuyến bay nhập"},
+				# {"name":"nguoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"}
+			]
+    wb = Workbook()
+    ws = wb.active
+
+    ws.merge_cells('A2:D2')
+    ws.merge_cells('A3:D3')
+    ws.merge_cells('A4:K4')
+
+    
+
+    ws['A2'] = "Cục Y tế Dự phòng"
+    ws['A3'] = data.get("tendonvi")
+    ws['A3'].font = bold_font
+    ws['A4'] = "BÁO CÁO SỐ LIỆU LƯỢT KHÁCH KHAI BÁO Y TẾ TẠI CÁC CỬA KHẨU NĂM 2020"
+    ws['A4'].font = bold_font
+
+    #table data
+    ws.merge_cells('A6:A7')
+    ws.merge_cells('B6:B7')
+    ws.merge_cells('C6:C7')
+
+    ws['A6'] = 'STT'
+    ws['A6'].font = bold_font
+    ws['B6'] = 'Nội dung báo cáo'
+    ws['B6'].font = bold_font
+    ws['C6'] = 'Ngày tháng'
+    ws['C6'].font = bold_font
+
+    ws['A2'].alignment = center_alignment
+    ws['A3'].alignment = center_alignment
+    ws['A4'].alignment = center_alignment
+    ws['A6'].alignment = center_alignment
+    ws['B6'].alignment = center_alignment
+    ws['C6'].alignment = center_alignment
+
+
+    len_col = len(data["ten"])
+    max_col = list_char[3+len_col-1]
+    tongso_col = list_char[3+len_col]
+    #print(max_col)
+    ws.merge_cells('D6:'+max_col+'6')
+    ws.merge_cells(tongso_col + '6:'+tongso_col+'7')
+    ws[tongso_col + '6'] = 'Tổng số'
+    ws[tongso_col + '6'].font = bold_font
+    ws[tongso_col + '6'].alignment = center_alignment
+
+    ws['D6'] = 'Tên cửa khẩu'
+    ws['D6'].alignment = center_alignment
+    ws['D6'].font = bold_font
+
+    for i in range(len(data["ten"])):
+        tencuakhau = data["ten"][i]
+        col = list_char[3+i]
+        ws[col + '7'] = tencuakhau
+        ws[col + '7'].font = bold_font
+    
+    start_row = 6
+    for i in range(start_row, 8):
+        for j in range(len_col + 4):
+            ws[list_char[j] + str(i)].border = black_border
+        
+
+    #het header
+    start_row = 8
+    for i in range(len(chitieus)):
+        start_row = processChiTieu(ws, chitieus[i], i, data, start_row)
+     
+
+
+    wb.save(filename = filename)
+    return await file(filename, mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                filename=filename)
+
+
+    return json(data)

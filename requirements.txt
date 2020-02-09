@@ -33,4 +33,4 @@ git+https://github.com/gonrin/gatco_apimanager.git
 git+https://github.com/gonrin/gatco_acl.git
 git+https://github.com/gonrin/gatco_jinja2.git
 #git+https://github.com/gonrin/gatco_couchdb
-motor
+openpyxl
