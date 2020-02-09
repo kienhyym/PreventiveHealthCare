@@ -21,8 +21,8 @@ from application.client import HTTPClient
 from sqlalchemy import or_, and_, desc
 from application.extensions import auth
 import ujson
-# import xlrender
-import xlrenderpy as xlrender
+import xlrender
+# import xlrenderpy as xlrender
 from openpyxl import Workbook
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font
 
