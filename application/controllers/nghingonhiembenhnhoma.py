@@ -319,12 +319,8 @@ async def getbaocao_tonghop_nghingobenh(request):
     tungay_timestamp = datetime.timestamp(tungay_date)
     denngay_timestamp = datetime.timestamp(denngay_date)
 
-    
-
     length_day = math.ceil((denngay_timestamp - tungay_timestamp)/86400)
     
-
-
     if length_day <1:
         length_day = 1
     else:
@@ -367,6 +363,11 @@ async def getbaocao_tonghop_nghingobenh(request):
             item["data_khaibao"].append(data_khaibao)
 
         arr_cuakhau.append(item)
+    respdata = {"ten" : arr_cuarkhau_ten, "data": arr_cuakhau, "days": arr_days}
+    export = request.args.get("export", None)
+    
+    if export is not None:
+        return await export_to_excel(export)
 
-    return json({"ten" : arr_cuarkhau_ten, "data": arr_cuakhau, "days": arr_days})
+    return json(respdata)
    

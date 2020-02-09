@@ -56,12 +56,14 @@ define(function (require) {
 			self.$el.find("#tendonvi").html(donvi.ten);
 			self.$el.find("#select-donvi-container").hide();
 			self.$el.find("#btn-add").show();
+			
 			var ret = gonrinApp().currentUser != null ? gonrinApp().currentUser.hasRole("Admin"): false;
 			if (ret === true) {
 				self.$el.find("#btn-add").hide();
 				self.$el.find("#select-donvi-container").show();
 				self.$el.find("#button-container").removeClass("col-md-6").addClass("col-md-3");
-			
+			}else{
+				self.$el.find('#donvi-input').val(user.info.donvi.id);
 			}
 			// self.applyBindings();
 			self.$el.find('#tungay-input').val(moment().startOf('month').format("YYYY-MM-DD"));
@@ -94,27 +96,12 @@ define(function (require) {
 			self.$el.find("#btn-add").unbind("click").bind('click',function(){
 				self.getApp().getRouter().navigate("baocaotonghopnghingonhiembenhnhoma/view");
 			});
-			
-			self.$el.find("#btn-view-report").unbind("click").bind('click',function(){
-				var user = self.getApp().currentUser;
-				if(user === null || user === undefined){
-					self.getApp().getRouter().navigate("login");
-					return false;
-				}
 
-				var donvi_id;
-				var ret = gonrinApp().currentUser != null ? gonrinApp().currentUser.hasRole("Admin"): false;
+			self.$el.find("#btn-export-report").unbind("click").bind('click',function(){
+				// var id = this.model.get("id"); 
+				// var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma/" + id;
 				
-				if (ret === true) {
-					// self.$el.find(".hide_selectdonvi").show();
-					// donvi_id = self.model.get("donvi_id");
-					donvi_id = self.$el.find('#donvi-input').val();
-					console.log("donvi_id>....",donvi_id);
-				} else {
-					var donvi_id = user.info.donvi.id;
-				}
-				
-				var nambaocao = self.$el.find("#nambaocao-input").val();
+				var donvi_id = self.$el.find('#donvi-input').val();
 				var tungay = self.$el.find("#tungay-input").val();
 				var denngay = self.$el.find("#denngay-input").val();
 
@@ -124,7 +111,46 @@ define(function (require) {
 				}
 				var params = {
 					donvi_id: donvi_id,
-					nambaocao: nambaocao,
+					// nambaocao: nambaocao,
+					tungay:tungay,
+					denngay:denngay
+				};
+				var url = self.getApp().serviceURL + '/api/v1/thongketonghopnghingonhiembenhnhoma';
+				url = url + "?tungay=" + tungay + "&denngay=" + denngay + "&donvi_id=" + donvi_id + "&export=1"
+				window.open(url, "_blank");
+			});
+			
+			self.$el.find("#btn-view-report").unbind("click").bind('click',function(){
+				
+				
+				
+				// var user = self.getApp().currentUser;
+				// if(user === null || user === undefined){
+				// 	self.getApp().getRouter().navigate("login");
+				// 	return false;
+				// }
+
+				// var donvi_id;
+				// var ret = gonrinApp().currentUser != null ? gonrinApp().currentUser.hasRole("Admin"): false;
+				
+				// if (ret === true) {
+				// 	donvi_id = self.$el.find('#donvi-input').val();
+				// } else {
+				// 	var donvi_id = user.info.donvi.id;
+				// }
+				
+				// var nambaocao = self.$el.find("#nambaocao-input").val();
+				var donvi_id = self.$el.find('#donvi-input').val();
+				var tungay = self.$el.find("#tungay-input").val();
+				var denngay = self.$el.find("#denngay-input").val();
+
+				if(tungay == "" || denngay == ""){
+					self.getApp().notify("Vui lòng chọn thời gian từ ngày --> đến ngày");
+					return false;
+				}
+				var params = {
+					donvi_id: donvi_id,
+					// nambaocao: nambaocao,
 					tungay:tungay,
 					denngay:denngay
 				};
@@ -228,6 +254,7 @@ define(function (require) {
 			self.$el.find("#body-data").append(tr_tong);
 
 		},
+
 		// processBaocao1: function(data){
 		// 	var self = this;
 		// 	self.$el.find("#tr-tencuakhau").html("");
