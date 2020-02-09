@@ -138,16 +138,33 @@ define(function (require) {
 			var id = self.viewData.id;
 			var donvi_id = self.viewData.donvi_id;
 			var cuakhau_id = self.viewData.cuakhau_id;
-			console.log(self.viewData);
+			
+			if ( !!donvi_id){
+                var filter = {
+                    "donvi_id": {
+                        "$eq": donvi_id
+                    }
+                }
+                if (!!cuakhau_id){
+                    filter = {
+                        "$and":[
+                            {"donvi_id": {"$eq": donvi_id}},
+                            {"cuakhau_id": {"$eq": cuakhau_id}},
+                        ]
+                    }
+                }
+                this.uiControl.filters = filter;
+                self.applyBindings();
+            }
 
-			if (!!donvi_id){
-				self.uiControl.filters = {
-					"donvi_id":{
-						"$eq": donvi_id
-					}
-				}
-				this.applyBindings();
-			}
+			// if (!!donvi_id){
+			// 	self.uiControl.filters = {
+			// 		"donvi_id":{
+			// 			"$eq": donvi_id
+			// 		}
+			// 	}
+			// 	this.applyBindings();
+			// }
 			
 
 			return this;
