@@ -491,6 +491,7 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
         
         if tongso > 0:
             ws[tongso_col + str(start_row + i)] = tongso
+        ws[tongso_col + str(start_row + i)].font = bold_font
 
 
     tong_tongso = 0
@@ -504,12 +505,14 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
                 tong_tongso = tong_tongso + value
         if tongdoc > 0:
             ws[col + str(start_row + len_day) ] = tongdoc
+        ws[col + str(start_row + len_day) ].font = bold_font
 
     ws[tongso_col + str(start_row + len_day) ] = tong_tongso
-
+    ws[tongso_col + str(start_row + len_day) ].font = bold_font
     for i in range(start_row, start_row + len_day + 1):
         for j in range(len_col + 4):
             ws[list_char[j] + str(i)].border = black_border
+            ws[list_char[j] + str(i)].alignment = center_alignment
 
     return start_row + len_day + 1
 
@@ -521,7 +524,7 @@ async def exportthongkenghingonhiembenhnhoma(request, data):
     chitieus = [
 				{"name":"hanhkhach", "text": "Số lượt khách khai báo y tế"},
 				{"name":"chuyenbay", "text": "Số chuyến bay nhập"},
-				# {"name":"nguoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"}
+				{"name":"nguoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"}
 			]
     wb = Workbook()
     ws = wb.active
