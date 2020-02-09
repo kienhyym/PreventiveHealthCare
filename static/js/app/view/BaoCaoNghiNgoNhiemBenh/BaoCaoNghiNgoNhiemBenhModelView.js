@@ -57,42 +57,43 @@ define(function (require) {
 				                    });
 				    	    	}
 							},
+							// {
+							// 	name : "excel",
+							// 	type : "button",
+							// 	buttonClass : "btn-default btn-sm btn-primary",
+							// 	label : "Xuất Excel",
+							// 	command : function() {
+							// 		var id = this.model.get("id"); 
+							// 		var url = "/export/excel/baocaonghingonhiembenh/" + id;
+							// 		window.open(url, "_blank");
+							// 	},
+							// 	visible: function(){
+							// 		var id =  this.getApp().getRouter().getParam("id");
+							// 		return (id !== null);
+							// 	}
+							// },
 							{
-								name : "excel",
-								type : "button",
-								buttonClass : "btn-default btn-sm btn-primary",
-								label : "Xuất Excel",
-								command : function() {
-									var id = this.model.get("id"); 
-									var url = "/export/excel/baocaonghingonhiembenh/" + id;
-									window.open(url, "_blank");
-								},
-								visible: function(){
-									var id =  this.getApp().getRouter().getParam("id");
-									return (id !== null);
-								}
-							},
-//							{
-//				    	    	name: "delete",
-//				    	    	type: "button",
-//				    	    	buttonClass: "btn-danger btn-sm",
-//				    	    	label: "TRANSLATE:DELETE",
-//				    	    	visible: function(){
-//				    	    		return this.getApp().getRouter().getParam("id") !== null;
-//				    	    	},
-//				    	    	command: function(){
-//				    	    		var self = this;
-//				                    self.model.destroy({
-//				                        success: function(model, response) {
-//				                            self.getApp().getRouter().navigate(self.collectionName + "/collection");
-//				                        },
-//				                        error: function (model, xhr, options) {
-//				                            //self.alertMessage("Something went wrong while processing the model", false);
-//				                            self.getApp().notify('Delete error');
-//				                        }
-//				                    });
-//				    	    	}
-//				    	    },
+				    	    	name: "delete",
+				    	    	type: "button",
+				    	    	buttonClass: "btn-danger btn-sm",
+				    	    	label: "TRANSLATE:DELETE",
+				    	    	visible: function(){
+				    	    		return this.getApp().getRouter().getParam("id") !== null;
+				    	    	},
+				    	    	command: function(){
+				    	    		var self = this;
+				                    self.model.destroy({
+				                        success: function(model, response) {
+											// self.getApp().getRouter().navigate(self.collectionName + "/collection");
+											Backbone.history.history.back();
+				                        },
+				                        error: function (model, xhr, options) {
+				                            //self.alertMessage("Something went wrong while processing the model", false);
+				                            self.getApp().notify('Delete error');
+				                        }
+				                    });
+				    	    	}
+				    	    },
 
 							{
 								name : "exportgr",
@@ -381,12 +382,38 @@ define(function (require) {
 			} else {
 				//self.model.set("donvi_id")
 				var user = self.getApp().currentUser;
+				// var donvi = user.info.donvi;
+				// self.model.set("donvi_id", donvi.id);
+
+				var cuakhau = user.info.cuakhau;
+				if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+					self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
+					
+				}
 				var donvi = user.info.donvi;
-				self.model.set("donvi_id", donvi.id);
+				if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+					self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten, "madonvi":donvi.ma})
+				}
+
+
+
 				self.$el.find("#chuquan").html(donvi.coquanchuquan);
 				self.$el.find("#tendonvi").html(donvi.ten);
 				self.applyBindings();
 				self.registerEvent();
+
+
+				// var info = user.info;
+				// if(user.hasRole("CuaKhauUser")){
+				// 	for(var i = 0; i < self.uiControl.length; i++){
+				// 		if (self.uiControl[i].field == "cuakhau"){
+				// 			self.uiControl[i].readonly = true;
+				// 			break;
+				// 		}
+				// 	}
+				// }	
+
+				
 			}
 
 		},

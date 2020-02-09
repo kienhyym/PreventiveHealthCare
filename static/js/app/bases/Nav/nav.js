@@ -215,50 +215,21 @@ define(function (require) {
 					    "icon":static_url + "/images/icons/task_120.png",
 					},
 					
-					{
-        			    "text":"Báo cáo nghi ngờ nhiễm bệnh",
-        			    "type":"view",
-        			    "collectionName":"baocaonghingonhiembenh",
-        			    "route":"baocaonghingonhiembenh/collection",
-        			    //"href":"baocao/baocaonghingonhiembenhcollection",
-        			    // "$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
-        			    "icon":static_url + "/images/icons/task_120.png",
-        			    // "visible": function(){
-        			    // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			    // }
-					},	
 					// {
-        			//     "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			//     "text":"Báo cáo nghi ngờ nhiễm bệnh",
         			//     "type":"view",
-        			//     "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			//     "route":"baocaotonghopnghingonhiembenhnhoma/model(/:id)",
-        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
-					// 	"icon":static_url + "/images/icons/task_120.png",
-					// 	"visible": function(){
-					// 		return false;
-					// 	}
-						
-					// },
+        			//     "collectionName":"baocaonghingonhiembenh",
+        			//     "route":"baocaonghingonhiembenh/collection",
+        			//     //"href":"baocao/baocaonghingonhiembenhcollection",
+        			//     // "$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
+        			//     "icon":static_url + "/images/icons/task_120.png",
+        			//     // "visible": function(){
+        			//     // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			//     // }
+					// },	
 					
-					{
-        			    "text":" Báo cáo 2019-nCoV cửa khẩu",
-        			    "type":"view",
-        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhoma/model",
-        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
-        			    "icon":static_url + "/images/icons/task_120.png",
-					},
 					
-					{
-        			    "text":" Báo cáo 2019-nCoV đơn vị",
-        			    "type":"view",
-        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhoma/view",
-        			    "icon":static_url + "/images/icons/task_120.png",
-						"visible": function(){
-        			    	return this.checkHasRole("Admin") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			    }
-					},
+					
         		]
             },
             
@@ -386,38 +357,51 @@ define(function (require) {
         			    }
 					},
 					
+					
+        		]
+			},
+			{
+        		"text":"Báo cáo nCoV",
+        		"icon":static_url + "/images/icons/task_120.png",
+        		"type":"category",
+        		// "visible": function(){
+			    // 	return (!this.checkHasRole("Admin") && !this.checkHasRole("DonViAdmin"));
+        		// 	//return (!this.checkHasRole("Admin"));
+			    // },
+        		"entries":[
+					{
+        			    "text":"Tờ khai y tế",
+        			    "type":"view",
+        			    "collectionName":"tokhaiyte",
+        			    "route":"tokhaiyte/collection",
+        			    //"$ref": "app/view/tokhaiyte/js/CollectionView",
+						"icon":static_url + "/images/icons/task_120.png",
+						"visible": false
+        			},
 					{
         			    "text":"Báo cáo nghi ngờ nhiễm bệnh",
         			    "type":"view",
         			    "collectionName":"baocaonghingonhiembenh",
         			    "route":"baocaonghingonhiembenh/collection",
         			    //"href":"baocao/baocaonghingonhiembenhcollection",
-        			    "$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
+        			    //"$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
         			    "icon":static_url + "/images/icons/task_120.png",
         			    // "visible": function(){
         			    // 	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    // }
-					},	
-					{
-						"type":"view",
-						"collectionName":"baocaonghingonhiembenh",
-						"route":"baocaonghingonhiembenh/model(/:id)",
-						"$ref":"app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhModelView",
-						"icon":static_url+"/images/icon/task_120.png",
-						visible:false
 					},
 					{
-        			    "text":" Báo cáo 2019-nCoV cửa khẩu",
+        			    "text":" Báo cáo nCoV cửa khẩu",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
         			    "route":"baocaotonghopnghingonhiembenhnhoma/model",
         			    "icon":static_url + "/images/icons/task_120.png",
 						"visible": function(){
-        			    	return this.checkHasRole("CuaKhauUser");
+        			    	return this.checkHasRole("CuaKhauUser") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    }
 					},
 					{
-        			    "text":" Báo cáo 2019-nCoV đơn vị",
+        			    "text":" Báo cáo nCoV đơn vị",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
         			    "route":"baocaotonghopnghingonhiembenhnhoma/view",
@@ -426,46 +410,20 @@ define(function (require) {
         			    	return this.checkHasRole("Admin") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    }
 					},
-				
 					{
-        			    "text":"Tờ khai",
+        			    "text":"Thống kê số liệu nCoV",
         			    "type":"view",
-        			    "collectionName":"tokhaiyte",
-        			    "route":"tokhaiyte/collection",
-        			    "$ref": "app/view/tokhaiyte/js/CollectionView",
-        			    "icon":static_url + "/images/icons/task_120.png",
-        			},
-        			{
-        			    "type":"view",
-        			    "collectionName":"tokhaiyte",
-        			    "route":"tokhaiyte/model",
-        			    "$ref": "app/view/tokhaiyte/js/ModelView",
-        			    "visible": false
-        			},
-
-
-					// {
-        			//     "text":"Báo cáo tổng hợp nghi ngờ nhiễm bệnh nhóm A",
-        			//     "type":"view",
-        			//     "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			//     "route":"baocaotonghopnghingonhiembenhnhoma/collection",
-        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
-        			//     "icon":static_url + "/images/icons/task_120.png",
-					// },
-					// {
-        			//     "text":"Báo cáo Tổng hợp nghi ngờ nhiễm bệnh",
-        			//     "type":"view",
-        			//     "collectionName":"baocaotonghopnghingonhiembenh",
-        			//     "route":"baocaotonghopnghingonhiembenh/model",
-        			//     //"href":"baocao/baocaonghingonhiembenhcollection",
-        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenh/ModelView",
-        			//     "icon":static_url + "/images/icons/task_120.png",
-        			//     "visible": function(){
-        			//     	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			//     }
-					// },	
-        		]
-        	},
+        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			    "route":"thongkenghingonhiembenhnhoma",
+        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+						"icon":static_url + "/images/icons/task_120.png",
+						"visible": function(){
+        			    	return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
+        			    	this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    },
+					},
+				]
+			},
 			{
         		"text":"Thống kê tổng hợp",
         		"icon":static_url + "/images/icons/task_120.png",
@@ -507,18 +465,7 @@ define(function (require) {
 					    },
 					},
 
-					{
-        			    "text":"Thống kê 2019-nCoV",
-        			    "type":"view",
-        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"thongkenghingonhiembenhnhoma",
-        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
-						"icon":static_url + "/images/icons/task_120.png",
-						"visible": function(){
-        			    	return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
-        			    	this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			    },
-					},
+					
 
         		 ]
 			},

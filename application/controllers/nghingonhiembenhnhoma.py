@@ -51,21 +51,16 @@ async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
         "madonvi": donvi.ma,
         "tendonvi": donvi.ten,
 
-        "songuoidangcachlytaptrung": None,
-        "songuoidangcachlytaptrung_cotrieuchung": None,
-        "diadiemcachlytaptrung": None,
-        "songuoihetcachly": None,
-
         "cuakhau_data": []
     }
 
-    for baocao in listbaocao:
-        if baocao.loaibaocao == 1:
-            resp["songuoidangcachlytaptrung"] = baocao.songuoidangcachlytaptrung
-            resp["songuoidangcachlytaptrung_cotrieuchung"] = baocao.songuoidangcachlytaptrung_cotrieuchung
-            resp["diadiemcachlytaptrung"] = baocao.diadiemcachlytaptrung
-            resp["songuoihetcachly"] = baocao.songuoihetcachly
-            break
+    # for baocao in listbaocao:
+    #     if baocao.loaibaocao == 1:
+    #         resp["songuoidangcachlytaptrung"] = baocao.songuoidangcachlytaptrung
+    #         resp["songuoidangcachlytaptrung_cotrieuchung"] = baocao.songuoidangcachlytaptrung_cotrieuchung
+    #         resp["diadiemcachlytaptrung"] = baocao.diadiemcachlytaptrung
+    #         resp["songuoihetcachly"] = baocao.songuoihetcachly
+    #         break
 
     for cuakhau in danhsach_cuakhau:
         ckobj = {
@@ -81,16 +76,28 @@ async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
             "songuoinhapcanh": None,
             "sohanhkhachkhaibao": None,
             "sochuyenbay": None,
-            "songuoinguoinghingo": None
+            "songuoinguoinghingo": None,
+
+            "songuoidangcachlytaptrung": None,
+            "songuoidangcachlytaptrung_cotrieuchung": None,
+            "diadiemcachlytaptrung": None,
+            "songuoihetcachly": None,
+            "songuoicachlytainha": None
         }
         # foundck = False
         for baocao in listbaocao:
             # foundck = True
-            if (cuakhau.id == baocao.cuakhau_id) and (baocao.loaibaocao == 2):
+            if (cuakhau.id == baocao.cuakhau_id):
                 ckobj["songuoinhapcanh"] = baocao.songuoinhapcanh
                 ckobj["sohanhkhachkhaibao"] = baocao.sohanhkhachkhaibao
                 ckobj["sochuyenbay"] = baocao.sochuyenbay
                 ckobj["songuoinguoinghingo"] = baocao.songuoinguoinghingo
+
+                ckobj["songuoidangcachlytaptrung"] = baocao.songuoidangcachlytaptrung
+                ckobj["songuoidangcachlytaptrung_cotrieuchung"] = baocao.songuoidangcachlytaptrung_cotrieuchung
+                ckobj["songuoihetcachly"] = baocao.songuoihetcachly
+                ckobj["songuoicachlytainha"] = baocao.songuoicachlytainha
+
                 break
 
         resp["cuakhau_data"].append(ckobj)
@@ -101,23 +108,24 @@ async def post_baocaotonghopnghingonhiembenhnhoma_donvi(request):
     data = request.json
     ngaybaocao = data.get("ngaybaocao")
     donvi_id = data.get("donvi_id")
-    loaibaocao = 1
+    
 
     listdata = []
-    listdata.append({
-        "ngaybaocao": ngaybaocao,
-        "loaibaocao": 1,
-        "donvi_id": donvi_id,
-        "madonvi": data.get("madonvi"),
-        "tendonvi": data.get("tendonvi"),
-        "cuakhau_id": None,
-        "tencuakhau": None,
-        "macuakhau": None,
-        "songuoidangcachlytaptrung": data.get("songuoidangcachlytaptrung"),
-        "songuoidangcachlytaptrung_cotrieuchung": data.get("songuoidangcachlytaptrung_cotrieuchung"),
-        "diadiemcachlytaptrung": data.get("diadiemcachlytaptrung"),
-        "songuoihetcachly": data.get("songuoihetcachly")
-    })
+    # listdata.append({
+    #     "ngaybaocao": ngaybaocao,
+    #     "loaibaocao": 1,
+    #     "donvi_id": donvi_id,
+    #     "madonvi": data.get("madonvi"),
+    #     "tendonvi": data.get("tendonvi"),
+    #     "cuakhau_id": None,
+    #     "tencuakhau": None,
+    #     "macuakhau": None,
+    #     # "songuoidangcachlytaptrung": data.get("songuoidangcachlytaptrung"),
+    #     # "songuoidangcachlytaptrung_cotrieuchung": data.get("songuoidangcachlytaptrung_cotrieuchung"),
+    #     # "diadiemcachlytaptrung": data.get("diadiemcachlytaptrung"),
+    #     # "songuoihetcachly": data.get("songuoihetcachly"),
+    #     # "songuoicachlytainha": data.get("songuoicachlytainha")
+    # })
 
 
     for ckobj in data.get("cuakhau_data"):
@@ -149,9 +157,7 @@ async def post_baocaotonghopnghingonhiembenhnhoma_donvi(request):
         for key in obj:
             if hasattr(item, key):
                 setattr(item, key, obj[key])
-                print(item.loaibaocao,item.songuoidangcachlytaptrung, item)
         if insert:
-            print(item.loaibaocao, item)
             db.session.add(item)
 
     db.session.commit()
@@ -216,7 +222,8 @@ async def get_baocaotonghopnghingonhiembenhnhoma_cuakhau(request):
             "songuoidangcachlytaptrung": None,
             "songuoidangcachlytaptrung_cotrieuchung": None,
             "diadiemcachlytaptrung": None,
-            "songuoihetcachly": None
+            "songuoihetcachly": None,
+            "songuoicachlytainha": None
         }
 
 

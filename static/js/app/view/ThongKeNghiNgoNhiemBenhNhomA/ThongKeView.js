@@ -144,6 +144,11 @@ define(function (require) {
 				var tungay = self.$el.find("#tungay-input").val();
 				var denngay = self.$el.find("#denngay-input").val();
 
+				if(donvi_id == ""){
+					self.getApp().notify("Vui lòng chọn đơn vị");
+					return false;
+				}
+
 				if(tungay == "" || denngay == ""){
 					self.getApp().notify("Vui lòng chọn thời gian từ ngày --> đến ngày");
 					return false;

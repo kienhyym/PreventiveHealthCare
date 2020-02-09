@@ -37,6 +37,18 @@
     },
     "songuoinguoinghingo": {
       "type": "number"
+    },
+    "songuoidangcachlytaptrung": {
+      "type": "number"
+    },
+    "songuoidangcachlytaptrung_cotrieuchung": {
+      "type": "number"
+    },
+    "songuoihetcachly": {
+      "type": "number"
+    },
+    "songuoicachlytainha": {
+      "type": "number"
     }
   }
   

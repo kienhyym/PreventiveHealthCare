@@ -16,17 +16,26 @@ define(function (require) {
         uiControl:{
             fields: [
                 {
-                    field: "id", label: "ID", width: 250, readonly: true,
+                    field: "id", label: "ID"
                 },
 
-                { field: "ma", label: "Mã", width: 250 },
-                { field: "ngaybaocao", label: "Ngày báo cáo", width: 250 },
-                { field: "noibaocao", label: "Nơi báo cáo", width: 250 },
-                { field: "nambaocao", label: "Năm báo cáo", width: 250 },
-                { field: "donvi_id", label: "ID đơn vị", width: 250 },
-                { field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten" },
+                { field: "ma", label: "Mã"},
+                { field: "ngaybaocao", label: "Ngày báo cáo" },
+                { field: "noibaocao", label: "Nơi báo cáo"},
+                { field: "nambaocao", label: "Năm báo cáo"},
+                { field: "donvi_id", label: "ID đơn vị",visible:false},
+                { field: "madonvi", label: "ID đơn vị",visible:false},
+                { field: "tendonvi", label: "Tên đơn vị"},
+                { field: "cuakhau_id", label: "ID đơn vị",visible:false},
+                { field: "macuakhau", label: "ID đơn vị",visible:false},
+                { field: "tencuakhau", label: "Tên cửa khẩu"},
+
+                { field: "huongxuly", visible:false},
+                { field: "ngaygio_phathien", visible:false},
                 
 
+                { field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten",visible:false },
+                
                 { field: "benh_nghingo", visible:false },
                 { field: "cmtnd", visible:false },
                 { field: "cuakhau_nhapquacanh", visible:false },
@@ -64,6 +73,41 @@ define(function (require) {
             }
         },
         render: function () {
+            var self = this;
+            var user = self.getApp().currentUser;
+            // var donvi = user.info.donvi;
+            // self.model.set("donvi_id", donvi.id);
+
+            var donvi_id = null;
+            var cuakhau_id = null;
+
+            var cuakhau = user.info.cuakhau;
+            if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+                cuakhau_id = cuakhau.id;
+                
+            }
+            var donvi = user.info.donvi;
+            if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+                donvi_id = donvi.id;
+            }
+
+            if ( !!donvi_id){
+                var filter = {
+                    "donvi_id": {
+                        "$eq": donvi_id
+                    }
+                }
+                if (!!cuakhau_id){
+                    filter = {
+                        "$and":[
+                            {"donvi_id": {"$eq": donvi_id}},
+                            {"cuakhau_id": {"$eq": cuakhau_id}},
+                        ]
+                    }
+                }
+                this.uiControl.filters = filter;
+                
+            }
             this.applyBindings();   
             return this;
         },

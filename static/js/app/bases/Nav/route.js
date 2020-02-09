@@ -14,7 +14,28 @@ define(function (require) {
 		// 	"route": "tokhaiyte/model(/:id)",
 		// 	"$ref": "app/view/tokhaiyte/js/ModelView",
 		// },
-
+		{
+			"collectionName":"tokhaiyte",
+			"route":"tokhaiyte/collection",
+			"$ref": "app/view/tokhaiyte/js/CollectionView",
+		},
+		{
+			"collectionName":"tokhaiyte",
+			"route":"tokhaiyte/model(/:id)",
+			"$ref": "app/view/tokhaiyte/js/ModelView",
+		},
+		{
+			"collectionName":"baocaonghingonhiembenh",
+        	"route":"baocaonghingonhiembenh/collection",
+        	//"href":"baocao/baocaonghingonhiembenhcollection",
+        	"$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView",
+		},
+		{
+			"collectionName":"baocaonghingonhiembenh",
+        	"route":"baocaonghingonhiembenh/model(/:id)",
+        	//"href":"baocao/baocaonghingonhiembenhcollection",
+        	"$ref": "app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhModelView",
+		},
 		{
 			"collectionName": "quocgia",
 			"route": "quocgia/model(/:id)",

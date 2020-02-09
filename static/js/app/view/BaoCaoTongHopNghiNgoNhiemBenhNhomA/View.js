@@ -11,7 +11,8 @@ define(function (require) {
     var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
 	var CuaKhauItemView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CuaKhauItemView');
     var DonViSelectView = require('app/view/HeThong/DonVi/TreeSelectView');
-    
+    var DiaDiemCachLyTapTrungView = require('app/view/DiaDiemCachLyTapTrung/CollectionView');
+
     var Model = Gonrin.Model.extend({
 		defaults: Gonrin.getDefaultModel(schema),
 		computeds: {
@@ -189,6 +190,7 @@ define(function (require) {
                 self.registerEvent();
                 self.getDanhsachnhiembenh();
                 self.getData();
+                self.getDiaDiemCachLyTapTrung();
                 
             }
 		},
@@ -269,7 +271,18 @@ define(function (require) {
 			});
         },
 
-
+        getDiaDiemCachLyTapTrung: function(){
+			var self = this;
+			var view = new DiaDiemCachLyTapTrungView({
+				viewData: {
+                    disable_create: true,
+					donvi_id : self.model.get("donvi_id"),
+					cuakhau_id : self.model.get("cuakhau_id")
+				}
+			});
+			view.render();
+			self.$el.find("#diadiemcachly-container").append(view.$el)
+		},
 
 
 

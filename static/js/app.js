@@ -85,7 +85,7 @@ require(['jquery', 'gonrin', 'app/router', 'app/bases/Nav/NavbarView', 'app/view
 			var currentRoute = self.router.currentRoute();
 			console.log(currentRoute);
 			
-			if((!!currentRoute) && ((currentRoute.route == "login") || (currentRoute.fragment == "index"))){
+			if((!!currentRoute) && ((currentRoute.route == "login") || (currentRoute.fragment == "index") || (currentRoute.fragment == ""))){
 				self.router.navigate("index");
 			}
 			if((!!currentRoute) && (currentRoute.route == "index")){
