@@ -184,7 +184,7 @@ define(function (require) {
 			var self = this;
 			var chitieus = [
 				{"name":"hanhkhach", "text": "Số lượt khách khai báo y tế"},
-				{"name":"chuyenbay", "text": "Số chuyến bay nhập"},
+				{"name":"chuyenbay", "text": "Số lượng chuyến bay nhập"},
 				{"name":"nguoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"}
 			];
 
