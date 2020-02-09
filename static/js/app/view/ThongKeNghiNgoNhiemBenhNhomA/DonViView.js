@@ -59,6 +59,8 @@ define(function (require) {
 					self.$el.find(".hide_selectdonvi").show();
 				}
 			// self.applyBindings();
+			self.$el.find('#tungay-input').val(moment().startOf('month').format("YYYY-MM-DD"));
+			self.$el.find('#denngay-input').val(moment().add(1,'days').format("YYYY-MM-DD"));
 			self.registerEvent();
 
 		},
@@ -70,7 +72,7 @@ define(function (require) {
 				format:"YYYY-MM-DD",
 				widgetPositioning: {"vertical":"bottom"},
 			});
-			self.$el.find('#denngnay-input').datetimepicker({
+			self.$el.find('#denngay-input').datetimepicker({
 				textFormat:'DD/MM/YYYY',
 				extraFormats:['DDMMYYYY'],
 				format:"YYYY-MM-DD",
@@ -99,7 +101,7 @@ define(function (require) {
 				
 				var nambaocao = self.$el.find("#nambaocao-input").val();
 				var tungay = self.$el.find("#tungay-input").val();
-				var denngay = self.$el.find("#denngnay-input").val();
+				var denngay = self.$el.find("#denngay-input").val();
 
 				if(tungay == "" || denngay == ""){
 					self.getApp().notify("Vui lòng chọn thời gian từ ngày --> đến ngày");
@@ -112,7 +114,7 @@ define(function (require) {
 					denngay:denngay
 				};
 				$.ajax({
-					url: self.getApp().serviceURL + '/api/v1/baocaotonghopnghingobenh',
+					url: self.getApp().serviceURL + '/api/v1/thongketonghopnghingonhiembenhnhoma',
 					dataType: "json",
 					type: "GET",
 					data: params,

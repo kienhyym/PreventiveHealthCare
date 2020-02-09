@@ -41,7 +41,7 @@ define(function (require) {
                                     var data = self.model.toJSON();
 
                                     
-                                    var url = self.getApp().serviceURL + '/api/v1/baocaotonghopnghingonhiembenhnhoma_donvi';
+                                    var url = self.getApp().serviceURL + '/api/v1/baocaotonghopnghingonhiembenhnhoma/donvi';
                                     $.ajax({
                                         url: url,
                                         method: "POST",
@@ -65,10 +65,7 @@ define(function (require) {
                                             }
                                         },
                                     });
-                                    
-
-
-                                    console.log("before save", data);
+                                
 				                    // self.model.save(null,{
 				                    //     success: function (model, respose, options) {
 				                    //         self.getApp().notify("Save successfully");
@@ -81,29 +78,47 @@ define(function (require) {
 				    	    	}
 							}
 		    	    	]
-					},
-					{
-						name : "exportgr",
-						type : "group",
-						groupClass : "toolbar-group",
-						buttons : [ {
-							name : "excel",
-							type : "button",
-							buttonClass : "btn-default btn-sm btn-primary",
-							label : "Xuất Excel",
-							command : function() {
-								var id = this.model.get("id"); 
-								var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma/" + id;
-								 window.open(url, "_blank");
-							},
-							visible: function(){
-								var id =  this.getApp().getRouter().getParam("id");
-								console.log(id, id !== null, "visible");
-								return (id !== null);
-								// return true;
-							}
-						}]
-					},
+                    },
+                    {
+                    	name : "thongkegr",
+                    	type : "group",
+                    	groupClass : "toolbar-group",
+                    	buttons : [ {
+                    		name : "thongke",
+                    		type : "button",
+                    		buttonClass : "btn-default btn-sm btn-primary",
+                    		label : "Thống kê",
+                    		command : function() {
+                                var self = this;
+                    			self.getApp().getRouter().navigate("thongkenghingonhiembenhnhoma/donvi");
+                    		}
+                    	}]
+                    },
+                    
+
+
+					// {
+					// 	name : "exportgr",
+					// 	type : "group",
+					// 	groupClass : "toolbar-group",
+					// 	buttons : [ {
+					// 		name : "excel",
+					// 		type : "button",
+					// 		buttonClass : "btn-default btn-sm btn-primary",
+					// 		label : "Xuất Excel",
+					// 		command : function() {
+					// 			var id = this.model.get("id"); 
+					// 			var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma/" + id;
+					// 			 window.open(url, "_blank");
+					// 		},
+					// 		visible: function(){
+					// 			var id =  this.getApp().getRouter().getParam("id");
+					// 			console.log(id, id !== null, "visible");
+					// 			return (id !== null);
+					// 			// return true;
+					// 		}
+					// 	}]
+					// },
 		    	],
 		uiControl: [
 			{field:"ngaybaocao",  textFormat :"DD/MM/YYYY", disabledComponentButton: false},
@@ -112,17 +127,6 @@ define(function (require) {
                 uicontrol: false,
                 itemView: CuaKhauItemView,
             },
-            // {
-			// 	field:"loaibaocao",
-			// 	uicontrol:"combobox",
-			// 	textField: "text",
-			// 	valueField: "value",
-			// 	cssClass:"form-control",
-			// 	dataSource: [
-			// 		{ value: 1, text: "Đơn vị" },
-			// 		{ value: 2, text: "Cửa khẩu" },
-			// 	 ],
-			// },
 		],
 		render: function () {
             var self = this;
@@ -130,54 +134,26 @@ define(function (require) {
             self.$el.find(".duonghangkhong").hide();
 			self.$el.find(".loaibaocao").hide();
             if (user) {
-                var id = this.getApp().getRouter().getParam("id");
-                if (id) {
-                    // this.model.set('id', id);
-                    // this.model.fetch({
-                    //     success: function (data) {
-                    //         var info = user.info;
-                    //         var cuakhau = info.cuakhau;
-                    //         if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
-                    //             if (cuakhau.duonghangkhong == true) {
-                    //                 self.$el.find(".duonghangkhong").show();
-                    //             }
-					// 		}
-                    //         self.applyBindings();
-					// 		self.registerEvent();
-					// 		self.getDanhsachnhiembenh();
-                    //     },
-                    //     error: function () {
-                    //         self.getApp().notify("Get data Eror");
-                    //     },
-                    // });
-                } else {
-					
-					// console.log
-                    // user.hasRole("DonViUser");
-                    //return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
-        			    	// this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-                    
-                    var info = user.info;
-                    // var cuakhau = info.cuakhau;
-                    // if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
-                    //     self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
-                    //     if (cuakhau.duonghangkhong == true) {
-                    //         self.$el.find(".duonghangkhong").show();
-                    //     }
-                    // }
-                    var donvi = info.donvi;
-                    if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
-                        self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
-					}
-
-					self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
-					
-                    self.applyBindings();
-                    // self.$el.find("#ngaybaocao").val(moment().startOf('day').format("YYYY-MM-DD"));
-                    self.registerEvent();
-                    self.getDanhsachnhiembenh();
-                    self.getData();
+                // console.log
+                // user.hasRole("DonViUser");
+                //return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
+                        // this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+                
+                var info = user.info;
+                
+                var donvi = info.donvi;
+                if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+                    self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
                 }
+
+                self.model.set({"ngaybaocao": moment().startOf('day').format("YYYY-MM-DD"),"loaibaocao":2});
+                
+                self.applyBindings();
+                // self.$el.find("#ngaybaocao").val(moment().startOf('day').format("YYYY-MM-DD"));
+                self.registerEvent();
+                self.getDanhsachnhiembenh();
+                self.getData();
+                
             }
 		},
 		checkRole: function(role) {
@@ -187,46 +163,12 @@ define(function (require) {
 		registerEvent: function(){
             var self = this;
             
-            // self.$el.find("#ngaybaocao").datetimepicker({
-            //     textFormat :"DD/MM/YYYY", 
-            //     format :"YYYY-MM-DD", 
-            //     disabledComponentButton: false
-            // });
-			// if (self.checkRole("Admin")) {
-			// 	self.model.set("loaibaocao",2);
-			// 	self.$el.find(".user_donvi").hide();
-			// 	self.$el.find(".user_cuakhau").show();
-			// 	self.$el.find(".loaibaocao").show();
-			// }
-			// else if (self.checkRole("CuaKhauUser")) {
-			// 	self.model.set("loaibaocao",2);
-			// 	self.$el.find(".user_donvi").hide();
-			// 	self.$el.find(".user_cuakhau").show();
-			// } else if(self.checkRole("DonViUser") || self.checkRole("DonViAdmin")) {
-				
-			// 	self.model.set("loaibaocao",1);
-			// 	self.$el.find(".user_donvi").show();
-			// 	self.$el.find(".user_cuakhau").hide();
-			// }
-			// self.model.on("change:loaibaocao", function() {
-			// 	var loaibaocao = self.model.get("loaibaocao");
-			// 	if (loaibaocao == 1) {
-			// 		self.$el.find(".user_donvi").show();
-			// 		self.$el.find(".user_cuakhau").hide();
-			// 	} else {
-			// 		self.$el.find(".user_donvi").hide();
-			// 		self.$el.find(".user_cuakhau").show();
-			// 	}
-			// });
 
 			self.model.on("change:ngaybaocao",function () {
                 self.getDanhsachnhiembenh();
                 self.getData();
-            })
-            
-            // self.$el.find("#ngaybaocao").on("change.gonrin", function(){
-            //     self.getDanhsachnhiembenh();
-            // });
+            });
+
 		},
 		// validate: function() {
 		// 	var self = this;
@@ -242,6 +184,13 @@ define(function (require) {
             var self = this;
             var donvi_id  = self.model.get("donvi_id");
             var ngaybaocao  = self.model.get("ngaybaocao");
+
+            if(!donvi_id){
+				self.getApp().notify('Xin mời chọn đơn vị');
+				// self.applyBindings();
+				return;
+			}
+            
             //var cuakhau_id  = self.model.get("cuakhau_id");
 
             //clear data
@@ -257,7 +206,7 @@ define(function (require) {
                 "ngaybaocao": ngaybaocao,
                 "donvi_id": donvi_id
             }
-            var url = self.getApp().serviceURL + '/api/v1/baocaotonghopnghingonhiembenhnhoma_donvi';
+            var url = self.getApp().serviceURL + '/api/v1/baocaotonghopnghingonhiembenhnhoma/donvi';
             $.ajax({
 			    url: url,
 				method: "GET",
@@ -304,25 +253,13 @@ define(function (require) {
 		},
 		getDanhsachnhiembenh:function(){
             var self = this;
-            var cuakhau_id = null;
-            var donvi_id = null;
-            
-
-            var user = self.getApp().currentUser;
-            var info = user.info;
-            var cuakhau = info.cuakhau;
-
-            if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
-                cuakhau_id = cuakhau.id;
-            }
-            var donvi = info.donvi;
-            if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
-                donvi_id = donvi.id;
-            }
-
-			// var ngaybaocao = self.$el.find("#ngaybaocao").val();
             var ngaybaocao = self.model.get("ngaybaocao");
-			console.log(ngaybaocao, donvi_id, cuakhau_id);
+			var donvi_id = self.model.get("donvi_id");
+            // console.log(ngaybaocao, donvi_id, cuakhau_id);
+            
+            if((!donvi_id) || (!ngaybaocao)){
+				return;
+            }
 
 			self.$el.find("#add-nghingonhiembenh-item").empty();
 			var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
@@ -335,9 +272,9 @@ define(function (require) {
                 ]
             }
 
-            if (!!cuakhau_id){
-                filterparams["$and"].push({"cuakhau_id": {"$eq":cuakhau_id}});
-            }
+            // if (!!cuakhau_id){
+            //     filterparams["$and"].push({"cuakhau_id": {"$eq":cuakhau_id}});
+            // }
             
             $.ajax({
 			    url: url_danhsachnghingo,
@@ -368,7 +305,6 @@ define(function (require) {
 								buttonClass: "btn-danger btn-sm",
 								label: "Tạo mới nhanh trường hợp nghi ngờ",
 								command: function() {
-									
 									self.createNguoiNhiemBenh();
 									// var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
 									// dialogNghiNgonhiemBenh.dialog({size: "large"});

@@ -244,7 +244,7 @@ define(function (require) {
         			    "text":" Báo cáo 2019-nCoV cửa khẩu",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhoma/collection",
+        			    "route":"baocaotonghopnghingonhiembenhnhoma/model",
         			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
         			    "icon":static_url + "/images/icons/task_120.png",
 					},
