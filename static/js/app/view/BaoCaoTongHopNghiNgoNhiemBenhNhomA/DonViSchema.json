@@ -1,0 +1,31 @@
+{
+    "ngaybaocao": {
+      "type": "datetime"
+    },
+    "donvi_id": {
+      "type": "number"
+    },
+    "madonvi": {
+      "type": "string"
+    },
+    "tendonvi": {
+      "type": "string"
+    },
+    "cuakhau_data" : {
+      "type": "list"
+    },
+    "songuoidangcachlytaptrung": {
+      "type": "number"
+    },
+    "songuoidangcachlytaptrung_cotrieuchung": {
+      "type": "number"
+    },
+    "diadiemcachlytaptrung": {
+      "type": "string"
+    },
+    "songuoihetcachly": {
+      "type": "number"
+    }
+  }
+  
+  

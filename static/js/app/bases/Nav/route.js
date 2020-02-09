@@ -81,6 +81,17 @@ define(function (require) {
 			"route":"baocaotonghopnghingonhiembenhnhoma/modeldv(/:id)",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/ModelView",
 		},
+		{
+			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
+			"route":"baocaotonghopnghingonhiembenhnhoma/view(/:id)",
+			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/View",
+		},
+		{
+			"collectionName":"thongkenghingonhiembenhnhoma",
+			"route":"thongkenghingonhiembenhnhoma/donvi",
+			"$ref": "app/view/ThongKeNghiNgoNhiemBenhNhomA/DonViView",
+		},
+		
 	];
 
 });

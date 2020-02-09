@@ -1,0 +1,122 @@
+<h4 class="text-center"><b>Báo cáo việc khai báo y tế và cách ly tại cửa khẩu đối với <span style="color:red;font-size: 120%;">2019-nCoV</span></b></h4>
+    
+<div block-bind="toolbar"></div>
+<div block-bind="content">
+    <div class="row text-center" style="margin-top:10px">
+        <div class="col-md-3 text-right " style="padding-top:10px"><label>Ngày báo cáo</label></div>
+        <div class="col-md-3" style="padding-top:10px">
+            <input type="text" class="form-control" id="ngaybaocao" data-bind="value:ngaybaocao">
+        </div>
+        <div class="col-md-3 text-right " style="padding-top:10px"><label>Tên đơn vị</label></div>
+        <div class="col-md-3" style="padding-top:10px">
+            <input type="text" readonly class="form-control" id="tendonvi" data-bind="value:tendonvi">
+        </div>
+    </div>
+    <hr/>
+    <div class="row text-center" style="margin-top:10px">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Số người đang cách ly tập trung</th>
+                    <th style="width: 150px;">Số người đang cách ly tập trung, có triệu chứng</th style="width: 150px;">
+                    <th style="width: 150px;">Số người hết cách ly</th style="width: 150px;">
+                    <th>Địa điểm cách ly tập trung</th>
+                </tr>
+            </thead>
+            <tbody id="donvi-data">
+                <tr>
+                    <td><input type="text" class="form-control" data-bind="value:songuoidangcachlytaptrung"></td>
+                    <td><input type="text" class="form-control" data-bind="value:songuoidangcachlytaptrung_cotrieuchung"></td>
+                    <td><input type="text" class="form-control" data-bind="value:songuoihetcachly"></td>
+                    <td><input type="text" class="form-control" data-bind="value:diadiemcachlytaptrung"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+    <div class="row text-center" style="margin-top:10px">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 300px;">Cửa khẩu</th>
+                    <th>Số chuyến bay</th>
+                    <th>Số người nhập cảnh</th>
+                    <th>Số hành khách khai báo</th>
+                    <th>Số người nghi ngờ nhiễm bệnh</th>
+                </tr>
+            </thead>
+            <tbody id="list-cuakhau-data" data-bind="list:cuakhau_data">
+
+            </tbody>
+        </table>
+    </div>
+
+    
+
+
+
+    <!--<div class="row text-center" style="margin-top:10px">
+
+        <div class="form-group col-md-6" >
+            
+            <div class="user_cuakhau"  >
+                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số chuyến bay nhập</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:sochuyenbay"/>
+                </div>    
+            </div>
+            <div class="user_cuakhau">
+                <div class="col-md-6 text-right " style="padding-top:10px"><label>Số hành khách khai báo</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:sohanhkhachkhaibao" />
+                </div>
+            </div>
+            <div class="user_donvi" >
+                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số người cách ly tập trung</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:songuoidangcachlytaptrung"/>
+                </div>    
+            </div>
+            <div class="user_donvi">
+                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số nguời cách ly có dấu hiệu nhiễm bệnh</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:songuoidangcachlytaptrung_cotrieuchung" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6" >
+            <div class="loaibaocao">
+                <div class="col-md-6 text-right " style="padding-top:10px"><label>Loại báo cáo</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="text" class="form-control" id="loaibaocao" data-bind="value:loaibaocao">
+                </div>
+            </div>
+            <div class="user_cuakhau" >
+                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số người nhập cảnh</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:songuoinhapcanh"/>
+                </div>    
+            </div>
+            <div class="user_cuakhau" >
+                <div class="col-md-6 text-right user_cuakhau" style="padding-top:10px"><label>Số người nghi ngờ nhiễm bệnh</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:songuoinguoinghingo" />
+                </div>
+            </div>
+            <div class="user_donvi">
+                <div class="col-md-6 text-right" style="padding-top:10px"><label>Số người hết cách ly</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="number" data-bind="value:songuoihetcachly" />
+                </div>
+            </div>
+            <div class="user_donvi" >
+                <div class="col-md-6 text-right" style="padding-top:10px"><label>Địa điểm cách ly tập trung</label></div>
+                <div class="col-md-6" style="padding-top:10px">
+                    <input type="text" data-bind="value:diadiemcachlytaptrung"/>
+                </div>    
+            </div>
+        </div>
+    </div>-->
+<hr/>
+<h5 class="text-center"><b>Danh sách các trường hợp nghi ngờ nhiễm bệnh:</b></h5>
+<div id="add-nghingonhiembenh-item"></div>

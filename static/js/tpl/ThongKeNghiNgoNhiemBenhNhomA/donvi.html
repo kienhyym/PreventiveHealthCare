@@ -42,7 +42,9 @@
                 <label >Đến ngày</label>
                 <input id="denngnay-input" class="form-control" type="text" placeholder="Đến ngày" />
             </div>
-            <button class="btn btn-primary btn-view-report" style="margin-bottom: 10px">Xem báo cáo</button>
+            <button class="btn btn-success btn-view-report" id="btn-view-report">Xem báo cáo</button>
+            <button class="btn btn-primary btn-export-report" id="btn-export-report">Xuất Excel</button>
+            <button class="btn btn-warning btn-add" id="btn-add" >Thêm số liệu</button>
 
         </div>
 
@@ -53,8 +55,9 @@
                         <tr style="font-style: bold">
                             <th rowspan="2" style="width:45px">STT</th>
                             <th rowspan="2" style="width: 270px; text-align:center">Nội dung báo cáo</th>
-                            <th rowspan="2" style="width: 150px; text-align:center">Ngày tháng</th>
+                            <th rowspan="2" style="width: 100px; text-align:center">Ngày tháng</th>
                             <th id="th-cuakhau" style=" text-align:center">Tên Cửa Khẩu</th>
+                            <th rowspan="2" style="width: 150px; text-align:center">Tổng số</th>
                         </tr>
                         <tr style="font-style: bold" id="tr-tencuakhau">
 

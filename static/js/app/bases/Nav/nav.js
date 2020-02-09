@@ -248,20 +248,6 @@ define(function (require) {
         			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
         			    "icon":static_url + "/images/icons/task_120.png",
 					},
-
-					{
-        			    "text":" Báo cáo 2019-nCoV đơn vị",
-        			    "type":"view",
-        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhoma/collectiondv",
-        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
-						"icon":static_url + "/images/icons/task_120.png",
-						"visible": function(){
-        			    	return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
-        			    	this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
-        			    },
-					},
-
 					// {
         			//     "text":"BC nghi ngờ nhiễm bệnh",
         			//     "type":"view",
@@ -451,7 +437,7 @@ define(function (require) {
         			    "text":" Báo cáo 2019-nCoV đơn vị",
         			    "type":"view",
         			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
-        			    "route":"baocaotonghopnghingonhiembenhnhomadv/model",
+        			    "route":"baocaotonghopnghingonhiembenhnhoma/view",
         			    "icon":static_url + "/images/icons/task_120.png",
 						"visible": function(){
         			    	return this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
@@ -520,18 +506,32 @@ define(function (require) {
 					    	return !this.checkHasRole("CuaKhauUser");
 					    },
 					},
+
 					{
-        			    "text":"Số liệu báo cáo Tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			    "text":"Thống kê 2019-nCoV",
         			    "type":"view",
-        			    "collectionName":"baocaotonghopnghingonhiembenh",
-        			    "route":"baocaotonghopnghingonhiembenh/model",
-        			    //"href":"baocao/baocaonghingonhiembenhcollection",
-        			    "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenh/ModelView",
-        			    "icon":static_url + "/images/icons/task_120.png",
-        			    // "visible": function(){
-        			    // 	return this.checkHasRole("Admin");
-        			    // }
-					},	
+        			    "collectionName":"baocaotonghopnghingonhiembenhnhoma",
+        			    "route":"thongkenghingonhiembenhnhoma/donvi",
+        			    // "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
+						"icon":static_url + "/images/icons/task_120.png",
+						"visible": function(){
+        			    	return this.checkHasRole("Admin") || this.checkHasRole("VienAdmin")|| this.checkHasRole("VienUser") ||
+        			    	this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    },
+					},
+
+					// {
+        			//     "text":"Số liệu báo cáo Tổng hợp nghi ngờ nhiễm bệnh nhóm A",
+        			//     "type":"view",
+        			//     "collectionName":"baocaotonghopnghingonhiembenh",
+        			//     "route":"baocaotonghopnghingonhiembenh/model",
+        			//     //"href":"baocao/baocaonghingonhiembenhcollection",
+        			//     "$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenh/ModelView",
+        			//     "icon":static_url + "/images/icons/task_120.png",
+        			//     // "visible": function(){
+        			//     // 	return this.checkHasRole("Admin");
+        			//     // }
+					// },	
         		 ]
 			},
 			{

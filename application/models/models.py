@@ -7,6 +7,7 @@ from sqlalchemy.orm.collections import attribute_mapped_collection
 import uuid
 from math import floor
 import time
+
 def default_uuid():
     return str(uuid.uuid4())
 
