@@ -29,7 +29,7 @@ define(function (require) {
     }
     
     //var template = _.template(tpl);
-    var template = tpl;
+    var template = gonrin.template(tpl)({});;
     
     var baiviet_tpl = require('text!tpl/base/baiviet_index.html');
     var baiviet_item_tpl = require('text!tpl/base/baiviet_item_tpl.html');

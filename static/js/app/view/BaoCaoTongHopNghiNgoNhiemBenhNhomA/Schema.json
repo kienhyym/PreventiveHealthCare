@@ -42,14 +42,14 @@
     "songuoidangcachlytaptrung_cotrieuchung": {
       "type": "number"
     },
-    "diadiemcachlytaptrung": {
-      "type": "string"
-    },
     "songuoihetcachly": {
       "type": "number"
     },
     "songuoicachlytainha": {
       "type": "number"
+    },
+    "data": {
+      "type": "dict"
     }
   }
   

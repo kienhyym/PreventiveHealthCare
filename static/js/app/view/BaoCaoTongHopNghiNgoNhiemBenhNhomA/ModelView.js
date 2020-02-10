@@ -11,6 +11,8 @@ define(function (require) {
 	var CuaKhauSelectView = require('app/view/HeThong/CuaKhau/SelectView');
 
 	var DiaDiemCachLyTapTrungView = require('app/view/DiaDiemCachLyTapTrung/CollectionView');
+	var ChiTieuNCoVView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ChiTieuNCoVView');
+
 
 	var Model = Gonrin.Model.extend({
 		defaults: Gonrin.getDefaultModel(schema),
@@ -121,6 +123,11 @@ define(function (require) {
 				textField: "ten",
 				dataSource: CuaKhauSelectView,
 			},
+			{
+				field: "data",
+				uicontrol:false,
+				itemView: ChiTieuNCoVView,
+			}
 
 		],
 		render: function () {
@@ -157,7 +164,6 @@ define(function (require) {
 				self.getDanhsachnhiembenh();
 				self.getData();
 				self.getDiaDiemCachLyTapTrung();
-				
                 
             }
 		},
@@ -204,7 +210,9 @@ define(function (require) {
 				data: param,
 				contentType: "application/json",
 				success: function (data) {
-                    self.model.set(data);
+					data["data"] = data["data"] || null;
+					self.model.set(data);
+					self.$el.find("#data-container").empty();
                     self.applyBindings();
 				},
 				error: function (xhr, status, error) {
