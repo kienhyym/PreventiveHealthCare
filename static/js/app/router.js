@@ -48,7 +48,7 @@ define(function (require) {
                 success: function (data) {
                     self.navigate("login");
                     self.getApp().currentUser = null;
-                    location.reload();
+                    // location.reload();
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     self.getApp().notify(self.getApp().translate("LOGOUT_ERROR"));
