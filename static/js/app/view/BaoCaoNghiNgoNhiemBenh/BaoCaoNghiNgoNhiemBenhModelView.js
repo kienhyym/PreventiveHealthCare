@@ -387,7 +387,12 @@ define(function (require) {
 
 				var cuakhau = user.info.cuakhau;
 				if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
-					self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
+					self.model.set({
+						"cuakhau_id":cuakhau.id,
+						"tencuakhau":cuakhau.ten,
+						"macuakhau":cuakhau.ma,
+						"noibaocao": cuakhau.ten
+					});
 					
 				}
 				var donvi = user.info.donvi;
