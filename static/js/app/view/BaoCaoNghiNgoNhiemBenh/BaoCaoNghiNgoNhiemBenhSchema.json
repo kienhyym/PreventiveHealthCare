@@ -51,6 +51,22 @@
     "donvi_id": {
       "type": "number"
     },
+    "tendonvi": {
+      "type": "string"
+    },
+    "madonvi": {
+      "type": "string"
+    },
+    "cuakhau_id": {
+      "type": "number"
+    },
+    "tencuakhau": {
+      "type": "string"
+    },
+    "macuakhau": {
+      "type": "string"
+    },
+
     "dienthoai": {
       "type": "string"
     },

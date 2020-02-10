@@ -25,6 +25,9 @@
     },
     "songuoihetcachly": {
       "type": "number"
+    },
+    "songuoicachlytainha": {
+      "type": "number"
     }
   }
   

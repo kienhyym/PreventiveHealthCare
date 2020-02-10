@@ -45,7 +45,7 @@ define(function (require) {
                 { field: "macuakhau", visible:false },
                 { field: "danhsachnghingonhiembenh", visible:false },
                 { field: "sohanhkhachkhaibao", label: "Số khai báo" },
-                { field: "songuoinguoinghingo", label: "Số nghi ngờ" },
+                { field: "songuoinghingo", label: "Số nghi ngờ" },
                 { field: "songuoidangcachlytaptrung", visible:false },
                 { field: "songuoidangcachlytaptrung_cotrieuchung", visible:false },
                 { field: "diadiemcachlytaptrung", visible:false },

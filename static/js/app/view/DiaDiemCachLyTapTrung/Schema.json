@@ -1,0 +1,31 @@
+{
+  "id": {
+    "type": "number",
+    "primary": true
+  },
+  "donvi_id": {
+    "type": "number"
+  },
+  "cuakhau_id": {
+    "type": "number"
+  },
+  "ten": {
+    "type": "string"
+  },
+  "diachi": {
+    "type": "string"
+  },
+  "nguoilienlac": {
+    "type": "string"
+  },
+  "sodienthoai": {
+    "type": "string"
+  },
+  "email": {
+    "type": "string"
+  },
+  "ghichu": {
+    "type": "string"
+  }
+}
+

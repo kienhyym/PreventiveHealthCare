@@ -18,8 +18,9 @@ from application.extensions import auth, jinja
 import ujson
 from application.models.models import ToKhaiYTe,BaoCaoTongHopNghiNgoNhiemBenhNhomA
  
-def auth_func(**kw):
+async def auth_func(request, **kw):
     pass
+    
 @app.route('/medicalform/qr/<id>', methods=['GET'])
 async def medicalform_index(request, id):
     print("cuakhau_id")
@@ -112,4 +113,11 @@ apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
     
     #results_per_page=30,
     collection_name='baocaotonghopnghingonhiembenhnhoma')
+
+apimanager.create_api(DiaDiemCachLyTapTrung,
+    methods=['GET', 'POST', 'DELETE', 'PUT'],
+    url_prefix='/api/v1',
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    results_per_page=30,
+    collection_name='diadiemcachlytaptrung')
 

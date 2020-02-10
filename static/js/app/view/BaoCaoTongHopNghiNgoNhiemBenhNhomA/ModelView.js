@@ -4,11 +4,13 @@ define(function (require) {
 		_ = require('underscore'),
 		Gonrin = require('gonrin');
 
-	var template = require('text!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/tpl/model.html'),
+	var template = require('text!tpl/BaoCaoTongHopNghiNgoNhiemBenhNhomA/model.html'),
 		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
 
     var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
 	var CuaKhauSelectView = require('app/view/HeThong/CuaKhau/SelectView');
+
+	var DiaDiemCachLyTapTrungView = require('app/view/DiaDiemCachLyTapTrung/CollectionView');
 
 	var Model = Gonrin.Model.extend({
 		defaults: Gonrin.getDefaultModel(schema),
@@ -154,7 +156,7 @@ define(function (require) {
 				self.registerEvent();
 				self.getDanhsachnhiembenh();
 				self.getData();
-				
+				self.getDiaDiemCachLyTapTrung();
 				
                 
             }
@@ -182,7 +184,7 @@ define(function (require) {
             self.model.set("songuoinhapcanh", null);
             self.model.set("sohanhkhachkhaibao", null);
             self.model.set("sochuyenbay", null);
-            self.model.set("songuoinguoinghingo", null);
+            self.model.set("songuoinghingo", null);
 
 			if(!cuakhau_id){
 				self.getApp().notify('Xin mời chọn cửa khẩu');
@@ -219,31 +221,19 @@ define(function (require) {
 					}
 				},
 			});
-        },
-
-
-
-
-
-
-
-
-
-
-
-		// validate: function() {
-		// 	var self = this;
-		// 	var ngaybaocao = self.model.get("ngaybaocao");
-		// 	if(!ngaybaocao) {
-		// 		self.getApp().notify('Vui lòng điền ngày báo cáo');
-		// 		return false;
-		// 	}
-		// 	return true;
-		// },
-
-
-
-
+		},
+		
+		getDiaDiemCachLyTapTrung: function(){
+			var self = this;
+			var view = new DiaDiemCachLyTapTrungView({
+				viewData: {
+					donvi_id : self.model.get("donvi_id"),
+					cuakhau_id : self.model.get("cuakhau_id")
+				}
+			});
+			view.render();
+			self.$el.find("#diadiemcachly-container").append(view.$el)
+		},
 
 		createNguoiNhiemBenh: function() {
 			var self = this;
@@ -309,21 +299,21 @@ define(function (require) {
 									self.createNguoiNhiemBenh();
 								}
 							},
-							{
-								name: "export_excel",
-								type: "button",
-								buttonClass: "btn-primary btn-sm",
-								label: "Xuất Excel danh sách",
-								command: function() {
-									var ngaybaocao = self.model.get("ngaybaocao");
-									var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
+							// {
+							// 	name: "export_excel",
+							// 	type: "button",
+							// 	buttonClass: "btn-primary btn-sm",
+							// 	label: "Xuất Excel danh sách",
+							// 	command: function() {
+							// 		var ngaybaocao = self.model.get("ngaybaocao");
+							// 		var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
 									
-									if(!!ngaybaocao){
-										url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
-									}
-									window.open(url, "_blank");
-								}
-							},
+							// 		if(!!ngaybaocao){
+							// 			url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
+							// 		}
+							// 		window.open(url, "_blank");
+							// 	}
+							// },
 						],
 						fields: [
 							{

@@ -2,8 +2,8 @@ class Config(object):
     # DEV MODE
     DEBUG = True
     SYSTEM_MAINTAINANCE = False
-    STATIC_URL = "static"
-    #SQLALCHEMY_DATABASE_URI = 'postgresql://ytdpuser:adnajd91edasda@localhost:5432/ytdp'
+    STATIC_URL = "static1"
+    # SQLALCHEMY_DATABASE_URI = 'postgresql://ytdpuser:adnajd91edasda@localhost:5432/ytdp'
     #pro
     SQLALCHEMY_DATABASE_URI = 'postgresql://ytdpuser:adnajd91edasda@192.168.60.100:5432/ytdp'
 

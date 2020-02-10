@@ -735,19 +735,35 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
     songuoinhapcanh = db.Column(db.BigInteger)
     sohanhkhachkhaibao = db.Column(db.BigInteger)
     sochuyenbay = db.Column(db.BigInteger)
-    songuoinguoinghingo = db.Column(db.BigInteger)
+    songuoinghingo = db.Column(db.BigInteger)
 
     #donvi
     songuoidangcachlytaptrung = db.Column(db.BigInteger)
     songuoidangcachlytaptrung_cotrieuchung = db.Column(db.BigInteger)
-    diadiemcachlytaptrung = db.Column(db.String)
+    
+    songuoicachlytainha = db.Column(db.BigInteger)
     songuoihetcachly = db.Column(db.BigInteger)
+
+    data = db.Column(JSONB)
 
     # __table_args__ = (UniqueConstraint('donvi_id', 'cuakhau_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_cuakhau_id_ngaybaocao'),)
     # __table_args__ = (UniqueConstraint('donvi_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_ngaybaocao'),)
 
 Index('baocaotonghopnghingonhiembenhnhoma_uq_idx', BaoCaoTongHopNghiNgoNhiemBenhNhomA.loaibaocao, BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id, BaoCaoTongHopNghiNgoNhiemBenhNhomA.cuakhau_id, BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao, unique=True)
 Index('baocaotonghopnghingonhiembenhnhoma_uq_idx2', BaoCaoTongHopNghiNgoNhiemBenhNhomA.loaibaocao, BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id, BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao, unique=True, postgresql_where=(BaoCaoTongHopNghiNgoNhiemBenhNhomA.cuakhau_id.is_(None)))
+
+class DiaDiemCachLyTapTrung(CommonModel):
+    __tablename__ = "diadiemcachlytaptrung"
+    id = db.Column(db.Integer, primary_key=True)
+    donvi_id = db.Column(db.Integer, db.ForeignKey('donvi.id'), nullable=True, index=True)
+    cuakhau_id = db.Column(db.Integer, db.ForeignKey('cuakhau.id'), nullable=True, index=True)
+    
+    ten = db.Column(db.String(255), nullable=False)
+    diachi = db.Column(db.String(255), nullable=True)
+    nguoilienlac = db.Column(db.String(255), nullable=False)
+    sodienthoai = db.Column(db.String)
+    email = db.Column(db.String)
+    ghichu = db.Column(db.String)
 
 
 class ToKhaiYTe(CommonModel):

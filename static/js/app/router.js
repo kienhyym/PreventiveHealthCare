@@ -47,6 +47,7 @@ define(function (require) {
                 dataType: "json",
                 success: function (data) {
                     self.navigate("login");
+                    self.getApp().currentUser = null;
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     self.getApp().notify(self.getApp().translate("LOGOUT_ERROR"));
