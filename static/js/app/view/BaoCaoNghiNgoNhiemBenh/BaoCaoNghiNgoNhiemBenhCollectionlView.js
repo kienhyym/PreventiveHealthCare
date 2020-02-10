@@ -91,23 +91,27 @@ define(function (require) {
                 donvi_id = donvi.id;
             }
 
-            if ( !!donvi_id){
-                var filter = {
-                    "donvi_id": {
-                        "$eq": donvi_id
+
+            if((user.hasRole("CuaKhauUser")) || (user.hasRole("DonViUser")) || (user.hasRole("DonViAdmin"))){
+                if ( !!donvi_id){
+                    var filter = {
+                        "donvi_id": {
+                            "$eq": donvi_id
+                        }
                     }
-                }
-                if (!!cuakhau_id){
-                    filter = {
-                        "$and":[
-                            {"donvi_id": {"$eq": donvi_id}},
-                            {"cuakhau_id": {"$eq": cuakhau_id}},
-                        ]
+                    if (!!cuakhau_id){
+                        filter = {
+                            "$and":[
+                                {"donvi_id": {"$eq": donvi_id}},
+                                {"cuakhau_id": {"$eq": cuakhau_id}},
+                            ]
+                        }
                     }
+                    this.uiControl.filters = filter;
+                    
                 }
-                this.uiControl.filters = filter;
-                
             }
+            
             this.applyBindings();   
             return this;
         },
