@@ -400,6 +400,7 @@ async def getbaocao_tonghop_nghingobenh(request):
         if (donvi is None):
             return text("Tham số không hợp lệ", status=520)
         respdata["tendonvi"] = donvi.ten
+        respdata["tuyen"] = "cuakhau"
         respdata["filename"] = 'thongkenhoma-' + str(donvi.id) + "-" + str(time.time())+'.xlsx'
         return await exportthongkenghingonhiembenhnhoma(request, respdata)
 
@@ -512,7 +513,7 @@ async def getbaocao_tonghop_nghingobenh(request):
         "data": arr_donvi, 
         "days": arr_days,
         "donvi_id": donvi_id,
-        "chitieu": chitieu_nghingonhiembenhnhoma,
+        "chitieu": chitieu_nghingonhiembenhnhoma
     }
     export = request.args.get("export", None)
     
@@ -522,6 +523,7 @@ async def getbaocao_tonghop_nghingobenh(request):
         if (donvi is None):
             return text("Tham số không hợp lệ", status=520)
         respdata["tendonvi"] = donvi.ten
+        respdata["tuyen"] = "donvi"
         respdata["filename"] = 'thongkenhomatw-' + str(donvi.id) + "-" + str(time.time())+'.xlsx'
         return await exportthongkenghingonhiembenhnhoma(request, respdata)
 

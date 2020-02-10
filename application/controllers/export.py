@@ -526,6 +526,9 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
 async def exportthongkenghingonhiembenhnhoma(request, data):
     from .nghingonhiembenhnhoma import chitieu_nghingonhiembenhnhoma as chitieus
     filename=data.get("filename")
+    title = "cửa khẩu"
+    if(data.get("tuyen") == "donvi"):
+        title = "đơn vị"
     
     # chitieus = [
 	# 			{"name":"hanhkhach", "text": "Số lượt khách khai báo y tế"},
@@ -544,7 +547,7 @@ async def exportthongkenghingonhiembenhnhoma(request, data):
     ws['A2'] = "Cục Y tế Dự phòng"
     ws['A3'] = data.get("tendonvi")
     ws['A3'].font = bold_font
-    ws['A4'] = "BÁO CÁO SỐ LIỆU LƯỢT KHÁCH KHAI BÁO Y TẾ TẠI CÁC CỬA KHẨU NĂM 2020"
+    ws['A4'] = "BÁO CÁO SỐ LIỆU LƯỢT KHÁCH KHAI BÁO Y TẾ TẠI CÁC " + title.upper()+" NĂM 2020"
     ws['A4'].font = bold_font
 
     #table data
@@ -577,7 +580,7 @@ async def exportthongkenghingonhiembenhnhoma(request, data):
     ws[tongso_col + '6'].font = bold_font
     ws[tongso_col + '6'].alignment = center_alignment
 
-    ws['D6'] = 'Tên cửa khẩu'
+    ws['D6'] = 'Tên ' + title
     ws['D6'].alignment = center_alignment
     ws['D6'].font = bold_font
 
