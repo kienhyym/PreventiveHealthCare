@@ -23,6 +23,15 @@ from sqlalchemy.orm import aliased, joinedload_all
 from .user_api import current_user as currentUser
 from .export import exportthongkenghingonhiembenhnhoma
 
+
+chitieu_nghingonhiembenhnhoma = [
+				{"name":"sohanhkhachkhaibao", "text": "Số lượt khách khai báo y tế"},
+				{"name":"songuoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"},
+                {"name":"songuoidangcachlytaptrung", "text": "Số người cách ly tập trung"},
+                {"name":"songuoidangcachlytaptrung_cotrieuchung", "text": "Số người cách ly tập trung, có triệu chứng"},
+                {"name":"sochuyenbay", "text": "Số lượng chuyến bay nhập"},
+			]
+
 async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
     donvi_id = request.args.get("donvi_id", None)
     ngaybaocao = request.args.get("ngaybaocao", None)
@@ -35,14 +44,14 @@ async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
     if (donvi is None):
         return text("Tham số không hợp lệ", status=520)
 
-    danhsach_cuakhau = db.session.query(CuaKhau).filter(CuaKhau.donvi_id == donvi_id).all()
+    danhsach_org = db.session.query(CuaKhau).filter(CuaKhau.donvi_id == donvi_id).all()
     
-    if danhsach_cuakhau is None:
+    if danhsach_org is None:
         return text("Không tìm thấy cửa khẩu", status=520)
 
     listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao == ngaybaocao)).all()
-    # if listbaocao is None:
-    #     return text("Chưa có báo cáo của các đơn vị", status=520)
+    if listbaocao is None:
+        return text("Chưa có báo cáo của các đơn vị", status=520)
 
     resp = {
         "ngaybaocao": ngaybaocao,
@@ -62,7 +71,7 @@ async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
     #         resp["songuoihetcachly"] = baocao.songuoihetcachly
     #         break
 
-    for cuakhau in danhsach_cuakhau:
+    for cuakhau in danhsach_org:
         ckobj = {
             "id": cuakhau.id,
             "ngaybaocao": ngaybaocao,
@@ -76,7 +85,7 @@ async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
             "songuoinhapcanh": None,
             "sohanhkhachkhaibao": None,
             "sochuyenbay": None,
-            "songuoinguoinghingo": None,
+            "songuoinghingo": None,
 
             "songuoidangcachlytaptrung": None,
             "songuoidangcachlytaptrung_cotrieuchung": None,
@@ -91,7 +100,7 @@ async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
                 ckobj["songuoinhapcanh"] = baocao.songuoinhapcanh
                 ckobj["sohanhkhachkhaibao"] = baocao.sohanhkhachkhaibao
                 ckobj["sochuyenbay"] = baocao.sochuyenbay
-                ckobj["songuoinguoinghingo"] = baocao.songuoinguoinghingo
+                ckobj["songuoinghingo"] = baocao.songuoinghingo
 
                 ckobj["songuoidangcachlytaptrung"] = baocao.songuoidangcachlytaptrung
                 ckobj["songuoidangcachlytaptrung_cotrieuchung"] = baocao.songuoidangcachlytaptrung_cotrieuchung
@@ -217,7 +226,7 @@ async def get_baocaotonghopnghingonhiembenhnhoma_cuakhau(request):
             "songuoinhapcanh": None,
             "sohanhkhachkhaibao": None,
             "sochuyenbay": None,
-            "songuoinguoinghingo": None,
+            "songuoinghingo": None,
 
             "songuoidangcachlytaptrung": None,
             "songuoidangcachlytaptrung_cotrieuchung": None,
@@ -284,12 +293,17 @@ def convert_timestamp_to_string(value, format):
 
 
 
-
+def get_chitieu_name_tonghopnghingonhiembenhnhoma():
+    arr = []
+    for item in chitieu_nghingonhiembenhnhoma:
+        arr.append(item["name"])
+    return arr
     
 
-@app.route('/api/v1/thongketonghopnghingonhiembenhnhoma')
+@app.route('/api/v1/thongketonghopnghingonhiembenhnhoma/donvi')
 async def getbaocao_tonghop_nghingobenh(request):        
     # notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
+    chitieu_arr = get_chitieu_name_tonghopnghingonhiembenhnhoma()
     
     arr_cuakhau = []
     arr_cuarkhau_ten = []
@@ -306,20 +320,14 @@ async def getbaocao_tonghop_nghingobenh(request):
         return text("Tham số không hợp lệ", status=520)
     
     listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao <= denngay)).all()
-    # listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay)).all()
     if listbaocao is None:
         return text("Chưa có báo cáo của các đơn vị", status=520)
     
-    danhsach_cuakhau = db.session.query(CuaKhau).filter(CuaKhau.donvi_id == donvi_id).all()
+    danhsach_org = db.session.query(CuaKhau).filter(CuaKhau.donvi_id == donvi_id).all()
     
-    if danhsach_cuakhau is None:
+    if danhsach_org is None:
         return text("Không tìm thấy cửa khẩu", status=520)
     
-    # print("listbaocao", listbaocao)
-    # for ds in listbaocao:
-    #     danhsach = to_dict(ds)
-    #     print("danhsach =======",danhsach)
-
     
     tungay_date = datetime.strptime(tungay, "%Y-%m-%d") 
     denngay_date = datetime.strptime(denngay, "%Y-%m-%d")
@@ -341,41 +349,49 @@ async def getbaocao_tonghop_nghingobenh(request):
         arr_days.append(text_day)
 
 
-    for item_cuakhau in danhsach_cuakhau:
+    for item_org in danhsach_org:
         item = {}
-        item["ma"] = item_cuakhau.ma
-        item["ten"] = item_cuakhau.ten
-        item["id"] = item_cuakhau.id
-        arr_cuarkhau_ten.append(item_cuakhau.ten)
-        item["data_khaibao"] = []
+        item["ma"] = item_org.ma
+        item["ten"] = item_org.ten
+        item["id"] = item_org.id
+        arr_cuarkhau_ten.append(item_org.ten)
+        item["data_value"] = []
 
         # tungay = 
         for i in range(length_day-1):
             
             item_day = int(i*86400) + int(tungay_timestamp)
             text_day = convert_timestamp_to_string(item_day,'%d/%m/%Y')
+
             # arr_days.append(text_day)
-            data_khaibao = {"value_day":item_day,"text_day":text_day,"value_hanhkhach":0,"value_chuyenbay":0,"value_nghingo":0,"value_nguoinghingo":0}
+            objdata = {
+                "value_day":item_day,
+                "text_day":text_day,
+                # "value_hanhkhach":0,
+                # "value_chuyenbay":0,
+                # "value_nghingo":0,
+                # "value_nguoinghingo":0
+            }
+            for chitieu in chitieu_arr:
+                objdata[chitieu] = 0
             
             for itembc in listbaocao:
                 ngaybaocao_timestamp = datetime.timestamp(itembc.ngaybaocao)
-                if ngaybaocao_timestamp == item_day and itembc.cuakhau_id == item_cuakhau.id:
-
-                    data_khaibao["value_hanhkhach"] = itembc.sohanhkhachkhaibao
-                    data_khaibao["value_chuyenbay"] = itembc.sochuyenbay
-                    data_khaibao["value_nguoinghingo"] = itembc.songuoinguoinghingo
-                    # print("danhsachnghingonhiembenh===",itembc.danhsachnghingonhiembenh)
-                    # data_khaibao["value_nghingo"] = 0
+                if ngaybaocao_timestamp == item_day and itembc.cuakhau_id == item_org.id:
+                    for chitieu in chitieu_arr:
+                        objdata[chitieu] = getattr(itembc, chitieu)
+                    
                     
                     break
-            item["data_khaibao"].append(data_khaibao)
+            item["data_value"].append(objdata)
 
         arr_cuakhau.append(item)
     respdata = {
         "ten" : arr_cuarkhau_ten, 
         "data": arr_cuakhau, 
         "days": arr_days,
-        "donvi_id": donvi_id
+        "donvi_id": donvi_id,
+        "chitieu": chitieu_nghingonhiembenhnhoma
     }
     export = request.args.get("export", None)
     
@@ -384,7 +400,129 @@ async def getbaocao_tonghop_nghingobenh(request):
         if (donvi is None):
             return text("Tham số không hợp lệ", status=520)
         respdata["tendonvi"] = donvi.ten
+        respdata["filename"] = 'thongkenhoma-' + str(donvi.id) + "-" + str(time.time())+'.xlsx'
         return await exportthongkenghingonhiembenhnhoma(request, respdata)
 
     return json(respdata)
    
+
+@app.route('/api/v1/thongketonghopnghingonhiembenhnhoma/tw')
+async def getbaocao_tonghop_nghingobenh(request):        
+    # notdict = ['_created_at','_updated_at','_deleted','_deleted_at','_etag', 'id', 'baocao_id', 'cuakhau_id', 'sothutu', 'stt']
+    chitieu_arr = get_chitieu_name_tonghopnghingonhiembenhnhoma()
+
+    arr_donvi = []
+    arr_donvi_ten = []
+    arr_days = []
+    
+    donvi_id = request.args.get("donvi_id", "")
+    current_donvi_id = request.args.get("current_donvi_id", "")
+    tungay = request.args.get("tungay", None)
+    denngay = request.args.get("denngay", None)
+
+    if donvi_id is None or donvi_id == "":
+        return text("Tham số không hợp lệ", status=520)
+        
+    if (tungay is None) or (denngay is None):
+        return text("Tham số không hợp lệ", status=520)
+
+    donvi = db.session.query(DonVi).filter(DonVi.id == donvi_id).first()
+    if donvi is None:
+        return text("Tham số không hợp lệ", status=520)
+
+    donvi_ids = []
+    if donvi.tuyendonvi == 1:
+        donvi_ids = db.session.query(DonVi.id).filter(DonVi.tuyendonvi == 3).all()
+    elif donvi.tuyendonvi == 2:
+        donvi_ids = db.session.query(DonVi.id).filter(DonVi.tuyendonvi == 3).filter(DonVi.parent_id == int(donvi_id)).all()
+    elif donvi.tuyendonvi == 3:
+        donvi_ids.append(int(donvi_id))
+    else:
+        return text("Tham số không hợp lệ", status=520)
+    
+    
+    listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id.in_(donvi_ids),BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao <= denngay)).all()
+    # listbaocao = db.session.query(BaoCaoTongHopNghiNgoNhiemBenhNhomA).filter(and_(BaoCaoTongHopNghiNgoNhiemBenhNhomA.donvi_id == donvi_id,BaoCaoTongHopNghiNgoNhiemBenhNhomA.ngaybaocao >= tungay)).all()
+    if listbaocao is None:
+        return text("Chưa có báo cáo của các đơn vị", status=520)
+    
+
+    danhsach = db.session.query(DonVi).filter(DonVi.id.in_(donvi_ids)).all()
+    
+    if danhsach is None:
+        return text("Không tìm thấy", status=520)
+    
+    
+    tungay_date = datetime.strptime(tungay, "%Y-%m-%d") 
+    denngay_date = datetime.strptime(denngay, "%Y-%m-%d")
+
+    tungay_timestamp = datetime.timestamp(tungay_date)
+    denngay_timestamp = datetime.timestamp(denngay_date)
+
+    length_day = math.ceil((denngay_timestamp - tungay_timestamp)/86400)
+    
+    if length_day <1:
+        length_day = 1
+    else:
+        length_day = int(length_day) + 2
+
+    for i in range(length_day-1):
+        
+        item_day = int(i*86400) + int(tungay_timestamp)
+        text_day = convert_timestamp_to_string(item_day,'%d/%m/%Y')
+        arr_days.append(text_day)
+
+
+    for item_org in danhsach:
+        item = {}
+        item["ma"] = item_org.ma
+        item["ten"] = item_org.ten
+        item["id"] = item_org.id
+        arr_donvi_ten.append(item_org.ten)
+        item["data_value"] = []
+
+        # tungay = 
+        for i in range(length_day-1):
+            
+            item_day = int(i*86400) + int(tungay_timestamp)
+            text_day = convert_timestamp_to_string(item_day,'%d/%m/%Y')
+            # arr_days.append(text_day)
+            objdata = {
+                "value_day":item_day,
+                "text_day":text_day
+            }
+
+            for chitieu in chitieu_arr:
+                objdata[chitieu] = 0
+            
+            for itembc in listbaocao:
+                ngaybaocao_timestamp = datetime.timestamp(itembc.ngaybaocao)
+                if ngaybaocao_timestamp == item_day  and itembc.donvi_id == item_org.id:
+                    #print(item["id"], item_day, itembc.sohanhkhachkhaibao)
+                    for chitieu in chitieu_arr:
+                        val = getattr(itembc, chitieu)
+                        if val is not None:
+                            objdata[chitieu] = objdata[chitieu] + val
+
+            item["data_value"].append(objdata)
+
+        arr_donvi.append(item)
+    respdata = {
+        "ten" : arr_donvi_ten, 
+        "data": arr_donvi, 
+        "days": arr_days,
+        "donvi_id": donvi_id,
+        "chitieu": chitieu_nghingonhiembenhnhoma,
+    }
+    export = request.args.get("export", None)
+    
+    if export is not None:
+        user = await currentUser(request)
+        donvi = user.donvi
+        if (donvi is None):
+            return text("Tham số không hợp lệ", status=520)
+        respdata["tendonvi"] = donvi.ten
+        respdata["filename"] = 'thongkenhomatw-' + str(donvi.id) + "-" + str(time.time())+'.xlsx'
+        return await exportthongkenghingonhiembenhnhoma(request, respdata)
+
+    return json(respdata)

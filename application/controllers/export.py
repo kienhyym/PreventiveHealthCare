@@ -448,7 +448,12 @@ async def exportcuakhau(request):
     return await file(filename, mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 filename='ds-cuakhau-' + str(time.time())+'.xlsx')
 
-list_char = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W']
+list_char = [
+    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W', 'X', 'Y', 'Z',
+    'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ', 'AK', 'AL', 'AM', 'AN', 'AO', 'AP', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AW', 'AX', 'AY', 'AZ',
+    'BA', 'BB', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK', 'BL', 'BM', 'BN', 'BO', 'BP', 'BQ', 'BR', 'BS', 'BT', 'BU', 'BV', 'BW', 'BX', 'BY', 'BZ'
+]
+
 center_alignment = Alignment(horizontal="center", vertical="center")
 bold_font = Font(bold=True)
 black_side = Side(border_style="thin",color='00000000')
@@ -483,9 +488,9 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
         for j in range(len_col):
             ckten = data["ten"][j]
             col = list_char[3+j]
-            value = data["data"][j]["data_khaibao"][i]["value_" + chitieu["name"]]
+            value = data["data"][j]["data_value"][i][chitieu["name"]]
             if (value is not None) and (value > 0):
-                ws[col + str(start_row + i) ] = data["data"][j]["data_khaibao"][i]["value_" + chitieu["name"]]
+                ws[col + str(start_row + i) ] = data["data"][j]["data_value"][i][chitieu["name"]]
                 tongso = tongso + value
         
         
@@ -499,7 +504,7 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
         tongdoc = 0
         col = list_char[3+j]
         for i in range(len_day):
-            value = data["data"][j]["data_khaibao"][i]["value_" + chitieu["name"]]
+            value = data["data"][j]["data_value"][i][chitieu["name"]]
             if (value is not None) and (value > 0):
                 tongdoc = tongdoc + value
                 tong_tongso = tong_tongso + value
@@ -519,13 +524,14 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
 
 #@exportbp.route('/excel/cuakhau')
 async def exportthongkenghingonhiembenhnhoma(request, data):
-    filename='thongkenhoma-' + data.get("donvi_id") + "-" + str(time.time())+'.xlsx'
+    from .nghingonhiembenhnhoma import chitieu_nghingonhiembenhnhoma as chitieus
+    filename=data.get("filename")
     
-    chitieus = [
-				{"name":"hanhkhach", "text": "Số lượt khách khai báo y tế"},
-				{"name":"chuyenbay", "text": "Số lượng chuyến bay nhập"},
-				{"name":"nguoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"}
-			]
+    # chitieus = [
+	# 			{"name":"hanhkhach", "text": "Số lượt khách khai báo y tế"},
+	# 			{"name":"chuyenbay", "text": "Số lượng chuyến bay nhập"},
+	# 			{"name":"nguoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"}
+	# 		]
     wb = Workbook()
     ws = wb.active
 

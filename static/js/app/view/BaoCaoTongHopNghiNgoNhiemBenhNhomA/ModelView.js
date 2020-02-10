@@ -184,7 +184,7 @@ define(function (require) {
             self.model.set("songuoinhapcanh", null);
             self.model.set("sohanhkhachkhaibao", null);
             self.model.set("sochuyenbay", null);
-            self.model.set("songuoinguoinghingo", null);
+            self.model.set("songuoinghingo", null);
 
 			if(!cuakhau_id){
 				self.getApp().notify('Xin mời chọn cửa khẩu');

@@ -735,7 +735,7 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
     songuoinhapcanh = db.Column(db.BigInteger)
     sohanhkhachkhaibao = db.Column(db.BigInteger)
     sochuyenbay = db.Column(db.BigInteger)
-    songuoinguoinghingo = db.Column(db.BigInteger)
+    songuoinghingo = db.Column(db.BigInteger)
 
     #donvi
     songuoidangcachlytaptrung = db.Column(db.BigInteger)
@@ -744,7 +744,7 @@ class BaoCaoTongHopNghiNgoNhiemBenhNhomA(CommonModel):
     songuoicachlytainha = db.Column(db.BigInteger)
     songuoihetcachly = db.Column(db.BigInteger)
 
-    diadiemcachlytaptrung = db.Column(db.String)
+    data = db.Column(JSONB)
 
     # __table_args__ = (UniqueConstraint('donvi_id', 'cuakhau_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_cuakhau_id_ngaybaocao'),)
     # __table_args__ = (UniqueConstraint('donvi_id', 'ngaybaocao', name='uq_baocaotonghopnghingonhiembenhnhoma_donvi_id_ngaybaocao'),)

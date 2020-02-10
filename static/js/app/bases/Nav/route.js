@@ -110,9 +110,13 @@ define(function (require) {
 		{
 			"collectionName":"thongkenghingonhiembenhnhoma",
 			"route":"thongkenghingonhiembenhnhoma",
-			"$ref": "app/view/ThongKeNghiNgoNhiemBenhNhomA/ThongKeView",
+			"$ref": "app/view/ThongKeNghiNgoNhiemBenhNhomA/ThongKeDonViView",
 		},
-		
+		{
+			"collectionName":"thongkenghingonhiembenhnhoma",
+			"route":"thongkenghingonhiembenhnhomatw",
+			"$ref": "app/view/ThongKeNghiNgoNhiemBenhNhomA/ThongKeTrungUongView",
+		},
 	];
 
 });
