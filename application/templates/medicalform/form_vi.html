@@ -1,5 +1,7 @@
 {% extends "medicalform/layout.html" %}
 {% block content %}
+
+
 <div class="container">
     <h4 class="d-flex justify-content-center">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h4>
     <p style="font-size: 80%; margin-top: 10px;"><b>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y
@@ -8,30 +10,29 @@
     </p>
     <div class="" style="margin-bottom:10px;margin-top:20px">
         <div class="col-md-12 text-right ">
-            <label style="color: red;">Ngày 20/01/2020</label>
+            <label style="color: red;" id="ngaykekhai">Ngày 20/01/2020</label>
         </div>
-
     </div>
     <div class="" style="margin-bottom:10px;">
         <div><label>Họ tên (viết chữ in hoa):</label></div>
         <div>
-            <input type="text" class='form-control' />
+            <input type="text" class='form-control' id="tenkhach" />
         </div>
     </div>
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Năm sinh:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="number" class='form-control' id="namsinh" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Giới tính:</label></div>
-            <select class="custom-select">
+            <select class="custom-select gioitinh">
                 <option selected>Giới tính</option>
                 <option value="1">Nam</option>
                 <option value="2">Nữ</option>
-              </select>
+            </select>
         </div>
     </div>
 
@@ -39,13 +40,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Quốc tịch:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="quoctich" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Số hộ chiếu:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="hochieu" />
             </div>
         </div>
     </div>
@@ -55,21 +56,21 @@
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
-            <input type="checkbox" class="custom-control-input" id="taubay">
+            <input type="checkbox" class="custom-control-input phuongtien" id="taubay">
             <label class="custom-control-label" for="taubay">Tàu bay</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="phuongtien_taubien">
-            <label class="custom-control-label" for="phuongtien_taubien">Tàu biển</label>
+            <input type="checkbox" class="custom-control-input phuongtien" id="phuongtien_taubien">
+            <label class="custom-control-label" for="phuongtien_taubien">Tàu thuyền</label>
         </div>
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
-            <input type="checkbox" class="custom-control-input" id="phuongtien_oto">
+            <input type="checkbox" class="custom-control-input phuongtien" id="phuongtien_oto">
             <label class="custom-control-label" for="phuongtien_oto">Ô tô</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="phuongtien_khac">
+            <input type="checkbox" class="custom-control-input phuongtien" id="phuongtien_khac">
             <label class="custom-control-label" for="phuongtien_khac">Khác (Ghi rõ)</label>
         </div>
     </div>
@@ -77,7 +78,8 @@
 
     <div class=" text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 p-0">
-            <textarea type="text" class='form-control' placeholder="Viết rõ phương tiện đi lại"></textarea>
+            <textarea type="text" class='form-control' id="phuongtien"
+                placeholder="Viết rõ phương tiện đi lại"></textarea>
         </div>
     </div>
 
@@ -85,13 +87,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Số hiệu phương tiện:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="sohieu" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Số ghế:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="soghe" />
             </div>
         </div>
     </div>
@@ -100,13 +102,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Ngày khởi hành:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaykhoihanh" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Ngày nhập cảnh:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaynhapcanh" />
             </div>
         </div>
     </div>
@@ -118,13 +120,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Tỉnh:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="tinhkhoihanh" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Quốc gia:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="quocgiakhoihanh" />
             </div>
         </div>
     </div>
@@ -136,13 +138,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Tỉnh:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="tinhnoiden" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Quốc gia:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="quocgianoiden" />
             </div>
         </div>
     </div>
@@ -154,7 +156,7 @@
             </label>
         </div>
         <div class="col-md-12">
-            <textarea type="text" class='form-control' /></textarea>
+            <textarea type="text" class='form-control' id="noidiqua" /></textarea>
         </div>
     </div>
 
@@ -164,7 +166,7 @@
     <div class="row text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
         <div class="col-md-12 col-12">
-            <textarea type="text" class='form-control' /></textarea>
+            <textarea type="text" class='form-control' id="noioviwetnam" /></textarea>
         </div>
     </div>
 
@@ -172,13 +174,13 @@
         <div class="col-5" style="margin-bottom:10px;">
             <div class=""><label>Điện thoại:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="dienthoai" />
             </div>
         </div>
         <div class="col-7" style="margin-bottom:10px;">
             <div class=""><label>Email:</label></div>
             <div class="">
-                <input type="text" class='form-control' />
+                <input type="text" class='form-control' id="email" />
             </div>
         </div>
     </div>
@@ -205,14 +207,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline1" name="customRadioInline12"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline2" name="customRadioInline12"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline2"></label>
                     </div>
                 </td>
@@ -222,14 +224,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline3" name="customRadioInline34"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline3"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline4" name="customRadioInline34"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline4"></label>
                     </div>
                 </td>
@@ -239,14 +241,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline5" name="customRadioInline56"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline5"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline6" name="customRadioInline56"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline6"></label>
                     </div>
                 </td>
@@ -256,14 +258,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline7" name="customRadioInline78"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline7"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline8" name="customRadioInline78"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline8"></label>
                     </div>
                 </td>
@@ -273,14 +275,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline9" name="customRadioInline910"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline9"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline10" name="customRadioInline910"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline10"></label>
                     </div>
                 </td>
@@ -290,14 +292,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline11" name="customRadioInline1112"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline11"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline12" name="customRadioInline1112"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline12"></label>
                     </div>
                 </td>
@@ -307,14 +309,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline13" name="customRadioInline1314"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline13"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline14" name="customRadioInline1314"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline14"></label>
                     </div>
                 </td>
@@ -324,14 +326,14 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline15" name="customRadioInline1516"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline15"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadioInline16" name="customRadioInline1516"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline16"></label>
                     </div>
                 </td>
@@ -343,7 +345,7 @@
             <label><b>Liệt kê tên vắc xin hoặc sinh phẩm y tế đã sử dụng:</b></label>
         </div>
         <div class="col-md-12">
-            <textarea type="text" class='form-control' /></textarea>
+            <textarea type="text" class='form-control' id="vacxin" /></textarea>
         </div>
     </div>
     <div class="row" style="margin-bottom:10px">
@@ -361,12 +363,12 @@
                 <td class="text-left">
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="customRadioInline17" name="customRadioInline1718"
-                            class="custom-control-input">
+                            class="custom-control-input" value=1>
                         <label class="custom-control-label" for="customRadioInline17">Có</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="customRadioInline18" name="customRadioInline1718"
-                            class="custom-control-input">
+                            class="custom-control-input" value=2>
                         <label class="custom-control-label" for="customRadioInline18">Không</label>
                     </div>
                 </td>
@@ -376,12 +378,12 @@
                 <td class="text-left">
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="customRadioInline19" name="customRadioInline1920"
-                            class="custom-control-input">
+                            class="custom-control-input customRadioInline1920" value=1>
                         <label class="custom-control-label" for="customRadioInline19">Có</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="customRadioInline20" name="customRadioInline1920"
-                            class="custom-control-input">
+                            class="custom-control-input customRadioInline1920" value=2>
                         <label class="custom-control-label" for="customRadioInline20">Không</label>
                     </div>
                 </td>
@@ -396,28 +398,230 @@
             </p>
         </div>
     </div>
- 
-    
+
+
     <div class="row" style="margin-bottom:40px;">
         <div class="col-6" style="margin-bottom:10px;" id="inline-badge-capcha">
-            </div>
+        </div>
         <div class="col-6 text-center" style="margin-bottom:10px;">
-            <button class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+            <button class="btn btn-success" id="btn-luu"><i class="fa fa-save"></i> Lưu</button>
         </div>
     </div>
-        
     <!--<h6 class="d-flex justify-content-center" style="margin-bottom:30px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
         cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
         cơ quan y tế nơi gần nhất </h6>-->
 </div>
+<script>
+    $(document).ready(function () {
+
+        //Chọn giới tính
+        var selectedGioiTinh;
+        $("select.gioitinh").change(function () {
+            selectedGioiTinh = $(this).children("option:selected").val();
+        });
+
+
+
+
+        var d = new Date();
+        var ngaysoan = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
+        $('#ngaykekhai').html('Ngày khai:' + ngaysoan)
+        var dauhieubenh_sot = null;
+        var dauhieubenh_ho = null;
+
+        var dauhieubenh_khotho = null;
+        var dauhieubenh_dauhong = null;
+
+        var dauhieubenh_buonnon = null;
+        var dauhieubenh_tieuchay = null;
+        var dauhieubenh_xuathuyetngoaida = null;
+        var dauhieubenh_phatban = null;
+
+        var tiepxuc_dongvat = null;
+        var chamsocnguoibenhtruyennhiem = null;
+
+
+        var taubay = null;
+        var tauthuyen = null;
+        var oto = null;
+        var khac = null;
+        $('#btn-luu').unbind('click').bind('click', function () {
+            var checkedValue = [];
+
+            var inputElements = document.getElementsByClassName('phuongtien');
+            for (var i = 0; inputElements[i]; ++i) {
+                if (inputElements[i].checked) {
+                    checkedValue.push({ 'id': i, "value": 1 });
+                }
+                else
+                {
+                    checkedValue.push({ 'id': i, "value": 2 });
+                }
+            }
+            console.log(checkedValue)
+            checkedValue.forEach(function (item, index) {
+                if (item.id == 0) {
+                    taubay = Number(item.value)
+                }
+                if (item.id == 1) {
+                    tauthuyen = Number(item.value)
+                }
+
+                if (item.id ==2) {
+                    oto = Number(item.value)
+                }
+
+                if (item.id ==3) {
+                    khac = Number(item.value)
+                }
+            })
+
+            var valueRadio = [];
+            var danhsachRadio = [
+                'customRadioInline12',
+                'customRadioInline34',
+                'customRadioInline56',
+                'customRadioInline78',
+                'customRadioInline910',
+                'customRadioInline1112',
+                'customRadioInline1314',
+                'customRadioInline1516',
+                'customRadioInline1718',
+                'customRadioInline1920',
+            ]
+            var valuex;
+            danhsachRadio.forEach(function (item, index) {
+                var radios = document.getElementsByName(item);
+                for (var i = 0, length = radios.length; i < length; i++) {
+                    if (radios[i].checked) {
+                        valuex = radios[i].value;
+                        valueRadio.push({ 'id': index, 'value': valuex })
+                        break;
+                    }
+                }
+            })
+            console.log(valueRadio)
+            valueRadio.forEach(function (item, index) {
+                if (item.id == 0) {
+                    dauhieubenh_sot = Number(item.value)
+                }
+                if (item.id == 9) {
+                    chamsocnguoibenhtruyennhiem = Number(item.value)
+                }
+                if (item.id == 8) {
+                    tiepxuc_dongvat = Number(item.value)
+                }
+
+                if (item.id == 7) {
+                    dauhieubenh_phatban = Number(item.value)
+                }
+
+                if (item.id == 6) {
+                    dauhieubenh_xuathuyetngoaida = Number(item.value)
+                }
+
+                if (item.id == 5) {
+                    dauhieubenh_tieuchay = Number(item.value)
+                }
+                if (item.id == 4) {
+                    dauhieubenh_buonnon = Number(item.value)
+                }
+
+                if (item.id == 3) {
+                    dauhieubenh_dauhong = Number(item.value)
+                }
+                if (item.id == 2) {
+                    dauhieubenh_khotho = Number(item.value)
+                }
+
+                if (item.id == 1) {
+                    dauhieubenh_ho = Number(item.value)
+                }
+
+            })
+
+            console.log(dauhieubenh_sot, dauhieubenh_ho, dauhieubenh_khotho, dauhieubenh_dauhong, dauhieubenh_buonnon, dauhieubenh_tieuchay, dauhieubenh_xuathuyetngoaida, dauhieubenh_phatban, tiepxuc_dongvat, chamsocnguoibenhtruyennhiem)
+
+
+            var data = {
+                "id": null,
+                "ngaykekhai": String(ngaysoan),
+                "cuakhau_id": null,
+                // "tencuakhau":"tencuakhau",
+                // "macuakhau":"macuakhau",
+                "donvi_id": 1,
+                // "tendonvi":"tendonvi",
+                // "madonvi":"madonvi",
+                "canbo_id": 1,
+                // "tencanbo":"tencanbo",
+                // "emailcanbo":"emailcanbo",
+                "hoten": $('#tenkhach').val(),
+                "namsinh": Number($('#namsinh').val()),
+                "gioitinh": selectedGioiTinh,
+                "quoctich": $('#quoctich').val(),
+                "sohochieu": $('#hochieu').val(),
+
+                "thongtindilai_taubay": taubay,
+                "thongtindilai_tauthuyen": tauthuyen,
+                "thongtindilai_oto": oto,
+                "thongtindilai_khac": khac,
+                "thongtindilai_chitiet": $('#phuongtien').val(),
+
+                "sohieu_phuongtien": $('#sohieu').val(),
+                "soghe_phuongtien": $('#soghe').val(),
+                "ngay_khoihanh": $('#ngaykhoihanh').val(),
+                "ngay_nhapcanh": $('#ngaynhapcanh').val(),
+                "noi_khoihanh": $('#tinhkhoihanh').val() + ', ' + $('#quocgiakhoihanh').val(),
+                "noiden": $('#tinhnoiden').val() + ', ' + $('#quocgianoiden').val(),
+                "quocgiadiqua": $('#noidiqua').val(),
+                "diachi_taivietnam": $('#noioviwetnam').val(),
+                "sodienthoai": $('#dienthoai').val(),
+                "email": $('#email').val(),
+                "dauhieubenh_sot": dauhieubenh_sot,
+                "dauhieubenh_ho": dauhieubenh_ho,
+                "dauhieubenh_khotho": dauhieubenh_khotho,
+                "dauhieubenh_dauhong": dauhieubenh_dauhong,
+                "dauhieubenh_buonnon": dauhieubenh_buonnon,
+                "dauhieubenh_tieuchay": dauhieubenh_tieuchay,
+                "dauhieubenh_xuathuyetngoaida": dauhieubenh_xuathuyetngoaida,
+                "dauhieubenh_phatban": dauhieubenh_phatban,
+                "vacxin_dasudung": $('#vacxin').val(),
+                "tiepxuc_dongvat": tiepxuc_dongvat,
+                "chamsocnguoibenhtruyennhiem": chamsocnguoibenhtruyennhiem,
+                // "ngaygio_phathien":"",
+                // "tinhtrang":"",
+                // "huongxuly":"",
+                // "cachlytaptrung":"",
+                // "trangthai":"",
+                // "note":"",
+                // "extra_data":""
+            }
+            $.ajax({
+                type: "POST",
+                url: location.origin + "/api/v1/tokhaiyte",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+
+                success: function (response) {
+                    console.log('xxxxxxxxxxxthanhf cong')
+                },
+                error: function (response) {
+                    // self.getApp().notify({ message: "Lưu không thành công" }, { type: "danger", delay: 1000 });
+                }
+            });
+        })
+
+    });
+
+</script>
 
 {% endblock %}
 
 {% block head_script %}
 <!--<script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>-->
-        
+
 <script>
-    
+
     function onRecaptchaLoadCallback() {
         var clientId = grecaptcha.render('inline-badge-capcha', {
             'sitekey': '6Lddk9YUAAAAAE1c8RtfE2Oki5ZLdcZAzm1sYTmX',
@@ -425,14 +629,16 @@
             'size': 'invisible'
         });
 
-        grecaptcha.ready(function() {
+        grecaptcha.ready(function () {
             grecaptcha.execute(clientId, {
-                    action: 'homepage'
-                }).then(function(token) {
-                    // Verify the token on the server.
-                    console.log(token, "token");
-                });
+                action: 'homepage'
+            }).then(function (token) {
+                // Verify the token on the server.
+                console.log(token, "token");
+            });
         });
     }
+
+
 </script>
 {% endblock %}

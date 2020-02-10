@@ -29,12 +29,21 @@ async def medicalform_form(request, lang):
     if lang in ["vi", "cn", "en"]:
         return jinja.render('medicalform/form_' + lang + '.html', request)
 
+async def create_tokhaiyte(request=None, Model=None, result=None, **kw):
+    print('xxxxxxxxxxxxxxxxxxxxxx')
+    data = request.json
+    if data['id'] is None:
+        data['id'] = str(uuid.uuid4())
+        result = data
+
+    
+
 
 apimanager.create_api(ToKhaiYTe,
     methods=['GET', 'POST', 'DELETE', 'PUT'],
     url_prefix='/api/v1',
     #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func,create_tokhaiyte], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
     
     #results_per_page=30,
     collection_name='tokhaiyte')

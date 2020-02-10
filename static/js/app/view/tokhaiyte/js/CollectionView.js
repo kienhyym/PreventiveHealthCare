@@ -15,9 +15,10 @@ define(function (require) {
         collectionName: "tokhaiyte",
         uiControl: {
             fields: [
+                { field: "stt", label: "stt"},
                 { field: "id", visible: false },
                 { field: "hoten", label: "Họ tên"},
-                { field: "matokhaiyte", label: "Mã tờ khai" },
+                // { field: "matokhaiyte", label: "Mã tờ khai" },
                 { field: "ngaykekhai", label: "Ngày kê khai" },
                 { field: "donvi_id", visible: false },
                 { field: "tendonvi", visible: false },
@@ -83,6 +84,7 @@ define(function (require) {
         },
         render: function () {
             this.applyBindings();
+            console.log(this.collection)
             return this;
         },
 

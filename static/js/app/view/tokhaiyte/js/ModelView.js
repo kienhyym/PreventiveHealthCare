@@ -37,6 +37,11 @@ define(function (require) {
 						label: "TRANSLATE:SAVE",
 						command: function () {
 							var self = this;
+							// self.model.set('id', '1áds23')
+							self.model.set('donvi_id', 1)
+							self.model.set('cuakhau_id', 1)
+							self.model.set('canbo_id', 1)
+
 
 							self.model.save(null, {
 								success: function (model, respose, options) {
@@ -50,27 +55,29 @@ define(function (require) {
 							});
 						}
 					},
-					//							{
-					//				    	    	name: "delete",
-					//				    	    	type: "button",
-					//				    	    	buttonClass: "btn-danger btn-sm",
-					//				    	    	label: "TRANSLATE:DELETE",
-					//				    	    	visible: function(){
-					//				    	    		return this.getApp().getRouter().getParam("id") !== null;
-					//				    	    	},
-					//				    	    	command: function(){
-					//				    	    		var self = this;
-					//				                    self.model.destroy({
-					//				                        success: function(model, response) {
-					//				                            self.getApp().getRouter().navigate(self.collectionName + "/collection");
-					//				                        },
-					//				                        error: function (model, xhr, options) {
-					//				                            //self.alertMessage("Something went wrong while processing the model", false);
-					//				                            self.getApp().notify('Delete error');
-					//				                        }
-					//				                    });
-					//				    	    	}
-					//				    	    },
+					{
+						name: "delete",
+						type: "button",
+						buttonClass: "btn-danger btn-sm",
+						label: "TRANSLATE:DELETE",
+						visible: function () {
+							return this.getApp().getRouter().getParam("id") !== null;
+						},
+						command: function () {
+							var self = this;
+							self.model.destroy({
+								success: function (model, response) {
+									self.getApp().notify('Delete successfully');
+
+									self.getApp().getRouter().navigate(self.collectionName + "/collection");
+								},
+								error: function (model, xhr, options) {
+									//self.alertMessage("Something went wrong while processing the model", false);
+									self.getApp().notify('Delete error');
+								}
+							});
+						}
+					},
 				]
 			},
 		],
@@ -449,23 +456,19 @@ define(function (require) {
 		render: function () {
 			var self = this;
 			console.log(self.getApp().currentUser)
-			self.model.set('matokhaiyte', '123')
-			self.model.set('ngaykekhai', '020-02-09T00:00:00')
-			self.model.set('donvi_id', 1)
-			self.model.set('tendonvi', 'Cục YTDP')
-			self.model.set('madonvi', '123')
-			self.model.set('cuakhau_id', 123)
-			self.model.set('tencuakhau', '123')
-			self.model.set('macuakhau', '123')
-			self.model.set('canbo_id', 156)
-			self.model.set('tencanbo', '"Support"')
-			self.model.set('emailcanbo', 'support@baocaokdyt.com')
+
 			var id = this.getApp().getRouter().getParam("id");
 			if (id) {
+				
 				this.model.set('id', id);
 				this.model.fetch({
 					success: function (data) {
 						self.applyBindings();
+						self.$el.find('.checkbox-group').css({ 'width': '11%', 'margin-left': '2px' });
+						self.$el.find('.input-group-addon').hide();
+						self.$el.find('.datetimepicker-input').css('padding', '5px');
+						self.$el.find('.checkbox-group,.checkbox-group2').css('float', 'left');
+						self.$el.find('.radio-option').css({ 'display': 'inline', 'padding-left': '30px', 'padding-right': '30px' });
 					},
 					error: function () {
 						self.getApp().notify("Get data Eror");
@@ -478,8 +481,8 @@ define(function (require) {
 			self.$el.find('.input-group-addon').hide();
 			self.$el.find('.datetimepicker-input').css('padding', '5px');
 			self.$el.find('.checkbox-group,.checkbox-group2').css('float', 'left');
-			self.$el.find('.radio-option').css({'display':'inline','padding-left':'30px','padding-right':'30px'});
-			
+			self.$el.find('.radio-option').css({ 'display': 'inline', 'padding-left': '30px', 'padding-right': '30px' });
+
 		},
 	});
 

@@ -2,9 +2,6 @@
   "id":{
     "type":"string"
   },
-  "matokhaiyte": {
-    "type":"string"
-  },
   "ngaykekhai": {
     "type":"datetime"
   },
