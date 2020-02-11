@@ -135,6 +135,7 @@ define(function (require) {
 			},
 			{field:"ngaybaocao", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
 			{field:"ngay_nhapquacanh", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
+			{field:"tiensu_ngaykhoiphat", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
             
 			{
                 field: "baocaonghingonhiembenhxetnghiem",
