@@ -1,6 +1,8 @@
 from application.extensions import jinja
 from gatco.response import json
 
+async def auth_func(request, **kw):
+    pass
 
 def init_controllers(app):
     import application.controllers.user_api

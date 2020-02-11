@@ -22,7 +22,7 @@ from sqlalchemy import or_, and_
 from sqlalchemy.orm import aliased, joinedload_all
 from .user_api import current_user as currentUser
 from .export import exportthongkenghingonhiembenhnhoma
-
+from . import auth_func
 
 chitieu_nghingonhiembenhnhoma = [
 				{"name":"sohanhkhachkhaibao", "text": "Số lượt khách khai báo y tế"},
@@ -31,6 +31,31 @@ chitieu_nghingonhiembenhnhoma = [
                 {"name":"songuoidangcachlytaptrung_cotrieuchung", "text": "Số người cách ly tập trung, có triệu chứng"},
                 {"name":"sochuyenbay", "text": "Số lượng chuyến bay nhập"},
 			]
+
+
+apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
+    methods=['GET', 'POST', 'DELETE', 'PUT'],
+    url_prefix='/api/v1',
+    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    
+    #results_per_page=30,
+    collection_name='baocaotonghopnghingonhiembenhnhoma')
+
+apimanager.create_api(DiaDiemCachLyTapTrung,
+    methods=['GET', 'POST', 'DELETE', 'PUT'],
+    url_prefix='/api/v1',
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    results_per_page=30,
+    collection_name='diadiemcachlytaptrung')
+
+apimanager.create_api(TruongHopCachLyTapTrung,
+    methods=['GET', 'POST', 'DELETE', 'PUT'],
+    url_prefix='/api/v1',
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    results_per_page=30,
+    collection_name='truonghopcachlytaptrung')
+
 
 async def get_baocaotonghopnghingonhiembenhnhoma_donvi(request):
     donvi_id = request.args.get("donvi_id", None)
