@@ -18,8 +18,11 @@ define(function (require) {
                 {
                     field: "id", label: "ID"
                 },
-
-                { field: "ma", label: "Mã"},
+                { field: "hoten", label: "Họ tên" },
+                { field: "namsinh", label: "Năm sinh" },
+                { field: "gioitinh", label: "Giới tính" },
+                { field: "quoctich", label: "Quốc tịch" },
+                { field: "ma", visible:false, },
                 { field: "ngaybaocao", label: "Ngày báo cáo" },
                 { field: "noibaocao", label: "Nơi báo cáo"},
                 { field: "nambaocao", label: "Năm báo cáo"},
@@ -32,6 +35,20 @@ define(function (require) {
 
                 { field: "huongxutri", visible:false},
                 { field: "ngaygio_phathien", visible:false},
+
+                { field: "ma_quoctich", visible:false},
+                { field: "noio_tinhthanh", visible:false},
+                { field: "noio_matinhthanh", visible:false},
+                { field: "dauhieubenh_sot", visible:false},
+                { field: "dauhieubenh_ho", visible:false},
+
+                { field: "dauhieubenh_khotho", visible:false},
+                { field: "dauhieubenh_dauhong", visible:false},
+                { field: "dauhieubenh_buonnon", visible:false},
+                { field: "dauhieubenh_tieuchay", visible:false},
+                { field: "dauhieubenh_xuathuyetngoaida", visible:false},
+                { field: "dauhieubenh_phatban", visible:false},
+                
                 
 
                 { field: "donvi", label: "Tên đơn vị", width: 250, textField: "ten",visible:false },
@@ -43,15 +60,13 @@ define(function (require) {
                 { field: "dienthoai", visible:false },
                 { field: "email", visible:false },
                 { field: "gio_nhapquacanh", visible:false },
-                { field: "gioitinh", visible:false },
-                { field: "hoten", visible:false },
-                { field: "namsinh", visible:false },
+                
                 { field: "ngay_nhapquacanh", visible:false },
                 { field: "nhanxet_danhgia", visible:false },
                 { field: "noio", visible:false },
                 { field: "noitiepnhan_xutri", visible:false },
                 { field: "phuongtien", visible:false },
-                { field: "quoctich", visible:false },
+                
                 { field: "sohieu_phuongtien", visible:false },
                 { field: "tiensu_chandoan", visible:false },
                 { field: "tiensu_dichte", visible:false },
