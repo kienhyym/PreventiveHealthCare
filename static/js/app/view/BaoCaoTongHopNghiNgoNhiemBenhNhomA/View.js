@@ -351,13 +351,24 @@ define(function (require) {
 							{
 								name: "create",
 								type: "button",
-								buttonClass: "btn-danger btn-sm",
-								label: "Tạo mới nhanh trường hợp nghi ngờ",
+								buttonClass: "btn-warning btn-sm",
+								label: "Thêm trường hợp nghi ngờ",
 								command: function() {
-									self.createNguoiNhiemBenh();
-									// var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
-									// dialogNghiNgonhiemBenh.dialog({size: "large"});
-									
+									// self.createNguoiNhiemBenh();
+
+									var path =  'baocaonghingonhiembenh/model';
+									gonrinApp().getRouter().navigate(path);
+								}
+							},
+							{
+								name: "create-cachly",
+								type: "button",
+								buttonClass: "btn-danger btn-sm",
+								label: "Thêm trường hợp cách ly",
+								command: function() {
+									// self.createNguoiNhiemBenh();
+									var path =  'baocaonghingonhiembenh/model?cachly=1';
+									gonrinApp().getRouter().navigate(path);
 								}
 							},
 							// {

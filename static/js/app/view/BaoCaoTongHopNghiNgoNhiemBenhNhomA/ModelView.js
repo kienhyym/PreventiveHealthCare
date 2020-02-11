@@ -338,22 +338,22 @@ define(function (require) {
 								}
 							},
 
-							{
-								name: "export_excel",
-								type: "button",
-								buttonClass: "btn-primary btn-sm",
-								label: "Xuất Excel danh sách cách ly",
-								command: function() {
-									var ngaybaocao = self.model.get("ngaybaocao");
-									//var url = "/export/excel/baocaongonhiembenhnhom";
+							// {
+							// 	name: "export_excel",
+							// 	type: "button",
+							// 	buttonClass: "btn-primary btn-sm",
+							// 	label: "Xuất Excel danh sách cách ly",
+							// 	command: function() {
+							// 		var ngaybaocao = self.model.get("ngaybaocao");
+							// 		//var url = "/export/excel/baocaongonhiembenhnhom";
 									
-									if(!!ngaybaocao){
-										var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao + "&cachly=1";
-										window.open(url, "_blank");
-									}
+							// 		if(!!ngaybaocao){
+							// 			var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao + "&cachly=1";
+							// 			window.open(url, "_blank");
+							// 		}
 									
-								}
-							},
+							// 	}
+							// },
 						],
 						fields: [
 							{
