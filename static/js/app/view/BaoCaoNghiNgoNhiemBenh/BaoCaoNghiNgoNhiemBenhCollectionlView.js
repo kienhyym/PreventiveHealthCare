@@ -30,7 +30,7 @@ define(function (require) {
                 { field: "macuakhau", label: "ID đơn vị",visible:false},
                 { field: "tencuakhau", label: "Tên cửa khẩu"},
 
-                { field: "huongxuly", visible:false},
+                { field: "huongxutri", visible:false},
                 { field: "ngaygio_phathien", visible:false},
                 
 

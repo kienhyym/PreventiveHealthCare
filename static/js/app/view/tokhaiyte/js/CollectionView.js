@@ -65,7 +65,7 @@ define(function (require) {
                 { field: "chamsocnguoibenhtruyennhiem", visible: false },
                 { field: "ngaygio_phathien", visible: false },
                 { field: "tinhtrang", visible: false },
-                { field: "huongxuly", visible: false },
+                { field: "huongxutri", visible: false },
                 { field: "cachlytaptrung", visible: false },
                 { field: "trangthai", label: "Trạng thái" },
 

@@ -133,6 +133,28 @@ define(function (require) {
 				cssClass: false,
 
 			},
+			{
+				field:"dauhieubenh_sot",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_ho",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
 			{field:"ngaybaocao", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
 			{field:"ngay_nhapquacanh", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
 			{field:"tiensu_ngaykhoiphat", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
@@ -149,7 +171,19 @@ define(function (require) {
                     command: "create"
                 }, ],
                 toolEl: "#add-xetnghiem-item"
-            },
+			},
+			{
+				field: "noio_tinhthanh",
+				uicontrol: false,
+			},
+			{
+				field: "huongxutri",
+				uicontrol: false,
+			},
+			{
+				field: "gioitinh",
+				uicontrol: false,
+			},
             {
                 field: "baocaonghingonhiembenhquocgia",
                 uicontrol: false,

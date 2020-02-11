@@ -112,10 +112,21 @@
     "baocaonghingonhiembenhnguoitiepxuc": {
       "type": "list"
     },
-    "huongxuly": {
+    "huongxutri": {
       "type": "string"
     },
     "ngaygio_phathien": {
+      "type": "string"
+    },
+
+    
+    "ma_quoctich": {
+      "type": "string"
+    },
+    "noio_tinhthanh": {
+      "type": "string"
+    },
+    "noio_matinhthanh": {
       "type": "string"
     }
   }

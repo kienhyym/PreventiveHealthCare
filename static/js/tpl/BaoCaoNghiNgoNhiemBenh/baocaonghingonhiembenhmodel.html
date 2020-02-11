@@ -39,10 +39,12 @@
                         <input data-bind="value:hoten" class="input-NghiNgoNhiemBenh" type="text" style="flex-grow: 1">
 
                         <label>Giới tính: </label>
-                        <input data-bind="value:gioitinh" class="input-NghiNgoNhiemBenh" type="text"
-                            style="flex-grow: 1">
+                        <select data-bind="value:gioitinh" style="width:120px">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
 
-                        <label>Năm sinh (tuổi): </label>
+                        <label> &nbsp;Năm sinh: </label>
                         <input data-bind="value:namsinh" class="input-NghiNgoNhiemBenh" type="text"
                             style="flex-grow: 1">
                     </td>
@@ -79,7 +81,7 @@
                             <input data-bind="value:phuongtien" class=" input-NghiNgoNhiemBenh" type="text"
                                 style="flex-grow: 1">
 
-                            <label>số hiệu: </label>
+                            <label>Số hiệu: </label>
                             <input data-bind="value:sohieu_phuongtien" class=" input-NghiNgoNhiemBenh" type="text"
                                 style="flex-grow: 1">
                         </div>
@@ -90,6 +92,74 @@
                     <td class="flexboxer">
                         <label>Nơi ở tại Việt Nam (nếu có): </label>
                         <input data-bind="value:noio" class=" input-NghiNgoNhiemBenh" type="text" style="flex-grow: 1">
+                        <label>Thuộc tỉnh/thành: &nbsp;</label>
+
+                        <select name= "noio_tinhthanh" data-bind="value:noio_tinhthanh" style="width:160px">
+                            <option value="An Giang">An Giang</option>
+                            <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                            <option value="Bắc Giang">Bắc Giang</option>
+                            <option value="Bắc Kạn">Bắc Kạn</option>
+                            <option value="Bạc Liêu">Bạc Liêu</option>
+                            <option value="Bắc Ninh">Bắc Ninh</option>
+                            <option value="Bến Tre">Bến Tre</option>
+                            <option value="Bình Định">Bình Định</option>
+                            <option value="Bình Dương">Bình Dương</option>
+                            <option value="Bình Phước">Bình Phước</option>
+                            <option value="Bình Thuận">Bình Thuận</option>
+                            <option value="Bình Thuận">Bình Thuận</option>
+                            <option value="Cà Mau">Cà Mau</option>
+                            <option value="Cao Bằng">Cao Bằng</option>
+                            <option value="Cần Thơ">Cần Thơ</option>
+                            <option value="Đà Nẵng">Đà Nẵng</option>
+                            <option value="Đắk Lắk">Đắk Lắk</option>
+                            <option value="Đắk Nông">Đắk Nông</option>
+                            <option value="Điện Biên">Điện Biên</option>
+                            <option value="Đồng Nai">Đồng Nai</option>
+                            <option value="Đồng Tháp">Đồng Tháp</option>
+                            <option value="Gia Lai">Gia Lai</option>
+                            <option value="Hà Giang">Hà Giang</option>
+                            <option value="Hà Nam">Hà Nam</option>
+                            <option value="Hà Nội">Hà Nội</option>
+                            <option value="Hà Tĩnh">Hà Tĩnh</option>
+                            <option value="Hải Dương">Hải Dương</option>
+                            <option value="Hải Phòng">Hải Phòng</option>
+                            <option value="Hậu Giang">Hậu Giang</option>
+                            <option value="Hòa Bình">Hòa Bình</option>
+                            <option value="Hưng Yên">Hưng Yên</option>
+                            <option value="Khánh Hòa">Khánh Hòa</option>
+                            <option value="Kiên Giang">Kiên Giang</option>
+                            <option value="Kon Tum">Kon Tum</option>
+                            <option value="Lai Châu">Lai Châu</option>
+                            <option value="Lâm Đồng">Lâm Đồng</option>
+                            <option value="Lạng Sơn">Lạng Sơn</option>
+                            <option value="Lào Cai">Lào Cai</option>
+                            <option value="Long An">Long An</option>
+                            <option value="Nam Định">Nam Định</option>
+                            <option value="Nghệ An">Nghệ An</option>
+                            <option value="Ninh Bình">Ninh Bình</option>
+                            <option value="Ninh Thuận">Ninh Thuận</option>
+                            <option value="Phú Thọ">Phú Thọ</option>
+                            <option value="Phú Yên">Phú Yên</option>
+                            <option value="Quảng Bình">Quảng Bình</option>
+                            <option value="Quảng Ngãi">Quảng Ngãi</option>
+                            <option value="Quảng Ninh">Quảng Ninh</option>
+                            <option value="Quảng Trị">Quảng Trị</option>
+                            <option value="Sóc Trăng">Sóc Trăng</option>
+                            <option value="Sơn La">Sơn La</option>
+                            <option value="Tây Ninh">Tây Ninh</option>
+                            <option value="Thái Bình">Thái Bình</option>
+                            <option value="Thái Nguyên">Thái Nguyên</option>
+                            <option value="Thanh Hóa">Thanh Hóa</option>
+                            <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                            <option value="Tiền Giang">Tiền Giang</option>
+                            <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
+                            <option value="Trà Vinh">Trà Vinh</option>
+                            <option value="Tuyên Quang">Tuyên Quang</option>
+                            <option value="Vĩnh Long">Vĩnh Long</option>
+                            <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                            <option value="Yên Bái">Yên Bái</option>
+                        </select>
+
                     </td>
                 </tr>
                 <tr>
@@ -114,7 +184,7 @@
                 <tr>
                     <td scope="row" class="text-center">6</td>
                     <td>
-                        <label>1. Các quốc gia/vùng lãnh thổ đã đi qua trong vòng 15 ngày</label>
+                        <label>Các quốc gia/vùng lãnh thổ đã đi qua trong vòng 15 ngày</label>
                         <div id="add-quocgia-item"></div>
                         <div data-bind="list:baocaonghingonhiembenhquocgia"></div>
                
@@ -151,6 +221,37 @@
                         </div>
 
                         <div class="flexboxer" style="padding-top: 1%">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_sot"> Sốt -
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_ho"> Ho -
+                            </label>
+
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_khotho"> Khó thở -
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_dauhong"> Đau họng -
+                            </label>
+
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_buonnon"> Nôn/buồn nôn -
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_tieuchay"> Tiêu chảy -
+                            </label>
+
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_xuathuyetngoaida"> Xuất huyết ngoài da -
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" data-bind="value:dauhieubenh_phatban"> Nổi ban ngoài da
+                            </label>
+
+                        </div>
+
+                        <div class="flexboxer" style="padding-top: 1%">
                             <label>Chẩn đoán sơ bộ: </label>
                             <input class=" input-NghiNgoNhiemBenh" type="text" data-bind="value:tiensu_chandoan"
                                 style="flex-grow: 1">
@@ -166,9 +267,19 @@
                             	
                             	</div>
                             </div>
-
+                        
+                        
                             <div class="flexboxer">
-                                <label>Xử Trí: </label>
+                                <label>Hướng xử trí: </label>
+                                <select name= "huongxutri" data-bind="value:huongxutri" style="width:180px">
+                                    <option value="khuyencaoyte">Khuyến cáo y tế</option>
+                                    <option value="cachlytaptrung">Cách ly tập trung</option>
+                                    <option value="chuyencosoyte">Chuyển cơ sở y tế</option>
+                                    <option value="tamdungnhapcanh">Tạm dừng nhập cảnh</option>
+                                    <option value="khac">Khác</option>
+                                </select>
+
+                                <label> &nbsp;Xử Trí: </label>
                                 <input data-bind="value:tiensu_xutri" class=" input-NghiNgoNhiemBenh" type="text"
                                     style="flex-grow: 1">
                             </div>

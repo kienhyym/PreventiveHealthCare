@@ -87,21 +87,21 @@ define(function (require) {
 			"route": "baocaotonghopnghingonhiembenhnhoma/collection",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/CollectionView",
 		},
-		{
-			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
-			"route": "baocaotonghopnghingonhiembenhnhoma/collectiondv",
-			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/CollectionView",
-		},
+		// {
+		// 	"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+		// 	"route": "baocaotonghopnghingonhiembenhnhoma/collectiondv",
+		// 	"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/CollectionView",
+		// },
 		{
 			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
 			"route": "baocaotonghopnghingonhiembenhnhoma/model(/:id)",
 			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ModelView",
 		},
-		{
-			"collectionName": "baocaotonghopnghingonhiembenhnhoma",
-			"route": "baocaotonghopnghingonhiembenhnhoma/modeldv(/:id)",
-			"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/ModelView",
-		},
+		// {
+		// 	"collectionName": "baocaotonghopnghingonhiembenhnhoma",
+		// 	"route": "baocaotonghopnghingonhiembenhnhoma/modeldv(/:id)",
+		// 	"$ref": "app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomADonVi/ModelView",
+		// },
 		{
 			"collectionName":"baocaotonghopnghingonhiembenhnhoma",
 			"route":"baocaotonghopnghingonhiembenhnhoma/view(/:id)",
