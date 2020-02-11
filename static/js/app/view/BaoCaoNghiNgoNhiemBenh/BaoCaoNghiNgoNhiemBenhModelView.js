@@ -48,7 +48,8 @@ define(function (require) {
 				                    self.model.save(null,{
 				                        success: function (model, respose, options) {
 				                            self.getApp().notify("Save successfully");
-				                            self.getApp().getRouter().navigate(self.collectionName + "/collection");
+											// self.getApp().getRouter().navigate(self.collectionName + "/collection");
+											Backbone.history.history.back();
 				                        },
 				                        error: function (model, xhr, options) {
 				                            //self.alertMessage("Something went wrong while processing the model", false);
@@ -146,6 +147,72 @@ define(function (require) {
 			},
 			{
 				field:"dauhieubenh_ho",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_khotho",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_dauhong",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_buonnon",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_tieuchay",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_xuathuyetngoaida",
+				uicontrol:"checkbox",
+				checkedField: "name",
+				valueField: "value",
+				cssClassField: "cssClass",
+				dataSource: [
+					{ name: true, value: 1},
+					{ name: false, value: 0 },
+				],
+			},
+			{
+				field:"dauhieubenh_phatban",
 				uicontrol:"checkbox",
 				checkedField: "name",
 				valueField: "value",
@@ -398,12 +465,13 @@ define(function (require) {
 		render: function () {
 			var self = this;
 			var id = this.getApp().getRouter().getParam("id");
+			var cachly = this.getApp().getRouter().getParam("cachly");
+
 			if (id) {
 				//progresbar quay quay
 				this.model.set('id', id);
 				this.model.fetch({
 					success: function (data) {
-						console.log(data);
 						var donvi = self.model.get("donvi");
 						self.$el.find("#chuquan").html(donvi.coquanchuquan);
 						self.$el.find("#tendonvi").html(donvi.ten);
@@ -417,9 +485,9 @@ define(function (require) {
 			} else {
 				//self.model.set("donvi_id")
 				var user = self.getApp().currentUser;
-				// var donvi = user.info.donvi;
-				// self.model.set("donvi_id", donvi.id);
-
+				if (!!cachly){
+					self.model.set("huongxutri", "cachlytaptrung")
+				};
 				var cuakhau = user.info.cuakhau;
 				if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
 					self.model.set({

@@ -17,50 +17,109 @@
     </div>
     <hr />
     <div class="row text-center" style="margin-top:10px">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th class="text-center" style="width: 180px;" rowspan="2">Cửa khẩu</th>
-                    <th class="text-center" colspan="4">Khai báo y tế tại cửa khẩu</th>
-                    <th class="text-center" colspan="4">Cách ly tại cửa khẩu</th>
-                </tr>
-                <tr>
-                    <th class="text-center">Số lượng chuyến bay nhập (chỉ áp dụng với hàng không)</th>
-                    <th class="text-center">Số người nhập cảnh</th>
-                    <th class="text-center">Số hành khách khai báo</th">
-                    <th class="text-center">Số người nghi ngờ nhiễm bệnh</th">
+        <div class="col col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 180px;" rowspan="2">Cửa khẩu</th>
+                        <th class="text-center" colspan="4">Khai báo y tế tại cửa khẩu</th>
+                        
+                    </tr>
+                    <tr>
+                        <th class="text-center">Số lượng chuyến bay nhập (chỉ áp dụng với hàng không)</th>
+                        <th class="text-center">Số người nhập cảnh</th>
+                        <th class="text-center">Số hành khách khai báo</th">
+                        <th class="text-center">Số người nghi ngờ nhiễm bệnh</th">
+                        
+                    </tr>
+                </thead>
+                <tbody id="cuakhau-data">
+                    <tr>
+                        <td><span data-bind="text:tencuakhau"></span></td>
+                        <td><input type="text" class="form-control" data-bind="value:sochuyenbay"></td>
+                        <td><input type="text" class="form-control" data-bind="value:songuoinhapcanh"></td>
+                        <td><input type="text" class="form-control" data-bind="value:sohanhkhachkhaibao"></td>
+                        <td><input type="text" class="form-control" data-bind="value:songuoinghingo"></td>
 
-                    <th class="text-center">Số người đang cách ly tập trung</th>
-                    <th class="text-center">Số người đang cách ly tập trung, có triệu chứng</th>
-                    <th class="text-center">Số người cách ly tại nhà</th">
-                    <th class="text-center">Số người hết cách ly</th">
-                </tr>
-            </thead>
-            <tbody id="cuakhau-data">
+                        <!--<td><input type="text" class="form-control" data-bind="value:songuoidangcachlytaptrung"></td>-->
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col col-md-4">
+            <!-- <table class="table table-bordered">
                 <tr>
-                    <td><span data-bind="text:tencuakhau"></span></td>
-                    <td><input type="text" class="form-control" data-bind="value:sochuyenbay"></td>
-                    <td><input type="text" class="form-control" data-bind="value:songuoinhapcanh"></td>
-                    <td><input type="text" class="form-control" data-bind="value:sohanhkhachkhaibao"></td>
-                    <td><input type="text" class="form-control" data-bind="value:songuoinghingo"></td>
-
-                    <td><input type="text" class="form-control" data-bind="value:songuoidangcachlytaptrung"></td>
-                    <td><input type="text" class="form-control" data-bind="value:songuoidangcachlytaptrung_cotrieuchung"></td>
-                    <td><input type="text" class="form-control" data-bind="value:songuoicachlytainha"></td>
-                    <td><input type="text" class="form-control" data-bind="value:songuoihetcachly"></td>
+                    <th class="text-center" colspan="2">Cách ly tập trung</th>
                 </tr>
-            </tbody>
-        </table>
+                <tr>
+                    <th class="text-center">Số người cách ly tập trung đã bàn giao</th>
+                    <th class="text-center">Người Việt Nam</th">
+                    <th class="text-center">Người Trung Quốc</th">
+                    <th class="text-center">Quốc tịch khác</th>
+
+
+                    <td rowspan="2">
+                        <table >
+                            <thead>
+                                <tr>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="data-container" data-bind="dict:data"></tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" data-bind="value:songuoidangcachlytaptrung">
+                    </td>
+                </tr>
+            
+            
+        </table> -->
+
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th class="text-center">Số người cách ly tập trung đã bàn giao</th>
+                        <td>
+                            <input type="text" class="form-control" readonly data-bind="value:songuoidangcachlytaptrung">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3" class="text-center">Trong đó</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center">Người Việt Nam</th">
+                                        <th class="text-center">Người Trung Quốc</th">
+                                        <th class="text-center">Quốc tịch khác</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-container" data-bind="dict:data"></tbody>
+                            </table>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+                
+                    
+            </table>
+        </div>
     </div>
-    <hr/>
-    <h5 class="text-center"><b>Báo cáo tổng hợp bệnh viêm đường hô hấp cấp do nCoV (Mẫu 7 - 343/QĐ-BYT ):</b></h5>
-    <div id="data-container" data-bind="dict:data"></div>
-    <hr />
-    <h5 class="text-center"><b>Danh sách địa điểm cách ly tập trung:</b></h5>
     
-    <div id="diadiemcachly-container"></div>
-
     <hr />
     <h5 class="text-center"><b>Danh sách các trường hợp nghi ngờ nhiễm bệnh:</b></h5>
     <div id="add-nghingonhiembenh-item"></div>
+
+    <hr />
+    <h5 class="text-center"><b>Danh sách địa điểm cách ly tập trung:</b></h5>
+    <div id="diadiemcachly-container"></div>
+
+    
 </div>

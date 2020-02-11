@@ -128,6 +128,31 @@
     },
     "noio_matinhthanh": {
       "type": "string"
+    },
+
+    "dauhieubenh_sot": {
+      "type":"number"
+    },
+    "dauhieubenh_ho": {
+      "type":"number"
+    },
+    "dauhieubenh_khotho": {
+      "type":"number"
+    },
+    "dauhieubenh_dauhong": {
+      "type":"number"
+    },
+    "dauhieubenh_buonnon": {
+      "type":"number"
+    },
+    "dauhieubenh_tieuchay": {
+      "type":"number"
+    },
+    "dauhieubenh_xuathuyetngoaida": {
+      "type":"number"
+    },
+    "dauhieubenh_phatban": {
+      "type":"number"
     }
   }
   

@@ -177,7 +177,23 @@ define(function (require) {
 			self.model.on("change:ngaybaocao change:cuakhau_id",function () {
 				self.getDanhsachnhiembenh();
 				self.getData();
-			})
+			});
+
+
+			//comment other ncov
+			self.model.on("change:data",function () {
+				console.log(self.model.toJSON());
+				var data = self.model.get("data");
+				if(!!data){
+					if(data.record_type === "nCoV"){
+						var ret = 0;
+						var quoctich_vietnam = (data.quoctich_vietnam || null) != null ? data.quoctich_vietnam: 0;
+						var quoctich_trungquoc = (data.quoctich_trungquoc || null) != null ? data.quoctich_trungquoc: 0;
+						var quoctich_khac = (data.quoctich_khac || null) != null ? data.quoctich_khac: 0;
+						self.model.set("songuoidangcachlytaptrung", quoctich_vietnam + quoctich_trungquoc + quoctich_khac);
+					}
+				}
+			});
 		},
 
 		getData: function(){
@@ -301,40 +317,70 @@ define(function (require) {
 							{
 								name: "create",
 								type: "button",
-								buttonClass: "btn-danger btn-sm",
-								label: "Tạo mới nhanh trường hợp nghi ngờ",
+								buttonClass: "btn-warning btn-sm",
+								label: "Thêm trường hợp nghi ngờ",
 								command: function() {
-									self.createNguoiNhiemBenh();
+									// self.createNguoiNhiemBenh();
+
+									var path =  'baocaonghingonhiembenh/model';
+									gonrinApp().getRouter().navigate(path);
 								}
 							},
-							// {
-							// 	name: "export_excel",
-							// 	type: "button",
-							// 	buttonClass: "btn-primary btn-sm",
-							// 	label: "Xuất Excel danh sách",
-							// 	command: function() {
-							// 		var ngaybaocao = self.model.get("ngaybaocao");
-							// 		var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
+							{
+								name: "create-cachly",
+								type: "button",
+								buttonClass: "btn-danger btn-sm",
+								label: "Thêm trường hợp cách ly",
+								command: function() {
+									// self.createNguoiNhiemBenh();
+									var path =  'baocaonghingonhiembenh/model?cachly=1';
+									gonrinApp().getRouter().navigate(path);
+								}
+							},
+
+							{
+								name: "export_excel",
+								type: "button",
+								buttonClass: "btn-primary btn-sm",
+								label: "Xuất Excel danh sách cách ly",
+								command: function() {
+									var ngaybaocao = self.model.get("ngaybaocao");
+									//var url = "/export/excel/baocaongonhiembenhnhom";
 									
-							// 		if(!!ngaybaocao){
-							// 			url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
-							// 		}
-							// 		window.open(url, "_blank");
-							// 	}
-							// },
+									if(!!ngaybaocao){
+										var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao + "&cachly=1";
+										window.open(url, "_blank");
+									}
+									
+								}
+							},
 						],
 						fields: [
 							{
 								field: "id", label: "ID", width: 100, readonly: true,visible:false
 							},
-							{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
-							{field: "namsinh", label: "Năm sinh", width: 200},
-							{field: "quoctich", label: "Quốc tịch", width: 200},
-							{ field: "noio", label: "Nơi ở tại Việt Nam (Nơi sẽ đến)", width: 250 },
-							{ field: "ngaygio_phathien", label: "Ngày giờ phát hiện", width: 250 },
-							{ field: "tiensu_trieuchunglamsang", label: "Tình trạng phát hiện", width: 250, textField: "ten" },
-							{ field: "tiensu_xutri", label: "Xử trí", width: 250 },
+							{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: "150px"},
+							{field: "namsinh", label: "Năm sinh"},
+							{field: "quoctich", label: "Quốc tịch"},
+							{ field: "noio", label: "Nơi ở tại Việt Nam (Nơi sẽ đến)"},
+							{ field: "ngaygio_phathien", label: "Ngày giờ phát hiện"},
+							{ field: "tiensu_trieuchunglamsang", label: "Tình trạng phát hiện", textField: "ten" },
+							{ 
+								field: "huongxutri", 
+								label: "Hướng xử trí",
+								foreignValues: [
+									{value: "khuyencaoyte", text: "Khuyến cáo y tế"},
+									{value: "cachlytaptrung", text: "Cách ly tập trung"},
+									{value: "chuyencosoyte", text: "Chuyển cơ sở y tế"},
+									{value: "tamdungnhapcanh", text: "Tạm dừng nhập cảnh"},
+									{value: "khac", text: "Khác"},
+								],
+								foreignValueField: "value",
+								foreignTextField: "text",
+							},
+							{ field: "tiensu_xutri", label: "Xử trí"},
 						],
+
 						dataSource: data.objects,
 						primaryField:"id",
 						selectionMode: "single",
