@@ -407,7 +407,7 @@ define(function (require) {
         			    "route":"baocaotonghopnghingonhiembenhnhoma/view",
         			    "icon":static_url + "/images/icons/task_120.png",
 						"visible": function(){
-        			    	return this.checkHasRole("Admin") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
+        			    	return this.checkHasRole("Admin") ||  this.checkHasRole("VienAdmin") ||  this.checkHasRole("VienUser") || this.checkHasRole("DonViAdmin") || this.checkHasRole("DonViUser");
         			    }
 					},
 					{
