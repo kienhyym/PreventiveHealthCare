@@ -352,139 +352,139 @@ define(function (require) {
 			self.$el.find("#danhsach-nghingo-container").append(view.$el);
 		},
 
-		getDanhsachnhiembenh:function(){
-            var self = this;
-            var ngaybaocao = self.model.get("ngaybaocao");
-			var donvi_id = self.model.get("donvi_id");
-            // console.log(ngaybaocao, donvi_id, cuakhau_id);
+		// getDanhsachnhiembenh:function(){
+        //     var self = this;
+        //     var ngaybaocao = self.model.get("ngaybaocao");
+		// 	var donvi_id = self.model.get("donvi_id");
+        //     // console.log(ngaybaocao, donvi_id, cuakhau_id);
             
-            if((!donvi_id) || (!ngaybaocao)){
-				return;
-            }
+        //     if((!donvi_id) || (!ngaybaocao)){
+		// 		return;
+        //     }
 
-			self.$el.find("#add-nghingonhiembenh-item").empty();
-			var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
+		// 	self.$el.find("#add-nghingonhiembenh-item").empty();
+		// 	var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
             
-            var filterparams = {
-                "$and":[
-                    {"ngaybaocao":{"$eq":ngaybaocao}},
-                    {"donvi_id": {"$eq":donvi_id}},
-                    // {"cuakhau_id": {"$eq":cuakhau_id}}
-                ]
-            }
+        //     var filterparams = {
+        //         "$and":[
+        //             {"ngaybaocao":{"$eq":ngaybaocao}},
+        //             {"donvi_id": {"$eq":donvi_id}},
+        //             // {"cuakhau_id": {"$eq":cuakhau_id}}
+        //         ]
+        //     }
 
-            // if (!!cuakhau_id){
-            //     filterparams["$and"].push({"cuakhau_id": {"$eq":cuakhau_id}});
-            // }
+        //     // if (!!cuakhau_id){
+        //     //     filterparams["$and"].push({"cuakhau_id": {"$eq":cuakhau_id}});
+        //     // }
             
-            $.ajax({
-			    url: url_danhsachnghingo,
-				method: "GET",
-				data: {
-					"q": JSON.stringify({
-						"filters": filterparams,
-					// "page":1
-					})
-				},
-				contentType: "application/json",
-				success: function (data) {
-					self.$el.find("#add-nghingonhiembenh-item").grid({
-						showSortingIndicator: true,
-						onValidateError: function(e){
-							console.log(e);
-						},
-						language:{
-							no_records_found:" "
-						},
-						noResultsClass:"alert alert-default no-records-found",
-						refresh:true,
-						orderByMode: "client",
-						tools : [
-							{
-								name: "create",
-								type: "button",
-								buttonClass: "btn-danger btn-sm",
-								label: "Thêm trường hợp nghi ngờ",
-								command: function() {
-									// self.createNguoiNhiemBenh();
+        //     $.ajax({
+		// 	    url: url_danhsachnghingo,
+		// 		method: "GET",
+		// 		data: {
+		// 			"q": JSON.stringify({
+		// 				"filters": filterparams,
+		// 			// "page":1
+		// 			})
+		// 		},
+		// 		contentType: "application/json",
+		// 		success: function (data) {
+		// 			self.$el.find("#add-nghingonhiembenh-item").grid({
+		// 				showSortingIndicator: true,
+		// 				onValidateError: function(e){
+		// 					console.log(e);
+		// 				},
+		// 				language:{
+		// 					no_records_found:" "
+		// 				},
+		// 				noResultsClass:"alert alert-default no-records-found",
+		// 				refresh:true,
+		// 				orderByMode: "client",
+		// 				tools : [
+		// 					{
+		// 						name: "create",
+		// 						type: "button",
+		// 						buttonClass: "btn-danger btn-sm",
+		// 						label: "Thêm trường hợp nghi ngờ",
+		// 						command: function() {
+		// 							// self.createNguoiNhiemBenh();
 
-									var path =  'baocaonghingonhiembenh/model';
-									gonrinApp().getRouter().navigate(path);
-								}
-							},
+		// 							var path =  'baocaonghingonhiembenh/model';
+		// 							gonrinApp().getRouter().navigate(path);
+		// 						}
+		// 					},
 							
-							// {
-							// 	name: "export_excel",
-							// 	type: "button",
-							// 	buttonClass: "btn-primary btn-sm",
-							// 	label: "Xuất Excel danh sách",
-							// 	command: function() {
-							// 		var ngaybaocao = self.model.get("ngaybaocao");
-							// 		var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
+		// 					// {
+		// 					// 	name: "export_excel",
+		// 					// 	type: "button",
+		// 					// 	buttonClass: "btn-primary btn-sm",
+		// 					// 	label: "Xuất Excel danh sách",
+		// 					// 	command: function() {
+		// 					// 		var ngaybaocao = self.model.get("ngaybaocao");
+		// 					// 		var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
 									
-							// 		if(!!ngaybaocao){
-							// 			url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
-							// 		}
-							// 		window.open(url, "_blank");
-							// 	}
-							// },
-						],
-						fields: [
-							{
-								field: "id", label: "ID", width: 100, readonly: true,visible:false
-							},
-							{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
-							{field: "namsinh", label: "Năm sinh", width: 200},
-							{field: "quoctich", label: "Quốc tịch", width: 200},
-							{ field: "noio", label: "Nơi ở tại Việt Nam (Nơi sẽ đến)", width: 250 },
-							{ field: "ngaygio_phathien", label: "Ngày giờ phát hiện", width: 250 },
-							{ field: "tiensu_trieuchunglamsang", label: "Tình trạng phát hiện", width: 250, textField: "ten" },
-							{ 
-								field: "huongxutri", 
-								label: "Hướng xử trí",
-								foreignValues: [
-									{value: "khuyencaoyte", text: "Khuyến cáo y tế"},
-									{value: "cachly", text: "Cách ly"},
-									{value: "chuyencosoyte", text: "Chuyển cơ sở y tế"},
-									{value: "tamdungnhapcanh", text: "Tạm dừng nhập cảnh"},
-									{value: "khac", text: "Khác"},
-								],
-								foreignValueField: "value",
-								foreignTextField: "text",
-							},
-							{ field: "tiensu_xutri", label: "Xử trí", width: 250 },
-						],
-						dataSource: data.objects,
-						primaryField:"id",
-						selectionMode: "single",
-						pagination: {
-							// page: 1,
-							showRowsInfo: true,
-							pageSize: 20
-						},
-						onRowClick: function(event){
-							if (event.rowId) {
-								var path =  'baocaonghingonhiembenh/model?id=' + event.rowId;
-								gonrinApp().getRouter().navigate(path);
-							}
-						},
-					});
-				},
-				error: function (xhr, status, error) {
-					try {
-						if (($.parseJSON(xhr.responseText).error_code) === "SESSION_EXPIRED"){
-							self.getApp().notify("Hết phiên làm việc, vui lòng đăng nhập lại!");
-							self.getApp().getRouter().navigate("login");
-						} else {
-							self.getApp().notify({ message: $.parseJSON(xhr.responseText).error_message }, { type: "danger", delay: 1000 });
-						}
-					}
-					catch (err) {
-						self.getApp().notify({ message: "Lỗi truy cập dữ liệu, vui lòng thử lại sau"}, { type: "danger", delay: 1000 });
-					}
-				},
-			});
-		}
+		// 					// 		if(!!ngaybaocao){
+		// 					// 			url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
+		// 					// 		}
+		// 					// 		window.open(url, "_blank");
+		// 					// 	}
+		// 					// },
+		// 				],
+		// 				fields: [
+		// 					{
+		// 						field: "id", label: "ID", width: 100, readonly: true,visible:false
+		// 					},
+		// 					{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
+		// 					{field: "namsinh", label: "Năm sinh", width: 200},
+		// 					{field: "quoctich", label: "Quốc tịch", width: 200},
+		// 					{ field: "noio", label: "Nơi ở tại Việt Nam (Nơi sẽ đến)", width: 250 },
+		// 					{ field: "ngaygio_phathien", label: "Ngày giờ phát hiện", width: 250 },
+		// 					{ field: "tiensu_trieuchunglamsang", label: "Tình trạng phát hiện", width: 250, textField: "ten" },
+		// 					{ 
+		// 						field: "huongxutri", 
+		// 						label: "Hướng xử trí",
+		// 						foreignValues: [
+		// 							{value: "khuyencaoyte", text: "Khuyến cáo y tế"},
+		// 							{value: "cachly", text: "Cách ly"},
+		// 							{value: "chuyencosoyte", text: "Chuyển cơ sở y tế"},
+		// 							{value: "tamdungnhapcanh", text: "Tạm dừng nhập cảnh"},
+		// 							{value: "khac", text: "Khác"},
+		// 						],
+		// 						foreignValueField: "value",
+		// 						foreignTextField: "text",
+		// 					},
+		// 					{ field: "tiensu_xutri", label: "Xử trí", width: 250 },
+		// 				],
+		// 				dataSource: data.objects,
+		// 				primaryField:"id",
+		// 				selectionMode: "single",
+		// 				pagination: {
+		// 					// page: 1,
+		// 					showRowsInfo: true,
+		// 					pageSize: 20
+		// 				},
+		// 				onRowClick: function(event){
+		// 					if (event.rowId) {
+		// 						var path =  'baocaonghingonhiembenh/model?id=' + event.rowId;
+		// 						gonrinApp().getRouter().navigate(path);
+		// 					}
+		// 				},
+		// 			});
+		// 		},
+		// 		error: function (xhr, status, error) {
+		// 			try {
+		// 				if (($.parseJSON(xhr.responseText).error_code) === "SESSION_EXPIRED"){
+		// 					self.getApp().notify("Hết phiên làm việc, vui lòng đăng nhập lại!");
+		// 					self.getApp().getRouter().navigate("login");
+		// 				} else {
+		// 					self.getApp().notify({ message: $.parseJSON(xhr.responseText).error_message }, { type: "danger", delay: 1000 });
+		// 				}
+		// 			}
+		// 			catch (err) {
+		// 				self.getApp().notify({ message: "Lỗi truy cập dữ liệu, vui lòng thử lại sau"}, { type: "danger", delay: 1000 });
+		// 			}
+		// 		},
+		// 	});
+		// }
 		
 	});
 
