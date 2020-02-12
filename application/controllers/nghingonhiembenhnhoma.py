@@ -28,7 +28,7 @@ chitieu_nghingonhiembenhnhoma = [
 				{"name":"sohanhkhachkhaibao", "text": "Số lượt khách khai báo y tế"},
 				{"name":"songuoinghingo", "text": "Trường hợp nghi ngờ mắc bệnh truyền nhiễm"},
                 {"name":"songuoidangcachlytaptrung", "text": "Số người cách ly tập trung"},
-                {"name":"songuoidangcachlytaptrung_cotrieuchung", "text": "Số người cách ly tập trung, có triệu chứng"},
+                # {"name":"songuoidangcachlytaptrung_cotrieuchung", "text": "Số người cách ly tập trung, có triệu chứng"},
                 {"name":"sochuyenbay", "text": "Số lượng chuyến bay nhập"},
 			]
 
