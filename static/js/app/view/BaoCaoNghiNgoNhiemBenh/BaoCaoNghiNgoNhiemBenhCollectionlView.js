@@ -175,26 +175,29 @@ define(function (require) {
             
 
 
-            if((!!viewType) || ((user.hasRole("CuaKhauUser")) || (user.hasRole("DonViUser")) || (user.hasRole("DonViAdmin")))){
-                if ( !!donvi_id){
+            if ((!!viewType) || ((user.hasRole("CuaKhauUser")) || (user.hasRole("DonViUser")) || (user.hasRole("DonViAdmin")))) {
+                if (!!donvi_id) {
                     var filter = {
                         "$and": [
-                          { "donvi_id": { "$eq": donvi_id } },
-                          { "ngaybaocao": { "$eq": ngaybaocao } },
-                        ]
-                      }
-                      if (!!cuakhau_id) {
-                        filter = {
-                          "$and": [
                             { "donvi_id": { "$eq": donvi_id } },
-                            { "ngaybaocao": { "$eq": ngaybaocao } },
-                            { "cuakhau_id": { "$eq": cuakhau_id } },
-                          ]
+                            //   { "ngaybaocao": { "$eq": ngaybaocao } },
+                        ]
+                    }
+                    if (!!cuakhau_id) {
+                        filter = {
+                            "$and": [
+                                { "donvi_id": { "$eq": donvi_id } },
+                                { "cuakhau_id": { "$eq": cuakhau_id } },
+                                // { "ngaybaocao": { "$eq": ngaybaocao } },
+                            ]
                         }
-                      }
+                    }
+                    if (!!ngaybaocao){
+                        filter["$and"].push({ "ngaybaocao": { "$eq": ngaybaocao } });
+                    }
                     this.uiControl.filters = filter;
                 }
-            }else{
+            } else {
                 this.uiControl.filters = null;
             }
             
