@@ -654,22 +654,23 @@ async def exporttruonghopcachlytaptrung(request):
 
     ws['A7'] = "STT"
     ws['B7'] = "Họ và tên"
-    ws['C7'] = "Tuổi"
-    ws['D7'] = "Giới tính"
-    ws['E7'] = "Nghề nghiệp"
-    ws['F7'] = "Xã"
-    ws['G7'] = "Huyện"
-    ws['H7'] = "Tỉnh"
-    ws['I7'] = "Quốc tịch"
-    ws['J7'] = "Số điện thoại"
-    ws['K7'] = "Tiền sử dịch tễ"
-    ws['L7'] = "Triệu chứng"
-    ws['M7'] = "Địa điểm cách ly"
-    ws['N7'] = "Bệnh lý nền kèm theo"
-    ws['O7'] = "Ghi chú"
-    ws['P7'] = "Nhập cảnh tại của khẩu"
+    ws['C7'] = "CMTND/Hộ chiếu"
+    ws['D7'] = "Tuổi"
+    ws['E7'] = "Giới tính"
+    ws['F7'] = "Nghề nghiệp"
+    ws['G7'] = "Xã"
+    ws['H7'] = "Huyện"
+    ws['I7'] = "Tỉnh"
+    ws['J7'] = "Quốc tịch"
+    ws['K7'] = "Số điện thoại"
+    ws['L7'] = "Tiền sử dịch tễ"
+    ws['M7'] = "Triệu chứng"
+    ws['N7'] = "Địa điểm cách ly"
+    ws['O7'] = "Bệnh lý nền kèm theo"
+    ws['P7'] = "Ghi chú"
+    ws['Q7'] = "Nhập cảnh tại của khẩu"
 
-    for j in range(16):
+    for j in range(17):
         ws[list_char[j] + "7"].alignment = center_alignment
         ws[list_char[j] + "7"].border = black_border
         ws[list_char[j] + "7"].font = bold_font
@@ -680,24 +681,25 @@ async def exporttruonghopcachlytaptrung(request):
         obj = to_dict(item)
         ws['A' + str(start_row)] = str(start_row - 7)
         ws['B' + str(start_row)] = obj["hoten"]
-        ws['C' + str(start_row)] = obj["namsinh"]
-        ws['D' + str(start_row)] = obj["gioitinh"]
-        ws['E' + str(start_row)] = obj["nghenghiep"]
-        ws['F' + str(start_row)] = obj["noio_xaphuong"]
-        ws['G' + str(start_row)] = obj["noio_quanhuyen"]
-        ws['H' + str(start_row)] = obj["noio_tinhthanh"]
-        ws['I' + str(start_row)] = obj["quoctich"]
-        ws['J' + str(start_row)] = obj["sodienthoai"]
-        ws['K' + str(start_row)] = obj["tiensu_dichte"]
-        ws['L' + str(start_row)] = obj["tiensu_trieuchunglamsang"]
-        ws['M' + str(start_row)] = obj["noitiepnhan_xutri"]
-        ws['N' + str(start_row)] = obj["benhly_kemtheo"]
-        ws['O' + str(start_row)] = obj["ghichu"]
-        ws['P' + str(start_row)] = obj["tencuakhau"]
+        ws['C' + str(start_row)] = obj["cmtnd"]
+        ws['D' + str(start_row)] = obj["namsinh"]
+        ws['E' + str(start_row)] = obj["gioitinh"]
+        ws['F' + str(start_row)] = obj["nghenghiep"]
+        ws['G' + str(start_row)] = obj["noio_xaphuong"]
+        ws['H' + str(start_row)] = obj["noio_quanhuyen"]
+        ws['I' + str(start_row)] = obj["noio_tinhthanh"]
+        ws['J' + str(start_row)] = obj["quoctich"]
+        ws['K' + str(start_row)] = obj["sodienthoai"]
+        ws['L' + str(start_row)] = obj["tiensu_dichte"]
+        ws['M' + str(start_row)] = obj["tiensu_trieuchunglamsang"]
+        ws['N' + str(start_row)] = obj["noitiepnhan_xutri"]
+        ws['O' + str(start_row)] = obj["benhly_kemtheo"]
+        ws['P' + str(start_row)] = obj["ghichu"]
+        ws['Q' + str(start_row)] = obj["tencuakhau"]
         start_row = start_row + 1
 
     for i in range(8, start_row + 1):
-        for j in range(16):
+        for j in range(17):
             ws[list_char[j] + str(i)].border = black_border
             ws[list_char[j] + str(i)].alignment = center_alignment
 
