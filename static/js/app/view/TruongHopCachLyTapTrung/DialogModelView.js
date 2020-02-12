@@ -7,9 +7,43 @@ define(function (require) {
 	var template = require('text!tpl/TruongHopCachLyTapTrung/model.html'),
 		schema = require('json!app/view/TruongHopCachLyTapTrung/TruongHopCachLyTapTrungSchema.json');
 	
+	var CuaKhauSelectView = require('app/view/HeThong/CuaKhau/SelectView');
+	var DiaDiemCachLySelectView = require('app/view/DiaDiemCachLyTapTrung/SelectView');
+	var Model = Gonrin.Model.extend({
+		defaults: Gonrin.getDefaultModel(schema),
+		computeds: {
+			cuakhau: {
+				deps: ["cuakhau_id", "tencuakhau", "macuakhau"],
+				get: function( cuakhau_id, tencuakhau, macuakhau ) {
+					return {
+						"id": cuakhau_id,
+						"ten": tencuakhau,
+						"ma": macuakhau,
+						};
+				},
+				set: function( obj ) {
+					return {cuakhau_id: obj.id, tencuakhau: obj.ten, macuakhau:obj.ma};
+				}
+			},
+			diadiemcachly: {
+				deps: ["noitiepnhan_xutri_id", "noitiepnhan_xutri"],
+				get: function( noitiepnhan_xutri_id, noitiepnhan_xutri ) {
+					return {
+						"id": noitiepnhan_xutri_id,
+						"ten": noitiepnhan_xutri
+						};
+				},
+				set: function( obj ) {
+					return {noitiepnhan_xutri_id: obj.id, noitiepnhan_xutri: obj.ten};
+				}
+			},
+		},
+		urlRoot : "/api/v1/truonghopcachlytaptrung"
+	});
 	return Gonrin.ModelDialogView.extend({
 		template: template,
 		modelSchema: schema,
+		modelClass: Model,
 		urlPrefix: "/api/v1/",
 		collectionName: "truonghopcachlytaptrung",
 		tools : [
@@ -53,23 +87,40 @@ define(function (require) {
 		    	    },
 		    	],
 		uiControl: [
+			// {
+			// 	field:"gioitinh",
+			// 	uicontrol:"combobox",
+			// 	textField: "text",
+			// 	valueField: "value",
+			// 	cssClass:"form-control",
+			// 	dataSource: [
+			// 		{ value: "Nam", text: "Nam" },
+			// 		{ value: "Nu", text: "Nữ" },
+			// 	 ],
+			// },
 			{
-				field:"gioitinh",
-				uicontrol:"combobox",
-				textField: "text",
-				valueField: "value",
-				cssClass:"form-control",
-				dataSource: [
-					{ value: "Nam", text: "Nam" },
-					{ value: "Nu", text: "Nữ" },
-				 ],
+				field:"cuakhau",
+				uicontrol:"ref",
+				textField: "ten",
+				dataSource: CuaKhauSelectView,
+			},
+			{
+				field:"diadiemcachly",
+				uicontrol:"ref",
+				textField: "ten",
+				dataSource: DiaDiemCachLySelectView,
 			},
 			{
 				field: "benh_nghingo",
 				cssClass: false,
-
 			},
+			{field: "quoctich", uicontrol: false,},
+			{field: "gioitinh", uicontrol: false,},
+			
+			{field: "noio_tinhthanh", uicontrol: false,},
+			
 			{field:"ngaybaocao", cssClass:true, textFormat :"DD/MM/YYYY", disabledComponentButton: false},
+			{field:"ngay_phathien", cssClass:true, textFormat :"DD/MM/YYYY", disabledComponentButton: false},
 			// {field:"ngay_nhapquacanh", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
 			{
 				field: "cmtnd",
@@ -222,6 +273,30 @@ define(function (require) {
 			var donvi_id = self.viewData.donvi_id;
 			var cuakhau_id = self.viewData.cuakhau_id;
 			console.log(self.viewData);
+			var user = self.getApp().currentUser;
+            if (user) {
+				var info = user.info;
+				if(user.hasRole("CuaKhauUser")){
+					for(var i = 0; i < self.uiControl.length; i++){
+						if (self.uiControl[i].field == "cuakhau"){
+							self.uiControl[i].readonly = true;
+							break;
+						}
+					}
+				}
+			}
+
+			for(var i = 0; i < self.uiControl.length; i++){
+				if (self.uiControl[i].field == "diadiemcachly"){
+					console.log("diadiemcachly OK");
+					self.uiControl[i].viewData = {
+						"donvi_id": donvi_id,
+						cuakhau_id: cuakhau_id
+					};
+					break;
+				}
+			}
+
 			if(id){
 				//progresbar quay quay
 				this.model.set('id',id);

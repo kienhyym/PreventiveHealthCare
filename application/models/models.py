@@ -829,7 +829,6 @@ class TruongHopCachLyTapTrung(CommonModel):
     ma = db.Column(db.String(255))
     matokhaiyte = db.Column(db.String(), index=True)
 
-    # ngaybaocao = db.Column(db.DateTime(),default=func.now(), index=True)
     ngaybaocao = db.Column(db.DateTime(), index=True, nullable=False)
 
     noibaocao = db.Column(db.String(255))
@@ -838,7 +837,6 @@ class TruongHopCachLyTapTrung(CommonModel):
     donvi_id = db.Column(db.Integer, nullable=False, index=True)
     tendonvi = db.Column(db.String())
     madonvi = db.Column(db.String())
-    # donvi = db.relationship('DonVi',viewonly=True)
 
     cuakhau_id = db.Column(db.Integer, index=True)
     tencuakhau = db.Column(db.String())
@@ -864,39 +862,33 @@ class TruongHopCachLyTapTrung(CommonModel):
     noio_tinhthanh = db.Column(db.String())
     noio_matinhthanh = db.Column(db.String())
 
+    noio_quanhuyen = db.Column(db.String())
+    noio_xaphuong = db.Column(db.String())
+
     diachi_lienlac = db.Column(db.String())
     email = db.Column(db.String())
-    dienthoai = db.Column(db.String(63))
+    sodienthoai = db.Column(db.String(63))
+    nghenghiep = db.Column(db.String())
     
     benh_nghingo = db.Column(db.String())
-
-    # tiensu_dichte = db.Column(db.String())
-    # tiensu_ngaykhoiphat = db.Column(db.DateTime())
-    # tiensu_trieuchunglamsang = db.Column(db.String())
-    # tiensu_chandoan = db.Column(db.String())
-
-
+    tiensu_dichte = db.Column(db.String())
+    tiensu_trieuchunglamsang = db.Column(db.String())
     tiensu_xutri = db.Column(db.String())
     
+    noitiepnhan_xutri_id = db.Column(db.Integer())
     noitiepnhan_xutri = db.Column(db.String())
-
     
 
-    # dauhieubenh_sot = db.Column(db.SmallInteger)
-    # dauhieubenh_ho = db.Column(db.SmallInteger)
-    # dauhieubenh_khotho = db.Column(db.SmallInteger)
-    # dauhieubenh_dauhong = db.Column(db.SmallInteger)
-
-    # dauhieubenh_buonnon = db.Column(db.SmallInteger)
-    # dauhieubenh_tieuchay = db.Column(db.SmallInteger)
-    # dauhieubenh_xuathuyetngoaida = db.Column(db.SmallInteger)
-    # dauhieubenh_phatban = db.Column(db.SmallInteger)
-
     ngaygio_phathien = db.Column(db.String())
+    # ngay_phathien = db.Column(db.DateTime())
+    # gio_phathien = db.Column(db.Integer())
     tinhtrang_phathien = db.Column(db.String())
+    benhly_kemtheo = db.Column(db.String())
+
     # huongxutri = db.Column(db.String())
 
     nhanxet_danhgia = db.Column(db.String())
+    ghichu = db.Column(db.String())
     
     tinhtrang = db.Column(db.SmallInteger, nullable=False, default=1)
 
