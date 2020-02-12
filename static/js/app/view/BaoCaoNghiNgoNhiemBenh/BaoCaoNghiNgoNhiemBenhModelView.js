@@ -240,6 +240,10 @@ define(function (require) {
                 toolEl: "#add-xetnghiem-item"
 			},
 			{
+				field: "quoctich",
+				uicontrol: false,
+			},
+			{
 				field: "noio_tinhthanh",
 				uicontrol: false,
 			},
