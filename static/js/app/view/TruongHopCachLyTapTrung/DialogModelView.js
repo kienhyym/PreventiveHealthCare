@@ -188,31 +188,84 @@ define(function (require) {
 				cssClass: false,
 			},
 		],
-		render: function () {
-			var self = this;
-			var user = self.getApp().currentUser;
-			if (user) {
-				// var donvi = user.info.donvi;
+		// render: function () {
+		// 	var self = this;
+		// 	var user = self.getApp().currentUser;
+		// 	if (user) {
+		// 		// var donvi = user.info.donvi;
 				
-				// self.model.set("donvi_id", donvi.id);
+		// 		// self.model.set("donvi_id", donvi.id);
 
-				var info = user.info;
-				var cuakhau = info.cuakhau;
-				if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
-					self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
+		// 		var info = user.info;
+		// 		var cuakhau = info.cuakhau;
+		// 		if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+		// 			self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
 					
-				}
-				var donvi = info.donvi;
-				if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
-					self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
+		// 		}
+		// 		var donvi = info.donvi;
+		// 		if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+		// 			self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
+		// 		}
+
+		// 		self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+		// 		self.model.set("nambaocao", moment().year());
+		// 		self.applyBindings();
+		// 		self.registerEvent();
+		// 	}
+		// },
+
+
+
+		render:function(){
+			var self = this;
+			var id = self.viewData.id;
+			var donvi_id = self.viewData.donvi_id;
+			var cuakhau_id = self.viewData.cuakhau_id;
+			console.log(self.viewData);
+			if(id){
+				//progresbar quay quay
+				this.model.set('id',id);
+				this.model.fetch({
+					success: function(data){
+						self.applyBindings();
+					},
+					error:function(){
+						self.getApp().notify("Get data Eror");
+					},
+				});
+			}else{
+				// self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+				// self.model.set("nambaocao", moment().year());
+				// self.model.set("donvi_id", donvi_id);
+				// self.model.set("cuakhau_id", cuakhau_id);
+				var user = self.getApp().currentUser;
+				if (user) {
+					// var donvi = user.info.donvi;
+					
+					// self.model.set("donvi_id", donvi.id);
+	
+					var info = user.info;
+					var cuakhau = info.cuakhau;
+					if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+						self.model.set({"cuakhau_id":cuakhau.id,"tencuakhau":cuakhau.ten,"macuakhau":cuakhau.ma});
+						
+					}
+					var donvi = info.donvi;
+					if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+						self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
+					}
+	
+					self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
+					self.model.set("nambaocao", moment().year());
+					self.applyBindings();
+					self.registerEvent();
 				}
 
-				self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
-				self.model.set("nambaocao", moment().year());
 				self.applyBindings();
-				self.registerEvent();
 			}
+			
 		},
+		
 		registerEvent: function(){
 			var self = this;
 			self.model.on("change:ngaybaocao", function(){
