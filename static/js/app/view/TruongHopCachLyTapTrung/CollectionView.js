@@ -796,7 +796,7 @@ define(function (require) {
             },
             visible: function () {
               var self = this;
-              console.log(self.viewData.disable_create, self.viewData.disable_create || false);
+              // console.log(self.viewData.disable_create, self.viewData.disable_create || false);
               return !(self.viewData.disable_create || false);
             }
           },
@@ -804,7 +804,7 @@ define(function (require) {
           	name: "export",
           	type: "button",
           	buttonClass: "btn-primary btn-sm",
-          	label: "Xuất excel",
+          	label: "Xuất Excel danh sách",
           	command: function () {
               var self = this;
               var donvi_id = self.viewData.donvi_id || null;
@@ -825,27 +825,6 @@ define(function (require) {
               }
 
               window.open(url, '_blank');
-          		// var donvi_id = self.getApp().data(seskey + "donvi_id") || null;
-          		// var tinhthanh_id = self.getApp().data(seskey + "tinhthanh_id") || null;
-          		// var ten = self.getApp().data(seskey + "ten") || null;
-          		// var loaicuakhau = self.getApp().data(seskey + "loaicuakhau") || null;
-
-          		// var donvi = self.getApp().data(seskey + "donvi") || null;
-
-          		// var data = {
-          		// 		donvi_id: null,
-          		// 		tinhthanh_id: tinhthanh_id,
-          		// 		ten: ten,
-          		// 		loaicuakhau: loaicuakhau
-          		// }
-
-          		// if((donvi !== null) && (donvi.tuyendonvi ==2)){
-          		// 	data.donvi_id = donvi.children;
-          		// }else{
-          		// 	data.donvi_id = [donvi_id];
-          		// }
-          		// var url = '/export/excel/cuakhau?filter=' + JSON.stringify(data);
-          		// window.open(url, '_blank');
           	}
           },
 
@@ -874,7 +853,7 @@ define(function (require) {
         { field: "tiensu_dichte", label: "Tiền sử dịch tễ"},
         { field: "tiensu_trieuchunglamsang", label: "Triệu chứng"},
         { field: "tinhtrang_phathien", label: "Tình trạng phát hiện" , visible: false },
-        { field: "noitiepnhan_xutri", label: "Gửi cách ly"},
+        { field: "noitiepnhan_xutri", label: "Địa điểm cách ly"},
         { field: "", visible: false },
         { field: "tencuakhau", visible: false },
         { field: "tendonvi", visible: false },

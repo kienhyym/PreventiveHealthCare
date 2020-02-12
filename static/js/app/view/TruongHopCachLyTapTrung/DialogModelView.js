@@ -275,21 +275,20 @@ define(function (require) {
 			console.log(self.viewData);
 			var user = self.getApp().currentUser;
             if (user) {
-				var info = user.info;
 				if(user.hasRole("CuaKhauUser")){
 					for(var i = 0; i < self.uiControl.length; i++){
 						if (self.uiControl[i].field == "cuakhau"){
 							self.uiControl[i].readonly = true;
 							break;
 						}
+						console.log(self.uiControl[i].readonly, "readonly");
 					}
 				}
 			}
 
-			for(var i = 0; i < self.uiControl.length; i++){
-				if (self.uiControl[i].field == "diadiemcachly"){
-					console.log("diadiemcachly OK");
-					self.uiControl[i].viewData = {
+			for(var j = 0; j < self.uiControl.length; j++){
+				if (self.uiControl[j].field == "diadiemcachly"){
+					self.uiControl[j].viewData = {
 						"donvi_id": donvi_id,
 						cuakhau_id: cuakhau_id
 					};
@@ -309,16 +308,7 @@ define(function (require) {
 					},
 				});
 			}else{
-				// self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
-				// self.model.set("nambaocao", moment().year());
-				// self.model.set("donvi_id", donvi_id);
-				// self.model.set("cuakhau_id", cuakhau_id);
-				var user = self.getApp().currentUser;
 				if (user) {
-					// var donvi = user.info.donvi;
-					
-					// self.model.set("donvi_id", donvi.id);
-	
 					var info = user.info;
 					var cuakhau = info.cuakhau;
 					if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
@@ -333,12 +323,12 @@ define(function (require) {
 					self.model.set("ngaybaocao", moment().startOf('day').format("YYYY-MM-DD"));
 					self.model.set("nambaocao", moment().year());
 					self.applyBindings();
-					self.registerEvent();
+					
 				}
 
-				self.applyBindings();
+				
 			}
-			
+			self.registerEvent();
 		},
 		
 		registerEvent: function(){

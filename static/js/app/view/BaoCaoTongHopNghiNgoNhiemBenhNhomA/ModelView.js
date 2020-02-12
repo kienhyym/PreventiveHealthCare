@@ -7,8 +7,8 @@ define(function (require) {
 	var template = require('text!tpl/BaoCaoTongHopNghiNgoNhiemBenhNhomA/model.html'),
 		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
 
-    var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
-	// var TruongHopCachLyDialogView = require('app/view/TruongHopCachLyTapTrung/DialogView');
+    // var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
+	var BaoCaoNghiNgoNhiemBenhCollectionlView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView');
 	var CuaKhauSelectView = require('app/view/HeThong/CuaKhau/SelectView');
 
 	var DiaDiemCachLyTapTrungView = require('app/view/DiaDiemCachLyTapTrung/CollectionView');
@@ -165,7 +165,7 @@ define(function (require) {
 				
 				self.applyBindings();
 				self.registerEvent();
-				self.getDanhsachnhiembenh();
+				self.getDanhSachNghiNgo();
 				self.getDanhSachCachLy();
 				self.getData();
 				self.getDiaDiemCachLyTapTrung();
@@ -180,7 +180,7 @@ define(function (require) {
 			var self = this;
 			
 			self.model.on("change:ngaybaocao change:cuakhau_id",function () {
-				self.getDanhsachnhiembenh();
+				self.getDanhSachNghiNgo();
 				self.getDanhSachCachLy();
 				self.getData();
 			});
@@ -289,6 +289,30 @@ define(function (require) {
 			view.render();
 			self.$el.find("#danhsach-cachly-container").append(view.$el)
 
+		},
+		getDanhSachNghiNgo: function(){
+			var self = this;
+			var ngaybaocao = self.model.get("ngaybaocao");
+			var donvi_id = self.model.get("donvi_id");
+			var cuakhau_id = self.model.get("cuakhau_id");
+
+			if((!cuakhau_id) || (!donvi_id) || (!ngaybaocao)){
+				return;
+			}
+
+			self.$el.find("#danhsach-nghingo-container").empty();
+
+			var self = this;
+			var view = new BaoCaoNghiNgoNhiemBenhCollectionlView({
+				viewData: {
+					"type": "itemview",
+					ngaybaocao : ngaybaocao,
+					donvi_id : donvi_id,
+					cuakhau_id : cuakhau_id
+				}
+			});
+			view.render();
+			self.$el.find("#danhsach-nghingo-container").append(view.$el);
 		},
 		getDanhsachnhiembenh:function(){
 			var self = this;
