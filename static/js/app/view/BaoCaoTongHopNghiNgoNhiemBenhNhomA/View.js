@@ -361,7 +361,7 @@ define(function (require) {
 							{
 								name: "create-cachly",
 								type: "button",
-								buttonClass: "btn-danger btn-sm",
+								buttonClass: "btn-warning btn-sm",
 								label: "Thêm trường hợp cách ly tập trung",
 								command: function() {
 									self.createTruongHopCachLy();
@@ -402,8 +402,9 @@ define(function (require) {
 						primaryField:"id",
 						selectionMode: "single",
 						pagination: {
-						page: 1,
-						pageSize: 20
+							// page: 1,
+							showRowsInfo: true,
+							pageSize: 20
 						},
 						onRowClick: function(event){
 							// if (event.rowId) {
@@ -479,7 +480,7 @@ define(function (require) {
 							{
 								name: "create",
 								type: "button",
-								buttonClass: "btn-warning btn-sm",
+								buttonClass: "btn-danger btn-sm",
 								label: "Thêm trường hợp nghi ngờ",
 								command: function() {
 									// self.createNguoiNhiemBenh();
@@ -534,8 +535,9 @@ define(function (require) {
 						primaryField:"id",
 						selectionMode: "single",
 						pagination: {
-						page: 1,
-						pageSize: 20
+							// page: 1,
+							showRowsInfo: true,
+							pageSize: 20
 						},
 						onRowClick: function(event){
 							if (event.rowId) {

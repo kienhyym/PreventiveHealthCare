@@ -361,8 +361,9 @@ define(function (require) {
 						primaryField:"id",
 						selectionMode: "single",
 						pagination: {
-						page: 1,
-						pageSize: 20
+							// page: 1,
+							pageSize: 20,
+							showRowsInfo: true,
 						},
 						onRowClick: function(event){
 							// if (event.rowId) {
@@ -489,8 +490,9 @@ define(function (require) {
 						primaryField:"id",
 						selectionMode: "single",
 						pagination: {
-						page: 1,
-						pageSize: 20
+							// page: 1,
+							pageSize: 20,
+							showRowsInfo: true,
 						},
 						onRowClick: function(event){
 							if (event.rowId) {
