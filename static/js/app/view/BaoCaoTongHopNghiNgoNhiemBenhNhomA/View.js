@@ -212,6 +212,7 @@ define(function (require) {
 				// self.getDanhsachnhiembenh();
 				self.getDanhSachNghiNgo();
 				self.getDanhSachCachLy();
+				self.getDiaDiemCachLyTapTrung();
                 self.getData();
             });
 
