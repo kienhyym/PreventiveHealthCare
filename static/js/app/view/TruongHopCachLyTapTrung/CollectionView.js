@@ -36,7 +36,7 @@ define(function (require) {
 								viewData: {
 									id: null,
 									donvi_id : self.viewData.donvi_id,
-									cuakhau_id : self.viewData.cuakhau_id
+									cuakhau_id : self.viewData.cuakhau_id || null
 								}
 							});
 							view.dialog({ size: "large" });
@@ -169,7 +169,7 @@ define(function (require) {
 						viewData: {
 							id: event.rowId,
 							donvi_id : self.viewData.donvi_id,
-							cuakhau_id : self.viewData.cuakhau_id
+							cuakhau_id : self.viewData.cuakhau_id || null
 						}
 					});
 					view.dialog({ size: "large" });
@@ -186,7 +186,7 @@ define(function (require) {
 			var id = self.viewData.id;
 			var donvi_id = self.viewData.donvi_id;
 			var cuakhau_id = self.viewData.cuakhau_id;
-			
+			console.log("THCach ly", donvi_id);
 			if ( !!donvi_id){
                 var filter = {
                     "donvi_id": {
@@ -204,7 +204,7 @@ define(function (require) {
                 this.uiControl.filters = filter;
                 self.applyBindings();
             }
-            console.log("THCach ly");
+            
 			return this;
 		},
 

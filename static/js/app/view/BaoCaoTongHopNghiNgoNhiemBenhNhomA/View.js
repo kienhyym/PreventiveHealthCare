@@ -333,6 +333,7 @@ define(function (require) {
 			var self = this;
 			var view = new TruongHopCachLyTapTrungCollectionView({
 				viewData: {
+					"type": "donvi",
 					ngaybaocao : ngaybaocao,
 					donvi_id : donvi_id,
 					// cuakhau_id : cuakhau_id
