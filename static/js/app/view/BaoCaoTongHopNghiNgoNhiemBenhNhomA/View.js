@@ -324,7 +324,7 @@ define(function (require) {
 			var donvi_id = self.model.get("donvi_id");
 			var cuakhau_id = self.model.get("cuakhau_id");
 
-			if((!cuakhau_id) || (!donvi_id) || (!ngaybaocao)){
+			if((!donvi_id) || (!ngaybaocao)){
 				return;
 			}
 
