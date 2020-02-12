@@ -29,11 +29,11 @@ define(function (require) {
                     var path =  'baocaonghingonhiembenh/model';
 					gonrinApp().getRouter().navigate(path);
                   },
-                  visible: function () {
-                    var self = this;
-                    // console.log(self.viewData.disable_create, self.viewData.disable_create || false);
-                    return !(self.viewData.disable_create || false);
-                  }
+                //   visible: function () {
+                //     var self = this;
+                //     // console.log(self.viewData.disable_create, self.viewData.disable_create || false);
+                //     return !(self.viewData.disable_create || false);
+                //   }
                 },
                 {
                     name: "export-nghingo-excel",
