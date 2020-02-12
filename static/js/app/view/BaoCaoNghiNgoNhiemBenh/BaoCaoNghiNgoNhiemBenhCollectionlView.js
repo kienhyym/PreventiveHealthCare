@@ -194,6 +194,8 @@ define(function (require) {
                       }
                     this.uiControl.filters = filter;
                 }
+            }else{
+                this.uiControl.filters = null;
             }
             
             this.applyBindings();   
