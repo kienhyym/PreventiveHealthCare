@@ -4,25 +4,15 @@ define(function (require) {
 		_ = require('underscore'),
 		Gonrin = require('gonrin');
 	return [
-		// {
-		// 	"collectionName": "tokhaiyte",
-		// 	"route": "tokhaiyte/collection",
-		// 	"$ref": "app/view/tokhaiyte/js/CollectionView",
-		// },
-		// {
-		// 	"collectionName": "tokhaiyte",
-		// 	"route": "tokhaiyte/model(/:id)",
-		// 	"$ref": "app/view/tokhaiyte/js/ModelView",
-		// },
 		{
 			"collectionName":"tokhaiyte",
 			"route":"tokhaiyte/collection",
-			"$ref": "app/view/tokhaiyte/js/CollectionView",
+			"$ref": "app/view/ToKhaiYTe/CollectionView",
 		},
 		{
 			"collectionName":"tokhaiyte",
 			"route":"tokhaiyte/model(/:id)",
-			"$ref": "app/view/tokhaiyte/js/ModelView",
+			"$ref": "app/view/ToKhaiYTe/ModelView",
 		},
 		{
 			"collectionName":"baocaonghingonhiembenh",
