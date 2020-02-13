@@ -16,7 +16,7 @@
     <div style="margin-bottom:10px;">
         <div><label>Họ tên (viết chữ in hoa):</label></div>
         <div>
-            <input type="text" class='form-control' id="tenkhach" value="{{hoten}}">
+            <input type="text" class='form-control' id="hoten" value="{{hoten}}">
         </div>
     </div>
     <div class="row">
@@ -303,7 +303,7 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div><label>Số hộ chiếu:</label></div>
             <div>
-                <input type="text" class='form-control' id="hochieu" value="{{sohochieu}}" />
+                <input type="text" class='form-control' id="sohochieu" value="{{sohochieu}}" />
             </div>
         </div>
     </div>
@@ -335,7 +335,7 @@
 
     <div class=" text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 p-0">
-            <textarea type="text" class='form-control' id="phuongtien"
+            <textarea type="text" class='form-control' id="thongtindilai_chitiet"
                 placeholder="Viết rõ phương tiện đi lại">{{thongtindilai_chitiet}}</textarea>
         </div>
     </div>
@@ -344,13 +344,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div><label>Số hiệu phương tiện:</label></div>
             <div>
-                <input type="text" class='form-control' id="sohieu" value="{{sohieu_phuongtien}}" />
+                <input type="text" class='form-control' id="sohieu_phuongtien" value="{{sohieu_phuongtien}}" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div><label>Số ghế:</label></div>
             <div>
-                <input type="text" class='form-control' id="soghe" value="{{soghe_phuongtien}}" />
+                <input type="text" class='form-control' id="soghe_phuongtien" value="{{soghe_phuongtien}}" />
             </div>
         </div>
     </div>
@@ -359,14 +359,14 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div><label>Ngày khởi hành:</label></div>
             <div>
-                <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaykhoihanh"
+                <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngay_khoihanh"
                     value={{ngay_khoihanh}}>
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div><label>Ngày nhập cảnh:</label></div>
             <div>
-                <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaynhapcanh"
+                <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngay_nhapcanh"
                     value={{ngay_nhapcanh}} />
             </div>
         </div>
@@ -379,7 +379,7 @@
         <div class="col-12" style="margin-bottom:10px;">
             <div><label>Tỉnh/Quốc gia:</label></div>
             <div>
-                <input type="text" class='form-control' id="quocgiakhoihanh" value="{{noi_khoihanh}}" />
+                <input type="text" class='form-control' id="noi_khoihanh" value="{{noi_khoihanh}}" />
             </div>
         </div>
     </div>
@@ -392,7 +392,7 @@
         <div class="col-12" style="margin-bottom:10px;">
             <div><label>Tỉnh/Quốc gia:</label></div>
             <div>
-                <input type="text" class='form-control' id="quocgianoiden" value="{{noiden}}" />
+                <input type="text" class='form-control' id="noiden" value="{{noiden}}" />
             </div>
         </div>
     </div>
@@ -404,7 +404,7 @@
             </label>
         </div>
         <div class="col-md-12">
-            <textarea type="text" class='form-control' id="noidiqua" />{{quocgiadiqua}}</textarea>
+            <textarea type="text" class='form-control' id="quocgiadiqua" />{{quocgiadiqua}}</textarea>
         </div>
     </div>
 
@@ -414,7 +414,7 @@
     <div class="row text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
         <div class="col-md-12 col-12">
-            <textarea type="text" class='form-control' id="noioviwetnam" />{{diachi_taivietnam}}</textarea>
+            <textarea type="text" class='form-control' id="diachi_taivietnam" />{{diachi_taivietnam}}</textarea>
         </div>
     </div>
 
@@ -422,7 +422,7 @@
         <div class="col-5" style="margin-bottom:10px;">
             <div><label>Điện thoại:</label></div>
             <div>
-                <input type="text" class='form-control' id="dienthoai" value="{{sodienthoai}}" />
+                <input type="text" class='form-control' id="sodienthoai" value="{{sodienthoai}}" />
             </div>
         </div>
         <div class="col-7" style="margin-bottom:10px;">
@@ -593,7 +593,7 @@
             <label><b>Liệt kê tên vắc xin hoặc sinh phẩm y tế đã sử dụng:</b></label>
         </div>
         <div class="col-md-12">
-            <textarea type="text" class='form-control' id="vacxin" />{{vacxin_dasudung}}</textarea>
+            <textarea type="text" class='form-control' id="vacxin_dasudung" />{{vacxin_dasudung}}</textarea>
         </div>
     </div>
     <div class="row" style="margin-bottom:10px">
@@ -661,24 +661,159 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
+        var id;
+        var ngaykekhai;
+        var cuakhau_id;
+        var tencuakhau;
+        var donvi_id;
+        var hoten;
+        var namsinh;
+        var gioitinh;
+        var quoctich;
+        var sohochieu;
+        var thongtindilai_taubay;
+        var thongtindilai_tauthuyen;
+        var thongtindilai_oto;
+        var thongtindilai_khac;
+        var thongtindilai_chitiet;
+        var sohieu_phuongtien;
+        var soghe_phuongtien;
+        var ngay_khoihanh;
+        var ngay_nhapcanh;
+        var noi_khoihanh;
+        var noiden;
+        var quocgiadiqua;
+        var diachi_taivietnam;
+        var sodienthoai;
+        var email;
+        var dauhieubenh_sot;
+        var dauhieubenh_ho;
+        var dauhieubenh_khotho;
+        var dauhieubenh_dauhong;
+        var dauhieubenh_buonnon;
+        var dauhieubenh_tieuchay;
+        var dauhieubenh_xuathuyetngoaida;
+        var dauhieubenh_phatban;
+        var vacxin_dasudung;
+        var tiepxuc_dongvat;
+        var chamsocnguoibenhtruyennhiem;
+
+
+
+
+        if (localStorage.getItem('id') != "" && localStorage.getItem('id') != null && localStorage.getItem('id') != undefined) {
+            id = localStorage.getItem('id');
+            ngaykekhai = localStorage.getItem('ngaykekhai');
+            cuakhau_id = localStorage.getItem('cuakhau_id');
+            tencuakhau = localStorage.getItem('tencuakhau');
+            donvi_id = localStorage.getItem('donvi_id');
+            hoten = localStorage.getItem('hoten');
+            namsinh = localStorage.getItem('namsinh');
+            gioitinh = localStorage.getItem('gioitinh');
+            quoctich = localStorage.getItem('quoctich');
+            sohochieu = localStorage.getItem('sohochieu');
+            thongtindilai_taubay = localStorage.getItem('thongtindilai_taubay');
+            thongtindilai_tauthuyen = localStorage.getItem('thongtindilai_tauthuyen');
+            thongtindilai_oto = localStorage.getItem('thongtindilai_oto');
+            thongtindilai_khac = localStorage.getItem('thongtindilai_khac');
+            thongtindilai_chitiet = localStorage.getItem('thongtindilai_chitiet');
+            sohieu_phuongtien = localStorage.getItem('sohieu_phuongtien');
+            soghe_phuongtien = localStorage.getItem('soghe_phuongtien');
+            ngay_khoihanh = localStorage.getItem('ngay_khoihanh');
+            ngay_nhapcanh = localStorage.getItem('ngay_nhapcanh');
+            noi_khoihanh = localStorage.getItem('noi_khoihanh');
+            noiden = localStorage.getItem('noiden');
+            quocgiadiqua = localStorage.getItem('quocgiadiqua');
+            diachi_taivietnam = localStorage.getItem('diachi_taivietnam');
+            sodienthoai = localStorage.getItem('sodienthoai');
+            email = localStorage.getItem('email');
+            dauhieubenh_sot = localStorage.getItem('dauhieubenh_sot');
+            dauhieubenh_ho = localStorage.getItem('dauhieubenh_ho');
+            dauhieubenh_khotho = localStorage.getItem('dauhieubenh_khotho');
+            dauhieubenh_dauhong = localStorage.getItem('dauhieubenh_dauhong');
+            dauhieubenh_buonnon = localStorage.getItem('dauhieubenh_buonnon');
+            dauhieubenh_tieuchay = localStorage.getItem('dauhieubenh_tieuchay');
+            dauhieubenh_xuathuyetngoaida = localStorage.getItem('dauhieubenh_xuathuyetngoaida');
+            dauhieubenh_phatban = localStorage.getItem('dauhieubenh_phatban');
+            vacxin_dasudung = localStorage.getItem('vacxin_dasudung');
+            tiepxuc_dongvat = localStorage.getItem('tiepxuc_dongvat');
+            chamsocnguoibenhtruyennhiem = localStorage.getItem('chamsocnguoibenhtruyennhiem');
+        }
+        else{
+            id = "{{id}}";
+            ngaykekhai = "{{ngaykekhai}}";
+            cuakhau_id = "{{cuakhau_id}}";
+            tencuakhau = "{{tencuakhau}}";
+            donvi_id = "{{donvi_id}}";
+            hoten = "{{hoten}}";
+            namsinh = "{{namsinh}}";
+            gioitinh = "{{gioitinh}}";
+            quoctich = "{{quoctich}}";
+            sohochieu = "{{sohochieu}}";
+            thongtindilai_taubay = "{{thongtindilai_taubay}}";
+            thongtindilai_tauthuyen = "{{thongtindilai_tauthuyen}}";
+            thongtindilai_oto = "{{thongtindilai_oto}}";
+            thongtindilai_khac = "{{thongtindilai_khac}}";
+            thongtindilai_chitiet = "{{thongtindilai_chitiet}}";
+            sohieu_phuongtien = "{{sohieu_phuongtien}}";
+            soghe_phuongtien = "{{soghe_phuongtien}}";
+            ngay_khoihanh = "{{ngay_khoihanh}}";
+            ngay_nhapcanh = "{{ngay_nhapcanh}}";
+            noi_khoihanh = "{{noi_khoihanh}}";
+
+            noiden = "{{noiden}}";
+            quocgiadiqua = "{{quocgiadiqua}}";
+            diachi_taivietnam = "{{diachi_taivietnam}}";
+            sodienthoai = "{{sodienthoai}}";
+            email = "{{email}}";
+            dauhieubenh_sot = "{{dauhieubenh_sot}}";
+            dauhieubenh_ho = "{{dauhieubenh_ho}}";
+            dauhieubenh_khotho = "{{dauhieubenh_khotho}}";
+            dauhieubenh_dauhong = "{{dauhieubenh_dauhong}}";
+            dauhieubenh_buonnon = "{{dauhieubenh_buonnon}}";
+            dauhieubenh_tieuchay = "{{dauhieubenh_tieuchay}}";
+            dauhieubenh_xuathuyetngoaida = "{{dauhieubenh_xuathuyetngoaida}}";
+            dauhieubenh_phatban = "{{dauhieubenh_phatban}}";
+            vacxin_dasudung = "{{vacxin_dasudung}}";
+            tiepxuc_dongvat = "{{tiepxuc_dongvat}}";
+            chamsocnguoibenhtruyennhiem = "{{chamsocnguoibenhtruyennhiem}}";
+        }
 
         /////KHU VỰC HIỂN THỊ GIÁ TRỊ 
+        //Hiển thị ô text
+        $("#hoten").val(hoten);
+        $("#namsinh").val(namsinh);
+        $("#sohochieu").val(sohochieu);
+        $("#thongtindilai_chitiet").val(thongtindilai_chitiet);
+        $("#soghe_phuongtien").val(soghe_phuongtien);
+        $("#ngay_khoihanh").val(ngay_khoihanh);
+        $("#ngay_nhapcanh").val(ngay_nhapcanh);
+        $("#noi_khoihanh").val(noi_khoihanh);
+        $("#noiden").val(noiden);
+        $("#quocgiadiqua").val(quocgiadiqua);
+        $("#diachi_taivietnam").val(diachi_taivietnam);
+        $("#sodienthoai").val(sodienthoai);
+        $("#email").val(email);
+        $("#vacxin_dasudung").val(vacxin_dasudung);
+        $('#ngaykekhai').html('Ngày khai:'+ ngaykekhai)
+
+
         //Hiển thị kết quả giới tính và quốc tịch
-        $(".gioitinh").val("{{gioitinh}}");
-        $(".quoctich").val("{{quoctich}}");
+        $(".gioitinh").val(gioitinh);
+        $(".quoctich").val(quoctich);
 
         //Hiển thị kết quả radio dấu hiệu và tiếp xúc
         var dauhieuvatiepxuc = [
-            { "text": "dauhieubenh_sot", "value": "{{dauhieubenh_sot}}" },
-            { "text": "dauhieubenh_ho", "value": "{{dauhieubenh_ho}}" },
-            { "text": "dauhieubenh_khotho", "value": "{{dauhieubenh_khotho}}" },
-            { "text": "dauhieubenh_dauhong", "value": "{{dauhieubenh_dauhong}}" },
-            { "text": "dauhieubenh_buonnon", "value": "{{dauhieubenh_buonnon}}" },
-            { "text": "dauhieubenh_tieuchay", "value": "{{dauhieubenh_tieuchay}}" },
-            { "text": "dauhieubenh_xuathuyetngoaida", "value": "{{dauhieubenh_xuathuyetngoaida}}" },
-            { "text": "dauhieubenh_phatban", "value": "{{dauhieubenh_phatban}}" },
-            { "text": "tiepxuc_dongvat", "value": "{{tiepxuc_dongvat}}" },
-            { "text": "chamsocnguoibenhtruyennhiem", "value": "{{chamsocnguoibenhtruyennhiem}}" },
+            { "text": "dauhieubenh_sot", "value": dauhieubenh_sot },
+            { "text": "dauhieubenh_ho", "value": dauhieubenh_ho },
+            { "text": "dauhieubenh_khotho", "value": dauhieubenh_khotho },
+            { "text": "dauhieubenh_dauhong", "value": dauhieubenh_dauhong },
+            { "text": "dauhieubenh_buonnon", "value": dauhieubenh_buonnon },
+            { "text": "dauhieubenh_tieuchay", "value": dauhieubenh_tieuchay },
+            { "text": "dauhieubenh_xuathuyetngoaida", "value": dauhieubenh_xuathuyetngoaida },
+            { "text": "dauhieubenh_phatban", "value": dauhieubenh_phatban },
+            { "text": "tiepxuc_dongvat", "value": tiepxuc_dongvat },
+            { "text": "chamsocnguoibenhtruyennhiem", "value": chamsocnguoibenhtruyennhiem },
         ]
         dauhieuvatiepxuc.forEach(function (item, index) {
             if (item.value === "1") {
@@ -691,13 +826,13 @@
 
         //Hiên thi kết quả check box thông tin đi lại
         var thongtindilai = [
-            { "text": "thongtindilai_taubay", "value": "{{thongtindilai_taubay}}" },
-            { "text": "thongtindilai_tauthuyen", "value": "{{thongtindilai_tauthuyen}}" },
-            { "text": "thongtindilai_oto", "value": "{{thongtindilai_oto}}" },
-            { "text": "thongtindilai_khac", "value": "{{thongtindilai_khac}}" },
+            { "text": "thongtindilai_taubay", "value": thongtindilai_taubay },
+            { "text": "thongtindilai_tauthuyen", "value": thongtindilai_tauthuyen },
+            { "text": "thongtindilai_oto", "value": thongtindilai_oto },
+            { "text": "thongtindilai_khac", "value":thongtindilai_khac },
         ]
         thongtindilai.forEach(function (item, index) {
-            if (item.value == 1) {
+            if (item.value === "1") {
                 $('#' + item.text).prop('checked', true);
             }
         })
@@ -719,8 +854,7 @@
         });
         //Cài ngày hôm nay 
         var d = new Date();
-        var ngaysoan =  d.getFullYear() +'-' +   d.getMonth() +'-' +  d.getDate();
-        $('#ngaykekhai').html('Ngày khai: ' + d.getDate() +'-' +   d.getMonth()+'-' +  d.getFullYear())
+        var ngaysoan = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
         //Giá trị radio
         var dauhieubenh_sot = null;
         var dauhieubenh_ho = null;
@@ -736,7 +870,7 @@
         var thongtindilai_tauthuyen = null;
         var thongtindilai_oto = null;
         var thongtindilai_khac = null;
-        
+
         //Gửi dữ liệu lên server
         $('#btn-luu').unbind('click').bind('click', function () {
             var checkedValue = [];
@@ -871,10 +1005,45 @@
                 url: location.origin + "/api/v1/create_tokhaiyte",
                 data: JSON.stringify(data),
                 contentType: "application/json",
-
                 success: function (response) {
-                    localStorage.setItem('MaToKhai', response.id);
-                    window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('MaToKhai');
+                    localStorage.setItem('id', response.id);
+                    localStorage.setItem('ngaykekhai', response.ngaykekhai);
+                    localStorage.setItem('cuakhau_id', response.cuakhau_id);
+                    localStorage.setItem('tencuakhau', response.tencuakhau);
+                    localStorage.setItem('donvi_id', response.donvi_id);
+                    localStorage.setItem('hoten', response.hoten);
+                    localStorage.setItem('namsinh', response.namsinh);
+                    localStorage.setItem('gioitinh', response.gioitinh);
+                    localStorage.setItem('quoctich', response.quoctich);
+                    localStorage.setItem('sohochieu', response.sohochieu);
+                    localStorage.setItem('thongtindilai_taubay', response.thongtindilai_taubay);
+                    localStorage.setItem('thongtindilai_tauthuyen', response.thongtindilai_tauthuyen);
+                    localStorage.setItem('thongtindilai_oto', response.thongtindilai_oto);
+                    localStorage.setItem('thongtindilai_khac', response.thongtindilai_khac);
+                    localStorage.setItem('thongtindilai_chitiet', response.thongtindilai_chitiet);
+                    localStorage.setItem('sohieu_phuongtien', response.sohieu_phuongtien);
+                    localStorage.setItem('soghe_phuongtien', response.soghe_phuongtien);
+                    localStorage.setItem('ngay_khoihanh', response.ngay_khoihanh);
+                    localStorage.setItem('ngay_nhapcanh', response.ngay_nhapcanh);
+                    localStorage.setItem('noi_khoihanh', response.noi_khoihanh);
+                    localStorage.setItem('noiden', response.noiden);
+                    localStorage.setItem('quocgiadiqua', response.quocgiadiqua);
+                    localStorage.setItem('diachi_taivietnam', response.diachi_taivietnam);
+                    localStorage.setItem('sodienthoai', response.sodienthoai);
+                    localStorage.setItem('email', response.email);
+                    localStorage.setItem('dauhieubenh_sot', response.dauhieubenh_sot);
+                    localStorage.setItem('dauhieubenh_ho', response.dauhieubenh_ho);
+                    localStorage.setItem('dauhieubenh_khotho', response.dauhieubenh_khotho);
+                    localStorage.setItem('dauhieubenh_dauhong', response.dauhieubenh_dauhong);
+                    localStorage.setItem('dauhieubenh_buonnon', response.dauhieubenh_buonnon);
+                    localStorage.setItem('dauhieubenh_tieuchay', response.dauhieubenh_tieuchay);
+                    localStorage.setItem('dauhieubenh_xuathuyetngoaida', response.dauhieubenh_xuathuyetngoaida);
+                    localStorage.setItem('dauhieubenh_phatban', response.dauhieubenh_phatban);
+                    localStorage.setItem('vacxin_dasudung', response.vacxin_dasudung);
+                    localStorage.setItem('tiepxuc_dongvat', response.tiepxuc_dongvat);
+                    localStorage.setItem('chamsocnguoibenhtruyennhiem', response.chamsocnguoibenhtruyennhiem);
+
+                    window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('id');
 
                 },
                 error: function (response) {
