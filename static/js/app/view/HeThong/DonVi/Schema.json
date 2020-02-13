@@ -18,6 +18,15 @@
   "email": {
     "type": "string"
   }, 
+  "hotline_sodienthoai": {
+    "type": "string"
+  }, 
+  "hotline_email": {
+    "type": "string"
+  },  
+  "hotline_fax": {
+    "type": "string"
+  }, 
   "ghichu": {
     "type": "string"
   },

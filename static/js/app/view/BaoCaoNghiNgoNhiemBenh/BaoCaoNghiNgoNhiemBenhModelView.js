@@ -536,7 +536,6 @@ define(function (require) {
 				
 				var moobject = moment(ngaybaocao, "YYYY-MM-DDTHH:mm:ss");
 				var nambaocao = moobject.year();
-				console.log(nambaocao);
 				self.model.set("nambaocao", nambaocao);
 			})
 		},
