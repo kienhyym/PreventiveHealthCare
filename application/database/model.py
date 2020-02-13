@@ -32,7 +32,7 @@ def model_onupdate_listener(mapper, connection, instance):
 # using CommonModel as argument of Model Class
 class CommonModel(db.Model):
     __abstract__ = True
-    id = db.Column(UUID(as_uuid=True), default=default_uuid)
+    id = db.Column(UUID(as_uuid=True), primary_key=True, default=default_uuid)
     
     _created_at = db.Column(DateTime)
     _updated_at = db.Column(DateTime)
@@ -104,4 +104,3 @@ class CommonAdjacencyModel(CommonModel):
 event.listen(CommonAdjacencyModel, 'before_insert', adjacency_model_oncreate_listener, propagate=True)
 event.listen(CommonAdjacencyModel, 'before_update', adjacency_model_onupdate_listener, propagate=True)
 event.listen(CommonAdjacencyModel, 'before_delete', adjacency_model_ondelete_listener, propagate=True)
-

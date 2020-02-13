@@ -55,7 +55,7 @@ define(function (require) {
 	var Model = Gonrin.Model.extend({
 		defaults: Gonrin.getDefaultModel(itemSchema),
 		computeds: {
-			tong_cachly: function() {
+			tong_trongngay: function() {
 				var ret = 0;
 				var quoctich_vietnam = this.get("quoctich_vietnam") != null ? this.get("quoctich_vietnam"): 0;
 				var quoctich_trungquoc = this.get("quoctich_trungquoc") != null ? this.get("quoctich_trungquoc"): 0;
@@ -68,10 +68,9 @@ define(function (require) {
 
 	return Gonrin.ItemView.extend({
 		template: itemTemplate,
-		tagName: "tr",
 		bindings: 'data-chitieu-bind',
 		modelSchema: itemSchema,
-		// modelClass: Model,
+		modelClass: Model,
 		urlPrefix: "/api/v1/",
 		collectionName: "baocaotonghopnghingonhiembenhnhoma",
 		// uiControl: [
@@ -82,7 +81,7 @@ define(function (require) {
 		//             ],
 		render: function () {
 			var self = this;
-			self.model.set("record_type", "nCoV");
+			//self.model.set("record_type", "nCoV");
 			this.applyBindings();
 		},
 

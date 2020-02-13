@@ -1,47 +1,6 @@
-<div class="row text-center" style="margin-top:10px">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="text-center" rowspan="2" style="width: 90px;">Nội dung</th>
-                <th class="text-center" colspan="4">Trường hợp bệnh nghi ngờ</th>
-                <th class="text-center" colspan="3">Kết quả xét nghiệm nCoV</th>
-                <th class="text-center" colspan="5">Trường hợp tiếp xúc gần hoặc liên quan khác</th>
-            </tr>
-            <tr>
-                <th class="text-center">Tổng</th>
-                <th class="text-center">Người Việt Nam</th">
-                <th class="text-center">Người Trung Quốc</th">
-                <th class="text-center">Quốc tịch khác</th>
-                <th class="text-center">Dương tính</th">
-                <th class="text-center">Âm tính</th">
 
-                <th class="text-center">Đang chờ kết quả</th>
-                <th class="text-center">Đang theo dõi</th">
-
-                <th class="text-center">Có triệu chứng sốt/ho/khó thở</th>
-                <th class="text-center">Có diễn biến nặng</th>
-                <th class="text-center">Không có triệu chứng</th">
-                <th class="text-center">Đã qua 14 ngày kể từ ngày tiếp xúc lần cuối</th">
-            </tr>
-        </thead>
-        <tbody id="chitieu-data">
-            <tr>
-                <td><span>Số ghi nhận trong ngày</span></td>
-                <td><b><span data-chitieu-bind="text:tong_trongngay"></span></b></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:quoctich_vietnam"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:quoctich_trungquoc"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:quoctich_khac"></td>
-
-                <td><input type="text" class="form-control" data-chitieu-bind="value:xetnghiem_duongtinh"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:xetnghiem_amtinh"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:xetnghiem_dangchoketqua"></td>
-
-                <td><input type="text" class="form-control" data-chitieu-bind="value:tiepxucgan_dangtheodoi"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:tiepxucgan_cotrieuchung"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:tiepxucgan_dienbiennang"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:tiepxucgan_khongtrieuchung"></td>
-                <td><input type="text" class="form-control" data-chitieu-bind="value:tiepxucgan_qua14ngay"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<!-- <td><input type="text" class="form-control" data-chitieu-bind="value:tong_cachly" readonly></td> -->
+<td><input type="text" class="form-control" data-chitieu-bind="value:quoctich_vietnam"></td>
+<td><input type="text" class="form-control" data-chitieu-bind="value:quoctich_trungquoc"></td>
+<td><input type="text" class="form-control" data-chitieu-bind="value:quoctich_khac"></td>
+            

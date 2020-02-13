@@ -823,6 +823,76 @@ class ToKhaiYTe(CommonModel):
     extra_data = db.Column(JSONB)
     
 
+class TruongHopCachLyTapTrung(CommonModel):
+    __tablename__ = 'truonghopcachlytaptrung'
+    # id = db.Column(db.Integer, primary_key=True)
+    ma = db.Column(db.String(255))
+    matokhaiyte = db.Column(db.String(), index=True)
+
+    ngaybaocao = db.Column(db.DateTime(), index=True, nullable=False)
+
+    noibaocao = db.Column(db.String(255))
+    
+    nambaocao = db.Column(db.Integer, nullable=False)
+    donvi_id = db.Column(db.Integer, nullable=False, index=True)
+    tendonvi = db.Column(db.String())
+    madonvi = db.Column(db.String())
+
+    cuakhau_id = db.Column(db.Integer, index=True)
+    tencuakhau = db.Column(db.String())
+    macuakhau = db.Column(db.String())
+    
+    #dulieu
+    hoten = db.Column(db.String(), index=True)
+    gioitinh = db.Column(db.String(20))
+    namsinh = db.Column(db.Integer())
+    
+    quoctich = db.Column(db.String())
+    ma_quoctich = db.Column(db.String())
+
+    cmtnd = db.Column(db.String(), index=True)
+    cuakhau_nhapquacanh = db.Column(db.String())
+    gio_nhapquacanh = db.Column(db.Integer())
+    ngay_nhapquacanh = db.Column(db.DateTime())
+    
+    phuongtien = db.Column(db.String())
+    sohieu_phuongtien = db.Column(db.String())
+
+    noio = db.Column(db.String())
+    noio_tinhthanh = db.Column(db.String())
+    noio_matinhthanh = db.Column(db.String())
+
+    noio_quanhuyen = db.Column(db.String())
+    noio_xaphuong = db.Column(db.String())
+
+    diachi_lienlac = db.Column(db.String())
+    email = db.Column(db.String())
+    sodienthoai = db.Column(db.String(63))
+    nghenghiep = db.Column(db.String())
+    
+    benh_nghingo = db.Column(db.String())
+    tiensu_dichte = db.Column(db.String())
+    tiensu_trieuchunglamsang = db.Column(db.String())
+    tiensu_xutri = db.Column(db.String())
+    
+    noitiepnhan_xutri_id = db.Column(db.Integer())
+    noitiepnhan_xutri = db.Column(db.String())
+    
+
+    ngaygio_phathien = db.Column(db.String())
+    # ngay_phathien = db.Column(db.DateTime())
+    # gio_phathien = db.Column(db.Integer())
+    tinhtrang_phathien = db.Column(db.String())
+    benhly_kemtheo = db.Column(db.String())
+
+    # huongxutri = db.Column(db.String())
+
+    nhanxet_danhgia = db.Column(db.String())
+    ghichu = db.Column(db.String())
+    
+    tinhtrang = db.Column(db.SmallInteger, nullable=False, default=1)
+
+
 # class TruongHopCachLyTapTrung(CommonModel):
 #     __tablename__ = "truonghopcachlytaptrung"
 #     #id = db.Column(db.Integer, primary_key=True)

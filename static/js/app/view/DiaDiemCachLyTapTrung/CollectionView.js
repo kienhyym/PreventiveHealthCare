@@ -120,7 +120,7 @@ define(function (require) {
 						viewData: {
 							id: event.rowId,
 							donvi_id : self.viewData.donvi_id,
-							cuakhau_id : self.viewData.cuakhau_id
+							// cuakhau_id : self.viewData.cuakhau_id
 						}
 					});
 					view.dialog({ size: "large" });

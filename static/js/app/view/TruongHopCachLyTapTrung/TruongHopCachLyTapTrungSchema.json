@@ -1,0 +1,155 @@
+{
+    "id": {
+        "type": "string",
+        "primary": true
+    },
+    "_created_at": {
+        "type": "datetime"
+    },
+    "_updated_at": {
+        "type": "datetime"
+    },
+    "_deleted": {
+        "type": "boolean",
+        "default": false
+    },
+    "_deleted_at": {
+        "type": "datetime"
+    },
+    "ma": {
+        "type": "string",
+        "length": 255
+    },
+    "matokhaiyte": {
+        "type": "string"
+    },
+    "ngaybaocao": {
+        "type": "datetime",
+        "required": true
+    },
+    "noibaocao": {
+        "type": "string",
+        "length": 255
+    },
+    "nambaocao": {
+        "type": "number",
+        "required": true
+    },
+    "donvi_id": {
+        "type": "number",
+        "required": true
+    },
+    "tendonvi": {
+        "type": "string"
+    },
+    "madonvi": {
+        "type": "string"
+    },
+    "cuakhau_id": {
+        "type": "number"
+    },
+    "tencuakhau": {
+        "type": "string"
+    },
+    "macuakhau": {
+        "type": "string"
+    },
+    "hoten": {
+        "type": "string"
+    },
+    "gioitinh": {
+        "type": "string",
+        "length": 20
+    },
+    "namsinh": {
+        "type": "number"
+    },
+    "quoctich": {
+        "type": "string"
+    },
+    "ma_quoctich": {
+        "type": "string"
+    },
+    "cmtnd": {
+        "type": "string"
+    },
+    "cuakhau_nhapquacanh": {
+        "type": "string"
+    },
+    "gio_nhapquacanh": {
+        "type": "number"
+    },
+    "ngay_nhapquacanh": {
+        "type": "datetime"
+    },
+    "phuongtien": {
+        "type": "string"
+    },
+    "sohieu_phuongtien": {
+        "type": "string"
+    },
+    "noio": {
+        "type": "string"
+    },
+    "noio_tinhthanh": {
+        "type": "string"
+    },
+    "noio_matinhthanh": {
+        "type": "string"
+    },
+    "noio_quanhuyen": {
+        "type": "string"
+    },
+    "noio_xaphuong": {
+        "type": "string"
+    },
+    "diachi_lienlac": {
+        "type": "string"
+    },
+    "email": {
+        "type": "string"
+    },
+    "sodienthoai": {
+        "type": "string",
+        "length": 63
+    },
+    "nghenghiep": {
+        "type": "string"
+    },
+    "benh_nghingo": {
+        "type": "string"
+    },
+    "tiensu_dichte": {
+        "type": "string"
+    },
+    "tiensu_trieuchunglamsang": {
+        "type": "string"
+    },
+    "tiensu_xutri": {
+        "type": "string"
+    },
+    "noitiepnhan_xutri": {
+        "type": "string"
+    },
+    "ngaygio_phathien": {
+        "type": "string"
+    },
+    
+    "tinhtrang_phathien": {
+        "type": "string"
+    },
+    "benhly_kemtheo": {
+        "type": "string"
+    },
+    "nhanxet_danhgia": {
+        "type": "string"
+    },
+    "ghichu": {
+        "type": "string"
+    },
+    "tinhtrang": {
+        "type": "number",
+        "required": true,
+        "default": 1
+    }
+}

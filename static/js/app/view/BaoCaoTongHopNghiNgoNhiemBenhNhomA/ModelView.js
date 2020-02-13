@@ -7,10 +7,14 @@ define(function (require) {
 	var template = require('text!tpl/BaoCaoTongHopNghiNgoNhiemBenhNhomA/model.html'),
 		schema = require('json!app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/Schema.json');
 
-    var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
+    // var BaoCaoNghiNgoNhiemBenhDialogView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhDialogView');
+	var BaoCaoNghiNgoNhiemBenhCollectionlView = require('app/view/BaoCaoNghiNgoNhiemBenh/BaoCaoNghiNgoNhiemBenhCollectionlView');
 	var CuaKhauSelectView = require('app/view/HeThong/CuaKhau/SelectView');
 
 	var DiaDiemCachLyTapTrungView = require('app/view/DiaDiemCachLyTapTrung/CollectionView');
+	var TruongHopCachLyTapTrungCollectionView = require('app/view/TruongHopCachLyTapTrung/CollectionView');
+	
+	
 	var ChiTieuNCoVView = require('app/view/BaoCaoTongHopNghiNgoNhiemBenhNhomA/ChiTieuNCoVView');
 
 
@@ -161,7 +165,8 @@ define(function (require) {
 				
 				self.applyBindings();
 				self.registerEvent();
-				self.getDanhsachnhiembenh();
+				self.getDanhSachNghiNgo();
+				self.getDanhSachCachLy();
 				self.getData();
 				self.getDiaDiemCachLyTapTrung();
                 
@@ -175,9 +180,26 @@ define(function (require) {
 			var self = this;
 			
 			self.model.on("change:ngaybaocao change:cuakhau_id",function () {
-				self.getDanhsachnhiembenh();
+				self.getDanhSachNghiNgo();
+				self.getDanhSachCachLy();
 				self.getData();
-			})
+			});
+
+
+			//comment other ncov
+			self.model.on("change:data",function () {
+				console.log(self.model.toJSON());
+				var data = self.model.get("data");
+				if(!!data){
+					if(data.record_type === "nCoV"){
+						var ret = 0;
+						var quoctich_vietnam = (data.quoctich_vietnam || null) != null ? data.quoctich_vietnam: 0;
+						var quoctich_trungquoc = (data.quoctich_trungquoc || null) != null ? data.quoctich_trungquoc: 0;
+						var quoctich_khac = (data.quoctich_khac || null) != null ? data.quoctich_khac: 0;
+						self.model.set("songuoidangcachlytaptrung", quoctich_vietnam + quoctich_trungquoc + quoctich_khac);
+					}
+				}
+			});
 		},
 
 		getData: function(){
@@ -233,31 +255,18 @@ define(function (require) {
 		
 		getDiaDiemCachLyTapTrung: function(){
 			var self = this;
+			self.$el.find("#diadiemcachly-container").empty();
 			var view = new DiaDiemCachLyTapTrungView({
 				viewData: {
 					donvi_id : self.model.get("donvi_id"),
-					cuakhau_id : self.model.get("cuakhau_id")
+					// cuakhau_id : self.model.get("cuakhau_id")
 				}
 			});
 			view.render();
 			self.$el.find("#diadiemcachly-container").append(view.$el)
 		},
 
-		createNguoiNhiemBenh: function() {
-			var self = this;
-			
-			var dialogNghiNgonhiemBenh = new BaoCaoNghiNgoNhiemBenhDialogView();
-			dialogNghiNgonhiemBenh.dialog({size: "large"});
-			dialogNghiNgonhiemBenh.on("close", function (param) {
-				console.log("dialogNghiNgonhiemBenh close", param);
-				if ((!!param) && (param.refresh)){
-					
-					self.getDanhsachnhiembenh();
-				}
-				
-			});
-		},
-		getDanhsachnhiembenh:function(){
+		getDanhSachCachLy: function(){
 			var self = this;
 			var ngaybaocao = self.model.get("ngaybaocao");
 			var donvi_id = self.model.get("donvi_id");
@@ -267,104 +276,45 @@ define(function (require) {
 				return;
 			}
 
-			self.$el.find("#add-nghingonhiembenh-item").empty();
-			var url_danhsachnghingo = self.getApp().serviceURL + '/api/v1/baocaonghingonhiembenh';
-			$.ajax({
-			url: url_danhsachnghingo,
-				method: "GET",
-				data: {
-					"q": JSON.stringify({
-						"filters": {
-							"$and":[
-								{"ngaybaocao":{"$eq":ngaybaocao}},
-								{"donvi_id": {"$eq":donvi_id}},
-								{"cuakhau_id": {"$eq":cuakhau_id}}
-							]
-						},
-					// "page":1
-					})
-				},
-				contentType: "application/json",
-				success: function (data) {
-					$("#add-nghingonhiembenh-item").grid({
-						showSortingIndicator: true,
-						onValidateError: function(e){
-							console.log(e);
-						},
-						language:{
-							no_records_found:" "
-						},
-						noResultsClass:"alert alert-default no-records-found",
-						refresh:true,
-						orderByMode: "client",
-						tools : [
-							{
-								name: "create",
-								type: "button",
-								buttonClass: "btn-danger btn-sm",
-								label: "Tạo mới nhanh trường hợp nghi ngờ",
-								command: function() {
-									self.createNguoiNhiemBenh();
-								}
-							},
-							// {
-							// 	name: "export_excel",
-							// 	type: "button",
-							// 	buttonClass: "btn-primary btn-sm",
-							// 	label: "Xuất Excel danh sách",
-							// 	command: function() {
-							// 		var ngaybaocao = self.model.get("ngaybaocao");
-							// 		var url = "/export/excel/baocaotonghopnghingonhiembenhnhoma";
-									
-							// 		if(!!ngaybaocao){
-							// 			url = "/export/excel/baocaotonghopnghingonhiembenhnhoma?ngaybaocao=" + ngaybaocao;
-							// 		}
-							// 		window.open(url, "_blank");
-							// 	}
-							// },
-						],
-						fields: [
-							{
-								field: "id", label: "ID", width: 100, readonly: true,visible:false
-							},
-							{field: "hoten", label: "Họ và tên", sortable: {order:"asc"},width: 400},
-							{field: "namsinh", label: "Năm sinh", width: 200},
-							{field: "quoctich", label: "Quốc tịch", width: 200},
-							{ field: "noio", label: "Nơi ở tại Việt Nam (Nơi sẽ đến)", width: 250 },
-							{ field: "ngaygio_phathien", label: "Ngày giờ phát hiện", width: 250 },
-							{ field: "tiensu_trieuchunglamsang", label: "Tình trạng phát hiện", width: 250, textField: "ten" },
-							{ field: "tiensu_xutri", label: "Xử trí", width: 250 },
-						],
-						dataSource: data.objects,
-						primaryField:"id",
-						selectionMode: "single",
-						pagination: {
-						page: 1,
-						pageSize: 20
-						},
-						onRowClick: function(event){
-							if (event.rowId) {
-								var path =  'baocaonghingonhiembenh/model/model?id=' + event.rowId;
-								gonrinApp().getRouter().navigate(path);
-							}
-						},
-					});
-				},
-				error: function (xhr, status, error) {
-					try {
-						if (($.parseJSON(xhr.responseText).error_code) === "SESSION_EXPIRED"){
-							self.getApp().notify("Hết phiên làm việc, vui lòng đăng nhập lại!");
-							self.getApp().getRouter().navigate("login");
-						} else {
-							self.getApp().notify({ message: $.parseJSON(xhr.responseText).error_message }, { type: "danger", delay: 1000 });
-						}
-					}
-					catch (err) {
-						self.getApp().notify({ message: "Lỗi truy cập dữ liệu, vui lòng thử lại sau"}, { type: "danger", delay: 1000 });
-					}
-				},
+			self.$el.find("#danhsach-cachly-container").empty();
+
+			var self = this;
+			var view = new TruongHopCachLyTapTrungCollectionView({
+				viewData: {
+					ngaybaocao : ngaybaocao,
+					donvi_id : donvi_id,
+					cuakhau_id : cuakhau_id
+				}
 			});
-		}
+			view.render();
+			self.$el.find("#danhsach-cachly-container").append(view.$el)
+
+		},
+		getDanhSachNghiNgo: function(){
+			var self = this;
+			var ngaybaocao = self.model.get("ngaybaocao");
+			var donvi_id = self.model.get("donvi_id");
+			var cuakhau_id = self.model.get("cuakhau_id");
+
+			if((!cuakhau_id) || (!donvi_id) || (!ngaybaocao)){
+				return;
+			}
+
+			self.$el.find("#danhsach-nghingo-container").empty();
+
+			var self = this;
+			var view = new BaoCaoNghiNgoNhiemBenhCollectionlView({
+				viewData: {
+					"type": "itemview",
+					ngaybaocao : ngaybaocao,
+					donvi_id : donvi_id,
+					cuakhau_id : cuakhau_id
+				}
+			});
+			view.render();
+			self.$el.find("#danhsach-nghingo-container").append(view.$el);
+		},
+		
 		
 	});
 

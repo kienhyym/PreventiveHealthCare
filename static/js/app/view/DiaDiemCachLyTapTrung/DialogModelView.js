@@ -93,7 +93,7 @@ define(function (require) {
         		});
     		}else{
 				self.model.set("donvi_id", donvi_id);
-				self.model.set("cuakhau_id", cuakhau_id);
+				// self.model.set("cuakhau_id", cuakhau_id);
     			self.applyBindings();
     		}
     		

@@ -40,6 +40,8 @@ def generate_schema(path = None, exclude = None, prettyprint = True):
     for cls in [cls for cls in db.Model._decl_class_registry.values() if isinstance(cls, type) and issubclass(cls, db.Model)]:
         classname = cls.__name__
         print("classname===",classname)
+        if classname != "TruongHopCachLyTapTrung":
+            continue
         if (exclude_list is not None) and (classname in exclude_list):
             continue
         schema = {}

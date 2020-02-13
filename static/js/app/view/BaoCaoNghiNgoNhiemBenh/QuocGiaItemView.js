@@ -18,7 +18,8 @@ define(function (require) {
 		foreignField: "baocao_id",
 
 		uiControl: [
-		            {field:"tenquocgia", cssClass:false},
+					{field:"tenquocgia", cssClass:false, uicontrol: false,},
+					
 		            {field:"ngaydiqua", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true}
 		            ],
 		render: function () {

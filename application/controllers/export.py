@@ -16,6 +16,7 @@ from gatco_apimanager.views.sqlalchemy.helpers import to_dict
 
 from sqlalchemy.sql.expression import except_
 import time
+from datetime import datetime
 from math import floor
 from application.client import HTTPClient
 from sqlalchemy import or_, and_, desc
@@ -609,3 +610,102 @@ async def exportthongkenghingonhiembenhnhoma(request, data):
 
 
     return json(data)
+
+
+@exportbp.route('/excel/truonghopcachlytaptrung')
+async def exporttruonghopcachlytaptrung(request):
+    donvi_id = request.args.get("donvi_id")
+    
+    if donvi_id is None:
+        return text("Không tìm thấy báo cáo...", status=404)
+    filename  = "truonghopcachlytaptrung-" + donvi_id + "-" + str(time.time())+'.xlsx'
+    donvi = db.session.query(DonVi).filter(DonVi.id == int(donvi_id)).first()
+
+    cuakhau_id = request.args.get("cuakhau_id")
+    ngaybaocao = request.args.get("ngaybaocao", "")
+
+    items = TruongHopCachLyTapTrung.query.filter(TruongHopCachLyTapTrung.donvi_id == int(donvi_id))
+    if cuakhau_id is not None:
+        items = items.filter(TruongHopCachLyTapTrung.cuakhau_id == int(cuakhau_id))
+    if ngaybaocao is not None:
+        items = items.filter(TruongHopCachLyTapTrung.ngaybaocao == ngaybaocao)
+    items = items.all()
+
+    wb = Workbook()
+    ws = wb.active
+
+    ws.merge_cells('A2:D2')
+    ws.merge_cells('A3:D3')
+    ws.merge_cells('D4:K4')
+
+    
+
+    ws['A2'] = "Cục Y tế Dự phòng"
+    ws['A3'] = donvi.ten
+    ws['A3'].font = bold_font
+    ws['D4'] = "DANH SÁCH THEO DÕI KHÁCH NHẬP CẢNH ĐƯỢC CÁCH LY"
+    ws['D4'].font = bold_font
+    ws['B5'] = "Ngày: "
+
+    if ngaybaocao is not None:
+        ngaybaocao_date = datetime.strptime(ngaybaocao, "%Y-%m-%dT%H:%M:%S")
+        print(ngaybaocao_date)
+        ws['C5'] = ngaybaocao_date.strftime("%d/%m/%Y")
+
+    ws['A7'] = "STT"
+    ws['B7'] = "Họ và tên"
+    ws['C7'] = "CMTND/Hộ chiếu"
+    ws['D7'] = "Tuổi"
+    ws['E7'] = "Giới tính"
+    ws['F7'] = "Nghề nghiệp"
+    ws['G7'] = "Xã"
+    ws['H7'] = "Huyện"
+    ws['I7'] = "Tỉnh"
+    ws['J7'] = "Quốc tịch"
+    ws['K7'] = "Số điện thoại"
+    ws['L7'] = "Tiền sử dịch tễ"
+    ws['M7'] = "Triệu chứng"
+    ws['N7'] = "Địa điểm cách ly"
+    ws['O7'] = "Bệnh lý nền kèm theo"
+    ws['P7'] = "Ghi chú"
+    ws['Q7'] = "Nhập cảnh tại của khẩu"
+
+    for j in range(17):
+        ws[list_char[j] + "7"].alignment = center_alignment
+        ws[list_char[j] + "7"].border = black_border
+        ws[list_char[j] + "7"].font = bold_font
+
+    start_row = 8
+
+    for item in items:
+        obj = to_dict(item)
+        ws['A' + str(start_row)] = str(start_row - 7)
+        ws['B' + str(start_row)] = obj["hoten"]
+        ws['C' + str(start_row)] = obj["cmtnd"]
+        ws['D' + str(start_row)] = obj["namsinh"]
+        ws['E' + str(start_row)] = obj["gioitinh"]
+        ws['F' + str(start_row)] = obj["nghenghiep"]
+        ws['G' + str(start_row)] = obj["noio_xaphuong"]
+        ws['H' + str(start_row)] = obj["noio_quanhuyen"]
+        ws['I' + str(start_row)] = obj["noio_tinhthanh"]
+        ws['J' + str(start_row)] = obj["quoctich"]
+        ws['K' + str(start_row)] = obj["sodienthoai"]
+        ws['L' + str(start_row)] = obj["tiensu_dichte"]
+        ws['M' + str(start_row)] = obj["tiensu_trieuchunglamsang"]
+        ws['N' + str(start_row)] = obj["noitiepnhan_xutri"]
+        ws['O' + str(start_row)] = obj["benhly_kemtheo"]
+        ws['P' + str(start_row)] = obj["ghichu"]
+        ws['Q' + str(start_row)] = obj["tencuakhau"]
+        start_row = start_row + 1
+
+    for i in range(8, start_row + 1):
+        for j in range(17):
+            ws[list_char[j] + str(i)].border = black_border
+            ws[list_char[j] + str(i)].alignment = center_alignment
+
+
+    wb.save(filename = filename)
+    return await file(filename, mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                filename=filename)
+
+    return json({})
