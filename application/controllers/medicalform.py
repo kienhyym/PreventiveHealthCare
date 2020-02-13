@@ -31,7 +31,7 @@ async def medicalform_index(request, cuakhau_id):
 @app.route('/medicalform/form/<lang>/<cuakhau_id>', methods=['GET'])
 async def medicalform_form(request, lang, cuakhau_id):
 
-    print('lang', lang)
+    print('lang--------------------------------------------------', lang)
     if lang in ["vi", "cn", "en"]:
         data = {
             "cuakhau_id": cuakhau_id
@@ -55,6 +55,7 @@ async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
         "hoten": tokhai.hoten,
         "gioitinh": tokhai.gioitinh,
         "quoctich": tokhai.quoctich,
+        "namsinh":tokhai.namsinh,
         "sohochieu": tokhai.sohochieu,
         "thongtindilai_taubay":tokhai.thongtindilai_taubay,
         "thongtindilai_tauthuyen": tokhai.thongtindilai_tauthuyen,

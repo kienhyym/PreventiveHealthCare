@@ -56,22 +56,22 @@
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
-            <input type="checkbox" class="custom-control-input phuongtien" id="taubay">
-            <label class="custom-control-label" for="taubay">Tàu bay</label>
+            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_taubay">
+            <label class="custom-control-label" for="thongtindilai_taubay">Tàu bay</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input phuongtien" id="phuongtien_taubien">
-            <label class="custom-control-label" for="phuongtien_taubien">Tàu thuyền</label>
+            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_tauthuyen">
+            <label class="custom-control-label" for="thongtindilai_tauthuyen">Tàu thuyền</label>
         </div>
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
-            <input type="checkbox" class="custom-control-input phuongtien" id="phuongtien_oto">
-            <label class="custom-control-label" for="phuongtien_oto">Ô tô</label>
+            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_oto">
+            <label class="custom-control-label" for="thongtindilai_oto">Ô tô</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input phuongtien" id="phuongtien_khac">
-            <label class="custom-control-label" for="phuongtien_khac">Khác (Ghi rõ)</label>
+            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_khac">
+            <label class="custom-control-label" for="thongtindilai_khac">Khác (Ghi rõ)</label>
         </div>
     </div>
 
@@ -405,47 +405,40 @@
 <script>
     $(document).ready(function () {
         var data;
-        // //Đẩy dữ liệu vào form
-        // if("{{id}}" !== null){
-        //     data = {
-        //         "id":"{{id}}",
-        //         "ngaykekhai": "{{ngaykekhai}}",
-        //         "hoten": "{{hoten}}",
-        //         "namsinh":"{{namsinh}}",
-        //         "gioitinh": "{{gioitinh}}",
-        //         "quoctich": "{{quoctich}}",
-        //         "sohochieu": "{{sohochieu}}",
-        //         "thongtindilai_taubay": "{{thongtindilai_taubay}}",
-        //         "thongtindilai_tauthuyen": "{{thongtindilai_tauthuyen}}",
-        //         "thongtindilai_oto": "{{thongtindilai_oto}}",
-        //         "thongtindilai_khac": "{{thongtindilai_khac}}",
-        //         "thongtindilai_chitiet": "{{thongtindilai_chitiet}}",
-        //         "sohieu_phuongtien": "{{sohieu_phuongtien}}",
-        //         "soghe_phuongtien":"{{soghe_phuongtien}}",
-        //         "ngay_khoihanh":"{{ngay_khoihanh}}",
-        //         "ngay_nhapcanh": "{{ngay_nhapcanh}}",
-        //         "noi_khoihanh": "{{noi_khoihanh}}",
-        //         "noiden": "{{noiden}}",
-        //         "quocgiadiqua": "{{quocgiadiqua}}",
-        //         "diachi_taivietnam": "{{diachi_taivietnam}}",
-        //         "sodienthoai": "{{sodienthoai}}",
-        //         "email": "{{email}}",
-        //         "dauhieubenh_sot": "{{dauhieubenh_sot}}",
-        //         "dauhieubenh_ho": "{{dauhieubenh_ho}}",
-        //         "dauhieubenh_khotho": "{{dauhieubenh_khotho}}",
-        //         "dauhieubenh_dauhong": "{{dauhieubenh_dauhong}}",
-        //         "dauhieubenh_buonnon": "{{dauhieubenh_buonnon}}",
-        //         "dauhieubenh_tieuchay":"{{dauhieubenh_tieuchay}}",
-        //         "dauhieubenh_xuathuyetngoaida":"{{dauhieubenh_xuathuyetngoaida}}",
-        //         "dauhieubenh_phatban": "{{dauhieubenh_phatban}}",
-        //         "vacxin_dasudung": "{{vacxin_dasudung}}",
-        //         "tiepxuc_dongvat": "{{tiepxuc_dongvat}}",
-        //         "chamsocnguoibenhtruyennhiem": "{{chamsocnguoibenhtruyennhiem}}"
-        //     }
-        // }
-        // console.log('dataaa',data)
+        //Đẩy dữ liệu vào form
+        if ("{{id}}" !== null) {
+            data = {
+               
+                "gioitinh": "{{gioitinh}}",
+                
+                "dauhieubenh_sot": "{{dauhieubenh_sot}}",
+                "dauhieubenh_ho": "{{dauhieubenh_ho}}",
+                "dauhieubenh_khotho": "{{dauhieubenh_khotho}}",
+                "dauhieubenh_dauhong": "{{dauhieubenh_dauhong}}",
+                "dauhieubenh_buonnon": "{{dauhieubenh_buonnon}}",
+                "dauhieubenh_tieuchay": "{{dauhieubenh_tieuchay}}",
+                "dauhieubenh_xuathuyetngoaida": "{{dauhieubenh_xuathuyetngoaida}}",
+                "dauhieubenh_phatban": "{{dauhieubenh_phatban}}",
+                "tiepxuc_dongvat": "{{tiepxuc_dongvat}}",
+                "chamsocnguoibenhtruyennhiem": "{{chamsocnguoibenhtruyennhiem}}"
+            }
+        }
+
+        //Hiên thi kết quả check box thông tin đi lại
+        var thongtindilai = [
+            {"text":"thongtindilai_taubay","value":"{{thongtindilai_taubay}}"},
+            {"text":"thongtindilai_tauthuyen","value":"{{thongtindilai_tauthuyen}}"},
+            {"text":"thongtindilai_oto","value":"{{thongtindilai_oto}}"},
+            {"text":"thongtindilai_khac","value":"{{thongtindilai_khac}}"},
+        ]
+        thongtindilai.forEach(function (item, index) {
+            if(item.value == 1){
+                $('#'+item.text).prop('checked', true);
+            }
+        })
 
 
+    
 
         //Chọn giới tính
         var selectedGioiTinh;
@@ -467,12 +460,16 @@
         var dauhieubenh_phatban = null;
         var tiepxuc_dongvat = null;
         var chamsocnguoibenhtruyennhiem = null;
-        var taubay = null;
-        var tauthuyen = null;
-        var oto = null;
-        var khac = null;
+        var thongtindilai_taubay = null;
+        var thongtindilai_tauthuyen = null;
+        var thongtindilai_oto = null;
+        var thongtindilai_khac = null;
 
-
+        // Ẩn chức năng lưu          
+        if ("{{id}}" !== "") {
+            $('#btn-luu').hide();
+        }
+        //Gửi dữ liệu lên server
         $('#btn-luu').unbind('click').bind('click', function () {
             var checkedValue = [];
             var inputElements = document.getElementsByClassName('phuongtien');
@@ -487,18 +484,18 @@
 
             checkedValue.forEach(function (item, index) {
                 if (item.id == 0) {
-                    taubay = Number(item.value)
+                    thongtindilai_taubay = Number(item.value)
                 }
                 if (item.id == 1) {
-                    tauthuyen = Number(item.value)
+                    thongtindilai_tauthuyen = Number(item.value)
                 }
 
                 if (item.id == 2) {
-                    oto = Number(item.value)
+                    thongtindilai_oto = Number(item.value)
                 }
 
                 if (item.id == 3) {
-                    khac = Number(item.value)
+                    thongtindilai_khac = Number(item.value)
                 }
             })
 
@@ -576,14 +573,14 @@
                 "tencanbo": null,
                 "emailcanbo": null,
                 "hoten": $('#tenkhach').val(),
-                "namsinh": Number($('#namsinh').val()),
+                "namsinh": $('#namsinh').val(),
                 "gioitinh": selectedGioiTinh,
                 "quoctich": $('#quoctich').val(),
                 "sohochieu": $('#hochieu').val(),
-                "thongtindilai_taubay": taubay,
-                "thongtindilai_tauthuyen": tauthuyen,
-                "thongtindilai_oto": oto,
-                "thongtindilai_khac": khac,
+                "thongtindilai_taubay": thongtindilai_taubay,
+                "thongtindilai_tauthuyen": thongtindilai_tauthuyen,
+                "thongtindilai_oto": thongtindilai_oto,
+                "thongtindilai_khac": thongtindilai_khac,
                 "thongtindilai_chitiet": $('#phuongtien').val(),
                 "sohieu_phuongtien": $('#sohieu').val(),
                 "soghe_phuongtien": $('#soghe').val(),
@@ -614,43 +611,21 @@
                 "extra_data": null
             }
 
-            if ("{{id}}" == "") {
-                $.ajax({
-                    type: "POST",
-                    url: location.origin + "/api/v1/tokhaiyte",
-                    data: JSON.stringify(data),
-                    contentType: "application/json",
+            $.ajax({
+                type: "POST",
+                url: location.origin + "/api/v1/tokhaiyte",
+                data: JSON.stringify(data),
+                contentType: "application/json",
 
-                    success: function (response) {
-                        localStorage.setItem('MaToKhai', response.id);
-                        window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('MaToKhai');
+                success: function (response) {
+                    localStorage.setItem('MaToKhai', response.id);
+                    window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('MaToKhai');
 
-                    },
-                    error: function (response) {
+                },
+                error: function (response) {
 
-                    }
-                });
-            }
-            else {
-                delete data.id
-                console.log(data)
-                $.ajax({
-                    type: "PUT",
-                    url: location.origin + "/api/v1/tokhaiyte/{{id}}",
-                    data: JSON.stringify(data),
-                    contentType: "application/json",
-
-                    success: function (response) {
-                        localStorage.setItem('MaToKhai', response.id);
-                        window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('MaToKhai');
-                    },
-                    error: function (response) {
-
-                    }
-                });
-
-            }
-
+                }
+            });
         })
 
     });

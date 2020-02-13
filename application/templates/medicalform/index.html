@@ -44,22 +44,11 @@
 
     <div class="border pl-2 mb-5 lichsumoinhat" style="border-radius: 5px;position: relative;">
         <div class="border-bottom mt-2">Mã tờ khai: &nbsp;<u><a href="#" id="linkchitiet" style="color: red;">{{id}}</a></u><a href="#"
-                style="font-size:0.7em;float: right;color: #212529;position: absolute;top:-3px;right:0px">sửa <i
-                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
-        <div class="row">
-            <div class="col-5" style="font-size: 0.7em;"><label>Tên cửa khẩu</label><label style="float: right;"><i
-                        class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
-            <div class="col-7" style="font-size: 0.7em;"><label>{{tencuakhau}}</label></div>
-        </div>
+                style="font-size:0.7em;float: right;color: #212529;position: absolute;top:-3px;right:0px">Xem <i class="fa fa-eye" aria-hidden="true"></i></a></div>
         <div class="row">
             <div class="col-5" style="font-size: 0.7em;"><label>Họ và tên:</label><label style="float: right;"><i
                         class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
             <div class="col-7" style="font-size: 0.7em;"><label>{{ten}}</label></div>
-        </div>
-        <div class="row">
-            <div class="col-5" style="font-size: 0.7em;"><label>Số hộ chiếu:</label><label style="float: right;"><i
-                        class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
-            <div class="col-7" style="font-size: 0.7em;"><label>{{sohochieu}}</label></div>
         </div>
         <div class="row">
             <div class="col-5" style="font-size: 0.7em;"><label>Ngày khai:</label><label style="float: right;"><i
@@ -90,18 +79,10 @@
 
                 response.forEach(function (item, index) {
                     $('#lichsu').append(`<div class="border pl-2 mb-5 lichsutimkiem" style="border-radius: 5px;position: relative;">
-                                        <div class="border-bottom mt-2">Mã tờ khai: &nbsp;<u><a href="${location.origin+"/medicalform/form/vi/"}${item.cuakhau_id}/${item.id}" style="color: red;">${item.id}</a></u><a href="#" style="font-size:0.7em;float: right;color: #212529;position: absolute;top:-3px;right:0px" >sửa <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
-                                        <div class="row">
-                                            <div class="col-5" style="font-size: 0.7em;"><label>Tên cửa khẩu</label><label style="float: right;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
-                                            <div class="col-7" style="font-size: 0.7em;"><label>${item.tencuakhau}</label></div>
-                                        </div>
+                                        <div class="border-bottom mt-2">Mã tờ khai: &nbsp;<u><a href="${location.origin+"/medicalform/form/vi/"}${item.cuakhau_id}/${item.id}" style="color: red;">${item.id}</a></u><a href="#" style="font-size:0.7em;float: right;color: #212529;position: absolute;top:-3px;right:0px" >Xem <i class="fa fa-eye" aria-hidden="true"></i></a></div>
                                         <div class="row">
                                             <div class="col-5" style="font-size: 0.7em;"><label>Họ và tên:</label><label style="float: right;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
                                             <div class="col-7" style="font-size: 0.7em;"><label>${item.hoten}</label></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-5" style="font-size: 0.7em;"><label>Số hộ chiếu:</label><label style="float: right;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
-                                            <div class="col-7" style="font-size: 0.7em;"><label>${item.sohochieu}</label></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-5" style="font-size: 0.7em;"><label>Ngày khai:</label><label style="float: right;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></label></div>
