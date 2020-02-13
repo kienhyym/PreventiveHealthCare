@@ -100,12 +100,15 @@ async def login(request):
 @app.route('/medicalform/qr/<cuakhau_id>/<tokhai_id>', methods=['GET'])
 async def medicalform_index2(request,cuakhau_id, tokhai_id):
     tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
+    cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
     data = {
         "id": tokhai.id,
         "tencuakhau": tokhai.tencuakhau,
         "ngaykekhai": tokhai.ngaykekhai,
         "sohochieu": tokhai.sohochieu,
-        "ten": tokhai.hoten
+        "ten": tokhai.hoten,
+        "cuakhau_id": cuakhau_id,
+
     }
     return jinja.render('medicalform/index.html', request, **data)
 
