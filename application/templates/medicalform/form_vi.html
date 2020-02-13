@@ -10,20 +10,20 @@
     </p>
     <div class="" style="margin-bottom:10px;margin-top:20px">
         <div class="col-md-12 text-right ">
-            <label style="color: red;" id="ngaykekhai">Ngày 20/01/2020</label>
+            <label style="color: red;" id="ngaykekhai">Ngày {{ngaykekhai}}</label>
         </div>
     </div>
     <div class="" style="margin-bottom:10px;">
         <div><label>Họ tên (viết chữ in hoa):</label></div>
         <div>
-            <input type="text" class='form-control' id="tenkhach" />
+            <input type="text" class='form-control' id="tenkhach" value="{{hoten}}">
         </div>
     </div>
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Năm sinh:</label></div>
             <div class="">
-                <input type="number" class='form-control' id="namsinh" />
+                <input type="number" class='form-control' id="namsinh" value={{namsinh}} />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
@@ -40,13 +40,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Quốc tịch:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="quoctich" />
+                <input type="text" class='form-control' id="quoctich" value="{{quoctich}}" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Số hộ chiếu:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="hochieu" />
+                <input type="text" class='form-control' id="hochieu" value="{{sohochieu}}" />
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
     <div class=" text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 p-0">
             <textarea type="text" class='form-control' id="phuongtien"
-                placeholder="Viết rõ phương tiện đi lại"></textarea>
+                placeholder="Viết rõ phương tiện đi lại">{{thongtindilai_chitiet}}</textarea>
         </div>
     </div>
 
@@ -87,13 +87,13 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Số hiệu phương tiện:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="sohieu" />
+                <input type="text" class='form-control' id="sohieu" value="{{sohieu_phuongtien}}" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Số ghế:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="soghe" />
+                <input type="text" class='form-control' id="soghe" value="{{soghe_phuongtien}}" />
             </div>
         </div>
     </div>
@@ -102,13 +102,15 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Ngày khởi hành:</label></div>
             <div class="">
-                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaykhoihanh" />
+                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaykhoihanh"
+                    value={{ngay_khoihanh}}>
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
             <div class=""><label>Ngày nhập cảnh:</label></div>
             <div class="">
-                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaynhapcanh" />
+                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaynhapcanh"
+                    value="{{ngay_nhapcanh}}" />
             </div>
         </div>
     </div>
@@ -117,16 +119,10 @@
         <div><label><b>Địa điểm khởi hành</b></label></div>
     </div>
     <div class="row">
-        <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Tỉnh:</label></div>
+        <div class="col-12" style="margin-bottom:10px;">
+            <div class=""><label>Tỉnh/Quốc gia:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="tinhkhoihanh" />
-            </div>
-        </div>
-        <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Quốc gia:</label></div>
-            <div class="">
-                <input type="text" class='form-control' id="quocgiakhoihanh" />
+                <input type="text" class='form-control' id="quocgiakhoihanh" value="{{noi_khoihanh}}" />
             </div>
         </div>
     </div>
@@ -135,16 +131,11 @@
         <div><label><b>Địa điểm nơi đến</b></label></div>
     </div>
     <div class="row">
-        <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Tỉnh:</label></div>
+
+        <div class="col-12" style="margin-bottom:10px;">
+            <div class=""><label>Tỉnh/Quốc gia:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="tinhnoiden" />
-            </div>
-        </div>
-        <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Quốc gia:</label></div>
-            <div class="">
-                <input type="text" class='form-control' id="quocgianoiden" />
+                <input type="text" class='form-control' id="quocgianoiden" value="{{noiden}}" />
             </div>
         </div>
     </div>
@@ -156,7 +147,7 @@
             </label>
         </div>
         <div class="col-md-12">
-            <textarea type="text" class='form-control' id="noidiqua" /></textarea>
+            <textarea type="text" class='form-control' id="noidiqua" />{{quocgiadiqua}}</textarea>
         </div>
     </div>
 
@@ -166,7 +157,7 @@
     <div class="row text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
         <div class="col-md-12 col-12">
-            <textarea type="text" class='form-control' id="noioviwetnam" /></textarea>
+            <textarea type="text" class='form-control' id="noioviwetnam" />{{diachi_taivietnam}}</textarea>
         </div>
     </div>
 
@@ -174,13 +165,13 @@
         <div class="col-5" style="margin-bottom:10px;">
             <div class=""><label>Điện thoại:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="dienthoai" />
+                <input type="text" class='form-control' id="dienthoai" value="{{sodienthoai}}" />
             </div>
         </div>
         <div class="col-7" style="margin-bottom:10px;">
             <div class=""><label>Email:</label></div>
             <div class="">
-                <input type="text" class='form-control' id="email" />
+                <input type="text" class='form-control' id="email" value="{{email}}" />
             </div>
         </div>
     </div>
@@ -413,52 +404,87 @@
 </div>
 <script>
     $(document).ready(function () {
+        var data;
+        // //Đẩy dữ liệu vào form
+        // if("{{id}}" !== null){
+        //     data = {
+        //         "id":"{{id}}",
+        //         "ngaykekhai": "{{ngaykekhai}}",
+        //         "hoten": "{{hoten}}",
+        //         "namsinh":"{{namsinh}}",
+        //         "gioitinh": "{{gioitinh}}",
+        //         "quoctich": "{{quoctich}}",
+        //         "sohochieu": "{{sohochieu}}",
+        //         "thongtindilai_taubay": "{{thongtindilai_taubay}}",
+        //         "thongtindilai_tauthuyen": "{{thongtindilai_tauthuyen}}",
+        //         "thongtindilai_oto": "{{thongtindilai_oto}}",
+        //         "thongtindilai_khac": "{{thongtindilai_khac}}",
+        //         "thongtindilai_chitiet": "{{thongtindilai_chitiet}}",
+        //         "sohieu_phuongtien": "{{sohieu_phuongtien}}",
+        //         "soghe_phuongtien":"{{soghe_phuongtien}}",
+        //         "ngay_khoihanh":"{{ngay_khoihanh}}",
+        //         "ngay_nhapcanh": "{{ngay_nhapcanh}}",
+        //         "noi_khoihanh": "{{noi_khoihanh}}",
+        //         "noiden": "{{noiden}}",
+        //         "quocgiadiqua": "{{quocgiadiqua}}",
+        //         "diachi_taivietnam": "{{diachi_taivietnam}}",
+        //         "sodienthoai": "{{sodienthoai}}",
+        //         "email": "{{email}}",
+        //         "dauhieubenh_sot": "{{dauhieubenh_sot}}",
+        //         "dauhieubenh_ho": "{{dauhieubenh_ho}}",
+        //         "dauhieubenh_khotho": "{{dauhieubenh_khotho}}",
+        //         "dauhieubenh_dauhong": "{{dauhieubenh_dauhong}}",
+        //         "dauhieubenh_buonnon": "{{dauhieubenh_buonnon}}",
+        //         "dauhieubenh_tieuchay":"{{dauhieubenh_tieuchay}}",
+        //         "dauhieubenh_xuathuyetngoaida":"{{dauhieubenh_xuathuyetngoaida}}",
+        //         "dauhieubenh_phatban": "{{dauhieubenh_phatban}}",
+        //         "vacxin_dasudung": "{{vacxin_dasudung}}",
+        //         "tiepxuc_dongvat": "{{tiepxuc_dongvat}}",
+        //         "chamsocnguoibenhtruyennhiem": "{{chamsocnguoibenhtruyennhiem}}"
+        //     }
+        // }
+        // console.log('dataaa',data)
+
+
 
         //Chọn giới tính
         var selectedGioiTinh;
         $("select.gioitinh").change(function () {
             selectedGioiTinh = $(this).children("option:selected").val();
         });
-
-
-
-
+        //Cài ngày hôm nay 
         var d = new Date();
         var ngaysoan = d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
         $('#ngaykekhai').html('Ngày khai:' + ngaysoan)
+        //Giá trị radio
         var dauhieubenh_sot = null;
         var dauhieubenh_ho = null;
-
         var dauhieubenh_khotho = null;
         var dauhieubenh_dauhong = null;
-
         var dauhieubenh_buonnon = null;
         var dauhieubenh_tieuchay = null;
         var dauhieubenh_xuathuyetngoaida = null;
         var dauhieubenh_phatban = null;
-
         var tiepxuc_dongvat = null;
         var chamsocnguoibenhtruyennhiem = null;
-
-
         var taubay = null;
         var tauthuyen = null;
         var oto = null;
         var khac = null;
+
+
         $('#btn-luu').unbind('click').bind('click', function () {
             var checkedValue = [];
-
             var inputElements = document.getElementsByClassName('phuongtien');
             for (var i = 0; inputElements[i]; ++i) {
                 if (inputElements[i].checked) {
                     checkedValue.push({ 'id': i, "value": 1 });
                 }
-                else
-                {
+                else {
                     checkedValue.push({ 'id': i, "value": 2 });
                 }
             }
-            console.log(checkedValue)
+
             checkedValue.forEach(function (item, index) {
                 if (item.id == 0) {
                     taubay = Number(item.value)
@@ -467,11 +493,11 @@
                     tauthuyen = Number(item.value)
                 }
 
-                if (item.id ==2) {
+                if (item.id == 2) {
                     oto = Number(item.value)
                 }
 
-                if (item.id ==3) {
+                if (item.id == 3) {
                     khac = Number(item.value)
                 }
             })
@@ -500,7 +526,6 @@
                     }
                 }
             })
-            console.log(valueRadio)
             valueRadio.forEach(function (item, index) {
                 if (item.id == 0) {
                     dauhieubenh_sot = Number(item.value)
@@ -519,7 +544,6 @@
                 if (item.id == 6) {
                     dauhieubenh_xuathuyetngoaida = Number(item.value)
                 }
-
                 if (item.id == 5) {
                     dauhieubenh_tieuchay = Number(item.value)
                 }
@@ -539,40 +563,34 @@
                 }
 
             })
-
-            console.log(dauhieubenh_sot, dauhieubenh_ho, dauhieubenh_khotho, dauhieubenh_dauhong, dauhieubenh_buonnon, dauhieubenh_tieuchay, dauhieubenh_xuathuyetngoaida, dauhieubenh_phatban, tiepxuc_dongvat, chamsocnguoibenhtruyennhiem)
-
-
-            var data = {
+            data = {
                 "id": null,
                 "ngaykekhai": String(ngaysoan),
-                "cuakhau_id": null,
-                // "tencuakhau":"tencuakhau",
-                // "macuakhau":"macuakhau",
-                "donvi_id": 1,
-                // "tendonvi":"tendonvi",
-                // "madonvi":"madonvi",
-                "canbo_id": 1,
-                // "tencanbo":"tencanbo",
-                // "emailcanbo":"emailcanbo",
+                "cuakhau_id": Number("{{cuakhau_id}}"),
+                "tencuakhau": "{{tencuakhau}}",
+                "macuakhau": null,
+                "donvi_id": Number("{{donvi_id}}"),
+                "tendonvi": null,
+                "madonvi": null,
+                "canbo_id": null,
+                "tencanbo": null,
+                "emailcanbo": null,
                 "hoten": $('#tenkhach').val(),
                 "namsinh": Number($('#namsinh').val()),
                 "gioitinh": selectedGioiTinh,
                 "quoctich": $('#quoctich').val(),
                 "sohochieu": $('#hochieu').val(),
-
                 "thongtindilai_taubay": taubay,
                 "thongtindilai_tauthuyen": tauthuyen,
                 "thongtindilai_oto": oto,
                 "thongtindilai_khac": khac,
                 "thongtindilai_chitiet": $('#phuongtien').val(),
-
                 "sohieu_phuongtien": $('#sohieu').val(),
                 "soghe_phuongtien": $('#soghe').val(),
                 "ngay_khoihanh": $('#ngaykhoihanh').val(),
                 "ngay_nhapcanh": $('#ngaynhapcanh').val(),
-                "noi_khoihanh": $('#tinhkhoihanh').val() + ', ' + $('#quocgiakhoihanh').val(),
-                "noiden": $('#tinhnoiden').val() + ', ' + $('#quocgianoiden').val(),
+                "noi_khoihanh": $('#quocgiakhoihanh').val(),
+                "noiden": $('#quocgianoiden').val(),
                 "quocgiadiqua": $('#noidiqua').val(),
                 "diachi_taivietnam": $('#noioviwetnam').val(),
                 "sodienthoai": $('#dienthoai').val(),
@@ -588,27 +606,51 @@
                 "vacxin_dasudung": $('#vacxin').val(),
                 "tiepxuc_dongvat": tiepxuc_dongvat,
                 "chamsocnguoibenhtruyennhiem": chamsocnguoibenhtruyennhiem,
-                // "ngaygio_phathien":"",
-                // "tinhtrang":"",
-                // "huongxuly":"",
-                // "cachlytaptrung":"",
-                // "trangthai":"",
-                // "note":"",
-                // "extra_data":""
+                "ngaygio_phathien": null,
+                "tinhtrang": null,
+                "cachlytaptrung": null,
+                "trangthai": null,
+                "note": null,
+                "extra_data": null
             }
-            $.ajax({
-                type: "POST",
-                url: location.origin + "/api/v1/tokhaiyte",
-                data: JSON.stringify(data),
-                contentType: "application/json",
 
-                success: function (response) {
-                    console.log('xxxxxxxxxxxthanhf cong')
-                },
-                error: function (response) {
-                    // self.getApp().notify({ message: "Lưu không thành công" }, { type: "danger", delay: 1000 });
-                }
-            });
+            if ("{{id}}" == "") {
+                $.ajax({
+                    type: "POST",
+                    url: location.origin + "/api/v1/tokhaiyte",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+
+                    success: function (response) {
+                        localStorage.setItem('MaToKhai', response.id);
+                        window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('MaToKhai');
+
+                    },
+                    error: function (response) {
+
+                    }
+                });
+            }
+            else {
+                delete data.id
+                console.log(data)
+                $.ajax({
+                    type: "PUT",
+                    url: location.origin + "/api/v1/tokhaiyte/{{id}}",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+
+                    success: function (response) {
+                        localStorage.setItem('MaToKhai', response.id);
+                        window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('MaToKhai');
+                    },
+                    error: function (response) {
+
+                    }
+                });
+
+            }
+
         })
 
     });
