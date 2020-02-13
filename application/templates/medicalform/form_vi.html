@@ -8,12 +8,12 @@
             tế
             liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</b>
     </p>
-    <div class="" style="margin-bottom:10px;margin-top:20px">
+    <div style="margin-bottom:10px;margin-top:20px">
         <div class="col-md-12 text-right ">
             <label style="color: red;" id="ngaykekhai">Ngày {{ngaykekhai}}</label>
         </div>
     </div>
-    <div class="" style="margin-bottom:10px;">
+    <div style="margin-bottom:10px;">
         <div><label>Họ tên (viết chữ in hoa):</label></div>
         <div>
             <input type="text" class='form-control' id="tenkhach" value="{{hoten}}">
@@ -21,13 +21,13 @@
     </div>
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Năm sinh:</label></div>
-            <div class="">
+            <div><label>Năm sinh:</label></div>
+            <div>
                 <input type="number" class='form-control' id="namsinh" value={{namsinh}} />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Giới tính:</label></div>
+            <div><label>Giới tính:</label></div>
             <select class="custom-select gioitinh">
                 <option selected>Giới tính</option>
                 <option value="nam">Nam</option>
@@ -38,7 +38,7 @@
 
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Quộc tịch:</label></div>
+            <div><label>Quộc tịch:</label></div>
             <select class="custom-select quoctich">
                 <option value="Vietnam">Việt Nam</option>
                 <option value="China">Trung Quốc</option>
@@ -301,8 +301,8 @@
             </select>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Số hộ chiếu:</label></div>
-            <div class="">
+            <div><label>Số hộ chiếu:</label></div>
+            <div>
                 <input type="text" class='form-control' id="hochieu" value="{{sohochieu}}" />
             </div>
         </div>
@@ -342,14 +342,14 @@
 
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Số hiệu phương tiện:</label></div>
-            <div class="">
+            <div><label>Số hiệu phương tiện:</label></div>
+            <div>
                 <input type="text" class='form-control' id="sohieu" value="{{sohieu_phuongtien}}" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Số ghế:</label></div>
-            <div class="">
+            <div><label>Số ghế:</label></div>
+            <div>
                 <input type="text" class='form-control' id="soghe" value="{{soghe_phuongtien}}" />
             </div>
         </div>
@@ -357,17 +357,17 @@
 
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Ngày khởi hành:</label></div>
-            <div class="">
-                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaykhoihanh"
+            <div><label>Ngày khởi hành:</label></div>
+            <div>
+                <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaykhoihanh"
                     value={{ngay_khoihanh}}>
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div class=""><label>Ngày nhập cảnh:</label></div>
-            <div class="">
-                <input type="text" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaynhapcanh"
-                    value="{{ngay_nhapcanh}}" />
+            <div><label>Ngày nhập cảnh:</label></div>
+            <div>
+                <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngaynhapcanh"
+                    value={{ngay_nhapcanh}} />
             </div>
         </div>
     </div>
@@ -377,8 +377,8 @@
     </div>
     <div class="row">
         <div class="col-12" style="margin-bottom:10px;">
-            <div class=""><label>Tỉnh/Quốc gia:</label></div>
-            <div class="">
+            <div><label>Tỉnh/Quốc gia:</label></div>
+            <div>
                 <input type="text" class='form-control' id="quocgiakhoihanh" value="{{noi_khoihanh}}" />
             </div>
         </div>
@@ -390,8 +390,8 @@
     <div class="row">
 
         <div class="col-12" style="margin-bottom:10px;">
-            <div class=""><label>Tỉnh/Quốc gia:</label></div>
-            <div class="">
+            <div><label>Tỉnh/Quốc gia:</label></div>
+            <div>
                 <input type="text" class='form-control' id="quocgianoiden" value="{{noiden}}" />
             </div>
         </div>
@@ -420,14 +420,14 @@
 
     <div class="row">
         <div class="col-5" style="margin-bottom:10px;">
-            <div class=""><label>Điện thoại:</label></div>
-            <div class="">
+            <div><label>Điện thoại:</label></div>
+            <div>
                 <input type="text" class='form-control' id="dienthoai" value="{{sodienthoai}}" />
             </div>
         </div>
         <div class="col-7" style="margin-bottom:10px;">
-            <div class=""><label>Email:</label></div>
-            <div class="">
+            <div><label>Email:</label></div>
+            <div>
                 <input type="text" class='form-control' id="email" value="{{email}}" />
             </div>
         </div>
@@ -461,9 +461,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_sot2" name="dauhieubenh_sot" class="custom-control-input"
-                            value=2>
-                        <label class="custom-control-label" for="dauhieubenh_sot2"></label>
+                        <input type="radio" id="dauhieubenh_sot0" name="dauhieubenh_sot" class="custom-control-input"
+                            value=0>
+                        <label class="custom-control-label" for="dauhieubenh_sot0"></label>
                     </div>
                 </td>
             </tr>
@@ -478,9 +478,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_ho2" name="dauhieubenh_ho" class="custom-control-input"
-                            value=2>
-                        <label class="custom-control-label" for="dauhieubenh_ho2"></label>
+                        <input type="radio" id="dauhieubenh_ho0" name="dauhieubenh_ho" class="custom-control-input"
+                            value=0>
+                        <label class="custom-control-label" for="dauhieubenh_ho0"></label>
                     </div>
                 </td>
             </tr>
@@ -495,9 +495,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_khotho2" name="dauhieubenh_khotho"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="dauhieubenh_khotho2"></label>
+                        <input type="radio" id="dauhieubenh_khotho0" name="dauhieubenh_khotho"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="dauhieubenh_khotho0"></label>
                     </div>
                 </td>
             </tr>
@@ -512,9 +512,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_dauhong2" name="dauhieubenh_dauhong"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="dauhieubenh_dauhong2"></label>
+                        <input type="radio" id="dauhieubenh_dauhong0" name="dauhieubenh_dauhong"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="dauhieubenh_dauhong0"></label>
                     </div>
                 </td>
             </tr>
@@ -529,9 +529,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_buonnon2" name="dauhieubenh_buonnon"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="dauhieubenh_buonnon2"></label>
+                        <input type="radio" id="dauhieubenh_buonnon0" name="dauhieubenh_buonnon"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="dauhieubenh_buonnon0"></label>
                     </div>
                 </td>
             </tr>
@@ -546,9 +546,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_tieuchay2" name="dauhieubenh_tieuchay"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="dauhieubenh_tieuchay2"></label>
+                        <input type="radio" id="dauhieubenh_tieuchay0" name="dauhieubenh_tieuchay"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="dauhieubenh_tieuchay0"></label>
                     </div>
                 </td>
             </tr>
@@ -563,9 +563,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_xuathuyetngoaida2" name="dauhieubenh_xuathuyetngoaida"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="dauhieubenh_xuathuyetngoaida2"></label>
+                        <input type="radio" id="dauhieubenh_xuathuyetngoaida0" name="dauhieubenh_xuathuyetngoaida"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="dauhieubenh_xuathuyetngoaida0"></label>
                     </div>
                 </td>
             </tr>
@@ -580,9 +580,9 @@
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_phatban2" name="dauhieubenh_phatban"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="dauhieubenh_phatban2"></label>
+                        <input type="radio" id="dauhieubenh_phatban0" name="dauhieubenh_phatban"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="dauhieubenh_phatban0"></label>
                     </div>
                 </td>
             </tr>
@@ -615,9 +615,9 @@
                         <label class="custom-control-label" for="tiepxuc_dongvat1">Có</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
-                        <input type="radio" id="tiepxuc_dongvat2" name="tiepxuc_dongvat" class="custom-control-input"
-                            value=2>
-                        <label class="custom-control-label" for="tiepxuc_dongvat2">Không</label>
+                        <input type="radio" id="tiepxuc_dongvat0" name="tiepxuc_dongvat" class="custom-control-input"
+                            value=0>
+                        <label class="custom-control-label" for="tiepxuc_dongvat0">Không</label>
                     </div>
                 </td>
             </tr>
@@ -630,9 +630,9 @@
                         <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem1">Có</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
-                        <input type="radio" id="chamsocnguoibenhtruyennhiem2" name="chamsocnguoibenhtruyennhiem"
-                            class="custom-control-input" value=2>
-                        <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem2">Không</label>
+                        <input type="radio" id="chamsocnguoibenhtruyennhiem0" name="chamsocnguoibenhtruyennhiem"
+                            class="custom-control-input" value=0>
+                        <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem0">Không</label>
                     </div>
                 </td>
             </tr>
@@ -659,8 +659,9 @@
         cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
         cơ quan y tế nơi gần nhất </h6>-->
 </div>
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
+
         /////KHU VỰC HIỂN THỊ GIÁ TRỊ 
         //Hiển thị kết quả giới tính và quốc tịch
         $(".gioitinh").val("{{gioitinh}}");
@@ -680,11 +681,11 @@
             { "text": "chamsocnguoibenhtruyennhiem", "value": "{{chamsocnguoibenhtruyennhiem}}" },
         ]
         dauhieuvatiepxuc.forEach(function (item, index) {
-            if (item.value == 1) {
+            if (item.value === "1") {
                 $('#' + item.text + '1').prop('checked', true);
             }
-            else if (item.value == 2) {
-                $('#' + item.text + '2').prop('checked', true);
+            if (item.value === "0") {
+                $('#' + item.text + '0').prop('checked', true);
             }
         })
 
@@ -718,9 +719,8 @@
         });
         //Cài ngày hôm nay 
         var d = new Date();
-        var ngaysoan =d.getDate() +'/' + d.getMonth() +'/' + d.getFullYear();
-        $('#ngaykekhai').html('Ngày khai:' + ngaysoan)
-        console.log(d)
+        var ngaysoan =  d.getFullYear() +'-' +   d.getMonth() +'-' +  d.getDate();
+        $('#ngaykekhai').html('Ngày khai: ' + d.getDate() +'-' +   d.getMonth()+'-' +  d.getFullYear())
         //Giá trị radio
         var dauhieubenh_sot = null;
         var dauhieubenh_ho = null;
@@ -746,7 +746,7 @@
                     checkedValue.push({ 'id': i, "value": 1 });
                 }
                 else {
-                    checkedValue.push({ 'id': i, "value": 2 });
+                    checkedValue.push({ 'id': i, "value": 0 });
                 }
             }
 
