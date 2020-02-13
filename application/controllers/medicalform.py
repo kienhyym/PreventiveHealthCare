@@ -79,6 +79,8 @@ async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
         "dauhieubenh_buonnon": tokhai.dauhieubenh_buonnon,
         "dauhieubenh_tieuchay": tokhai.dauhieubenh_tieuchay,
         "dauhieubenh_xuathuyetngoaida": tokhai.dauhieubenh_xuathuyetngoaida,
+        "dauhieubenh_phatban": tokhai.dauhieubenh_phatban,
+
         "vacxin_dasudung": tokhai.vacxin_dasudung,
         "tiepxuc_dongvat": tokhai.tiepxuc_dongvat,
         "chamsocnguoibenhtruyennhiem": tokhai.chamsocnguoibenhtruyennhiem,
@@ -90,7 +92,7 @@ async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
     return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
 @app.route('/api/v1/timkiem', methods=['POST'])
-async def login(request):
+async def timkiem(request):
     data = request.json
     tokhaiyte = db.session.query(ToKhaiYTe).filter(ToKhaiYTe.sohochieu == data['hochieu']).all()
     result = []
@@ -114,11 +116,55 @@ async def medicalform_index2(request,cuakhau_id, tokhai_id):
     return jinja.render('medicalform/index.html', request, **data)
 
 
-async def create_tokhaiyte(request=None, Model=None, result=None, **kw):
+@app.route('/api/v1/create_tokhaiyte', methods=["POST"])
+def create_tokhaiyte(request):
     data = request.json
-    if data['id'] is None:
-        data['id'] = str(uuid.uuid4())
-        result = data
+    id = generation_id()
+    print("========IDDDDDDDDDDDDĐ===========", id)
+    new_tokhaiyte = ToKhaiYTe()
+    new_tokhaiyte.id = id
+    new_tokhaiyte.ngaykekhai = data["ngaykekhai"]
+    new_tokhaiyte.cuakhau_id = data["cuakhau_id"]
+    new_tokhaiyte.tencuakhau = data["tencuakhau"]
+    new_tokhaiyte.donvi_id = data["donvi_id"]
+    new_tokhaiyte.hoten = data["hoten"]
+    new_tokhaiyte.namsinh = data["namsinh"]
+    new_tokhaiyte.gioitinh = data["gioitinh"]
+    new_tokhaiyte.quoctich = data["quoctich"]
+    new_tokhaiyte.sohochieu = data["sohochieu"]
+    new_tokhaiyte.thongtindilai_taubay = data["thongtindilai_taubay"]
+    new_tokhaiyte.thongtindilai_tauthuyen = data["thongtindilai_tauthuyen"]
+    new_tokhaiyte.thongtindilai_oto = data["thongtindilai_oto"]
+    new_tokhaiyte.thongtindilai_khac = data["thongtindilai_khac"]
+    new_tokhaiyte.thongtindilai_chitiet = data["thongtindilai_chitiet"]
+    new_tokhaiyte.sohieu_phuongtien = data["sohieu_phuongtien"]
+    new_tokhaiyte.soghe_phuongtien = data["soghe_phuongtien"]
+    new_tokhaiyte.ngay_khoihanh = data["ngay_khoihanh"]
+    new_tokhaiyte.ngay_nhapcanh = data["ngay_nhapcanh"]
+    new_tokhaiyte.noi_khoihanh = data["noi_khoihanh"]
+    new_tokhaiyte.noiden = data["noiden"]
+    new_tokhaiyte.quocgiadiqua = data["quocgiadiqua"]
+    new_tokhaiyte.diachi_taivietnam = data["diachi_taivietnam"]
+    new_tokhaiyte.sodienthoai = data["sodienthoai"]
+    new_tokhaiyte.email = data["email"]
+    new_tokhaiyte.dauhieubenh_sot = data["dauhieubenh_sot"]
+    new_tokhaiyte.dauhieubenh_ho = data["dauhieubenh_ho"]
+    new_tokhaiyte.dauhieubenh_khotho = data["dauhieubenh_khotho"]
+    new_tokhaiyte.dauhieubenh_dauhong = data["dauhieubenh_dauhong"]
+    new_tokhaiyte.dauhieubenh_buonnon = data["dauhieubenh_buonnon"]
+    new_tokhaiyte.dauhieubenh_tieuchay = data["dauhieubenh_tieuchay"]
+    new_tokhaiyte.dauhieubenh_xuathuyetngoaida = data["dauhieubenh_xuathuyetngoaida"]
+    new_tokhaiyte.dauhieubenh_phatban = data["dauhieubenh_phatban"]
+    new_tokhaiyte.vacxin_dasudung = data["vacxin_dasudung"]
+    new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
+    new_tokhaiyte.chamsocnguoibenhtruyennhiem = data["chamsocnguoibenhtruyennhiem"]
+    new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
+    db.session.add(new_tokhaiyte)
+    db.session.commit()
+    result = to_dict(new_tokhaiyte)
+    return json(result)
+
+
 
 def int_to_base36(num):
     """Converts a positive integer into a base36 string."""
@@ -136,12 +182,8 @@ def generation_id(request=None, Model=None, result=None, **kw):
     number_rd = random.randint(1, 1295)
     print('-----',time_gen)
     order_id += int_to_base36(number_rd)
-    # if len(order_id)
-    print('xxxxxxxxxxxxxxxxxxxxxx',order_id)
-    data = request.json
-    if data['id'] is None:
-        data['id'] = order_id
-        result = data
+    return order_id
+
 
 apimanager.create_api(ToKhaiYTe,
     methods=['GET', 'POST', 'DELETE', 'PUT'],
