@@ -374,9 +374,9 @@ define(function (require) {
         			    "type":"view",
         			    "collectionName":"tokhaiyte",
         			    "route":"tokhaiyte/collection",
-        			    //"$ref": "app/view/tokhaiyte/js/CollectionView",
+        			    "$ref": "app/view/tokhaiyte/js/CollectionView",
 						"icon":static_url + "/images/icons/task_120.png",
-						"visible": false
+						// "visible": false
         			},
 					{
         			    "text":"Báo cáo nghi ngờ nhiễm bệnh",
