@@ -5,7 +5,7 @@ define(function (require) {
 		Gonrin = require('gonrin');
 
 	var template = require('text!tpl/ToKhaiYTe/model.html'),
-		schema = require('json!app/view/ToKhaiYTe/ToKhaiYTeSchema.json');
+		schema = require('json!app/view/ToKhaiYTe/ToKhaiYTeSchema.json'); 
 
 	var printtemplate = require('text!tpl/ToKhaiYTe/print.html');
 	var printpl_vi = require('text!tpl/ToKhaiYTe/printxacnhan_vi.html');
