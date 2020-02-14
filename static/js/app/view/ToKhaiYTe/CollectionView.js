@@ -32,15 +32,7 @@ define(function (require) {
     	collectionName: "filter",
     	sesionKey : "danhsachtokhaiyte_",
     	uiControl:[
-			// {
-			//     field: "loaicuakhau",
-			//     uicontrol: "combobox",
-			//     dataSource: LoaiCuaKhauEnum,
-			// 	textField: "text",
-			// 	valueField: "value",
-			// 	selectionMode: "multiple",
-			// 	width: "250px"
-			// },
+            {field:"ngaykekhai",  textFormat :"DD/MM/YYYY",}
 			// {
 			// 	  field:"donvi",
 			// 	  uicontrol: "ref",
@@ -62,11 +54,15 @@ define(function (require) {
     		var self = this;
             this.getDataFromSession();
             
-            var ngaykekhai = self.model.get("ngaykekhai");
-            if (!ngaykekhai){
-                self.model.set("ngaykekhai", moment().startOf('day').format("YYYY-MM-DD"));
-            }
+            // var ngaykekhai = self.model.get("ngaykekhai");
+            // if (!ngaykekhai){
+            //     self.model.set("ngaykekhai", moment().startOf('day').format("YYYY-MM-DD"));
+            // }
             this.applyBindings();
+
+            self.model.on("change", function(){
+                self.triggerFilter();
+            });
             
     		var filterBtn = self.$el.find("#filterBtn");
     		filterBtn.unbind("click").bind("click", function(){
@@ -184,8 +180,12 @@ define(function (require) {
                         filters["$and"].push({"hoten": {$likeI:'%' + evt.data.hoten + '%'}});
                     }
 
-                    if (filters["$and"].length > 0){
-                        $col.data('gonrin').filter(filters);
+                    if (!!$col.data('gonrin')){
+                        if (filters["$and"].length > 0){
+                            $col.data('gonrin').filter(filters);
+                        }else{
+                            $col.data('gonrin').filter(null);
+                        }
                     }
                     
 
