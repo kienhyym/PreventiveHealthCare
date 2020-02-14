@@ -15,11 +15,15 @@ define(function (require) {
         collectionName: "tokhaiyte",
         uiControl: {
             fields: [
-                { field: "stt", label: "stt"},
-                { field: "id", visible: false },
+                { field: "id", label: "Mã tờ khai"},
                 { field: "hoten", label: "Họ tên"},
                 // { field: "matokhaiyte", label: "Mã tờ khai" },
+                
+                { field: "quoctich", label: "Quốc tịch"  },
+                { field: "namsinh", label: "Năm sinh"},
                 { field: "ngaykekhai", label: "Ngày kê khai" },
+                { field: "ngon_ngu", label: "Ngôn ngữ" },
+
                 { field: "donvi_id", visible: false },
                 { field: "tendonvi", visible: false },
                 { field: "madonvi", visible: false },
@@ -29,9 +33,9 @@ define(function (require) {
                 { field: "canbo_id", visible: false },
                 { field: "tencanbo", visible: false },
                 { field: "emailcanbo", visible: false },
-                { field: "namsinh", visible: false },
+                
                 { field: "gioitinh", visible: false },
-                { field: "quoctich", visible: false },
+                
                 { field: "sohochieu", visible: false },
                 { field: "thongtindilai_taubay", visible: false },
                 { field: "thongtindilai_tauthuyen", visible: false },
