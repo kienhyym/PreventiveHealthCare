@@ -165,7 +165,7 @@ define(function (require) {
                     var filters = {"$and":[]};
 
                     if(evt.data.id !== null){
-                        filters["$and"].push({"id": {$eq:evt.data.id}});
+                        filters["$and"].push({"id": {$likeI:evt.data.id}});
                     }
 
                     if(evt.data.ngaykekhai !== null){
