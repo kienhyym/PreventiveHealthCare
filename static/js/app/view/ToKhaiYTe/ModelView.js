@@ -7,7 +7,7 @@ define(function (require) {
 	var template = require('text!tpl/ToKhaiYTe/model.html'),
 		schema = require('json!app/view/ToKhaiYTe/ToKhaiYTeSchema.json'); 
 
-	var prinfulltpl_vi = require('text!tpl/ToKhaiYTe/print.html');
+	var prinfulltpl_vi = require('text!tpl/ToKhaiYTe/printfull_vi.html');
 	var printpl_vi = require('text!tpl/ToKhaiYTe/print_vi.html');
 	var printpl_cn = require('text!tpl/ToKhaiYTe/print_cn.html');
 	var printpl_en = require('text!tpl/ToKhaiYTe/print_en.html');
