@@ -45,10 +45,6 @@ async def medicalform_form(request, lang, cuakhau_id):
         }
         return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
-@app.route('/medicalform/form/<lang>/<cuakhau_id>/history')
-async def medicalform_form(request, lang, cuakhau_id):
-    return jinja.render('medicalform/form_' + lang + '.html', request)
-
 @app.route('/medicalform/form/<lang>/<cuakhau_id>/<tokhai_id>', methods=['GET'])
 async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
     tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()

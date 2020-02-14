@@ -62,7 +62,9 @@
 
 <script>
     $('#linkchitiet').unbind('click').bind('click', function () {
-        window.location = location.origin+"/medicalform/form/vi/{{cuakhau_id}}/history"
+        localStorage.setItem('lichsu',1);
+        window.location = location.origin+"/medicalform/form/vi/{{cuakhau_id}}"
+
     })
     $('.timkiem').unbind('click').bind('click', function () {
         $.ajax({
