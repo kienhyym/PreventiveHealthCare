@@ -657,14 +657,16 @@
             <button class="btn btn-success" id="btn-luu"><i class="fa fa-save"></i> Lưu</button>
         </div>
     </div>
+    <input type="hidden" id="ngon_ngu" value="vi"  />
+
     <!--<h6 class="d-flex justify-content-center" style="margin-bottom:30px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
         cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
         cơ quan y tế nơi gần nhất </h6>-->
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         var lichSu = localStorage.getItem('lichsu');
-        localStorage.removeItem('lichsu');
         var id = null;
         var ngaykekhai = null;
         var cuakhau_id = null;
@@ -1051,8 +1053,9 @@
                     localStorage.setItem('vacxin_dasudung', response.vacxin_dasudung);
                     localStorage.setItem('tiepxuc_dongvat', response.tiepxuc_dongvat);
                     localStorage.setItem('chamsocnguoibenhtruyennhiem', response.chamsocnguoibenhtruyennhiem);
+                    localStorage.setItem('lichsu','1');
 
-                    window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/" + localStorage.getItem('id');
+                    window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/history";
 
                 },
                 error: function (response) {
