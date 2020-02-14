@@ -41,7 +41,8 @@ async def medicalform_form(request, lang, cuakhau_id):
         data = {
             "cuakhau_id": cuakhau_id,
             "tencuakhau":cuakhau.ten,
-            "donvi_id": cuakhau.donvi_id
+            "donvi_id": cuakhau.donvi_id,
+            "ngon_ngu": lang
         }
         return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
@@ -63,7 +64,7 @@ async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
         "gioitinh": tokhai.gioitinh,
         "quoctich": tokhai.quoctich,
         "namsinh":tokhai.namsinh,
-        "sohochieu": tokhai.sohochieu,
+        "cmtnd": tokhai.cmtnd,
         "thongtindilai_taubay":tokhai.thongtindilai_taubay,
         "thongtindilai_tauthuyen": tokhai.thongtindilai_tauthuyen,
         "thongtindilai_oto":tokhai.thongtindilai_oto,
@@ -94,14 +95,14 @@ async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
         "cuakhau_id": cuakhau_id,
         "tencuakhau":cuakhau.ten,
         "donvi_id": cuakhau.donvi_id,
-        "lang":lang
+        "ngon_ngu":tokhai.ngon_ngu
     }
     return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
 @app.route('/api/v1/timkiem', methods=['POST'])
 async def timkiem(request):
     data = request.json
-    tokhaiyte = db.session.query(ToKhaiYTe).filter(ToKhaiYTe.sohochieu == data['hochieu']).all()
+    tokhaiyte = db.session.query(ToKhaiYTe).filter(ToKhaiYTe.cmtnd == data['hochieu']).all()
     result = []
     for _ in tokhaiyte:
         result.append(to_dict(_))
@@ -115,7 +116,7 @@ async def medicalform_index2(request,cuakhau_id, tokhai_id):
         "id": tokhai.id,
         "tencuakhau": tokhai.tencuakhau,
         "ngaykekhai": tokhai.ngaykekhai,
-        "sohochieu": tokhai.sohochieu,
+        "cmtnd": tokhai.cmtnd,
         "ten": tokhai.hoten,
         "cuakhau_id": cuakhau_id,
 
@@ -138,7 +139,7 @@ def create_tokhaiyte(request):
     new_tokhaiyte.namsinh = data["namsinh"]
     new_tokhaiyte.gioitinh = data["gioitinh"]
     new_tokhaiyte.quoctich = data["quoctich"]
-    new_tokhaiyte.sohochieu = data["sohochieu"]
+    new_tokhaiyte.cmtnd = data["cmtnd"]
     new_tokhaiyte.thongtindilai_taubay = data["thongtindilai_taubay"]
     new_tokhaiyte.thongtindilai_tauthuyen = data["thongtindilai_tauthuyen"]
     new_tokhaiyte.thongtindilai_oto = data["thongtindilai_oto"]
@@ -166,6 +167,7 @@ def create_tokhaiyte(request):
     new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
     new_tokhaiyte.chamsocnguoibenhtruyennhiem = data["chamsocnguoibenhtruyennhiem"]
     new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
+    new_tokhaiyte.ngon_ngu = data["ngon_ngu"]
     db.session.add(new_tokhaiyte)
     db.session.commit()
     result = to_dict(new_tokhaiyte)
