@@ -53,53 +53,53 @@ async def medicalform_index_history(request, cuakhau_id):
 async def medicalform_form_history(request, lang, cuakhau_id):
     return jinja.render('medicalform/form_' + lang + '.html', request)
 
-@app.route('/medicalform/form/<lang>/<cuakhau_id>/<tokhai_id>', methods=['GET'])
-async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
-    tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
-    cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
-    data = {
-        "id": tokhai.id,
-        "ngaykekhai": tokhai.ngaykekhai,
-        "hoten": tokhai.hoten,
-        "gioitinh": tokhai.gioitinh,
-        "quoctich": tokhai.quoctich,
-        "namsinh":tokhai.namsinh,
-        "cmtnd": tokhai.cmtnd,
-        "thongtindilai_taubay":tokhai.thongtindilai_taubay,
-        "thongtindilai_tauthuyen": tokhai.thongtindilai_tauthuyen,
-        "thongtindilai_oto":tokhai.thongtindilai_oto,
-        "thongtindilai_khac": tokhai.thongtindilai_khac,
-        "thongtindilai_chitiet": tokhai.thongtindilai_chitiet,
-        "sohieu_phuongtien": tokhai.sohieu_phuongtien,
-        "soghe_phuongtien": tokhai.soghe_phuongtien,
-        "ngay_khoihanh": tokhai.ngay_khoihanh,
-        "ngay_nhapcanh": tokhai.ngay_nhapcanh,
-        "noi_khoihanh": tokhai.noi_khoihanh,
-        "noiden": tokhai.noiden,
-        "quocgiadiqua":tokhai.quocgiadiqua,
-        "diachi_taivietnam": tokhai.diachi_taivietnam,
-        "sodienthoai": tokhai.sodienthoai,
-        "email": tokhai.email,
-        "dauhieubenh_sot": tokhai.dauhieubenh_sot,
-        "dauhieubenh_ho": tokhai.dauhieubenh_ho,
-        "dauhieubenh_khotho": tokhai.dauhieubenh_khotho,
-        "dauhieubenh_dauhong": tokhai.dauhieubenh_dauhong,
-        "dauhieubenh_buonnon": tokhai.dauhieubenh_buonnon,
-        "dauhieubenh_tieuchay": tokhai.dauhieubenh_tieuchay,
-        "dauhieubenh_xuathuyetngoaida": tokhai.dauhieubenh_xuathuyetngoaida,
-        "dauhieubenh_phatban": tokhai.dauhieubenh_phatban,
+# @app.route('/medicalform/form/<lang>/<cuakhau_id>/<tokhai_id>', methods=['GET'])
+# async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
+#     tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
+#     cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
+#     data = {
+#         "id": tokhai.id,
+#         "ngaykekhai": tokhai.ngaykekhai,
+#         "hoten": tokhai.hoten,
+#         "gioitinh": tokhai.gioitinh,
+#         "quoctich": tokhai.quoctich,
+#         "namsinh":tokhai.namsinh,
+#         "cmtnd": tokhai.cmtnd,
+#         "thongtindilai_taubay":tokhai.thongtindilai_taubay,
+#         "thongtindilai_tauthuyen": tokhai.thongtindilai_tauthuyen,
+#         "thongtindilai_oto":tokhai.thongtindilai_oto,
+#         "thongtindilai_khac": tokhai.thongtindilai_khac,
+#         "thongtindilai_chitiet": tokhai.thongtindilai_chitiet,
+#         "sohieu_phuongtien": tokhai.sohieu_phuongtien,
+#         "soghe_phuongtien": tokhai.soghe_phuongtien,
+#         "ngay_khoihanh": tokhai.ngay_khoihanh,
+#         "ngay_nhapcanh": tokhai.ngay_nhapcanh,
+#         "noi_khoihanh": tokhai.noi_khoihanh,
+#         "noiden": tokhai.noiden,
+#         "quocgiadiqua":tokhai.quocgiadiqua,
+#         "diachi_taivietnam": tokhai.diachi_taivietnam,
+#         "sodienthoai": tokhai.sodienthoai,
+#         "email": tokhai.email,
+#         "dauhieubenh_sot": tokhai.dauhieubenh_sot,
+#         "dauhieubenh_ho": tokhai.dauhieubenh_ho,
+#         "dauhieubenh_khotho": tokhai.dauhieubenh_khotho,
+#         "dauhieubenh_dauhong": tokhai.dauhieubenh_dauhong,
+#         "dauhieubenh_buonnon": tokhai.dauhieubenh_buonnon,
+#         "dauhieubenh_tieuchay": tokhai.dauhieubenh_tieuchay,
+#         "dauhieubenh_xuathuyetngoaida": tokhai.dauhieubenh_xuathuyetngoaida,
+#         "dauhieubenh_phatban": tokhai.dauhieubenh_phatban,
 
-        "vacxin_dasudung": tokhai.vacxin_dasudung,
-        "tiepxuc_dongvat": tokhai.tiepxuc_dongvat,
-        "chamsocnguoibenhtruyennhiem": tokhai.chamsocnguoibenhtruyennhiem,
-        "cuakhau_id": cuakhau_id,
-        "tencuakhau":cuakhau.ten,
-        "donvi_id": cuakhau.donvi_id,
-        "ngon_ngu":tokhai.ngon_ngu
-    }
-    return jinja.render('medicalform/form_' + lang + '.html', request, **data)
+#         "vacxin_dasudung": tokhai.vacxin_dasudung,
+#         "tiepxuc_dongvat": tokhai.tiepxuc_dongvat,
+#         "chamsocnguoibenhtruyennhiem": tokhai.chamsocnguoibenhtruyennhiem,
+#         "cuakhau_id": cuakhau_id,
+#         "tencuakhau":cuakhau.ten,
+#         "donvi_id": cuakhau.donvi_id,
+#         "ngon_ngu":tokhai.ngon_ngu
+#     }
+#     return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
-@app.route('/api/v1/timkiem', methods=['POST'])
+@app.route('/api/v1/timtokhaiyte', methods=['POST'])
 async def timkiem(request):
     data = request.json
     tokhaiyte = db.session.query(ToKhaiYTe).filter(ToKhaiYTe.cmtnd == data['hochieu']).all()
@@ -108,20 +108,20 @@ async def timkiem(request):
         result.append(to_dict(_))
     return json(result)
 
-@app.route('/medicalform/qr/<cuakhau_id>/<tokhai_id>', methods=['GET'])
-async def medicalform_index2(request,cuakhau_id, tokhai_id):
-    tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
-    cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
-    data = {
-        "id": tokhai.id,
-        "tencuakhau": tokhai.tencuakhau,
-        "ngaykekhai": tokhai.ngaykekhai,
-        "cmtnd": tokhai.cmtnd,
-        "ten": tokhai.hoten,
-        "cuakhau_id": cuakhau_id,
+# @app.route('/medicalform/qr/<cuakhau_id>/<tokhai_id>', methods=['GET'])
+# async def medicalform_index2(request,cuakhau_id, tokhai_id):
+#     tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
+#     cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
+#     data = {
+#         "id": tokhai.id,
+#         "tencuakhau": tokhai.tencuakhau,
+#         "ngaykekhai": tokhai.ngaykekhai,
+#         "cmtnd": tokhai.cmtnd,
+#         "ten": tokhai.hoten,
+#         "cuakhau_id": cuakhau_id,
 
-    }
-    return jinja.render('medicalform/index.html', request, **data)
+#     }
+#     return jinja.render('medicalform/index.html', request, **data)
 
 
 @app.route('/api/v1/create_tokhaiyte', methods=["POST"])
@@ -129,45 +129,59 @@ def create_tokhaiyte(request):
     data = request.json
     id = generation_id()
     print("========IDDDDDDDDDDDDĐ===========", id)
+
+    if (data["ngay_khoihanh"] == ""):
+        data["ngay_khoihanh"] = None
+    if (data["ngay_nhapcanh"] == ""):
+        data["ngay_nhapcanh"] = None
+
     new_tokhaiyte = ToKhaiYTe()
     new_tokhaiyte.id = id
-    new_tokhaiyte.ngaykekhai = data["ngaykekhai"]
-    new_tokhaiyte.cuakhau_id = data["cuakhau_id"]
-    new_tokhaiyte.tencuakhau = data["tencuakhau"]
-    new_tokhaiyte.donvi_id = data["donvi_id"]
-    new_tokhaiyte.hoten = data["hoten"]
-    new_tokhaiyte.namsinh = data["namsinh"]
-    new_tokhaiyte.gioitinh = data["gioitinh"]
-    new_tokhaiyte.quoctich = data["quoctich"]
-    new_tokhaiyte.cmtnd = data["cmtnd"]
-    new_tokhaiyte.thongtindilai_taubay = data["thongtindilai_taubay"]
-    new_tokhaiyte.thongtindilai_tauthuyen = data["thongtindilai_tauthuyen"]
-    new_tokhaiyte.thongtindilai_oto = data["thongtindilai_oto"]
-    new_tokhaiyte.thongtindilai_khac = data["thongtindilai_khac"]
-    new_tokhaiyte.thongtindilai_chitiet = data["thongtindilai_chitiet"]
-    new_tokhaiyte.sohieu_phuongtien = data["sohieu_phuongtien"]
-    new_tokhaiyte.soghe_phuongtien = data["soghe_phuongtien"]
-    new_tokhaiyte.ngay_khoihanh = data["ngay_khoihanh"]
-    new_tokhaiyte.ngay_nhapcanh = data["ngay_nhapcanh"]
-    new_tokhaiyte.noi_khoihanh = data["noi_khoihanh"]
-    new_tokhaiyte.noiden = data["noiden"]
-    new_tokhaiyte.quocgiadiqua = data["quocgiadiqua"]
-    new_tokhaiyte.diachi_taivietnam = data["diachi_taivietnam"]
-    new_tokhaiyte.sodienthoai = data["sodienthoai"]
-    new_tokhaiyte.email = data["email"]
-    new_tokhaiyte.dauhieubenh_sot = data["dauhieubenh_sot"]
-    new_tokhaiyte.dauhieubenh_ho = data["dauhieubenh_ho"]
-    new_tokhaiyte.dauhieubenh_khotho = data["dauhieubenh_khotho"]
-    new_tokhaiyte.dauhieubenh_dauhong = data["dauhieubenh_dauhong"]
-    new_tokhaiyte.dauhieubenh_buonnon = data["dauhieubenh_buonnon"]
-    new_tokhaiyte.dauhieubenh_tieuchay = data["dauhieubenh_tieuchay"]
-    new_tokhaiyte.dauhieubenh_xuathuyetngoaida = data["dauhieubenh_xuathuyetngoaida"]
-    new_tokhaiyte.dauhieubenh_phatban = data["dauhieubenh_phatban"]
-    new_tokhaiyte.vacxin_dasudung = data["vacxin_dasudung"]
-    new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
-    new_tokhaiyte.chamsocnguoibenhtruyennhiem = data["chamsocnguoibenhtruyennhiem"]
-    new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
-    new_tokhaiyte.ngon_ngu = data["ngon_ngu"]
+
+    for key in data:
+        if (key != "id") and hasattr(new_tokhaiyte, key):
+            setattr(new_tokhaiyte, key, data.get(key))
+
+    
+    # new_tokhaiyte.ngaykekhai = data["ngaykekhai"]
+    # new_tokhaiyte.cuakhau_id = data["cuakhau_id"]
+    # new_tokhaiyte.tencuakhau = data["tencuakhau"]
+    # new_tokhaiyte.donvi_id = data["donvi_id"]
+    # new_tokhaiyte.hoten = data["hoten"]
+    # new_tokhaiyte.namsinh = data["namsinh"]
+    # new_tokhaiyte.gioitinh = data["gioitinh"]
+    # new_tokhaiyte.quoctich = data["quoctich"]
+    # new_tokhaiyte.cmtnd = data["cmtnd"]
+    # new_tokhaiyte.thongtindilai_taubay = data["thongtindilai_taubay"]
+    # new_tokhaiyte.thongtindilai_tauthuyen = data["thongtindilai_tauthuyen"]
+    # new_tokhaiyte.thongtindilai_oto = data["thongtindilai_oto"]
+    # new_tokhaiyte.thongtindilai_khac = data["thongtindilai_khac"]
+    # new_tokhaiyte.thongtindilai_chitiet = data["thongtindilai_chitiet"]
+    # new_tokhaiyte.sohieu_phuongtien = data["sohieu_phuongtien"]
+    # new_tokhaiyte.soghe_phuongtien = data["soghe_phuongtien"]
+    # new_tokhaiyte.ngay_khoihanh = data["ngay_khoihanh"]
+    # new_tokhaiyte.ngay_nhapcanh = data["ngay_nhapcanh"]
+    # new_tokhaiyte.noi_khoihanh = data["noi_khoihanh"]
+    # new_tokhaiyte.noiden = data["noiden"]
+    # new_tokhaiyte.quocgiadiqua = data["quocgiadiqua"]
+    # new_tokhaiyte.diachi_taivietnam = data["diachi_taivietnam"]
+    # new_tokhaiyte.sodienthoai = data["sodienthoai"]
+    # new_tokhaiyte.email = data["email"]
+    # new_tokhaiyte.dauhieubenh_sot = data["dauhieubenh_sot"]
+    # new_tokhaiyte.dauhieubenh_ho = data["dauhieubenh_ho"]
+    # new_tokhaiyte.dauhieubenh_khotho = data["dauhieubenh_khotho"]
+    # new_tokhaiyte.dauhieubenh_dauhong = data["dauhieubenh_dauhong"]
+    # new_tokhaiyte.dauhieubenh_buonnon = data["dauhieubenh_buonnon"]
+    # new_tokhaiyte.dauhieubenh_tieuchay = data["dauhieubenh_tieuchay"]
+    # new_tokhaiyte.dauhieubenh_xuathuyetngoaida = data["dauhieubenh_xuathuyetngoaida"]
+    # new_tokhaiyte.dauhieubenh_phatban = data["dauhieubenh_phatban"]
+    # new_tokhaiyte.vacxin_dasudung = data["vacxin_dasudung"]
+    # new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
+    # new_tokhaiyte.chamsocnguoibenhtruyennhiem = data["chamsocnguoibenhtruyennhiem"]
+    # new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
+    # new_tokhaiyte.ngon_ngu = data["ngon_ngu"]
+
+
     db.session.add(new_tokhaiyte)
     db.session.commit()
     result = to_dict(new_tokhaiyte)

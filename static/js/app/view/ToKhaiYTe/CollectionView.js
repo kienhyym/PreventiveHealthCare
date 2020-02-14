@@ -170,14 +170,7 @@ define(function (require) {
 
                 var donvi_id = null, tendonvi = null, cuakhau_id = null, tencuakhau = null;
                 var info = user.info;
-                // if(user.hasRole("CuaKhauUser")){
-                // 	for(var i = 0; i < self.uiControl.length; i++){
-                // 		if (self.uiControl[i].field == "cuakhau"){
-                // 			self.uiControl[i].readonly = true;
-                // 			break;
-                // 		}
-                // 	}
-                // }	
+                
 
                 var cuakhau = info.cuakhau;
                 if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
@@ -195,14 +188,18 @@ define(function (require) {
 
                 var defaultFilter = {"$and": []};
 
-                if (!!donvi_id) {
-                    defaultFilter["$and"].push({ "donvi_id": { "$eq": donvi_id } });
-                    
-                    if (!!cuakhau_id) {
-                        defaultFilter["$and"].push({ "cuakhau_id": { "$eq": cuakhau_id } });
+                if((user.hasRole("CuaKhauUser")) || (user.hasRole("DonViUser")) || (user.hasRole("DonViAdmin"))){
+                	if (!!donvi_id) {
+                        defaultFilter["$and"].push({ "donvi_id": { "$eq": donvi_id } });
+                        
+                        if (!!cuakhau_id) {
+                            defaultFilter["$and"].push({ "cuakhau_id": { "$eq": cuakhau_id } });
+                        }
+                        
                     }
-                    
-                }
+                }	
+
+                
 
                 var $filter = this.$el.find("#filter");
                 var filterView = new FilterView({
