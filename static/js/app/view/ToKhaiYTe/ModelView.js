@@ -110,7 +110,7 @@ define(function (require) {
 						label: "In tờ xác nhận",
 						command: function () {
 							var self = this;
-							self.printForm("vi", false);
+							self.printForm(null, false);
 						},
 						visible: function () {
 							return this.getApp().getRouter().getParam("id") !== null;
@@ -543,8 +543,11 @@ define(function (require) {
 			var self = this;
 
 			console.log("MOde", self.model.toJSON());
-			var data = self.model.toJSON();
 
+			var data = self.model.toJSON();
+			if (!lang){
+				lang = data["ngon_ngu"] || "vi";
+			}
 			// var ngaytao = null; var thangthao = null; var namtao = null;
 			// var ngaykekhai = this.model.get("ngaykekhai");
 			// if (ngaykekhai) {
@@ -559,7 +562,7 @@ define(function (require) {
 
 			var user = self.getApp().currentUser;
 			if (user) {
-				console.log(user.info);
+
 				var donvi = user.info.donvi;
 				if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
 					// self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten, "madonvi":donvi.ma})
@@ -588,6 +591,12 @@ define(function (require) {
 				var widthmm = null;
 				if (lang == "vi"){
 					printtpl = printpl_vi;
+				}else if (lang == "cn"){
+					printtpl = printpl_cn;
+				}else if (lang == "en"){
+					printtpl = printpl_en;
+				}else{
+					self.getApp().notify('Không tìm thấy ngôn ngữ');
 				}
 
 				if (full){
