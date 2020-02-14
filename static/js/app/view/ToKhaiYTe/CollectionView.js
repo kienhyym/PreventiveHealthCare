@@ -94,11 +94,11 @@ define(function (require) {
                 { field: "id", label: "Mã tờ khai"},
                 { field: "hoten", label: "Họ tên"},
                 // { field: "matokhaiyte", label: "Mã tờ khai" },
-                { field: "cmtnd", label: "CMTND/Hộ chiếu", visible: false },
+                { field: "cmtnd", label: "CMTND/Hộ chiếu"},
                 { field: "quoctich", label: "Quốc tịch"  },
                 { field: "namsinh", label: "Năm sinh"},
                 { field: "ngaykekhai", label: "Ngày kê khai" },
-                { field: "ngon_ngu", label: "Ngôn ngữ" },
+                { field: "ngon_ngu", label: "Ngôn ngữ", visible: false },
 
                 { field: "donvi_id", visible: false },
                 { field: "tendonvi", visible: false },

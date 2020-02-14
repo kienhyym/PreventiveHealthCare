@@ -99,14 +99,18 @@ async def medicalform_form_history(request, lang, cuakhau_id):
 #     }
 #     return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
-@app.route('/api/v1/timtokhaiyte', methods=['POST'])
+@app.route('/medicalform/search', methods=['POST'])
 async def timkiem(request):
     data = request.json
-    tokhaiyte = db.session.query(ToKhaiYTe).filter(ToKhaiYTe.cmtnd == data['hochieu']).all()
-    result = []
-    for _ in tokhaiyte:
-        result.append(to_dict(_))
-    return json(result)
+    tokhaiyte = db.session.query(ToKhaiYTe).filter(ToKhaiYTe.cmtnd.ilike('%'+data['hochieu']+'%')).\
+        filter(ToKhaiYTe.cuakhau_id == data['cuakhau_id']).\
+        order_by(ToKhaiYTe._created_at).first()
+   
+    if tokhaiyte is not None:
+        return json(to_dict(tokhaiyte))
+    
+    return json({"error_code": "NOT_FOUND"}, status=404)
+    
 
 # @app.route('/medicalform/qr/<cuakhau_id>/<tokhai_id>', methods=['GET'])
 # async def medicalform_index2(request,cuakhau_id, tokhai_id):
