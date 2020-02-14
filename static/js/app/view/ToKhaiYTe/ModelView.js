@@ -5,7 +5,11 @@ define(function (require) {
 		Gonrin = require('gonrin');
 
 	var template = require('text!tpl/ToKhaiYTe/model.html'),
-		schema = require('json!app/view/tokhaiyte/ToKhaiYTeSchema.json');
+		schema = require('json!app/view/ToKhaiYTe/ToKhaiYTeSchema.json'); 
+
+	var printtemplate = require('text!tpl/ToKhaiYTe/print.html');
+	var printpl_vi = require('text!tpl/ToKhaiYTe/printxacnhan_vi.html');
+
 
 
 	return Gonrin.ModelView.extend({
@@ -55,31 +59,66 @@ define(function (require) {
 							});
 						}
 					},
+					// {
+					// 	name: "delete",
+					// 	type: "button",
+					// 	buttonClass: "btn-danger btn-sm",
+					// 	label: "TRANSLATE:DELETE",
+					// 	visible: function () {
+					// 		return this.getApp().getRouter().getParam("id") !== null;
+					// 	},
+					// 	command: function () {
+					// 		var self = this;
+					// 		self.model.destroy({
+					// 			success: function (model, response) {
+					// 				self.getApp().notify('Delete successfully');
+
+					// 				self.getApp().getRouter().navigate(self.collectionName + "/collection");
+					// 			},
+					// 			error: function (model, xhr, options) {
+					// 				//self.alertMessage("Something went wrong while processing the model", false);
+					// 				self.getApp().notify('Delete error');
+					// 			}
+					// 		});
+					// 	}
+					// },
+				]
+			},
+
+			{
+				name: "printgr",
+				type: "group",
+				groupClass: "toolbar-group",
+				buttons: [
 					{
-						name: "delete",
+						name: "printmodel",
 						type: "button",
-						buttonClass: "btn-danger btn-sm",
-						label: "TRANSLATE:DELETE",
+						buttonClass: "btn-primary btn-sm",
+						label: "In tờ khai",
+						command: function () {
+							var self = this;
+							//Backbone.history.history.back();
+							// self.getApp().getRouter().navigate(self.collectionName + "/collection");
+						},
 						visible: function () {
 							return this.getApp().getRouter().getParam("id") !== null;
 						},
+					},
+					{
+						name: "printmodel-validate",
+						type: "button",
+						buttonClass: "btn-warning btn-sm",
+						label: "In tờ xác nhận",
 						command: function () {
 							var self = this;
-							self.model.destroy({
-								success: function (model, response) {
-									self.getApp().notify('Delete successfully');
-
-									self.getApp().getRouter().navigate(self.collectionName + "/collection");
-								},
-								error: function (model, xhr, options) {
-									//self.alertMessage("Something went wrong while processing the model", false);
-									self.getApp().notify('Delete error');
-								}
-							});
-						}
+							self.printForm("vi", false);
+						},
+						visible: function () {
+							return this.getApp().getRouter().getParam("id") !== null;
+						},
 					},
 				]
-			},
+			}
 		],
 		uiControl: [
 			// {
@@ -93,8 +132,10 @@ define(function (require) {
 			// 	],
 			// },
 			{ field: "ngaybaocao", cssClass: false, textFormat: "DD/MM/YYYY", disabledComponentButton: true },
+			{field:"ngaykekhai", cssClass:false, textFormat :"DD/MM/YYYY", disabledComponentButton: true},
 			{ field: "ngay_nhapquacanh", cssClass: false, textFormat: "DD/MM/YYYY", disabledComponentButton: true },
-
+			{ field: "quoctich", uicontrol: false, },
+			{ field: "gioitinh", uicontrol: false, },
 			{
 				field: "thongtindilai_taubay",
 				uicontrol: "checkbox",
@@ -102,7 +143,7 @@ define(function (require) {
 				valueField: "id",
 				cssClassField: "cssClass",
 				dataSource: [
-					{ name: true, id: 1, cssClass: "yeallow" },
+					{ name: true, id: 1, },
 					{ name: false, id: 5 },
 				],
 				value: 1
@@ -114,8 +155,8 @@ define(function (require) {
 				valueField: "id",
 				cssClassField: "cssClass",
 				dataSource: [
-					{ name: true, id: 1, cssClass: "yeallow" },
-					{ name: false, id: 5 },
+					{ name: true, id: 1, },
+					{ name: false, id: 0 },
 				],
 				value: 1
 			},
@@ -126,8 +167,8 @@ define(function (require) {
 				valueField: "id",
 				cssClassField: "cssClass",
 				dataSource: [
-					{ name: true, id: 1, cssClass: "yeallow" },
-					{ name: false, id: 5 },
+					{ name: true, id: 1, },
+					{ name: false, id: 0 },
 				],
 				value: 1
 			},
@@ -140,7 +181,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -151,7 +192,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -162,7 +203,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -173,7 +214,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -184,7 +225,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -195,7 +236,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -206,7 +247,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "Có", id: 1 },
-					{ name: "Không", id: 2 },
+					{ name: "Không", id: 0 },
 				],
 			},
 			{
@@ -217,7 +258,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "Có", id: 1 },
-					{ name: "Không", id: 2 },
+					{ name: "Không", id: 0 },
 				],
 			},
 			{
@@ -228,7 +269,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			{
@@ -239,7 +280,7 @@ define(function (require) {
 				cssClassField: "cssClass",
 				dataSource: [
 					{ name: "", id: 1 },
-					{ name: "", id: 2 },
+					{ name: "", id: 0 },
 				],
 			},
 			// {
@@ -381,18 +422,8 @@ define(function (require) {
 
 
 			},
-			{
-				field: "ngay_khoihanh",
-				cssClass: false,
-
-
-			},
-			{
-				field: "ngay_nhapcanh",
-				cssClass: false,
-
-
-			},
+			{ field: "ngay_khoihanh", cssClass: true, textFormat: "DD/MM/YYYY", disabledComponentButton: true },
+			{ field: "ngay_nhapcanh", cssClass: true, textFormat: "DD/MM/YYYY", disabledComponentButton: true },
 			{
 				field: "phuongtien",
 				cssClass: false,
@@ -455,35 +486,145 @@ define(function (require) {
 		],
 		render: function () {
 			var self = this;
-			console.log(self.getApp().currentUser)
 
-			var id = this.getApp().getRouter().getParam("id");
-			if (id) {
-				
-				this.model.set('id', id);
-				this.model.fetch({
-					success: function (data) {
-						self.applyBindings();
-						self.$el.find('.checkbox-group').css({ 'width': '11%', 'margin-left': '2px' });
-						self.$el.find('.input-group-addon').hide();
-						self.$el.find('.datetimepicker-input').css('padding', '5px');
-						self.$el.find('.checkbox-group,.checkbox-group2').css('float', 'left');
-						self.$el.find('.radio-option').css({ 'display': 'inline', 'padding-left': '30px', 'padding-right': '30px' });
-					},
-					error: function () {
-						self.getApp().notify("Get data Eror");
-					},
-				});
-			} else {
-				self.applyBindings();
+			var user = self.getApp().currentUser;
+			if (user) {
+				var id = this.getApp().getRouter().getParam("id");
+				if (id) {
+
+					this.model.set('id', id);
+					this.model.fetch({
+						success: function (data) {
+							self.applyBindings();
+						},
+						error: function () {
+							self.getApp().notify("Get data Eror");
+						},
+					});
+				} else {
+					self.model.set("ngaykekhai", moment().startOf('day').format("YYYY-MM-DD"));
+
+					var info = user.info;
+
+					var cuakhau = info.cuakhau;
+					if (!!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+						self.model.set({ "cuakhau_id": cuakhau.id, "tencuakhau": cuakhau.ten, "macuakhau": cuakhau.ma });
+
+					}
+					var donvi = info.donvi;
+					if (!!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+						self.model.set({ "donvi_id": donvi.id, "tendonvi": donvi.ten })
+					}
+
+					self.applyBindings();
+				}
+
 			}
-			self.$el.find('.checkbox-group').css({ 'width': '11%', 'margin-left': '2px' });
-			self.$el.find('.input-group-addon').hide();
-			self.$el.find('.datetimepicker-input').css('padding', '5px');
-			self.$el.find('.checkbox-group,.checkbox-group2').css('float', 'left');
-			self.$el.find('.radio-option').css({ 'display': 'inline', 'padding-left': '30px', 'padding-right': '30px' });
+			self.registerEvents();
+		},
+		registerEvents: function(){
+			var self = this;
+			self.model.on("change:hoten", function(){
+				var hoten = self.model.get("hoten");
+				if(hoten){
+					var hoten_upcase = hoten.toUpperCase();
+					if(hoten_upcase !== hoten){
+						self.model.set("hoten", hoten_upcase);
+					}
+				}
+			});
+		},
+		printXacNhan: function () {
 
 		},
-	});
+		printForm: function (lang, full=false) {
+			var self = this;
 
+			console.log("MOde", self.model.toJSON());
+			var data = self.model.toJSON();
+
+			// var ngaytao = null; var thangthao = null; var namtao = null;
+			// var ngaykekhai = this.model.get("ngaykekhai");
+			// if (ngaykekhai) {
+			// 	var ngaykekhai_date = moment(ngaykekhai, "YYYY-MM-DD-THH:mm:ss");
+			// 	ngaytao = (ngaykekhai_date.date() > 9) ? ngaykekhai_date.date() : '0' + created_date.date();
+			// 	thangthao = (created_date.month() + 1) > 9 ? created_date.month() + 1 : '0' + (created_date.month() + 1);
+			// 	namtao = created_date.year();
+			// }
+
+			//return true;
+
+
+			var user = self.getApp().currentUser;
+			if (user) {
+				console.log(user.info);
+				var donvi = user.info.donvi;
+				if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+					// self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten, "madonvi":donvi.ma})
+					data.hotline_sodienthoai = donvi.hotline_sodienthoai || "";
+					data.hotline_email = donvi.hotline_email  || "";
+					data.hotline_fax = donvi.hotline_fax  || "";
+					
+				}
+				var ngaykekhai = self.model.get("ngaykekhai");
+				data.ngaykekhai_ngay = "";
+				data.ngaykekhai_thang = "";
+				data.ngaykekhai_nam = "";
+				if(ngaykekhai){
+					var moobject = moment(ngaykekhai, "YYYY-MM-DDTHH:mm:ss");
+					data.ngaykekhai_ngay = moobject.format("DD");
+					data.ngaykekhai_thang = moobject.format("MM");
+					data.ngaykekhai_nam = moobject.format("YYYY");
+				}
+				
+
+				lang = "vi";
+				var printtpl = null;
+				var heightpx = null;
+				var widthpx = null;
+				var heightmm = null;
+				var widthmm = null;
+				if (lang == "vi"){
+					printtpl = printpl_vi;
+				}
+
+				if (full){
+					// heightpx = "1754px";
+					// widthpx="1240px";
+					heightmm= "294mm";
+					widthmm= "202mm";
+				}else{
+					//A5
+					// heightpx = "559px";
+					// widthpx="793px";
+					heightmm= "148mm";
+					widthmm= "210mm";
+					console.log(widthmm, heightmm);
+				}
+				
+				var tpl = gonrin.template(printtpl);
+				var content = tpl(data);
+				var mywindow = window.open('', 'PRINT', 'height='+heightmm+ ',width=' + widthmm);
+				//var mywindow = window.open('', 'PRINT');
+				mywindow.document.write('<html><head><title>' + document.title + '</title>');
+				mywindow.document.write('<meta charset="UTF-8">');
+				mywindow.document.write('</head><body class="printForm A5in" style="width:'+widthmm+'; height: '+heightmm+'">');
+				mywindow.document.write(content);
+				mywindow.document.write('</body></html>');
+				mywindow.document.close(); // necessary for IE >= 10
+				mywindow.focus(); // necessary for IE >= 10*/
+				if (print) {
+					$(mywindow).on("load", function () {
+						// Handler when all assets (including images) are loaded
+						mywindow.print();
+					});
+				}
+
+				mywindow.close();
+			}
+			
+			
+			return true;
+		}
+	});
 });

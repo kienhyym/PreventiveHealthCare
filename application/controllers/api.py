@@ -51,9 +51,12 @@ def set_user_passwd(data=None,**kw):
     else:
         raise ProcessingException(description='Parameters are not correct',code=401)
     
-def delete_donvi_parent(data=None,**kw):
+async def delete_donvi_parent(data=None,**kw):
     if "parent" in data:
         del data['parent']
+
+    if "cuakhau" in data:
+        del data['cuakhau']
         
 def reset_user_passwd(instance_id=None, data=None,**kw):
     if (data is not None) and ('password' in data) and ('confirmpassword' in data):
@@ -177,7 +180,7 @@ apimanager.create_api(BaoCaoVien,
 apimanager.create_api(DonVi,
     methods=['GET', 'POST', 'DELETE', 'PUT'],
     url_prefix='/api/v1',
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func, donvi_pregetmany], POST=[auth_func, delete_donvi_parent], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func, check_delete_donvi]),
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func, donvi_pregetmany], POST=[auth_func, delete_donvi_parent], PUT_SINGLE=[auth_func, delete_donvi_parent], DELETE_SINGLE=[auth_func, check_delete_donvi]),
     collection_name='donvi',
     exclude_columns= ["children"])
 

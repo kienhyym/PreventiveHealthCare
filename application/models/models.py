@@ -120,6 +120,10 @@ class DonVi(CommonAdjacencyModel):
     phogiamdoc = db.Column(db.String)
     sdtphogiamdoc = db.Column(db.String)
     emailphogiamdoc = db.Column(db.String)
+
+    hotline_email = db.Column(db.String())
+    hotline_sodienthoai = db.Column(db.String())
+    hotline_fax = db.Column(db.String())
     
     children = relationship("DonVi",
         # cascade deletions
@@ -756,14 +760,13 @@ class ToKhaiYTe(CommonModel):
     __tablename__ = "tokhaiyte"
     id = db.Column(db.String, primary_key=True)
 
-    
-    ngaykekhai = db.Column(db.DateTime())
+    ngaykekhai = db.Column(db.DateTime(), nullable=False)
 
     donvi_id = db.Column(db.Integer, nullable=False, index=True)
     tendonvi = db.Column(db.String())
     madonvi = db.Column(db.String())
 
-    cuakhau_id = db.Column(db.Integer, nullable=True, index=True)
+    cuakhau_id = db.Column(db.Integer, nullable=False, index=True)
     tencuakhau = db.Column(db.String())
     macuakhau = db.Column(db.String())
 
