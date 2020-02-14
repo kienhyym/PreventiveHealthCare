@@ -306,7 +306,7 @@
         <div class="col-6" style="margin-bottom:10px;">
             <div><label>Số hộ chiếu:</label></div>
             <div>
-                <input type="text" class='form-control' id="sohochieu"  />
+                <input type="text" class='form-control' id="cmtnd"  />
             </div>
         </div>
     </div>
@@ -657,7 +657,7 @@
             <button class="btn btn-success" id="btn-luu"><i class="fa fa-save"></i> Lưu</button>
         </div>
     </div>
-    <input type="hidden" id="ngon_ngu" value="vi"  />
+    <input type="hidden" id="ngon_ngu" value="vi"/>
 
     <!--<h6 class="d-flex justify-content-center" style="margin-bottom:30px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
         cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
@@ -666,6 +666,8 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        
+
         var lichSu = localStorage.getItem('lichsu');
         var id = null;
         var ngaykekhai = null;
@@ -676,7 +678,7 @@
         var namsinh = null;
         var gioitinh = null;
         var quoctich = null;
-        var sohochieu = null;
+        var cmtnd = null;
         var thongtindilai_taubay = null;
         var thongtindilai_tauthuyen = null;
         var thongtindilai_oto = null;
@@ -703,6 +705,7 @@
         var vacxin_dasudung = null;
         var tiepxuc_dongvat = null;
         var chamsocnguoibenhtruyennhiem = null;
+        var ngon_ngu = null;
         if (lichSu != "" && lichSu != null && lichSu != undefined) {
             $('#btn-luu').remove();
 
@@ -716,7 +719,7 @@
             namsinh = localStorage.getItem('namsinh');
             gioitinh = localStorage.getItem('gioitinh');
             quoctich = localStorage.getItem('quoctich');
-            sohochieu = localStorage.getItem('sohochieu');
+            cmtnd = localStorage.getItem('cmtnd');
             thongtindilai_taubay = localStorage.getItem('thongtindilai_taubay');
             thongtindilai_tauthuyen = localStorage.getItem('thongtindilai_tauthuyen');
             thongtindilai_oto = localStorage.getItem('thongtindilai_oto');
@@ -743,6 +746,7 @@
             vacxin_dasudung = localStorage.getItem('vacxin_dasudung');
             tiepxuc_dongvat = localStorage.getItem('tiepxuc_dongvat');
             chamsocnguoibenhtruyennhiem = localStorage.getItem('chamsocnguoibenhtruyennhiem');
+            ngon_ngu  = localStorage.getItem('ngon_ngu');
         }
         else {
             id = "{{id}}";
@@ -754,7 +758,7 @@
             namsinh = "{{namsinh}}";
             gioitinh = "{{gioitinh}}";
             quoctich = "{{quoctich}}";
-            sohochieu = "{{sohochieu}}";
+            cmtnd = "{{cmtnd}}";
             thongtindilai_taubay = "{{thongtindilai_taubay}}";
             thongtindilai_tauthuyen = "{{thongtindilai_tauthuyen}}";
             thongtindilai_oto = "{{thongtindilai_oto}}";
@@ -782,13 +786,14 @@
             vacxin_dasudung = "{{vacxin_dasudung}}";
             tiepxuc_dongvat = "{{tiepxuc_dongvat}}";
             chamsocnguoibenhtruyennhiem = "{{chamsocnguoibenhtruyennhiem}}";
+            ngon_ngu = "{{ngon_ngu}}";
         }
 
         /////KHU VỰC HIỂN THỊ GIÁ TRỊ 
         //Hiển thị ô text
         $("#hoten").val(hoten);
         $("#namsinh").val(namsinh);
-        $("#sohochieu").val(sohochieu);
+        $("#cmtnd").val(cmtnd);
         $("#thongtindilai_chitiet").val(thongtindilai_chitiet);
         $("#soghe_phuongtien").val(soghe_phuongtien);
         $("#ngay_khoihanh").val(ngay_khoihanh.slice(0,10));
@@ -856,7 +861,12 @@
         });
         //Cài ngày hôm nay 
         var d = new Date();
-        var ngaysoan = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+        var nam = d.getFullYear();
+        var thang = d.getMonth()+1;
+        var ngay = d.getDate();
+        var ngaysoan = nam+ '-' + thang + '-' + ngay;
+        console.log(ngaysoan)
+
         if (id !== "") {
             $('#btn-luu').remove();
             $('#maToKhai').html('Mã tờ khai:' + id)
@@ -982,7 +992,7 @@
                 "namsinh": $('#namsinh').val(),
                 "gioitinh": selectedGioiTinh,
                 "quoctich": selectedQuocTich,
-                "sohochieu": $('#sohochieu').val(),
+                "cmtnd": $('#cmtnd').val(),
                 "thongtindilai_taubay": thongtindilai_taubay,
                 "thongtindilai_tauthuyen": thongtindilai_tauthuyen,
                 "thongtindilai_oto": thongtindilai_oto,
@@ -1009,6 +1019,7 @@
                 "vacxin_dasudung": $('#vacxin_dasudung').val(),
                 "tiepxuc_dongvat": tiepxuc_dongvat,
                 "chamsocnguoibenhtruyennhiem": chamsocnguoibenhtruyennhiem,
+                "ngon_ngu":$('#ngon_ngu').val(),
             }
 
             $.ajax({
@@ -1026,7 +1037,7 @@
                     localStorage.setItem('namsinh', response.namsinh);
                     localStorage.setItem('gioitinh', response.gioitinh);
                     localStorage.setItem('quoctich', response.quoctich);
-                    localStorage.setItem('sohochieu', response.sohochieu);
+                    localStorage.setItem('cmtnd', response.cmtnd);
                     localStorage.setItem('thongtindilai_taubay', response.thongtindilai_taubay);
                     localStorage.setItem('thongtindilai_tauthuyen', response.thongtindilai_tauthuyen);
                     localStorage.setItem('thongtindilai_oto', response.thongtindilai_oto);
@@ -1053,6 +1064,8 @@
                     localStorage.setItem('vacxin_dasudung', response.vacxin_dasudung);
                     localStorage.setItem('tiepxuc_dongvat', response.tiepxuc_dongvat);
                     localStorage.setItem('chamsocnguoibenhtruyennhiem', response.chamsocnguoibenhtruyennhiem);
+                    localStorage.setItem('ngon_ngu', response.ngon_ngu);
+
                     localStorage.setItem('lichsu','1');
 
                     window.location = location.origin + "/medicalform/qr/{{cuakhau_id}}/history";
