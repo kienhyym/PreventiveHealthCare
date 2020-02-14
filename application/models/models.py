@@ -779,7 +779,7 @@ class ToKhaiYTe(CommonModel):
     gioitinh = db.Column(db.String)
     quoctich = db.Column(db.String)
     
-    sohochieu = db.Column(db.String, index=True)
+    cmtnd = db.Column(db.String, index=True)
     
     thongtindilai_taubay = db.Column(db.SmallInteger) #taubay, tauthuyen, oto, khac
     thongtindilai_tauthuyen = db.Column(db.SmallInteger)

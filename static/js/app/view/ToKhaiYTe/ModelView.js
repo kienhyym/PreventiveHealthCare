@@ -7,8 +7,10 @@ define(function (require) {
 	var template = require('text!tpl/ToKhaiYTe/model.html'),
 		schema = require('json!app/view/ToKhaiYTe/ToKhaiYTeSchema.json'); 
 
-	var printtemplate = require('text!tpl/ToKhaiYTe/print.html');
-	var printpl_vi = require('text!tpl/ToKhaiYTe/printxacnhan_vi.html');
+	var prinfulltpl_vi = require('text!tpl/ToKhaiYTe/printfull_vi.html');
+	var printpl_vi = require('text!tpl/ToKhaiYTe/print_vi.html');
+	var printpl_cn = require('text!tpl/ToKhaiYTe/print_cn.html');
+	var printpl_en = require('text!tpl/ToKhaiYTe/print_en.html');
 
 
 
@@ -516,6 +518,8 @@ define(function (require) {
 						self.model.set({ "donvi_id": donvi.id, "tendonvi": donvi.ten })
 					}
 
+					self.model.set( "ngon_ngu", "vi");
+
 					self.applyBindings();
 				}
 
@@ -578,7 +582,7 @@ define(function (require) {
 				}
 				
 
-				lang = "vi";
+				
 				var printtpl = null;
 				var heightpx = null;
 				var widthpx = null;

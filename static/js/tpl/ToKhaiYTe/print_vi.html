@@ -1,0 +1,51 @@
+<meta charset="UTF-8">
+<style>@page { size: A5in }</style>
+<style>
+	section{
+        font-size:12pt;
+	}
+	/* span, li{
+		font-size:12pt;
+	} */
+
+	
+</style>
+<section class="sheet">
+    <div style="padding:108 mm 160mm 108 mm 160mm">
+        <div>
+            <p><b>Hành khách mang theo phần này để làm thủ tục nhập cảnh, xuất cảnh, quá cảnh và bảo vệ sức khỏe của Anh/ Chị</b></p>
+            <ol>
+                <li type="square">Họ tên (viết chữ in hoa): {{hoten}}</li>
+                <li type="square">Tên tỉnh hoặc thành phố hoặc vùng lãnh thổ hoặc quốc gia xuất phát: {{noi_khoihanh}}</li>
+            </ol>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td align="center" style="width:33% ; vertical-align: top;"><p><b>XÁC NHẬN<br/>CỦA KIỂM DỊCH VIÊN Y TẾ</b></p></td>
+                    <td rowspan="2" align="justify">
+                        <p>Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện
+                            bất cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay 
+                            với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc cơ quan y tế 
+                            nơi gần nhất hoặc theo địa chỉ e-mail: {{hotline_email}}
+                            hoặc số fax: {{hotline_fax}}
+                        </p>
+                        <p>
+                            Điện thoại đường dây nóng của tỉnh/thành phố (nơi có cửa khẩu): {{hotline_sodienthoai}}
+                        </p>
+                        <p>
+                            Điện thoại đường dây nóng của Bộ Y tế: <b>1900 9095</b> - <b>1900 3228</b>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" style="vertical-align: bottom;">
+                        <i>Ngày <span>{{ngaykekhai_ngay}}</span><i>
+                        <i> tháng <span>{{ngaykekhai_thang}}</span><i>
+                        <i> năm <span>{{ngaykekhai_nam}}</span><i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

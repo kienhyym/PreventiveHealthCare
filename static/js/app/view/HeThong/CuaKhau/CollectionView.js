@@ -198,13 +198,13 @@ define(function (require) {
     	},
 	     
 	     render:function(){
-	    	 var self = this;
-	    	 this.applyBindings();
+	    	var self = this;
+	    	this.applyBindings();
 	    	 
-	    	 var $filter = this.$el.find("#filter");
-	    	 var filterView = new FilterView({el: $filter});
+	    	var $filter = this.$el.find("#filter");
+	    	var filterView = new FilterView({el: $filter});
 	    	 
-	      	 filterView.render();
+	      	filterView.render();
 	      	//var firstLoad = true;
 	      	filterView.on('filterChanged', function(evt){
 	      		
