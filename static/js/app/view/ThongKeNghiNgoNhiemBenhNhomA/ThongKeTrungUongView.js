@@ -200,7 +200,7 @@ define(function (require) {
 				for(var j=0; j<data.data.length; j++) {
 					var data_value = data.data[j].data_value;
 					var value = "";
-					if (data_value[i][chitieu.name] > 0){
+					if (data_value[i][chitieu.name] !== null){
 						value = data_value[i][chitieu.name];
 						tongso = tongso + value;
 						

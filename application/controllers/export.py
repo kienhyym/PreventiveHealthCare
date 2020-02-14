@@ -490,7 +490,7 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
             ckten = data["ten"][j]
             col = list_char[3+j]
             value = data["data"][j]["data_value"][i][chitieu["name"]]
-            if (value is not None) and (value > 0):
+            if (value is not None):
                 ws[col + str(start_row + i) ] = data["data"][j]["data_value"][i][chitieu["name"]]
                 tongso = tongso + value
         
@@ -506,7 +506,7 @@ def processChiTieu(ws, chitieu, idx,  data, start_row):
         col = list_char[3+j]
         for i in range(len_day):
             value = data["data"][j]["data_value"][i][chitieu["name"]]
-            if (value is not None) and (value > 0):
+            if (value is not None):
                 tongdoc = tongdoc + value
                 tong_tongso = tong_tongso + value
         if tongdoc > 0:

@@ -823,6 +823,7 @@ class ToKhaiYTe(CommonModel):
 
     trangthai = db.Column(db.String)
     note = db.Column(db.Text())
+    ngon_ngu = db.Column(db.String(10))
     extra_data = db.Column(JSONB)
     
 

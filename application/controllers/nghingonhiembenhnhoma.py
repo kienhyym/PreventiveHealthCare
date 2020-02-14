@@ -398,7 +398,7 @@ async def getbaocao_tonghop_nghingobenh(request):
                 # "value_nguoinghingo":0
             }
             for chitieu in chitieu_arr:
-                objdata[chitieu] = 0
+                objdata[chitieu] = None
             
             for itembc in listbaocao:
                 ngaybaocao_timestamp = datetime.timestamp(itembc.ngaybaocao)
@@ -519,7 +519,7 @@ async def getbaocao_tonghop_nghingobenh(request):
             }
 
             for chitieu in chitieu_arr:
-                objdata[chitieu] = 0
+                objdata[chitieu] = None
             
             for itembc in listbaocao:
                 ngaybaocao_timestamp = datetime.timestamp(itembc.ngaybaocao)
@@ -528,6 +528,8 @@ async def getbaocao_tonghop_nghingobenh(request):
                     for chitieu in chitieu_arr:
                         val = getattr(itembc, chitieu)
                         if val is not None:
+                            if objdata[chitieu] is None:
+                                objdata[chitieu] = 0
                             objdata[chitieu] = objdata[chitieu] + val
 
             item["data_value"].append(objdata)
