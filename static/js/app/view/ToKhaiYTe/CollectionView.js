@@ -16,22 +16,17 @@ define(function (require) {
             "type": "string"
         },
         "cmtnd": {
-            "type": "number"
-        },
-        "donvi": {
-            "type": "dict"
-        },
-        "ten": {
             "type": "string"
         },
-        "loaicuakhau": {
-            "type": "string"
+        "ngaykekhai": {
+            "type": "datetime"
         }
 	}
     var filtertemplate 				= require('text!tpl/ToKhaiYTe/filter.html');
     
     var FilterView = Gonrin.FilterView.extend({
-    	template : filtertemplate,
+        template : filtertemplate,
+        bindings: "data-filter-bind",
     	modelSchema	: filterschema,
     	urlPrefix: "/api/v1/",
     	collectionName: "filter",
@@ -65,7 +60,12 @@ define(function (require) {
     	],
     	render:function(){
     		var self = this;
-    		this.getDataFromSession();
+            this.getDataFromSession();
+            
+            var ngaykekhai = self.model.get("ngaykekhai");
+            if (!ngaykekhai){
+                self.model.set("ngaykekhai", moment().startOf('day').format("YYYY-MM-DD"));
+            }
             this.applyBindings();
             
     		var filterBtn = self.$el.find("#filterBtn");
@@ -154,73 +154,100 @@ define(function (require) {
             }
         },
         render: function () {
+            var self = this;
             var $filter = this.$el.find("#filter");
 	    	var filterView = new FilterView({el: $filter});
-	    	 
-	      	 filterView.render();
-	      	//var firstLoad = true;
+            
+            
+            filterView.render();
+              
 	      	filterView.on('filterChanged', function(evt){
 	      		
 	    		var $col = self.getCollectionElement();
 	    		if($col){
-	    			if((evt.data.donvi_id !== null) || (evt.data.tinhthanh_id !== null) || (evt.data.ten !== null) || (evt.data.loaicuakhau !== null)){
-	    				var filters = {"$and":[]};
-	    				console.log(evt.data);
-	    				if(evt.data.donvi_id !== null){
-	    					if((evt.data.donvi !== null) && (evt.data.donvi.tuyendonvi ==2)){
-	    						//var childs = evt.data.donvi.children;
-	    						filters["$and"].push({"donvi_id":{"$in":evt.data.donvi.children}});
-	    					}else{
-	    						filters["$and"].push({"donvi_id":{"$eq":evt.data.donvi_id}});
-	    					}
+                    console.log(evt);
+                    var filters = {"$and":[]};
+
+                    if(evt.data.id !== null){
+                        filters["$and"].push({"id": {$eq:evt.data.id}});
+                    }
+
+                    if(evt.data.ngaykekhai !== null){
+                        filters["$and"].push({"ngaykekhai": {$eq:evt.data.ngaykekhai}});
+                    }
+
+                    if(evt.data.cmtnd !== null){
+                        filters["$and"].push({"cmtnd": {$eq:evt.data.cmtnd}});
+                    }
+
+                    if(evt.data.cmtnd !== null){
+                        filters["$and"].push({"hoten": {$likeI:'%' + evt.data.hoten + '%'}});
+                    }
+
+                    if (filters["$and"].length > 0){
+                        $col.data('gonrin').filter(filters);
+                    }
+                    
+
+
+
+	    			// if((evt.data.donvi_id !== null) || (evt.data.tinhthanh_id !== null) || (evt.data.ten !== null) || (evt.data.loaicuakhau !== null)){
+	    			// 	var filters = {"$and":[]};
+	    			// 	console.log(evt.data);
+	    			// 	if(evt.data.donvi_id !== null){
+	    			// 		if((evt.data.donvi !== null) && (evt.data.donvi.tuyendonvi ==2)){
+	    			// 			//var childs = evt.data.donvi.children;
+	    			// 			filters["$and"].push({"donvi_id":{"$in":evt.data.donvi.children}});
+	    			// 		}else{
+	    			// 			filters["$and"].push({"donvi_id":{"$eq":evt.data.donvi_id}});
+	    			// 		}
       						
-      					}
-	    				if(evt.data.tinhthanh_id !== null){
-      						filters["$and"].push({"tinhthanh_id":{"$eq":evt.data.tinhthanh_id}});
-      					}
-	    				if(evt.data.ten !== null){
-      						filters["$and"].push({"ten":{"$contains":evt.data.ten}});
-      					}
-	    				if((evt.data.loaicuakhau !== null)&&($.isArray(evt.data.loaicuakhau))&&(evt.data.loaicuakhau.length > 0)){
-	    					var or = {"$or":[]};
-		    	   			if(evt.data.loaicuakhau.indexOf(1) > -1){
-		    	    			or["$or"].push({"duongboquocte":{"$eq":true}});
-		    	    		};
-		    	    		if(evt.data.loaicuakhau.indexOf(2) > -1){
-		    	    			or["$or"].push({"duongbochinh":{"$eq":true}});
-		    	    		};
-		    	    		if(evt.data.loaicuakhau.indexOf(3) > -1){
-		    	    			or["$or"].push({"duongbophu":{"$eq":true}});
-		    	    		};
-		    	    		if(evt.data.loaicuakhau.indexOf(4) > -1){
-		    	    			or["$or"].push({"duongsat":{"$eq":true}});
-		    	    		};
-		    	    		if(evt.data.loaicuakhau.indexOf(5) > -1){
-		    	    			or["$or"].push({"duonghangkhong":{"$eq":true}});
-		    	    		};
-		    	    		if(evt.data.loaicuakhau.indexOf(6) > -1){
-		    	    			or["$or"].push({"duongthuyloai1":{"$eq":true}});
-		    	    		};
-		    	    		if(evt.data.loaicuakhau.indexOf(7) > -1){
-		    	    			or["$or"].push({"duongthuyloai2":{"$eq":true}});
-		    	    		};
-		    	    		filters["$and"].push(or);
-		    	    	}
-	    				$col.data('gonrin').filter(filters);
-	    			}else{
-	    				$col.data('gonrin').filter(null);
-	    			}
+      				// 	}
+	    			// 	if(evt.data.tinhthanh_id !== null){
+      				// 		filters["$and"].push({"tinhthanh_id":{"$eq":evt.data.tinhthanh_id}});
+      				// 	}
+	    			// 	if(evt.data.ten !== null){
+      				// 		filters["$and"].push({"ten":{"$contains":evt.data.ten}});
+      				// 	}
+	    			// 	if((evt.data.loaicuakhau !== null)&&($.isArray(evt.data.loaicuakhau))&&(evt.data.loaicuakhau.length > 0)){
+	    			// 		var or = {"$or":[]};
+		    	   	// 		if(evt.data.loaicuakhau.indexOf(1) > -1){
+		    	    // 			or["$or"].push({"duongboquocte":{"$eq":true}});
+		    	    // 		};
+		    	    // 		if(evt.data.loaicuakhau.indexOf(2) > -1){
+		    	    // 			or["$or"].push({"duongbochinh":{"$eq":true}});
+		    	    // 		};
+		    	    // 		if(evt.data.loaicuakhau.indexOf(3) > -1){
+		    	    // 			or["$or"].push({"duongbophu":{"$eq":true}});
+		    	    // 		};
+		    	    // 		if(evt.data.loaicuakhau.indexOf(4) > -1){
+		    	    // 			or["$or"].push({"duongsat":{"$eq":true}});
+		    	    // 		};
+		    	    // 		if(evt.data.loaicuakhau.indexOf(5) > -1){
+		    	    // 			or["$or"].push({"duonghangkhong":{"$eq":true}});
+		    	    // 		};
+		    	    // 		if(evt.data.loaicuakhau.indexOf(6) > -1){
+		    	    // 			or["$or"].push({"duongthuyloai1":{"$eq":true}});
+		    	    // 		};
+		    	    // 		if(evt.data.loaicuakhau.indexOf(7) > -1){
+		    	    // 			or["$or"].push({"duongthuyloai2":{"$eq":true}});
+		    	    // 		};
+		    	    // 		filters["$and"].push(or);
+		    	    // 	}
+	    			// 	$col.data('gonrin').filter(filters);
+	    			// }else{
+	    			// 	$col.data('gonrin').filter(null);
+	    			// }
 	    			
 	    		}
 	    		
-	      	});
-	      	//filterView.triggerFilter();
+              });
+              
 	      	if(!filterView.isEmptyFilter()){
 	      		filterView.triggerFilter();
             }
-            
             this.applyBindings();
-            console.log(this.collection)
+            
             return this;
         },
 

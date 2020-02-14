@@ -180,20 +180,24 @@ def int_to_base36(num):
         res = digits[i] + res
         
     return res
-def generation_id(request=None, Model=None, result=None, **kw):
+def generation_id():
     time_gen = floor(time.time()) - 1577811600
-    order_id = int_to_base36(time_gen)
+    id = int_to_base36(time_gen)
     number_rd = random.randint(1, 1295)
     print('-----',time_gen)
-    order_id += int_to_base36(number_rd)
-    return order_id
+    id += int_to_base36(number_rd)
+    return id
+
+def tokhaiyte_gen_id(request=None, Model=None, data=None, **kw):
+
+    data["id"] = generation_id()
 
 
 apimanager.create_api(ToKhaiYTe,
     methods=['GET', 'POST', 'DELETE', 'PUT'],
     url_prefix='/api/v1',
     #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func,generation_id], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
+    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func,tokhaiyte_gen_id], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
     
     #results_per_page=30,
     collection_name='tokhaiyte')
