@@ -8,9 +8,12 @@
             tế
             liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</b>
     </p>
-    <div style="margin-bottom:10px;margin-top:20px">
-        <div class="col-md-12 text-right ">
-            <label style="color: red;" id="ngaykekhai">Ngày {{ngaykekhai}}</label>
+    <div class="row">
+        <div class="col-md-6 col-6 text-left">
+            <label style="color: red;" id="maToKhai"></label>
+        </div>
+        <div class="col-md-6 col-6 text-right ">
+            <label style="color: red;" id="ngaykekhai"></label>
         </div>
     </div>
     <div style="margin-bottom:10px;">
@@ -30,8 +33,8 @@
             <div><label>Giới tính:</label></div>
             <select class="custom-select gioitinh">
                 <option selected>Giới tính</option>
-                <option value="nam">Nam</option>
-                <option value="nu">Nữ</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
             </select>
         </div>
     </div>
@@ -702,6 +705,7 @@
             $('#btn-luu').remove();
 
             id = localStorage.getItem('id');
+
             ngaykekhai = localStorage.getItem('ngaykekhai');
             cuakhau_id = localStorage.getItem('cuakhau_id');
             tencuakhau = localStorage.getItem('tencuakhau');
@@ -836,11 +840,7 @@
                 $('#' + item.text).prop('checked', true);
             }
         })
-        // Ẩn chức nút lưu          
-        if ("{{id}}" !== "") {
-            $('#btn-luu').remove();
-        }
-
+        
 
         /////KHU VỰC LẤY GIÁ TRỊ ĐỂ GỬI ĐI
         //Chọn giới tính
@@ -855,6 +855,15 @@
         //Cài ngày hôm nay 
         var d = new Date();
         var ngaysoan = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+        if (id !== "") {
+            $('#btn-luu').remove();
+            $('#maToKhai').html('Mã tờ khai:' + id)
+        }
+        // Ẩn chức nút lưu          
+        if (ngaykekhai == "" || ngaykekhai == null || ngaykekhai == undefined) {
+            $('#ngaykekhai').html('Ngày khai:' + ngaysoan)
+        }
+
         //Giá trị radio
         var dauhieubenh_sot = null;
         var dauhieubenh_ho = null;
