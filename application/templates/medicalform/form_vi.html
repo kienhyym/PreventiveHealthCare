@@ -1,12 +1,38 @@
 {% extends "medicalform/layout.html" %}
 
+{% block head_script %}
+<!--<script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>-->
+
+<!-- <script>
+
+    function onRecaptchaLoadCallback() {
+        var clientId = grecaptcha.render('inline-badge-capcha', {
+            'sitekey': '6Lddk9YUAAAAAE1c8RtfE2Oki5ZLdcZAzm1sYTmX',
+            'badge': 'inline',
+            'size': 'invisible'
+        });
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute(clientId, {
+                action: 'homepage'
+            }).then(function (token) {
+                // Verify the token on the server.
+                console.log(token, "token");
+            });
+        });
+    }
+
+    
+</script> -->
+<script src="/{{static_url}}/js/form/form.js"></script>
+{% endblock %}
 
 {% block content %}
 
 
 <div class="container">
     <h4 class="d-flex justify-content-center">TỜ KHAI Y TẾ ĐỐI VỚI NGƯỜI</h4>
-    <p style="font-size: 80%; margin-top: 10px;"><b>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y
+    <p style="font-size: 80%; margin-top: 10px;" class="text-center"><b>Đây là tài liệu quan trọng, thông tin của Anh/Chị sẽ giúp cơ quan y
             tế
             liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</b>
     </p>
@@ -327,11 +353,11 @@
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
-            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_oto" data-name="thongtindilai_oto" data-type="number" data-control="check">
+            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_oto" data-name="thongtindilai_oto" data-type="number" data-control="checkbox">
             <label class="custom-control-label" for="thongtindilai_oto">Ô tô</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_khac" data-name="thongtindilai_khac" data-type="number" data-control="check">
+            <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_khac" data-name="thongtindilai_khac" data-type="number" data-control="checkbox">
             <label class="custom-control-label" for="thongtindilai_khac">Khác (Ghi rõ)</label>
         </div>
     </div>
@@ -492,13 +518,13 @@
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_khotho1" name="dauhieubenh_khotho"
-                            class="custom-control-input" value=1>
+                            class="custom-control-input" value=1 data-name="dauhieubenh_khotho" data-type="number" data-control="radio">
                         <label class="custom-control-label" for="dauhieubenh_khotho1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_khotho0" name="dauhieubenh_khotho"
+                        <input type="radio" id="dauhieubenh_khotho0" name="dauhieubenh_khotho" data-name="dauhieubenh_khotho" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="dauhieubenh_khotho0"></label>
                     </div>
@@ -508,14 +534,14 @@
                 <td>Đau họng</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_dauhong1" name="dauhieubenh_dauhong"
+                        <input type="radio" id="dauhieubenh_dauhong1" name="dauhieubenh_dauhong" data-name="dauhieubenh_dauhong" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
                         <label class="custom-control-label" for="dauhieubenh_dauhong1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_dauhong0" name="dauhieubenh_dauhong"
+                        <input type="radio" id="dauhieubenh_dauhong0" name="dauhieubenh_dauhong" data-name="dauhieubenh_dauhong" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="dauhieubenh_dauhong0"></label>
                     </div>
@@ -525,14 +551,14 @@
                 <td>Nôn/buồn nôn</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_buonnon1" name="dauhieubenh_buonnon"
+                        <input type="radio" id="dauhieubenh_buonnon1" name="dauhieubenh_buonnon" data-name="dauhieubenh_buonnon" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
                         <label class="custom-control-label" for="dauhieubenh_buonnon1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_buonnon0" name="dauhieubenh_buonnon"
+                        <input type="radio" id="dauhieubenh_buonnon0" name="dauhieubenh_buonnon" data-name="dauhieubenh_buonnon" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="dauhieubenh_buonnon0"></label>
                     </div>
@@ -542,14 +568,14 @@
                 <td> Tiêu chảy</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_tieuchay1" name="dauhieubenh_tieuchay"
+                        <input type="radio" id="dauhieubenh_tieuchay1" name="dauhieubenh_tieuchay" data-name="dauhieubenh_tieuchay" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
                         <label class="custom-control-label" for="dauhieubenh_tieuchay1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_tieuchay0" name="dauhieubenh_tieuchay"
+                        <input type="radio" id="dauhieubenh_tieuchay0" name="dauhieubenh_tieuchay" data-name="dauhieubenh_tieuchay" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="dauhieubenh_tieuchay0"></label>
                     </div>
@@ -559,14 +585,14 @@
                 <td>Xuất huyết ngoài da</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_xuathuyetngoaida1" name="dauhieubenh_xuathuyetngoaida"
+                        <input type="radio" id="dauhieubenh_xuathuyetngoaida1" name="dauhieubenh_xuathuyetngoaida" data-name="dauhieubenh_xuathuyetngoaida" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
                         <label class="custom-control-label" for="dauhieubenh_xuathuyetngoaida1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_xuathuyetngoaida0" name="dauhieubenh_xuathuyetngoaida"
+                        <input type="radio" id="dauhieubenh_xuathuyetngoaida0" name="dauhieubenh_xuathuyetngoaida" data-name="dauhieubenh_xuathuyetngoaida" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="dauhieubenh_xuathuyetngoaida0"></label>
                     </div>
@@ -576,14 +602,14 @@
                 <td>Nổi ban ngoài da</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_phatban1" name="dauhieubenh_phatban"
+                        <input type="radio" id="dauhieubenh_phatban1" name="dauhieubenh_phatban" data-name="dauhieubenh_phatban" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
                         <label class="custom-control-label" for="dauhieubenh_phatban1"></label>
                     </div>
                 </td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="dauhieubenh_phatban0" name="dauhieubenh_phatban"
+                        <input type="radio" id="dauhieubenh_phatban0" name="dauhieubenh_phatban" data-name="dauhieubenh_phatban" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="dauhieubenh_phatban0"></label>
                     </div>
@@ -613,12 +639,12 @@
                 </td>
                 <td class="text-left">
                     <div class="custom-control custom-radio m-1">
-                        <input type="radio" id="tiepxuc_dongvat1" name="tiepxuc_dongvat" class="custom-control-input"
+                        <input type="radio" id="tiepxuc_dongvat1" name="tiepxuc_dongvat" class="custom-control-input" data-name="tiepxuc_dongvat" data-type="number" data-control="radio"
                             value=1>
                         <label class="custom-control-label" for="tiepxuc_dongvat1">Có</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
-                        <input type="radio" id="tiepxuc_dongvat0" name="tiepxuc_dongvat" class="custom-control-input"
+                        <input type="radio" id="tiepxuc_dongvat0" name="tiepxuc_dongvat" class="custom-control-input" data-name="tiepxuc_dongvat" data-type="number" data-control="radio"
                             value=0>
                         <label class="custom-control-label" for="tiepxuc_dongvat0">Không</label>
                     </div>
@@ -628,12 +654,12 @@
                 <td>Trực tiếp chăm sóc người bệnh truyền nhiễm</td>
                 <td class="text-left">
                     <div class="custom-control custom-radio m-1">
-                        <input type="radio" id="chamsocnguoibenhtruyennhiem1" name="chamsocnguoibenhtruyennhiem"
+                        <input type="radio" id="chamsocnguoibenhtruyennhiem1" name="chamsocnguoibenhtruyennhiem" data-name="chamsocnguoibenhtruyennhiem" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
                         <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem1">Có</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
-                        <input type="radio" id="chamsocnguoibenhtruyennhiem0" name="chamsocnguoibenhtruyennhiem"
+                        <input type="radio" id="chamsocnguoibenhtruyennhiem0" name="chamsocnguoibenhtruyennhiem" data-name="chamsocnguoibenhtruyennhiem" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
                         <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem0">Không</label>
                     </div>
@@ -641,7 +667,7 @@
             </tr>
         </tbody>
     </table>
-    <div class="row" style="margin-bottom:10px">
+    <div class="row">
         <div class="col-md-12 text-left ">
             <p style="font-size: 80%;">
                 <b>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có
@@ -649,7 +675,14 @@
             </p>
         </div>
     </div>
-
+    <div class="row" style="margin-bottom:10px">
+        <div class="col-md-12 text-left ">
+            <h6 class="d-flex justify-content-center" style="margin-bottom:30px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
+            cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
+            cơ quan y tế nơi gần nhất </h6>
+        </div>
+    </div>
+    
 
     <div class="row" style="margin-bottom:40px;">
         <div class="col-6" style="margin-bottom:10px;" id="inline-badge-capcha">
@@ -659,38 +692,10 @@
         </div>
     </div>
     <input type="hidden" id="ngon_ngu" value="vi" data-name="ngon_ngu" data-type="string"/>
+    <input type="hidden" value="{{cuakhau_id}}" data-name="cuakhau_id" data-type="number"/>
 
-    <!--<h6 class="d-flex justify-content-center" style="margin-bottom:30px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
-        cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
-        cơ quan y tế nơi gần nhất </h6>-->
+    
 </div>
 
 
-{% endblock %}
-
-{% block head_script %}
-<!--<script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onRecaptchaLoadCallback"></script>-->
-
-<script>
-
-    function onRecaptchaLoadCallback() {
-        var clientId = grecaptcha.render('inline-badge-capcha', {
-            'sitekey': '6Lddk9YUAAAAAE1c8RtfE2Oki5ZLdcZAzm1sYTmX',
-            'badge': 'inline',
-            'size': 'invisible'
-        });
-
-        grecaptcha.ready(function () {
-            grecaptcha.execute(clientId, {
-                action: 'homepage'
-            }).then(function (token) {
-                // Verify the token on the server.
-                console.log(token, "token");
-            });
-        });
-    }
-
-    
-</script>
-<script src="/{{static_url}}/js/form/index.js"></script>
 {% endblock %}

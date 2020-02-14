@@ -123,17 +123,31 @@ async def timkiem(request):
 #     }
 #     return jinja.render('medicalform/index.html', request, **data)
 
+def get_cuakhau_info(cuakhau_id):
+    cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first();
+    donvi = cuakhau.donvi
+    obj = {
+        "id": cuakhau_id,
+        "tencuakhau": cuakhau.ten,
+        "donvi_id": cuakhau.donvi_id,
+        "tendonvi": donvi.ten
+    }
 
-@app.route('/api/v1/create_tokhaiyte', methods=["POST"])
+    return obj
+
+@app.route('/medicalform/create', methods=["POST"])
 def create_tokhaiyte(request):
     data = request.json
     id = generation_id()
-    print("========IDDDDDDDDDDDDĐ===========", id)
 
-    if (data["ngay_khoihanh"] == ""):
-        data["ngay_khoihanh"] = None
-    if (data["ngay_nhapcanh"] == ""):
-        data["ngay_nhapcanh"] = None
+    cuakhau_id = data.get("cuakhau_id")
+    if cuakhau_id is None:
+        return text("Not found", status=404)
+    
+    cuakhau = get_cuakhau_info(cuakhau_id)
+    data["donvi_id"] = cuakhau.get("donvi_id")
+    data["tendonvi"] = cuakhau.get("tendonvi")
+    data["tencuakhau"] = cuakhau.get("tencuakhau")
 
     new_tokhaiyte = ToKhaiYTe()
     new_tokhaiyte.id = id
@@ -141,46 +155,6 @@ def create_tokhaiyte(request):
     for key in data:
         if (key != "id") and hasattr(new_tokhaiyte, key):
             setattr(new_tokhaiyte, key, data.get(key))
-
-    
-    # new_tokhaiyte.ngaykekhai = data["ngaykekhai"]
-    # new_tokhaiyte.cuakhau_id = data["cuakhau_id"]
-    # new_tokhaiyte.tencuakhau = data["tencuakhau"]
-    # new_tokhaiyte.donvi_id = data["donvi_id"]
-    # new_tokhaiyte.hoten = data["hoten"]
-    # new_tokhaiyte.namsinh = data["namsinh"]
-    # new_tokhaiyte.gioitinh = data["gioitinh"]
-    # new_tokhaiyte.quoctich = data["quoctich"]
-    # new_tokhaiyte.cmtnd = data["cmtnd"]
-    # new_tokhaiyte.thongtindilai_taubay = data["thongtindilai_taubay"]
-    # new_tokhaiyte.thongtindilai_tauthuyen = data["thongtindilai_tauthuyen"]
-    # new_tokhaiyte.thongtindilai_oto = data["thongtindilai_oto"]
-    # new_tokhaiyte.thongtindilai_khac = data["thongtindilai_khac"]
-    # new_tokhaiyte.thongtindilai_chitiet = data["thongtindilai_chitiet"]
-    # new_tokhaiyte.sohieu_phuongtien = data["sohieu_phuongtien"]
-    # new_tokhaiyte.soghe_phuongtien = data["soghe_phuongtien"]
-    # new_tokhaiyte.ngay_khoihanh = data["ngay_khoihanh"]
-    # new_tokhaiyte.ngay_nhapcanh = data["ngay_nhapcanh"]
-    # new_tokhaiyte.noi_khoihanh = data["noi_khoihanh"]
-    # new_tokhaiyte.noiden = data["noiden"]
-    # new_tokhaiyte.quocgiadiqua = data["quocgiadiqua"]
-    # new_tokhaiyte.diachi_taivietnam = data["diachi_taivietnam"]
-    # new_tokhaiyte.sodienthoai = data["sodienthoai"]
-    # new_tokhaiyte.email = data["email"]
-    # new_tokhaiyte.dauhieubenh_sot = data["dauhieubenh_sot"]
-    # new_tokhaiyte.dauhieubenh_ho = data["dauhieubenh_ho"]
-    # new_tokhaiyte.dauhieubenh_khotho = data["dauhieubenh_khotho"]
-    # new_tokhaiyte.dauhieubenh_dauhong = data["dauhieubenh_dauhong"]
-    # new_tokhaiyte.dauhieubenh_buonnon = data["dauhieubenh_buonnon"]
-    # new_tokhaiyte.dauhieubenh_tieuchay = data["dauhieubenh_tieuchay"]
-    # new_tokhaiyte.dauhieubenh_xuathuyetngoaida = data["dauhieubenh_xuathuyetngoaida"]
-    # new_tokhaiyte.dauhieubenh_phatban = data["dauhieubenh_phatban"]
-    # new_tokhaiyte.vacxin_dasudung = data["vacxin_dasudung"]
-    # new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
-    # new_tokhaiyte.chamsocnguoibenhtruyennhiem = data["chamsocnguoibenhtruyennhiem"]
-    # new_tokhaiyte.tiepxuc_dongvat = data["tiepxuc_dongvat"]
-    # new_tokhaiyte.ngon_ngu = data["ngon_ngu"]
-
 
     db.session.add(new_tokhaiyte)
     db.session.commit()
