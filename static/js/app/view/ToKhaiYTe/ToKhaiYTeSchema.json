@@ -143,6 +143,9 @@
   "note": {
     "type":"string"
   },
+  "ngon_ngu": {
+    "type":"string"
+  },
   "extra_data": {
     "type":"json"
   }

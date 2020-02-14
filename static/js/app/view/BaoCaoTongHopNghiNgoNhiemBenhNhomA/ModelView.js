@@ -27,7 +27,7 @@ define(function (require) {
 					return {
 						"id": cuakhau_id,
 						"ten": tencuakhau,
-						};
+					};
 				},
 				set: function( obj ) {
 					return {cuakhau_id: obj.id, tencuakhau: obj.ten};
