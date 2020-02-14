@@ -12,6 +12,18 @@ define(function (require) {
         "id": {
             "type": "string"
         },
+        "donvi_id": {
+            "type": "number"
+        },
+        "tendonvi": {
+            "type": "string"
+        },
+        "cuakhau_id": {
+            "type": "number"
+        },
+        "tencuakhau": {
+            "type": "string"
+        },
         "hoten": {
             "type": "string"
         },
@@ -151,105 +163,154 @@ define(function (require) {
         },
         render: function () {
             var self = this;
-            var $filter = this.$el.find("#filter");
-	    	var filterView = new FilterView({el: $filter});
             
             
-            filterView.render();
-              
-	      	filterView.on('filterChanged', function(evt){
-	      		
-	    		var $col = self.getCollectionElement();
-	    		if($col){
-                    console.log(evt);
-                    var filters = {"$and":[]};
+            var user = self.getApp().currentUser;
+            if (user) {
 
-                    if(evt.data.id !== null){
-                        filters["$and"].push({"id": {$likeI:evt.data.id}});
-                    }
+                var donvi_id = null, tendonvi = null, cuakhau_id = null, tencuakhau = null;
+                var info = user.info;
+                // if(user.hasRole("CuaKhauUser")){
+                // 	for(var i = 0; i < self.uiControl.length; i++){
+                // 		if (self.uiControl[i].field == "cuakhau"){
+                // 			self.uiControl[i].readonly = true;
+                // 			break;
+                // 		}
+                // 	}
+                // }	
 
-                    if(evt.data.ngaykekhai !== null){
-                        filters["$and"].push({"ngaykekhai": {$eq:evt.data.ngaykekhai}});
-                    }
+                var cuakhau = info.cuakhau;
+                if ( !!cuakhau && cuakhau !== null && cuakhau !== "" && cuakhau !== undefined) {
+                    cuakhau_id = cuakhau.id;
+                    tencuakhau = cuakhau.ten;
+                    // self.model.set({"cuakhau_id":cuakhau_id,"tencuakhau":cuakhau.ten});
+                    
+                }
+                var donvi = info.donvi;
+                if ( !!donvi && donvi !== null && donvi !== "" && donvi !== undefined) {
+                    // self.model.set({"donvi_id":donvi.id,"tendonvi":donvi.ten})
+                    donvi_id = donvi.id;
+                    tendonvi = donvi.ten;
+                }
 
-                    if(evt.data.cmtnd !== null){
-                        filters["$and"].push({"cmtnd": {$eq:evt.data.cmtnd}});
-                    }
+                var defaultFilter = {"$and": []};
 
-                    if(evt.data.cmtnd !== null){
-                        filters["$and"].push({"hoten": {$likeI:'%' + evt.data.hoten + '%'}});
-                    }
-
-                    if (!!$col.data('gonrin')){
-                        if (filters["$and"].length > 0){
-                            $col.data('gonrin').filter(filters);
-                        }else{
-                            $col.data('gonrin').filter(null);
-                        }
+                if (!!donvi_id) {
+                    defaultFilter["$and"].push({ "donvi_id": { "$eq": donvi_id } });
+                    
+                    if (!!cuakhau_id) {
+                        defaultFilter["$and"].push({ "cuakhau_id": { "$eq": cuakhau_id } });
                     }
                     
+                }
+
+                var $filter = this.$el.find("#filter");
+                var filterView = new FilterView({
+                    el: $filter,
+                    viewData:{
+                        donvi_id: donvi_id,
+                        tendonvi: tendonvi,
+                        cuakhau_id: cuakhau_id,
+                        tencuakhau: tencuakhau,
+                    }
+                });
 
 
-
-	    			// if((evt.data.donvi_id !== null) || (evt.data.tinhthanh_id !== null) || (evt.data.ten !== null) || (evt.data.loaicuakhau !== null)){
-	    			// 	var filters = {"$and":[]};
-	    			// 	console.log(evt.data);
-	    			// 	if(evt.data.donvi_id !== null){
-	    			// 		if((evt.data.donvi !== null) && (evt.data.donvi.tuyendonvi ==2)){
-	    			// 			//var childs = evt.data.donvi.children;
-	    			// 			filters["$and"].push({"donvi_id":{"$in":evt.data.donvi.children}});
-	    			// 		}else{
-	    			// 			filters["$and"].push({"donvi_id":{"$eq":evt.data.donvi_id}});
-	    			// 		}
-      						
-      				// 	}
-	    			// 	if(evt.data.tinhthanh_id !== null){
-      				// 		filters["$and"].push({"tinhthanh_id":{"$eq":evt.data.tinhthanh_id}});
-      				// 	}
-	    			// 	if(evt.data.ten !== null){
-      				// 		filters["$and"].push({"ten":{"$contains":evt.data.ten}});
-      				// 	}
-	    			// 	if((evt.data.loaicuakhau !== null)&&($.isArray(evt.data.loaicuakhau))&&(evt.data.loaicuakhau.length > 0)){
-	    			// 		var or = {"$or":[]};
-		    	   	// 		if(evt.data.loaicuakhau.indexOf(1) > -1){
-		    	    // 			or["$or"].push({"duongboquocte":{"$eq":true}});
-		    	    // 		};
-		    	    // 		if(evt.data.loaicuakhau.indexOf(2) > -1){
-		    	    // 			or["$or"].push({"duongbochinh":{"$eq":true}});
-		    	    // 		};
-		    	    // 		if(evt.data.loaicuakhau.indexOf(3) > -1){
-		    	    // 			or["$or"].push({"duongbophu":{"$eq":true}});
-		    	    // 		};
-		    	    // 		if(evt.data.loaicuakhau.indexOf(4) > -1){
-		    	    // 			or["$or"].push({"duongsat":{"$eq":true}});
-		    	    // 		};
-		    	    // 		if(evt.data.loaicuakhau.indexOf(5) > -1){
-		    	    // 			or["$or"].push({"duonghangkhong":{"$eq":true}});
-		    	    // 		};
-		    	    // 		if(evt.data.loaicuakhau.indexOf(6) > -1){
-		    	    // 			or["$or"].push({"duongthuyloai1":{"$eq":true}});
-		    	    // 		};
-		    	    // 		if(evt.data.loaicuakhau.indexOf(7) > -1){
-		    	    // 			or["$or"].push({"duongthuyloai2":{"$eq":true}});
-		    	    // 		};
-		    	    // 		filters["$and"].push(or);
-		    	    // 	}
-	    			// 	$col.data('gonrin').filter(filters);
-	    			// }else{
-	    			// 	$col.data('gonrin').filter(null);
-	    			// }
-	    			
-	    		}
-	    		
-              });
+                filterView.render();
               
-	      	if(!filterView.isEmptyFilter()){
-	      		filterView.triggerFilter();
+                filterView.on('filterChanged', function(evt){
+                    // self.doFilterChange(evt);
+                    var $col = self.getCollectionElement();
+                    // var defaultFilter = self.getDefaultFilter();
+
+                    if($col){
+                        var filters = {"$and":[]};
+
+                        if(evt.data.id !== null){
+                            filters["$and"].push({"id": {$likeI:evt.data.id}});
+                        }
+
+                        if(evt.data.ngaykekhai !== null){
+                            filters["$and"].push({"ngaykekhai": {$eq:evt.data.ngaykekhai}});
+                        }
+
+                        if(evt.data.cmtnd !== null){
+                            filters["$and"].push({"cmtnd": {$likeI:evt.data.cmtnd}});
+                        }
+
+                        if(evt.data.cmtnd !== null){
+                            filters["$and"].push({"hoten": {$likeI:'%' + evt.data.hoten + '%'}});
+                        }
+
+                        if (!!$col.data('gonrin')){
+                            $.each(defaultFilter["$and"], function(idx, obj){
+                                filters["$and"].push(obj);
+                            });
+
+                            if (filters["$and"].length > 0){
+                                $col.data('gonrin').filter(filters);
+                            }else{
+                                $col.data('gonrin').filter(null);
+                            }
+                        }
+                    }
+                });
+                
+                if(!filterView.isEmptyFilter()){
+                    filterView.triggerFilter();
+                }
+
+                if (defaultFilter["$and"].length > 0){
+                    this.uiControl.filters = defaultFilter;
+                }
+
+                this.applyBindings();
             }
-            this.applyBindings();
-            
             return this;
         },
+        getDefaultFilter: function(){
+            var self = this;
+            var user = self.getApp().currentUser;
+            
+            return defaultFilter;
+        },
+        doFilterChange: function(evt){
+            var self = this;
+            var $col = self.getCollectionElement();
+            var defaultFilter = self.getDefaultFilter();
+
+            if($col){
+                var filters = {"$and":[]};
+
+                if(evt.data.id !== null){
+                    filters["$and"].push({"id": {$likeI:evt.data.id}});
+                }
+
+                if(evt.data.ngaykekhai !== null){
+                    filters["$and"].push({"ngaykekhai": {$eq:evt.data.ngaykekhai}});
+                }
+
+                if(evt.data.cmtnd !== null){
+                    filters["$and"].push({"cmtnd": {$likeI:evt.data.cmtnd}});
+                }
+
+                if(evt.data.cmtnd !== null){
+                    filters["$and"].push({"hoten": {$likeI:'%' + evt.data.hoten + '%'}});
+                }
+
+                if (!!$col.data('gonrin')){
+                    $.each(defaultFilter["$and"], function(idx, obj){
+                        filters["$and"].push(obj);
+                    });
+
+                    if (filters["$and"].length > 0){
+                        $col.data('gonrin').filter(filters);
+                    }else{
+                        $col.data('gonrin').filter(null);
+                    }
+                }
+            }
+        }
 
     });
 

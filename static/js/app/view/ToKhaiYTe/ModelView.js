@@ -44,10 +44,7 @@ define(function (require) {
 						command: function () {
 							var self = this;
 							// self.model.set('id', '1áds23')
-							self.model.set('donvi_id', 1)
-							self.model.set('cuakhau_id', 1)
-							self.model.set('canbo_id', 1)
-
+							// self.model.set('canbo_id', 1)
 
 							self.model.save(null, {
 								success: function (model, respose, options) {
@@ -519,6 +516,7 @@ define(function (require) {
 					}
 
 					self.model.set( "ngon_ngu", "vi");
+					console.log(self.model.toJSON());
 
 					self.applyBindings();
 				}
