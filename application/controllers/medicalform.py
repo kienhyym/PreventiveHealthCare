@@ -45,8 +45,11 @@ async def medicalform_form(request, lang, cuakhau_id):
         }
         return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
+@app.route('/medicalform/qr/<cuakhau_id>/history')
+async def medicalform_index_history(request, cuakhau_id):
+    return jinja.render('medicalform/index.html', request)
 @app.route('/medicalform/form/<lang>/<cuakhau_id>/history')
-async def medicalform_form(request, lang, cuakhau_id):
+async def medicalform_form_history(request, lang, cuakhau_id):
     return jinja.render('medicalform/form_' + lang + '.html', request)
 
 @app.route('/medicalform/form/<lang>/<cuakhau_id>/<tokhai_id>', methods=['GET'])
