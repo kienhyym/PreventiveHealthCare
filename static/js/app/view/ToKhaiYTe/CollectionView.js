@@ -220,6 +220,7 @@ define(function (require) {
               
                 filterView.on('filterChanged', function(evt){
                     // self.doFilterChange(evt);
+                    console.log(evt);
                     var $col = self.getCollectionElement();
                     // var defaultFilter = self.getDefaultFilter();
 
@@ -238,14 +239,16 @@ define(function (require) {
                             filters["$and"].push({"cmtnd": {$likeI:evt.data.cmtnd}});
                         }
 
-                        if(evt.data.cmtnd !== null){
-                            filters["$and"].push({"hoten": {$likeI:'%' + evt.data.hoten + '%'}});
+                        if(evt.data.hoten !== null){
+                            filters["$and"].push({"hoten": {$likeI:evt.data.hoten}});
                         }
 
                         if (!!$col.data('gonrin')){
                             $.each(defaultFilter["$and"], function(idx, obj){
                                 filters["$and"].push(obj);
                             });
+
+                            console.log(filters);
 
                             if (filters["$and"].length > 0){
                                 $col.data('gonrin').filter(filters);
