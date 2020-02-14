@@ -628,10 +628,11 @@ define(function (require) {
 					$(mywindow).on("load", function () {
 						// Handler when all assets (including images) are loaded
 						mywindow.print();
+						mywindow.close();
 					});
 				}
 
-				mywindow.close();
+				
 			}
 			
 			
