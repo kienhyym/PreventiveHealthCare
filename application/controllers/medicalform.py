@@ -31,6 +31,7 @@ def get_cuakhau_info(cuakhau_id):
         donvi = cuakhau.donvi
         obj = {
             "id": cuakhau_id,
+            "cuakhau_id": cuakhau_id,
             "tencuakhau": cuakhau.ten,
             "donvi_id": cuakhau.donvi_id,
             "tendonvi": donvi.ten
