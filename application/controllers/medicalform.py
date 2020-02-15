@@ -23,6 +23,7 @@ from application.models.models import ToKhaiYTe,BaoCaoTongHopNghiNgoNhiemBenhNho
 from . import auth_func
 
 def get_cuakhau_info(cuakhau_id):
+    cuakhau_id = int(cuakhau_id)
     obj = expcache.get('cuakhau_' + str(cuakhau_id))
     if obj is None:
         cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
@@ -48,17 +49,19 @@ async def medicalform_form(request, lang, cuakhau_id):
 
     print('lang--------------------------------------------------', lang)
     if lang in ["vi", "cn", "en"]:
-        data = {
-            "cuakhau_id": cuakhau_id
-        }
-        cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
-        print(cuakhau)
-        data = {
-            "cuakhau_id": cuakhau_id,
-            "tencuakhau":cuakhau.ten,
-            "donvi_id": cuakhau.donvi_id,
-            "ngon_ngu": lang
-        }
+        # data = {
+        #     "cuakhau_id": cuakhau_id
+        # }
+        # cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
+        data = get_cuakhau_info(cuakhau_id)
+        data["ngon_ngu"] = lang
+        # print(cuakhau)
+        # data = {
+        #     "cuakhau_id": cuakhau_id,
+        #     "tencuakhau":cuakhau.ten,
+        #     "donvi_id": cuakhau.donvi_id,
+        #     "ngon_ngu": lang
+        # }
         return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
 @app.route('/medicalform/qr/<cuakhau_id>/history')
