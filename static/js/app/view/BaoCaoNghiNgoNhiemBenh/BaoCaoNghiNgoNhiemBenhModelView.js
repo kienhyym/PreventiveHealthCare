@@ -546,6 +546,12 @@ define(function (require) {
 				self.getApp().notify('Chưa điền năm báo cáo');
 				return false;
 			}
+
+			var hoten = self.model.get("hoten");
+			if(!hoten){
+				self.getApp().notify('Chưa điền họ tên');
+				return false;
+			}
 			
 			return true;
 		}

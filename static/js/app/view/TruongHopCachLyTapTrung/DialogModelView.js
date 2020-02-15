@@ -70,21 +70,55 @@ define(function (require) {
 				    	    	buttonClass: "btn-success btn-sm",
 				    	    	label: "TRANSLATE:SAVE",
 				    	    	command: function(){
+									var self = this;
+									if(self.validateModel()){
+										self.model.save(null,{
+											success: function (model, respose, options) {
+												self.getApp().notify("Save successfully");
+												self.trigger("close", {refresh:true});
+												self.close();
+											},
+											error: function (model, xhr, options) {
+												self.getApp().notify('Save error');
+											}
+										});
+									}
+				                    
+				    	    	}
+							},
+							
+		    	    	]
+					},
+					{
+		    	    	name: "deletegr",
+		    	    	type: "group",
+		    	    	groupClass: "toolbar-group",
+		    	    	buttons: [
+							{
+				    	    	name: "delete",
+				    	    	type: "button",
+				    	    	buttonClass: "btn-danger btn-sm",
+								label: "TRANSLATE:DELETE",
+								visible: function(){
+									var self = this;
+									var user = self.getApp().currentUser;
+									return !(user.hasRole("CuaKhauUser"));
+								},
+				    	    	command: function(){
 				    	    		var self = this;
-				                    self.model.save(null,{
-				                        success: function (model, respose, options) {
-											self.getApp().notify("Save successfully");
+									self.model.destroy({
+										success: function(model, response) {
 											self.trigger("close", {refresh:true});
 				                            self.close();
-				                        },
-				                        error: function (model, xhr, options) {
-				                            self.getApp().notify('Save error');
-				                        }
-				                    });
+										},
+										error: function (model, xhr, options) {
+											self.getApp().notify('Delete error');
+										}
+									});
 				    	    	}
 				    	    },
-		    	    	]
-		    	    },
+						]
+					}
 		    	],
 		uiControl: [
 			// {
@@ -340,6 +374,15 @@ define(function (require) {
 				self.model.set("nambaocao", nambaocao);
 			})
 		},
+		validateModel: function(){
+			var self = this;
+			if(!self.model.get("hoten")){
+				self.getApp().notify('Xin mời nhập họ tên');
+				return false;
+			}
+
+			return true;
+		}
 	});
 
 });

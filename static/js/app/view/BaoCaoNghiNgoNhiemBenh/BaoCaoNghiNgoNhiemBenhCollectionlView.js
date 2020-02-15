@@ -11,6 +11,7 @@ define(function (require) {
     return Gonrin.CollectionView.extend({
         template: template,
         modelSchema: schema,
+        bindings: "data-nnnb-bind",
         urlPrefix: "/api/v1/",
         collectionName: "baocaonghingonhiembenh",
         tools: [
