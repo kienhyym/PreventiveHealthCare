@@ -43,20 +43,20 @@
         </div>
     </div>
     <div style="margin-bottom:10px;">
-        <div><label>Họ tên (viết chữ in hoa):</label></div>
+        <div><label>姓名（大写字母）:</label></div>
         <div>
             <input type="text" class='form-control' id="hoten" data-name="hoten" data-type="string" >
         </div>
     </div>
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Năm sinh:</label></div>
+            <div><label>出生日期:</label></div>
             <div>
                 <input type="number" class='form-control' id="namsinh" data-name="namsinh" data-type="number"/>
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Giới tính:</label></div>
+            <div><label>性别:</label></div>
             <select class="custom-select gioitinh" data-name="gioitinh" data-type="string">
                 <option value="Nam">Nam</option>
                 <option value="Nữ">Nữ</option>
@@ -66,14 +66,14 @@
 
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Quộc tịch:</label></div>
+            <div><label>国籍:</label></div>
             <select class="custom-select quoctich" data-name="quoctich" data-type="string">
-                <option value="Vietnam">Việt Nam</option>
-                <option value="China">Trung Quốc</option>
-                <option value="Laos">Lào</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="China">China</option>
+                <option value="Laos">Laos</option>
                 <option value="Cambodia">Campuchia</option>
-                <option value="South Korea">Hàn Quốc</option>
-                <option value="Japan">Nhật Bản</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Japan">Japan</option>
 
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Albania">Albania</option>
@@ -329,7 +329,7 @@
             </select>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Số hộ chiếu:</label></div>
+            <div><label>护照号或者其他合法证件号:</label></div>
             <div>
                 <input type="text" class='form-control' id="cmtnd" data-name="cmtnd" data-type="string" />
             </div>
@@ -337,26 +337,26 @@
     </div>
 
     <div>
-        <div><label>Thông tin đi lại: </label></div>
+        <div><label>出/入境方式: </label></div>
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
             <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_taubay" data-name="thongtindilai_taubay" data-type="number" data-control="checkbox">
-            <label class="custom-control-label" for="thongtindilai_taubay">Tàu bay</label>
+            <label class="custom-control-label" for="thongtindilai_taubay">飞机</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_tauthuyen" data-name="thongtindilai_tauthuyen" data-type="number" data-control="checkbox">
-            <label class="custom-control-label" for="thongtindilai_tauthuyen">Tàu thuyền</label>
+            <label class="custom-control-label" for="thongtindilai_tauthuyen">船</label>
         </div>
     </div>
     <div class="row col-12">
         <div class="custom-control custom-checkbox col-6">
             <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_oto" data-name="thongtindilai_oto" data-type="number" data-control="checkbox">
-            <label class="custom-control-label" for="thongtindilai_oto">Ô tô</label>
+            <label class="custom-control-label" for="thongtindilai_oto">汽车</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input phuongtien" id="thongtindilai_khac" data-name="thongtindilai_khac" data-type="number" data-control="checkbox">
-            <label class="custom-control-label" for="thongtindilai_khac">Khác (Ghi rõ)</label>
+            <label class="custom-control-label" for="thongtindilai_khac">其他</label>
         </div>
     </div>
 
@@ -364,19 +364,19 @@
     <div class=" text-center" style="margin-bottom:10px">
         <div class="col-md-12 col-12 p-0">
             <textarea type="text" class='form-control' id="thongtindilai_chitiet" data-name="thongtindilai_chitiet" data-type="string"
-                placeholder="Viết rõ phương tiện đi lại"></textarea>
+                placeholder=""></textarea>
         </div>
     </div>
 
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Số hiệu phương tiện:</label></div>
+            <div><label>航班（船班/车次）号:</label></div>
             <div>
                 <input type="text" class='form-control' id="sohieu_phuongtien"  data-name="sohieu_phuongtien" data-type="string" />
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Số ghế:</label></div>
+            <div><label>座位号:</label></div>
             <div>
                 <input type="text" class='form-control' id="soghe_phuongtien" data-name="soghe_phuongtien" data-type="string" />
             </div>
@@ -385,13 +385,13 @@
 
     <div class="row">
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Ngày khởi hành:</label></div>
+            <div><label>出发日期:</label></div>
             <div>
                 <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngay_khoihanh" data-name="ngay_khoihanh" data-type="string">
             </div>
         </div>
         <div class="col-6" style="margin-bottom:10px;">
-            <div><label>Ngày nhập cảnh:</label></div>
+            <div><label>入境日期:</label></div>
             <div>
                 <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngay_nhapcanh" data-name="ngay_nhapcanh" data-type="string"
                     />
@@ -400,11 +400,11 @@
     </div>
 
     <div>
-        <div><label><b>Địa điểm khởi hành</b></label></div>
+        <div><label><b>出发地点</b></label></div>
     </div>
     <div class="row">
         <div class="col-12" style="margin-bottom:10px;">
-            <div><label>Tỉnh/Quốc gia:</label></div>
+            <div><label>省/国家:</label></div>
             <div>
                 <input type="text" class='form-control' id="noi_khoihanh"  data-name="noi_khoihanh" data-type="string" />
             </div>
@@ -412,12 +412,12 @@
     </div>
 
     <div>
-        <div><label><b>Địa điểm nơi đến</b></label></div>
+        <div><label><b>目的地</b></label></div>
     </div>
     <div class="row">
 
         <div class="col-12" style="margin-bottom:10px;">
-            <div><label>Tỉnh/Quốc gia:</label></div>
+            <div><label>省/国家:</label></div>
             <div>
                 <input type="text" class='form-control' id="noiden" data-name="noiden" data-type="string" />
             </div>
@@ -427,7 +427,7 @@
     <div class="row text-center" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
             <label>
-                <b>Trong vòng 14 ngày qua, Anh/Chị có đến quốc gia/vùng lãnh thổ nào không? (nếu có ghi rõ):</b>
+                <b>过去的14天内，您到过的国家和地区？（如果有，请详细写明):</b>
             </label>
         </div>
         <div class="col-md-12">
@@ -436,10 +436,10 @@
     </div>
 
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 text-left "><label><b>Địa chỉ liên lạc tại Việt Nam </b></label></div>
+        <div class="col-md-12 text-left "><label><b>在越南的联络地址 </b></label></div>
     </div>
     <div class="row text-center" style="margin-bottom:10px">
-        <div class="col-md-12 col-12 text-left "><label>Địa chỉ nơi ở tại Việt Nam </label></div>
+        <div class="col-md-12 col-12 text-left "><label>在越南的住宿地址</label></div>
         <div class="col-md-12 col-12">
             <textarea type="text" class='form-control' id="diachi_taivietnam" data-name="diachi_taivietnam" data-type="string" /></textarea>
         </div>
@@ -447,13 +447,13 @@
 
     <div class="row">
         <div class="col-5" style="margin-bottom:10px;">
-            <div><label>Điện thoại:</label></div>
+            <div><label>电话:</label></div>
             <div>
                 <input type="text" class='form-control' id="sodienthoai" data-name="sodienthoai" data-type="string"/>
             </div>
         </div>
         <div class="col-7" style="margin-bottom:10px;">
-            <div><label>Email:</label></div>
+            <div><label>电子邮箱:</label></div>
             <div>
                 <input type="text" class='form-control' id="email" data-name="email" data-type="string"  />
             </div>
@@ -464,21 +464,20 @@
     <div class="row text-center" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
             <label>
-                <b>Trong vòng 14 ngày (tính đến thời điểm làm thủ tục xuất cảnh,
-                    nhập cảnh, quá cảnh) Anh/Chị có thấy xuất hiện dấu hiệu nào sau đây không?</b>
+                <b>在14天内（从出入境时间算起），您出现过以下症状吗?</b>
             </label>
         </div>
 
     </div>
     <table class="table">
         <tr>
-            <th>Triệu chứng</th>
-            <th class="text-center">Có</th>
-            <th class="text-center">Không</th>
+            <th>症状</th>
+            <th class="text-center">有</th>
+            <th class="text-center">无</th>
         </tr>
         <tbody>
             <tr>
-                <td>Sốt</td>
+                <td>发烧</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_sot1" name="dauhieubenh_sot" data-name="dauhieubenh_sot" data-type="number" data-control="radio" class="custom-control-input"
@@ -495,7 +494,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Ho</td>
+                <td>咳嗽</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_ho1" name="dauhieubenh_ho" data-name="dauhieubenh_ho" data-type="number" data-control="radio" class="custom-control-input"
@@ -512,7 +511,7 @@
                 </td>
             </tr>
             <tr>
-                <td> Khó thở </td>
+                <td>呼吸困难</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_khotho1" name="dauhieubenh_khotho"
@@ -529,7 +528,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Đau họng</td>
+                <td>咽痛</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_dauhong1" name="dauhieubenh_dauhong" data-name="dauhieubenh_dauhong" data-type="number" data-control="radio"
@@ -546,7 +545,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Nôn/buồn nôn</td>
+                <td>呕吐/恶心</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_buonnon1" name="dauhieubenh_buonnon" data-name="dauhieubenh_buonnon" data-type="number" data-control="radio"
@@ -563,7 +562,7 @@
                 </td>
             </tr>
             <tr>
-                <td> Tiêu chảy</td>
+                <td>腹泻</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_tieuchay1" name="dauhieubenh_tieuchay" data-name="dauhieubenh_tieuchay" data-type="number" data-control="radio"
@@ -580,7 +579,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Xuất huyết ngoài da</td>
+                <td>皮肤出血</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_xuathuyetngoaida1" name="dauhieubenh_xuathuyetngoaida" data-name="dauhieubenh_xuathuyetngoaida" data-type="number" data-control="radio"
@@ -597,7 +596,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Nổi ban ngoài da</td>
+                <td>皮疹</td>
                 <td class="text-center">
                     <div class="custom-control custom-radio">
                         <input type="radio" id="dauhieubenh_phatban1" name="dauhieubenh_phatban" data-name="dauhieubenh_phatban" data-type="number" data-control="radio"
@@ -617,7 +616,7 @@
     </table>
     <div class="row" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
-            <label><b>Liệt kê tên vắc xin hoặc sinh phẩm y tế đã sử dụng:</b></label>
+            <label><b>列出使用过的疫苗或者医学产品名:</b></label>
         </div>
         <div class="col-md-12">
             <textarea type="text" class='form-control' id="vacxin_dasudung" data-name="vacxin_dasudung" data-type="string" /></textarea>
@@ -625,41 +624,40 @@
     </div>
     <div class="row" style="margin-bottom:10px">
         <div class="col-md-12 text-left ">
-            <label><b>Lịch sử phơi nhiễm: Trong vòng 14 ngày qua, Anh/Chị có:</b></label>
+            <label><b>接触史：在过去的14天内，您是否有:</b></label>
         </div>
     </div>
     <table class="table">
 
         <tbody>
             <tr>
-                <td>Đến trang trại chăn nuôi/ chợ buôn bán động vật sống/ cơ sở giết mổ động vật/ tiếp xúc động
-                    vật
+                <td>去过牧场/鲜活动物市场/动物屠宰场/动物有过密切接触
                 </td>
                 <td class="text-left">
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="tiepxuc_dongvat1" name="tiepxuc_dongvat" class="custom-control-input" data-name="tiepxuc_dongvat" data-type="number" data-control="radio"
                             value=1>
-                        <label class="custom-control-label" for="tiepxuc_dongvat1">Có</label>
+                        <label class="custom-control-label" for="tiepxuc_dongvat1">有</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="tiepxuc_dongvat0" name="tiepxuc_dongvat" class="custom-control-input" data-name="tiepxuc_dongvat" data-type="number" data-control="radio"
                             value=0>
-                        <label class="custom-control-label" for="tiepxuc_dongvat0">Không</label>
+                        <label class="custom-control-label" for="tiepxuc_dongvat0">无</label>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td>Trực tiếp chăm sóc người bệnh truyền nhiễm</td>
+                <td>直接照顾过传染病患者</td>
                 <td class="text-left">
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="chamsocnguoibenhtruyennhiem1" name="chamsocnguoibenhtruyennhiem" data-name="chamsocnguoibenhtruyennhiem" data-type="number" data-control="radio"
                             class="custom-control-input" value=1>
-                        <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem1">Có</label>
+                        <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem1">有</label>
                     </div>
                     <div class="custom-control custom-radio m-1">
                         <input type="radio" id="chamsocnguoibenhtruyennhiem0" name="chamsocnguoibenhtruyennhiem" data-name="chamsocnguoibenhtruyennhiem" data-type="number" data-control="radio"
                             class="custom-control-input" value=0>
-                        <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem0">Không</label>
+                        <label class="custom-control-label" for="chamsocnguoibenhtruyennhiem0">无</label>
                     </div>
                 </td>
             </tr>
@@ -668,16 +666,8 @@
     <div class="row">
         <div class="col-md-12 text-left ">
             <p style="font-size: 80%;">
-                <b>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có
-                    thể dẫn đến những hậu quả nghiêm trọng.</b>
+                <b>我阅知并保证以上申报内容正确属实，我知晓提供虚假消息将导致严重的后果.</b>
             </p>
-        </div>
-    </div>
-    <div class="row" style="margin-bottom:10px">
-        <div class="col-md-12 text-left ">
-            <h6 class="d-flex justify-content-center" style="margin-bottom:30px;font-size:12px">Vì sức khỏe của Anh/ Chị và của cộng đồng nếu Anh/ Chị thấy xuất hiện bất
-            cứ dấu hiệu bất thường về sức khỏe, đề nghị liên hệ ngay với cơ quan kiểm dịch y tế biên giới tại cửa khẩu hoặc
-            cơ quan y tế nơi gần nhất </h6>
         </div>
     </div>
     
