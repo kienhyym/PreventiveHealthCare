@@ -49,7 +49,7 @@ define(function (require) {
 							self.model.save(null, {
 								success: function (model, respose, options) {
 									self.getApp().notify("Save successfully");
-									self.getApp().getRouter().navigate(self.collectionName + "/collection");
+									// self.getApp().getRouter().navigate(self.collectionName + "/collection");
 								},
 								error: function (model, xhr, options) {
 									//self.alertMessage("Something went wrong while processing the model", false);
