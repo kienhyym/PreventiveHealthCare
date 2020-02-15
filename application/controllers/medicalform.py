@@ -27,6 +27,7 @@ def get_cuakhau_info(cuakhau_id):
     obj = expcache.get('cuakhau_' + str(cuakhau_id))
     if obj is None:
         cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
+        print("get_cuakhau_info", cuakhau)
         donvi = cuakhau.donvi
         obj = {
             "id": cuakhau_id,
