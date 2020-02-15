@@ -1,4 +1,20 @@
 
+function validateData(data){
+    if (!data || (!data.hoten) || (data.hoten == "")){
+        return false;
+    }
+
+    if (!data || (!data.namsinh) || (data.namsinh == "") || (data.namsinh == null)){
+        return false;
+    }
+
+    if (!data || (!data.quoctich) || (data.quoctich == "") || (data.quoctich == null)){
+        return false;
+    }
+
+    return true;
+}
+
 function prepareData(){
     var data = {};
     data["ngaykekhai"] = moment().startOf('day').format("YYYY-MM-DD");
@@ -81,23 +97,29 @@ $(document).ready(function () {
 
     //Gửi dữ liệu lên server
     $('#btn-luu').unbind('click').bind('click', function () {
-
+        $("#alert-box").hide();
         var data = prepareData();
         // console.log("data", data);
+        if (validateData(data)){
+            $.ajax({
+                type: "POST",
+                url: location.origin + "/medicalform/create",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (response) {
+                    localStorage.setItem("tokhaiyte", JSON.stringify(response));
+                    window.location = location.origin + "/medicalform/qr/" + response.cuakhau_id
+                },
+                error: function (response) {
+    
+                }
+            });
+        }else{
+            $("#alert-box").show();
+            setTimeout(function(){ $("#alert-box").hide(); }, 5000);
+        }
 
-        $.ajax({
-            type: "POST",
-            url: location.origin + "/medicalform/create",
-            data: JSON.stringify(data),
-            contentType: "application/json",
-            success: function (response) {
-                localStorage.setItem("tokhaiyte", JSON.stringify(response));
-                window.location = location.origin + "/medicalform/qr/" + response.cuakhau_id
-            },
-            error: function (response) {
-
-            }
-        });
+        
     })
 
 });
