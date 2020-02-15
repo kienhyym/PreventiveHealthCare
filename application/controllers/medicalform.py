@@ -16,15 +16,30 @@ from math import floor
 from application.client import HTTPClient
 from application.extensions import auth, jinja
 import ujson
+from expiringdict import ExpiringDict
+expcache = ExpiringDict(max_len = 2000, max_age_seconds=30*1)
+
 from application.models.models import ToKhaiYTe,BaoCaoTongHopNghiNgoNhiemBenhNhomA
 from . import auth_func
 
+def get_cuakhau_info(cuakhau_id):
+    obj = expcache.get('cuakhau_' + str(cuakhau_id))
+    if obj is None:
+        cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
+        donvi = cuakhau.donvi
+        obj = {
+            "id": cuakhau_id,
+            "tencuakhau": cuakhau.ten,
+            "donvi_id": cuakhau.donvi_id,
+            "tendonvi": donvi.ten
+        }
+
+        expcache['cuakhau_' + str(cuakhau_id)] = obj
+    return obj
     
 @app.route('/medicalform/qr/<cuakhau_id>', methods=['GET'])
 async def medicalform_index(request, cuakhau_id):
-    data = {
-        "cuakhau_id": cuakhau_id
-    }
+    data = get_cuakhau_info(cuakhau_id)
     return jinja.render('medicalform/index.html', request, **data)
 
 
@@ -53,51 +68,6 @@ async def medicalform_index_history(request, cuakhau_id):
 async def medicalform_form_history(request, lang, cuakhau_id):
     return jinja.render('medicalform/form_' + lang + '.html', request)
 
-# @app.route('/medicalform/form/<lang>/<cuakhau_id>/<tokhai_id>', methods=['GET'])
-# async def medicalform_form(request, lang, cuakhau_id,tokhai_id):
-#     tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
-#     cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
-#     data = {
-#         "id": tokhai.id,
-#         "ngaykekhai": tokhai.ngaykekhai,
-#         "hoten": tokhai.hoten,
-#         "gioitinh": tokhai.gioitinh,
-#         "quoctich": tokhai.quoctich,
-#         "namsinh":tokhai.namsinh,
-#         "cmtnd": tokhai.cmtnd,
-#         "thongtindilai_taubay":tokhai.thongtindilai_taubay,
-#         "thongtindilai_tauthuyen": tokhai.thongtindilai_tauthuyen,
-#         "thongtindilai_oto":tokhai.thongtindilai_oto,
-#         "thongtindilai_khac": tokhai.thongtindilai_khac,
-#         "thongtindilai_chitiet": tokhai.thongtindilai_chitiet,
-#         "sohieu_phuongtien": tokhai.sohieu_phuongtien,
-#         "soghe_phuongtien": tokhai.soghe_phuongtien,
-#         "ngay_khoihanh": tokhai.ngay_khoihanh,
-#         "ngay_nhapcanh": tokhai.ngay_nhapcanh,
-#         "noi_khoihanh": tokhai.noi_khoihanh,
-#         "noiden": tokhai.noiden,
-#         "quocgiadiqua":tokhai.quocgiadiqua,
-#         "diachi_taivietnam": tokhai.diachi_taivietnam,
-#         "sodienthoai": tokhai.sodienthoai,
-#         "email": tokhai.email,
-#         "dauhieubenh_sot": tokhai.dauhieubenh_sot,
-#         "dauhieubenh_ho": tokhai.dauhieubenh_ho,
-#         "dauhieubenh_khotho": tokhai.dauhieubenh_khotho,
-#         "dauhieubenh_dauhong": tokhai.dauhieubenh_dauhong,
-#         "dauhieubenh_buonnon": tokhai.dauhieubenh_buonnon,
-#         "dauhieubenh_tieuchay": tokhai.dauhieubenh_tieuchay,
-#         "dauhieubenh_xuathuyetngoaida": tokhai.dauhieubenh_xuathuyetngoaida,
-#         "dauhieubenh_phatban": tokhai.dauhieubenh_phatban,
-
-#         "vacxin_dasudung": tokhai.vacxin_dasudung,
-#         "tiepxuc_dongvat": tokhai.tiepxuc_dongvat,
-#         "chamsocnguoibenhtruyennhiem": tokhai.chamsocnguoibenhtruyennhiem,
-#         "cuakhau_id": cuakhau_id,
-#         "tencuakhau":cuakhau.ten,
-#         "donvi_id": cuakhau.donvi_id,
-#         "ngon_ngu":tokhai.ngon_ngu
-#     }
-#     return jinja.render('medicalform/form_' + lang + '.html', request, **data)
 
 @app.route('/medicalform/search', methods=['POST'])
 async def timkiem(request):
@@ -110,34 +80,8 @@ async def timkiem(request):
         return json(to_dict(tokhaiyte))
     
     return json({"error_code": "NOT_FOUND"}, status=404)
-    
 
-# @app.route('/medicalform/qr/<cuakhau_id>/<tokhai_id>', methods=['GET'])
-# async def medicalform_index2(request,cuakhau_id, tokhai_id):
-#     tokhai = ToKhaiYTe.query.filter(ToKhaiYTe.id == tokhai_id).first()
-#     cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first()
-#     data = {
-#         "id": tokhai.id,
-#         "tencuakhau": tokhai.tencuakhau,
-#         "ngaykekhai": tokhai.ngaykekhai,
-#         "cmtnd": tokhai.cmtnd,
-#         "ten": tokhai.hoten,
-#         "cuakhau_id": cuakhau_id,
 
-#     }
-#     return jinja.render('medicalform/index.html', request, **data)
-
-def get_cuakhau_info(cuakhau_id):
-    cuakhau = CuaKhau.query.filter(CuaKhau.id == cuakhau_id).first();
-    donvi = cuakhau.donvi
-    obj = {
-        "id": cuakhau_id,
-        "tencuakhau": cuakhau.ten,
-        "donvi_id": cuakhau.donvi_id,
-        "tendonvi": donvi.ten
-    }
-
-    return obj
 
 @app.route('/medicalform/create', methods=["POST"])
 def create_tokhaiyte(request):
@@ -198,62 +142,10 @@ apimanager.create_api(ToKhaiYTe,
     
     #results_per_page=30,
     collection_name='tokhaiyte')
-# apimanager.create_api(BaoCaoTongHopNghiNgoNhiemBenhNhomA,
-#     methods=['GET', 'POST', 'DELETE', 'PUT'],
-#     url_prefix='/api/v1',
-#     #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-#     preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    
-#     #results_per_page=30,
-#     collection_name='baocaotonghopnghingonhiembenh')
-
-apimanager.create_api(BaoCaoNghiNgoNhiemBenh,
-    methods=['GET', 'POST', 'DELETE', 'PUT'],
-    url_prefix='/api/v1',
-    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    
-    #results_per_page=30,
-    collection_name='baocaonghingonhiembenh')
 
 
-apimanager.create_api(BaoCaoNghiNgoNhiemBenhXetNghiem,
-    methods=['GET', 'POST', 'DELETE', 'PUT'],
-    url_prefix='/api/v1',
-    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    
-    #results_per_page=30,
-    collection_name='baocaonghingonhiembenhxetnghiem')
-
-apimanager.create_api(BaoCaoNghiNgoNhiemBenhQuocGia,
-    methods=['GET', 'POST', 'DELETE', 'PUT'],
-    url_prefix='/api/v1',
-    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    
-    #results_per_page=30,
-    collection_name='baocaonghingonhiembenhquocgia')
 
 
-apimanager.create_api(BaoCaoNghiNgoNhiemBenhVacxin,
-    methods=['GET', 'POST', 'DELETE', 'PUT'],
-    url_prefix='/api/v1',
-    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    
-    #results_per_page=30,
-    collection_name='baocaonghingonhiembenhvacxin')
-
-
-apimanager.create_api(BaoCaoNghiNgoNhiemBenhNguoiTiepXuc,
-    methods=['GET', 'POST', 'DELETE', 'PUT'],
-    url_prefix='/api/v1',
-    #preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    preprocess=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func], POST=[auth_func], PUT_SINGLE=[auth_func], DELETE_SINGLE=[auth_func]),
-    
-    #results_per_page=30,
-    collection_name='baocaonghingonhiembenhnguoitiepxuc')
 
 
 
