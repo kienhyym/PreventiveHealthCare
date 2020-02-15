@@ -100,7 +100,8 @@ define(function (require) {
 							// self.getApp().getRouter().navigate(self.collectionName + "/collection");
 						},
 						visible: function () {
-							return this.getApp().getRouter().getParam("id") !== null;
+							return false;
+							// return this.getApp().getRouter().getParam("id") !== null;
 						},
 					},
 					{
