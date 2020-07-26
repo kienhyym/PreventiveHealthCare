@@ -16,8 +16,8 @@ from math import floor
 from application.client import HTTPClient
 from application.extensions import auth, jinja
 import ujson
-from expiringdict import ExpiringDict
-expcache = ExpiringDict(max_len = 2000, max_age_seconds=30*1)
+# from expiringdict import ExpiringDict
+# expcache = ExpiringDict(max_len = 2000, max_age_seconds=30*1)
 
 from application.models.models import ToKhaiYTe,BaoCaoTongHopNghiNgoNhiemBenhNhomA
 from . import auth_func
@@ -135,7 +135,6 @@ def generation_id():
     return id
 
 def tokhaiyte_gen_id(request=None, Model=None, data=None, **kw):
-
     data["id"] = generation_id()
 
 
